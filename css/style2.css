@@ -220,11 +220,9 @@ nav {
   opacity: 0; transition: all .8s ease .9s;
 }
 .cslide.on .sstat { opacity: 1; }
-.sstat > div { width: 120px; flex-shrink: 0; text-align: center; }
-.sn { font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: #fff; line-height: 1; display: block; width: 100%; }
+.sn { font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: #fff; line-height: 1; }
 .sn .r { color: var(--accent); }
-.sl { font-size: 12px; color: rgba(255,255,255,.4); letter-spacing: 1px; text-transform: uppercase; display: block; width: 100%; }
-@media(max-width:480px) { .sstat { gap: 20px; } .sstat > div { width: 90px; } }
+.sl { font-size: 12px; color: rgba(255,255,255,.4); letter-spacing: 1px; text-transform: uppercase; }
 .cprog { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,.1); z-index: 10; }
 .cbar { height: 100%; background: var(--accent); width: 0%; }
 .cdots { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
