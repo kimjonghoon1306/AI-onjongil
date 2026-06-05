@@ -113,3 +113,20 @@ var obs = new IntersectionObserver(function(entries) {
   });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fi').forEach(function(el) { obs.observe(el); });
+
+// 햄버거 메뉴
+const hamBtn = document.getElementById('hamBtn');
+const mobileMenu = document.getElementById('mobileMenu');
+if (hamBtn && mobileMenu) {
+  hamBtn.addEventListener('click', () => {
+    hamBtn.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  // 메뉴 외부 클릭 시 닫기
+  document.addEventListener('click', (e) => {
+    if (!hamBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+      hamBtn.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+  });
+}

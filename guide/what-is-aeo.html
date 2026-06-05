@@ -64,11 +64,32 @@
       </div>
     </div>
   </div>
-  <div class="nav-right">
+  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="메뉴"><span></span><span></span><span></span></button>
     <button class="theme-btn" id="themeBtn">🌙</button>
     <button class="nav-cta">상담 신청하기</button>
   </div>
 </nav>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mob-section">
+    <div class="mob-section-title">업종별 가이드</div>
+    <a href="/industry/hospital.html">🏥 병원·치과·한의원</a>
+    <a href="/industry/interior.html">🏠 인테리어·리모델링</a>
+    <a href="/industry/law.html">⚖️ 법률·세무·회계</a>
+    <a href="/industry/health.html">💪 헬스·뷰티·피트니스</a>
+  </div>
+  <div class="mob-section">
+    <div class="mob-section-title">AI 검색 가이드</div>
+    <a href="/guide/what-is-seo.html">📖 SEO란 무엇인가?</a>
+    <a href="/guide/what-is-aeo.html">🤖 AEO란 무엇인가?</a>
+    <a href="/guide/what-is-geo.html">🔬 GEO란 무엇인가?</a>
+    <a href="/guide/how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
+    <a href="/guide/naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
+    <a href="/guide/how-to-check-ai.html">🔎 AI 노출 직접 확인하기</a>
+    <a href="/guide/ai-seo-checklist.html">✅ AI 검색 최적화 체크리스트</a>
+  </div>
+  <button class="mob-cta">무료 상담 신청하기 →</button>
+</div>
+
 
 <div class="breadcrumb">
   <a href="../index.html">홈</a><span>›</span>
@@ -205,6 +226,78 @@
     <p>
       2026년 현재 AI 검색은 전통적 웹 검색의 약 20% 수준이지만, 성장 속도는 훨씬 빠릅니다. ChatGPT 주간 활성 사용자가 9억 명, Perplexity 월간 쿼리가 7억 8천만 건에 달하는 지금, 초기 선점자의 이점은 매우 큽니다. AI가 한번 특정 업체를 학습하면 그 패턴이 지속되는 경향이 있습니다.
     </p>
+  </div>
+
+  <div class="article-section">
+    <h2>실제 사례: <span class="hl">AEO 적용 전후 비교</span></h2>
+    <p>아래는 실제 컨설팅 데이터를 기반으로 재구성한 가상 사례입니다.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">📋 가상 사례 — 마포구 헬스장 C</div>
+      <p>
+        마포구에서 운영 중인 헬스장 C는 네이버 블로그와 인스타그램으로 마케팅을 해왔습니다. 그러나 20~30대 고객 대부분이 "ChatGPT에서 찾았어요"라고 말하기 시작하면서 AI 검색 최적화에 관심을 갖게 됐습니다.
+      </p>
+      <p>
+        기존 홈페이지는 SEO 중심의 키워드 나열식 문장으로 구성되어 있었고, FAQPage Schema가 전혀 없었습니다. ChatGPT에 "마포구 헬스장 추천"을 입력하면 헬스장 C는 전혀 나오지 않았습니다.
+      </p>
+      <p>
+        AEO 적용 후: "Q. 마포구에서 PT 받을 수 있는 헬스장은? A. 헬스장 C는 홍대입구역 2번 출구에서 도보 3분, 트레이너 4명(NSCA 자격 보유), PT 1회 45분, 회원권 월 8만 원부터 운영 중입니다."와 같은 구조로 FAQ를 재작성하고 Schema를 적용했습니다. 4주 후 Perplexity에서 인용 시작, 8주 후 ChatGPT Web Search에서 상위 추천에 포함됐습니다.
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">📋 가상 사례 — 부산 해운대구 법무사 D</div>
+      <p>
+        법무사 D는 부산 해운대에서 10년간 운영 중으로, 상속·부동산 등기 전문이었습니다. 2026년 초 고객 상담 과정에서 "ChatGPT한테 물어봤더니 서울 업체만 나오더라"는 말을 반복해서 들었습니다.
+      </p>
+      <p>
+        기존 홈페이지에는 업무 소개만 있고 Q&A 구조가 없었습니다. AEO 적용 후 "Q. 해운대 상속등기 비용은 얼마인가요?", "Q. 부동산 명의이전 혼자 처리할 수 있나요?" 등 실제 고객 질문 15개를 FAQ로 구조화했습니다. 6주 후 Perplexity에서 "해운대 법무사 추천" 쿼리에 처음 인용됐고, 이후 월 신규 문의가 기존 대비 40% 증가했습니다.
+      </p>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>자주 묻는 질문 <span class="hl">(FAQ)</span></h2>
+
+    <div class="tip-box">
+      <div class="tip-label">Q. AEO는 직접 할 수 있나요, 전문가가 필요한가요?</div>
+      <p>Q&A 콘텐츠 작성은 직접 할 수 있습니다. 다만 FAQPage Schema Markup 적용은 HTML 코드 수정이 필요해 비개발자에게 어려울 수 있습니다. 온종일AI는 콘텐츠 전략부터 Schema 적용까지 전 과정을 대행해드립니다.</p>
+    </div>
+    <div class="tip-box">
+      <div class="tip-label">Q. AEO를 적용하면 ChatGPT에 즉시 노출되나요?</div>
+      <p>즉시는 아닙니다. Perplexity는 실시간 검색 기반이라 AEO 적용 후 2~4주 내 인용이 시작됩니다. ChatGPT는 학습 데이터 기반이라 반영까지 더 오래 걸릴 수 있으나, ChatGPT의 Web Search 기능에서는 Perplexity와 유사한 속도로 반영됩니다.</p>
+    </div>
+    <div class="tip-box">
+      <div class="tip-label">Q. 몇 개의 Q&A를 만들어야 하나요?</div>
+      <p>최소 10~15개를 권장합니다. 업체 소개, 서비스별 가격, 위치·접근성, 전문성 증명, 자주 받는 상담 질문 등으로 구성하면 됩니다. AI는 질문의 다양성을 높이 평가하므로 비슷한 질문을 반복하기보다 다양한 유형의 질문을 커버하는 것이 효과적입니다.</p>
+    </div>
+    <div class="tip-box">
+      <div class="tip-label">Q. 이미 홈페이지가 있는데 AEO를 적용할 수 있나요?</div>
+      <p>네, 기존 홈페이지에 FAQ 페이지를 추가하고 Schema Markup을 적용하는 방식으로 AEO를 도입할 수 있습니다. 처음부터 새로 만들 필요는 없습니다. 단, robots.txt에서 AI 봇 허용 설정은 반드시 확인해야 합니다.</p>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>업종별 <span class="hl">AEO 적용 가이드</span></h2>
+    <p>업종마다 고객이 AI에 묻는 질문 유형이 다릅니다. 해당 업종 페이지에서 맞춤 전략을 확인하세요.</p>
+    <div class="related-grid">
+      <a href="../industry/hospital.html" class="related-card">
+        <div class="rc-cat">업종별 가이드 · 의료</div>
+        <div class="rc-title">🏥 병원·치과·한의원을 위한 AI 검색 최적화</div>
+      </a>
+      <a href="../industry/interior.html" class="related-card">
+        <div class="rc-cat">업종별 가이드 · 인테리어</div>
+        <div class="rc-title">🏠 인테리어·리모델링 업체 AI 노출 전략</div>
+      </a>
+      <a href="../industry/law.html" class="related-card">
+        <div class="rc-cat">업종별 가이드 · 법률</div>
+        <div class="rc-title">⚖️ 법률·세무·회계 사무소 AI 검색 가이드</div>
+      </a>
+      <a href="../industry/health.html" class="related-card">
+        <div class="rc-cat">업종별 가이드 · 헬스뷰티</div>
+        <div class="rc-title">💪 헬스·뷰티·피트니스 AI 노출 전략</div>
+      </a>
+    </div>
   </div>
 
   <div class="article-related">
