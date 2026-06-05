@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChatGPT·Perplexity는 어떻게 업체를 추천하나요? AI 검색 메커니즘 완전 해설 | 온종일AI</title>
+<meta name="description" content="GPTBot·ClaudeBot·PerplexityBot이 웹사이트를 크롤링하는 방식, 크롤링→인덱싱→답변 생성 과정, 플랫폼별 차이를 기술적으로 설명합니다.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ai.온종일.com/guide/how-ai-search-works.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ChatGPT·Perplexity는 어떻게 업체를 추천하나요? AI 검색 메커니즘 완전 해설",
+  "description": "AI 크롤러의 작동 방식과 업체 추천 프로세스를 설명합니다.",
+  "author": {"@type": "Organization", "name": "온종일AI"},
+  "publisher": {"@type": "Organization", "name": "온종일AI"},
+  "datePublished": "2026-06-05"
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
+  <div class="nav-links">
+    <div class="nav-drop">
+      <button class="nav-drop-btn">업종별 <span class="nav-arrow">▾</span></button>
+      <div class="drop-menu">
+        <a href="../industry/hospital.html">🏥 병원·치과·한의원</a>
+        <a href="../industry/interior.html">🏠 인테리어·리모델링</a>
+        <a href="../industry/law.html">⚖️ 법률·세무·회계</a>
+        <a href="../industry/health.html">💪 헬스·뷰티·피트니스</a>
+      </div>
+    </div>
+    <div class="nav-drop">
+      <button class="nav-drop-btn">AI 검색 가이드 <span class="nav-arrow">▾</span></button>
+      <div class="drop-menu">
+        <a href="what-is-seo.html">📖 SEO란 무엇인가?</a>
+        <a href="what-is-aeo.html">🤖 AEO란 무엇인가?</a>
+        <a href="what-is-geo.html">🔬 GEO란 무엇인가?</a>
+        <a href="how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
+        <a href="naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-right">
+    <button class="theme-btn" id="themeBtn">🌙</button>
+    <button class="nav-cta">상담 신청하기</button>
+  </div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="../index.html">홈</a><span>›</span>
+  <a href="index.html">AI 검색 가이드</a><span>›</span>
+  AI는 어떻게 추천하나?
+</div>
+
+<div class="article-hero">
+  <div class="article-hero-bg"></div>
+  <div class="article-category">GUIDE 04 · AI 메커니즘</div>
+  <h1>ChatGPT·Perplexity는<br>어떻게 업체를<br><span class="hl">추천하나요?</span></h1>
+  <p>AI 봇이 웹사이트를 크롤링하고, 정보를 인덱싱하고, 최종적으로 특정 업체를 추천하는 답변을 생성하는 전체 메커니즘을 기술적으로 설명합니다.</p>
+  <div class="article-meta">
+    <span>온종일AI 편집팀</span><span>·</span>
+    <span>2026년 6월 5일</span><span>·</span>
+    <span>약 5분 소요</span>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <p class="article-lead">
+    ChatGPT에 "강남 치과 추천해줘"라고 입력했을 때 특정 치과가 1위로 나오는 것은 우연이 아닙니다. AI는 웹사이트를 크롤링하는 봇을 운영하고, 수집된 정보를 학습 또는 실시간 검색에 활용해 답변을 생성합니다. 이 과정을 이해하면 최적화 방향이 명확해집니다.
+  </p>
+
+  <div class="article-section">
+    <h2>AI가 사용하는 <span class="hl">3가지 크롤러</span></h2>
+    <p>
+      주요 AI 플랫폼은 각자의 웹 크롤러(봇)를 운영합니다. 이 봇들은 전 세계 웹사이트를 자동으로 방문해 텍스트 콘텐츠를 수집합니다. 수집된 정보는 AI 모델 학습 또는 실시간 검색 데이터로 활용됩니다.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="ico">🤖</div>
+        <h4>GPTBot (OpenAI)</h4>
+        <p>ChatGPT를 운영하는 OpenAI의 크롤러입니다. 2023년 8월 공식 출시. 수집된 데이터는 GPT 모델 학습에 활용됩니다. robots.txt의 <code>User-agent: GPTBot</code>으로 접근 허용 여부를 설정할 수 있습니다.</p>
+      </div>
+      <div class="info-card">
+        <div class="ico">🔍</div>
+        <h4>PerplexityBot</h4>
+        <p>Perplexity AI의 크롤러로, 실시간 웹 검색 기반 답변에 활용됩니다. Perplexity는 질문이 들어올 때마다 실시간으로 웹을 검색하므로, 콘텐츠를 발행하면 비교적 빠르게 반영됩니다.</p>
+      </div>
+      <div class="info-card">
+        <div class="ico">🧠</div>
+        <h4>ClaudeBot (Anthropic)</h4>
+        <p>Claude를 운영하는 Anthropic의 크롤러입니다. 세 가지 봇(ClaudeBot, Claude-User, Claude-SearchBot)으로 세분화되어 운영됩니다. 전문성·신뢰도 높은 콘텐츠를 우선 수집합니다.</p>
+      </div>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">📌 중요한 사실</div>
+      <p>2026년 1분기 기준, AI 검색 방문 수는 전년 동기 대비 <strong>42.8% 증가</strong>했습니다. (Q1 2025 → Q1 2026 비교) 세 봇 모두 robots.txt를 준수하므로, <strong>Allow 설정이 첫 번째 조건</strong>입니다.</p>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>플랫폼별 <span class="hl">작동 방식의 차이</span></h2>
+    <p>같은 AI 검색이라도 ChatGPT와 Perplexity는 작동 방식이 근본적으로 다릅니다. 이 차이가 최적화 전략에 직접 영향을 미칩니다.</p>
+
+    <h3>ChatGPT — 학습 데이터 기반</h3>
+    <p>
+      ChatGPT는 GPT 언어 모델에 사전 학습된 지식으로 답변을 생성합니다. GPTBot이 수집한 웹 데이터가 모델 학습에 반영되면, 그 이후 ChatGPT는 학습된 정보를 기반으로 업체를 추천합니다. 즉, <strong>크롤링 → 학습 → 추천</strong>의 순서이며, 학습 반영까지 수 주에서 수 개월이 소요될 수 있습니다.
+    </p>
+    <p>
+      ChatGPT는 또한 Web Search 기능(GPT-4o + 검색 연동)을 통해 실시간 정보도 참조합니다. 따라서 학습 데이터 최적화와 실시간 크롤링 최적화 두 가지를 모두 고려해야 합니다.
+    </p>
+
+    <h3>Perplexity — 실시간 검색 기반</h3>
+    <p>
+      Perplexity는 질문이 들어올 때마다 실시간으로 웹을 검색하고 그 결과를 바탕으로 답변을 생성합니다. 따라서 콘텐츠를 발행하고 PerplexityBot이 크롤링을 완료하면, 비교적 빠르게(2~4주 내) 답변에 인용되기 시작합니다. 2025년 5월 기준 Perplexity는 월 7억 8천만 건의 쿼리를 처리합니다.
+    </p>
+
+    <h3>Google Gemini — 구글 검색 연동</h3>
+    <p>
+      Gemini의 AI Overview는 구글 검색 인프라와 연동됩니다. 구글이 이미 인덱싱한 페이지 중에서 AI Overview에 적합한 콘텐츠를 선별해 노출합니다. 따라서 구글 인덱싱 + AEO 최적화가 동시에 필요합니다.
+    </p>
+  </div>
+
+  <div class="article-section">
+    <h2>AI가 특정 업체를 <span class="hl">추천하는 조건</span></h2>
+    <p>
+      AI가 "강남 인테리어 업체 추천해줘"라는 질문에 특정 업체를 1위로 추천하는 데는 구체적인 조건이 있습니다.
+    </p>
+
+    <ol class="process-list">
+      <li>
+        <div class="pnum">1</div>
+        <div class="ptext">
+          <h4>AI 봇 크롤링이 허용되어야 한다</h4>
+          <p>robots.txt에서 GPTBot, PerplexityBot, ClaudeBot에 대한 Allow가 설정되어 있어야 합니다. 네이버 블로그는 외부 AI 크롤러를 차단하므로 ChatGPT가 내용을 수집하지 못합니다.</p>
+        </div>
+      </li>
+      <li>
+        <div class="pnum">2</div>
+        <div class="ptext">
+          <h4>질문과 일치하는 콘텐츠가 있어야 한다</h4>
+          <p>AI는 사용자의 질문과 가장 관련성 높은 콘텐츠를 찾습니다. "강남 인테리어 추천"이라는 질문에는 강남 지역, 인테리어 업종, 추천할 수 있는 근거(시공 사례, 경력, 수상 등)가 명시된 페이지가 선택됩니다.</p>
+        </div>
+      </li>
+      <li>
+        <div class="pnum">3</div>
+        <div class="ptext">
+          <h4>콘텐츠 구조가 인용하기 쉬워야 한다</h4>
+          <p>AI는 긴 문단보다 명확한 Q&A 구조를 선호합니다. "Q. 강남 인테리어 잘하는 업체는? A. ○○ 인테리어는..." 형식이 AI가 그대로 인용하기 가장 좋은 구조입니다.</p>
+        </div>
+      </li>
+      <li>
+        <div class="pnum">4</div>
+        <div class="ptext">
+          <h4>신뢰할 수 있는 정보가 포함되어야 한다</h4>
+          <p>구체적인 수치, 자격증, 경력 연수, 시공 건수, 외부 인증 등 검증 가능한 정보가 포함된 콘텐츠를 AI가 선호합니다. 근거 없는 최상급 표현("최고", "최대")은 AI 신뢰도를 낮춥니다.</p>
+        </div>
+      </li>
+      <li>
+        <div class="pnum">5</div>
+        <div class="ptext">
+          <h4>콘텐츠가 최신이어야 한다</h4>
+          <p>3개월 이내 콘텐츠의 AI 인용률(48%)이 2년 이상 된 콘텐츠(18%)보다 2.7배 높습니다. 꾸준한 콘텐츠 업데이트가 필수입니다.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="article-section">
+    <h2>우리 업체가 추천받으려면 <span class="hl">지금 당장 해야 할 것</span></h2>
+
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="stat-num">900M</div>
+        <div class="stat-label">ChatGPT 주간 활성 사용자 (2026년 2월)</div>
+        <div class="stat-source">OpenAI 공식 발표</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">780M</div>
+        <div class="stat-label">Perplexity 월간 처리 쿼리 수 (2025년 5월)</div>
+        <div class="stat-source">Perplexity 공개 데이터</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">+42.8%</div>
+        <div class="stat-label">AI 검색 방문 수 연간 성장률 (2026 Q1 기준)</div>
+        <div class="stat-source">업계 분석 리포트</div>
+      </div>
+    </div>
+
+    <p>
+      지금 AI 검색 시장은 아직 초기입니다. 경쟁 업체보다 먼저 최적화된 콘텐츠를 구축하면, AI가 그 업체를 학습하고 반복적으로 추천하는 선순환이 만들어집니다. 반대로 경쟁사가 먼저 시작하면 나중에 역전하기 매우 어렵습니다. AI가 한번 특정 업체를 신뢰할 수 있는 소스로 학습하면, 그 패턴이 지속되는 경향이 있습니다.
+    </p>
+
+    <div class="tip-box">
+      <div class="tip-label">✅ 지금 당장 확인할 것</div>
+      <p>ChatGPT나 Perplexity에서 직접 우리 업종을 검색해보세요. <strong>"[지역] [업종] 추천해줘"</strong>라고 입력했을 때 우리 업체가 나오는지 확인합니다. 나오지 않는다면 지금이 시작할 타이밍입니다.</p>
+    </div>
+  </div>
+
+  <div class="article-related">
+    <h3>다음으로 읽어볼 가이드</h3>
+    <div class="related-grid">
+      <a href="what-is-aeo.html" class="related-card">
+        <div class="rc-cat">GUIDE 02 · AEO</div>
+        <div class="rc-title">AEO란 무엇인가? AI 답변 엔진 최적화 완벽 가이드</div>
+      </a>
+      <a href="what-is-geo.html" class="related-card">
+        <div class="rc-cat">GUIDE 03 · GEO</div>
+        <div class="rc-title">GEO란 무엇인가? 프린스턴 연구가 밝힌 생성형 AI 최적화</div>
+      </a>
+      <a href="naver-vs-ai.html" class="related-card">
+        <div class="rc-cat">GUIDE 05 · 비교 분석</div>
+        <div class="rc-title">네이버 블로그 1위가 ChatGPT에서 안 잡히는 이유</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="cta fi">
+  <h2>AI가 우리 업체를<br>추천하도록<br><span style="color:var(--accent)">지금 시작하기</span></h2>
+  <p>ChatGPT에서 직접 검색해드리고 현재 노출 현황을 진단합니다.</p>
+  <button class="btn-primary" style="font-size:18px;padding:20px 48px">무료 진단 받기 →</button>
+</div>
+
+<footer>
+  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
+  <div class="fcopy">© 2026 온종일AI. AI 검색 최적화 컨설팅.</div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
