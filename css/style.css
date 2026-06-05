@@ -221,9 +221,9 @@ nav {
 }
 .cslide.on .sstat { opacity: 1; }
 .sstat > div { text-align: center; }
-.sn { font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: #fff; line-height: 1; }
+.sn { font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: #fff; line-height: 1; text-align: center; }
 .sn .r { color: var(--accent); }
-.sl { font-size: 12px; color: rgba(255,255,255,.4); letter-spacing: 1px; text-transform: uppercase; }
+.sl { font-size: 12px; color: rgba(255,255,255,.4); letter-spacing: 1px; text-transform: uppercase; text-align: center; }
 .cprog { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,.1); z-index: 10; }
 .cbar { height: 100%; background: var(--accent); width: 0%; }
 .cdots { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; z-index: 10; }
