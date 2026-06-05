@@ -597,7 +597,7 @@ footer { background: var(--card-bg); border-top: 1px solid var(--border); paddin
 .ind-badge::before { content: '✓'; color: var(--accent); font-weight: 700; font-size: 13px; }
 
 /* sstat range layout (slide 04) */
-.sstat-range-wrap { flex-direction: column; gap: 8px; }
+.sstat-range-wrap { flex-direction: column; gap: 8px; flex-wrap: nowrap; }
 .sstat-row { display: flex; align-items: center; gap: 12px; flex-wrap: nowrap; justify-content: center; white-space: nowrap; }
 .sstat-row .sn { font-size: 56px; }
 .sn-tilde { color: rgba(255,255,255,.5); font-size: 40px; }
