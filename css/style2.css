@@ -595,3 +595,17 @@ footer { background: var(--card-bg); border-top: 1px solid var(--border); paddin
 .ind-hero-badge { display: flex; align-items: center; gap: 16px; margin-top: 28px; flex-wrap: wrap; }
 .ind-badge { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--sub); font-weight: 500; }
 .ind-badge::before { content: '✓'; color: var(--accent); font-weight: 700; font-size: 13px; }
+
+/* sstat range layout (slide 04) */
+.sstat-range-wrap { flex-direction: column; gap: 8px; }
+.sstat-row { display: flex; align-items: center; gap: 12px; flex-wrap: nowrap; justify-content: center; white-space: nowrap; }
+.sstat-row .sn { font-size: 56px; }
+.sn-tilde { color: rgba(255,255,255,.5); font-size: 40px; }
+.sstat-row-lbl { display: flex; align-items: center; gap: 10px; justify-content: center; flex-wrap: nowrap; white-space: nowrap; }
+.sl-sep { color: rgba(255,255,255,.25); }
+@media(max-width:480px) {
+  .sstat-row .sn { font-size: 38px; }
+  .sn-tilde { font-size: 28px; }
+  .sstat-row { gap: 8px; }
+  .sstat-row-lbl { gap: 6px; }
+}
