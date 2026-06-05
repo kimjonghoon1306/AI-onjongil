@@ -220,6 +220,7 @@ nav {
   opacity: 0; transition: all .8s ease .9s;
 }
 .cslide.on .sstat { opacity: 1; }
+.sstat > div { text-align: center; }
 .sn { font-family: 'Bebas Neue', sans-serif; font-size: 56px; color: #fff; line-height: 1; }
 .sn .r { color: var(--accent); }
 .sl { font-size: 12px; color: rgba(255,255,255,.4); letter-spacing: 1px; text-transform: uppercase; }
