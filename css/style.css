@@ -331,6 +331,9 @@ footer { background: var(--card-bg); border-top: 1px solid var(--border); paddin
 .nav-drop:hover .drop-menu { opacity: 1; pointer-events: all; transform: translateY(0); }
 .drop-menu a { display: block; padding: 10px 14px; font-size: 13px; color: var(--sub); text-decoration: none; border-radius: 8px; transition: color .2s, background .2s; white-space: nowrap; }
 .drop-menu a:hover { color: var(--text); background: rgba(255,59,0,.08); }
+.nav-drop.active .nav-drop-btn { color: var(--text); background: rgba(255,255,255,.04); }
+.nav-drop.active .nav-arrow { transform: rotate(180deg); }
+.nav-drop.active .drop-menu { opacity: 1; pointer-events: all; transform: translateY(0); }
 @media(max-width:860px) { .nav-links { display: none; } }
 
 /* BREADCRUMB */
