@@ -457,6 +457,17 @@ function setStep(n, pct, msg) {
   document.getElementById('progressMsg').textContent = msg;
 }
 
+// ─── API FETCH ───────────────────────────────
+async function fetchRealData(url) {
+  try {
+    const res = await fetch('/api/analyze?url=' + encodeURIComponent(url));
+    if (!res.ok) return null;
+    return await res.json();
+  } catch {
+    return null;
+  }
+}
+
 // ─── ANALYSIS ENGINE ─────────────────────────
 async function startAnalysis() {
   const raw = document.getElementById('urlInput').value.trim();
@@ -478,22 +489,22 @@ async function startAnalysis() {
   document.getElementById('resultsSection').classList.remove('show');
 
   setStep(1, 0, 'URL 구조 파악 중...');
-  await delay(600);
+  await delay(300);
 
-  setStep(2, 25, 'robots.txt · sitemap 확인 중...');
-  await delay(800);
+  setStep(2, 20, 'robots.txt · sitemap 실제 확인 중...');
+  const realData = await fetchRealData(url);
 
-  setStep(3, 50, '메타태그 · Schema 데이터 분석 중...');
-  await delay(900);
+  setStep(3, 50, '메타태그 · Schema 실측 분석 중...');
+  await delay(400);
 
   setStep(4, 75, 'AI 봇 크롤링 가능성 평가 중...');
-  await delay(1000);
+  await delay(400);
 
   setStep(5, 100, '분석 완료!');
-  await delay(500);
+  await delay(400);
 
-  const data = analyzeURL(parsed, url);
-  renderResults(data, url);
+  const data = analyzeURL(parsed, url, realData);
+  renderResults(data, url, realData);
 
   btn.disabled = false;
   btn.textContent = '다시 분석';
@@ -503,7 +514,7 @@ async function startAnalysis() {
 function delay(ms) { return new Promise(r => setTimeout(r, ms)); }
 
 // ─── ANALYZE LOGIC ───────────────────────────
-function analyzeURL(parsed, rawUrl) {
+function analyzeURL(parsed, rawUrl, realData) {
   const host = parsed.hostname.toLowerCase();
   const path = parsed.pathname;
   const isHttps = parsed.protocol === 'https:';
@@ -547,12 +558,18 @@ function analyzeURL(parsed, rawUrl) {
     commonTLD: isCommonTLD,
   };
 
+  // 실측 데이터가 있으면 우선 사용
+  const rPage = realData?.page;
+  const rRobots = realData?.robots;
+  const rSitemap = realData?.sitemap;
+  const hasReal = !!rPage && !rPage.error;
+
   const aeo = {
     independentDomain: !isBlog && !isSNS,
     notNaverBlocked: !likelyNaver,
     httpsOk: isHttps,
-    likelyFAQ: /faq|qna|q-a|질문|답변/i.test(rawUrl),
-    likelySchema: false, // URL만으로 확인 불가
+    likelyFAQ: hasReal ? (rPage.hasFAQPageSchema || rPage.hasFAQInHTML) : /faq|qna|q-a|질문|답변/i.test(rawUrl),
+    likelySchema: hasReal ? rPage.hasFAQPageSchema : false,
     cleanPath: pathDepth <= 3,
   };
 
@@ -589,16 +606,37 @@ function analyzeURL(parsed, rawUrl) {
 
   const total = Math.round((seoScore * 0.25 + aeoScore * 0.3 + geoScore * 0.25 + techScore * 0.2));
 
+  const params = { isHttps, isBlog, isSNS, likelyNaver, likelyKakao, hasQueryParams, hasDynamicParams, pathDepth, isCommonTLD, isKoreanDomain, hasPunycode, hasKoreanRaw, likelyWordPress, likelyShopify, host, parsed, rPage, rRobots, rSitemap, hasReal };
+
   // 체크 항목 생성
-  const checks = buildChecks({ isHttps, isBlog, isSNS, likelyNaver, likelyKakao, hasQueryParams, hasDynamicParams, pathDepth, isCommonTLD, isKoreanDomain, hasPunycode, hasKoreanRaw, likelyWordPress, likelyShopify, host, parsed });
+  const checks = buildChecks(params);
 
   // 추천사항 생성
-  const recos = buildRecos({ isHttps, isBlog, isSNS, likelyNaver, hasQueryParams, hasDynamicParams, pathDepth, isKoreanDomain, hasPunycode, aeoScore, geoScore });
+  const recos = buildRecos({ isHttps, isBlog, isSNS, likelyNaver, hasQueryParams, hasDynamicParams, pathDepth, isKoreanDomain, hasPunycode, aeoScore, geoScore, rPage, rRobots, rSitemap, hasReal });
 
-  return { seoScore, aeoScore, geoScore, techScore, total, checks, recos, host, isBlog, isSNS, likelyNaver, likelyShopify, likelyWordPress };
+  return { seoScore, aeoScore, geoScore, techScore, total, checks, recos, host, isBlog, isSNS, likelyNaver, likelyShopify, likelyWordPress, hasReal };
 }
 
 function buildChecks(p) {
+  const R = p.rRobots;
+  const S = p.rPage;
+  const hasReal = p.hasReal;
+
+  // robots.txt 봇 상태 헬퍼
+  function botStatus(botKey) {
+    if (!R || !R.exists) return null;
+    return R[botKey]; // 'allowed' | 'blocked' | 'unknown'
+  }
+  function botLabel(botKey, name) {
+    const s = botStatus(botKey);
+    if (s === 'allowed') return `✓ ${name} 허용됨`;
+    if (s === 'blocked') return `✗ ${name} 차단됨`;
+    return `${name} 설정 없음 (기본 허용)`;
+  }
+
+  const allBotsAllowed = R?.exists && ['gptbot','perplexitybot','claudebot'].every(k => botStatus(k) !== 'blocked');
+  const anyBotBlocked = R?.exists && ['gptbot','perplexitybot','claudebot'].some(k => botStatus(k) === 'blocked');
+
   return [
     // 기술 섹션
     { cat:'tech', label:'HTTPS 보안 (SSL)', status: p.isHttps ? 'pass' : 'fail',
@@ -608,69 +646,146 @@ function buildChecks(p) {
     { cat:'tech', label:'URL 구조 (쿼리 파라미터)', status: p.hasQueryParams ? 'warn' : 'pass',
       detail: p.hasQueryParams ? '동적 쿼리 파라미터가 포함된 URL입니다. SEO·AI 크롤링에 불리할 수 있습니다. 정적 URL 구조를 권장합니다.' : '정적 URL 구조입니다. AI 봇이 크롤링하기 좋은 형태입니다.' },
     { cat:'tech', label:'URL 경로 깊이', status: p.pathDepth <= 3 ? 'pass' : 'warn',
-      detail: p.pathDepth <= 3 ? `경로 깊이 ${p.pathDepth}단계. AI 크롤러가 쉽게 접근 가능한 구조입니다.` : `경로 깊이 ${p.pathDepth}단계. 3단계 이하를 권장합니다. 깊은 경로는 크롤링 빈도가 낮아질 수 있습니다.` },
+      detail: p.pathDepth <= 3 ? `경로 깊이 ${p.pathDepth}단계. AI 크롤러가 쉽게 접근 가능한 구조입니다.` : `경로 깊이 ${p.pathDepth}단계. 3단계 이하를 권장합니다.` },
     { cat:'tech', label:'도메인 TLD (최상위도메인)', status: p.isCommonTLD ? 'pass' : 'warn',
       detail: p.isCommonTLD ? '표준 TLD입니다. 신뢰도 높은 도메인으로 AI가 인식할 가능성이 높습니다.' : '비표준 TLD입니다. AI 시스템이 신뢰도를 낮게 평가할 수 있습니다.' },
     { cat:'tech', label:'한글 도메인 퓨니코드 변환', status: p.hasKoreanRaw ? 'fail' : p.hasPunycode ? 'warn' : 'pass',
-      detail: p.hasKoreanRaw ? '한글 도메인(미변환)이 감지됩니다. 카카오톡·SNS 공유 시 OG 이미지가 표시되지 않는 문제가 발생합니다. 퓨니코드(xn--)로 변환하여 메타태그에 사용해야 합니다.' : p.hasPunycode ? '퓨니코드 도메인입니다. 메타태그(og:url, og:image)에 퓨니코드 형식으로 일관되게 사용되어야 합니다.' : '일반 영문 도메인입니다. 공유 시 문제가 없습니다.' },
+      detail: p.hasKoreanRaw ? '한글 도메인(미변환)이 감지됩니다. 카카오톡·SNS 공유 시 OG 이미지가 표시되지 않을 수 있습니다. 퓨니코드(xn--)로 변환하여 메타태그에 사용해야 합니다.' : p.hasPunycode ? '퓨니코드 도메인입니다. 메타태그(og:url, og:image)에 퓨니코드 형식으로 일관되게 사용되어야 합니다.' : '일반 영문 도메인입니다. 공유 시 문제가 없습니다.' },
+    ...(hasReal ? [
+      { cat:'tech', label:'메타 디스크립션', status: S.hasDescription ? 'pass' : 'warn',
+        detail: S.hasDescription ? `메타 디스크립션이 설정되어 있습니다: "${(S.meta?.description||'').substring(0,80)}..."` : '메타 디스크립션이 없습니다. 검색 결과 미리보기와 AI 요약에 사용되므로 160자 이내로 작성하세요.' },
+      { cat:'tech', label:'OG 이미지 (소셜 공유)', status: S.hasOgImage ? 'pass' : 'warn',
+        detail: S.hasOgImage ? 'OG 이미지가 설정되어 있습니다. 소셜 공유 시 미리보기 이미지가 표시됩니다.' : 'og:image 메타태그가 없습니다. 카카오톡·SNS 공유 시 이미지가 표시되지 않습니다.' },
+      { cat:'tech', label:'페이지 응답 속도', status: S.responseTime < 2000 ? 'pass' : S.responseTime < 4000 ? 'warn' : 'fail',
+        detail: `응답 시간: ${S.responseTime}ms. ${S.responseTime < 2000 ? 'AI 봇 크롤링에 적합한 속도입니다.' : S.responseTime < 4000 ? '응답이 다소 느립니다. 2초 이하를 권장합니다.' : '응답이 너무 느립니다. 서버 최적화가 필요합니다.'}` },
+    ] : []),
 
     // AEO 섹션
-    { cat:'aeo', label:'AI 봇 크롤링 허용 가능성', status: (!p.isBlog && !p.isSNS) ? 'pass' : 'fail',
-      detail: (!p.isBlog && !p.isSNS) ? '독립 도메인이므로 robots.txt에서 GPTBot, PerplexityBot, ClaudeBot Allow 설정이 가능합니다. 실제 설정 여부는 /robots.txt 파일을 직접 확인하세요.' : 'SNS/블로그 플랫폼은 관리자가 robots.txt를 수정할 수 없어 AI 봇 허용이 불가합니다.' },
-    { cat:'aeo', label:'FAQPage Schema 적용 가능성', status: (!p.isBlog && !p.isSNS) ? 'warn' : 'fail',
-      detail: (!p.isBlog && !p.isSNS) ? 'URL만으로 Schema Markup 적용 여부를 확인할 수 없습니다. 페이지 소스에서 <script type="application/ld+json">을 확인하거나 Google Rich Results Test(search.google.com/test/rich-results)로 검사하세요.' : 'SNS/블로그 플랫폼에서는 Schema Markup을 직접 추가할 수 없습니다.' },
-    { cat:'aeo', label:'Q&A 구조 URL 패턴', status: p.likelyFAQ ? 'pass' : 'warn',
-      detail: p.likelyFAQ ? 'FAQ 관련 URL 패턴이 감지됩니다. Q&A 구조 페이지가 있을 가능성이 있습니다.' : 'URL에서 FAQ/Q&A 패턴이 확인되지 않습니다. AI 인용 최적화를 위해 질문-답변 구조의 전용 페이지 제작을 권장합니다.' },
+    { cat:'aeo', label:'AI 봇 크롤링 (robots.txt 실측)',
+      status: hasReal
+        ? (anyBotBlocked ? 'fail' : R?.exists ? 'pass' : 'warn')
+        : ((!p.isBlog && !p.isSNS) ? 'pass' : 'fail'),
+      detail: hasReal
+        ? (R?.exists
+            ? `robots.txt 실측 결과 — ${botLabel('gptbot','GPTBot')} | ${botLabel('perplexitybot','PerplexityBot')} | ${botLabel('claudebot','ClaudeBot')}`
+            : 'robots.txt 파일이 없습니다. 기본적으로 모든 봇이 허용되지만, 명시적 Allow 설정을 권장합니다.')
+        : ((!p.isBlog && !p.isSNS) ? '독립 도메인이므로 robots.txt에서 AI 봇 허용 설정이 가능합니다.' : 'SNS/블로그 플랫폼은 AI 봇 허용 설정이 불가합니다.') },
+    { cat:'aeo', label:'FAQPage Schema Markup',
+      status: hasReal
+        ? (S.hasFAQPageSchema ? 'pass' : 'warn')
+        : ((!p.isBlog && !p.isSNS) ? 'warn' : 'fail'),
+      detail: hasReal
+        ? (S.hasFAQPageSchema
+            ? `FAQPage Schema가 적용되어 있습니다. 질문 ${S.faqCount}개 등록됨. Google AI Overview 인용 우선 대상입니다.`
+            : 'FAQPage Schema가 없습니다. JSON-LD 형식으로 추가하면 AI 인용률이 크게 향상됩니다.')
+        : ((!p.isBlog && !p.isSNS) ? 'URL만으로 Schema Markup 적용 여부를 확인할 수 없습니다. Google Rich Results Test(search.google.com/test/rich-results)로 검사하세요.' : 'SNS/블로그 플랫폼에서는 Schema Markup을 직접 추가할 수 없습니다.') },
+    { cat:'aeo', label:'Q&A 구조 콘텐츠',
+      status: hasReal
+        ? (S.hasFAQInHTML ? 'pass' : 'warn')
+        : (/faq|qna|q-a|질문|답변/i.test(p.parsed?.pathname||'') ? 'pass' : 'warn'),
+      detail: hasReal
+        ? (S.hasFAQInHTML ? 'Q&A 구조 콘텐츠가 감지됩니다. AI가 인용하기 좋은 형식입니다.' : 'Q&A 구조 콘텐츠가 감지되지 않습니다. "Q. 질문 / A. 답변" 형식의 전용 페이지를 제작하세요.')
+        : ('URL에서 FAQ/Q&A 패턴 확인 불가. AI 인용 최적화를 위해 질문-답변 구조 페이지 제작을 권장합니다.') },
     { cat:'aeo', label:'플랫폼 AI 봇 차단 여부', status: p.likelyNaver ? 'fail' : (!p.isSNS ? 'pass' : 'warn'),
-      detail: p.likelyNaver ? '네이버는 GPTBot, PerplexityBot, ClaudeBot을 공식 차단합니다. 이 플랫폼의 콘텐츠는 ChatGPT, Perplexity에 노출되지 않습니다.' : (!p.isSNS ? '알려진 AI 봇 차단 정책이 없는 도메인입니다. robots.txt 파일에서 구체적인 설정을 확인하세요.' : '이 플랫폼의 AI 봇 차단 정책을 별도로 확인하세요.') },
+      detail: p.likelyNaver ? '네이버는 GPTBot, PerplexityBot, ClaudeBot을 공식 차단합니다.' : (!p.isSNS ? '알려진 AI 봇 차단 정책이 없는 도메인입니다.' : '이 플랫폼의 AI 봇 차단 정책을 별도로 확인하세요.') },
 
     // GEO 섹션
     { cat:'geo', label:'독립 도메인 기반 여부', status: (!p.isBlog && !p.isSNS) ? 'pass' : 'fail',
-      detail: (!p.isBlog && !p.isSNS) ? '독립 도메인은 GEO 최적화의 기본 조건입니다. 구체적인 수치, 외부 인용, 권위성 신호를 콘텐츠에 직접 추가할 수 있습니다.' : '블로그/SNS 플랫폼에서는 Schema Markup, 구조화 데이터 추가가 제한됩니다.' },
-    { cat:'geo', label:'콘텐츠 페이지 존재 가능성', status: p.pathDepth >= 1 ? 'pass' : 'warn',
-      detail: p.pathDepth >= 1 ? '하위 경로가 존재합니다. GEO에 유리한 콘텐츠 페이지가 있을 가능성이 있습니다. 각 페이지에 구체적 수치, 외부 기관 인용이 포함되어 있는지 확인하세요.' : '루트 페이지만 입력되었습니다. 하위 콘텐츠 페이지의 URL도 함께 진단해보세요.' },
+      detail: (!p.isBlog && !p.isSNS) ? '독립 도메인은 GEO 최적화의 기본 조건입니다. Schema Markup, 구조화 데이터를 직접 추가할 수 있습니다.' : '블로그/SNS 플랫폼에서는 Schema Markup, 구조화 데이터 추가가 제한됩니다.' },
+    { cat:'geo', label:'sitemap.xml',
+      status: hasReal
+        ? (p.rSitemap?.exists ? 'pass' : 'warn')
+        : 'warn',
+      detail: hasReal
+        ? (p.rSitemap?.exists
+            ? `sitemap.xml 존재 확인. URL ${p.rSitemap.urlCount}개 등록됨. Google Search Console에 제출하면 Gemini AI Overview 노출에 유리합니다.`
+            : 'sitemap.xml이 없습니다. 새 페이지 크롤링 속도가 느려질 수 있습니다.')
+        : 'sitemap.xml 존재 여부를 확인할 수 없습니다. /sitemap.xml 직접 접속으로 확인하세요.' },
+    { cat:'geo', label:'Schema 마크업 종류',
+      status: hasReal
+        ? (S.schemaTypes?.length > 0 ? 'pass' : 'warn')
+        : 'warn',
+      detail: hasReal
+        ? (S.schemaTypes?.length > 0
+            ? `적용된 Schema: ${S.schemaTypes.join(', ')}. 구조화 데이터가 풍부할수록 AI 인용 확률이 높아집니다.`
+            : 'Schema Markup이 감지되지 않습니다. FAQPage, LocalBusiness, Organization Schema 추가를 권장합니다.')
+        : 'Schema Markup 실측 확인을 위해 백엔드 분석이 필요합니다.' },
     { cat:'geo', label:'CMS 플랫폼 최적화 가능성', status: p.likelyWordPress ? 'pass' : (p.likelyShopify ? 'warn' : ((!p.isBlog && !p.isSNS) ? 'pass' : 'warn')),
-      detail: p.likelyWordPress ? 'WordPress 기반으로 추정됩니다. Yoast SEO, RankMath 같은 플러그인으로 Schema Markup 추가가 쉽습니다.' : p.likelyShopify ? 'Shopify 기반으로 추정됩니다. 앱 스토어에서 Schema Markup 앱을 설치해 GEO 최적화가 가능합니다.' : ((!p.isBlog && !p.isSNS) ? '커스텀/자체 개발 사이트로 추정됩니다. Schema Markup을 직접 HTML에 삽입 가능합니다.' : '이 플랫폼에서는 GEO 최적화 요소 추가가 제한됩니다.') },
+      detail: p.likelyWordPress ? 'WordPress 기반으로 추정됩니다. Yoast SEO 플러그인으로 Schema Markup 추가가 쉽습니다.' : p.likelyShopify ? 'Shopify 기반입니다. Schema Markup 앱을 설치하세요.' : ((!p.isBlog && !p.isSNS) ? '커스텀 사이트입니다. Schema Markup을 직접 HTML에 삽입 가능합니다.' : '이 플랫폼에서는 GEO 최적화 요소 추가가 제한됩니다.') },
+    ...(hasReal && S.headings ? [
+      { cat:'geo', label:'H1/H2 제목 구조', status: S.headings.h1Count === 1 && S.headings.h2Count >= 2 ? 'pass' : S.headings.h1Count === 0 ? 'fail' : 'warn',
+        detail: S.headings.h1Count === 0 ? 'H1 태그가 없습니다. 페이지 주제를 명확히 전달하는 H1을 반드시 추가하세요.' : S.headings.h1Count > 1 ? `H1이 ${S.headings.h1Count}개입니다. H1은 페이지당 1개만 권장합니다.` : `H1 1개, H2 ${S.headings.h2Count}개. AI가 페이지 구조를 쉽게 파악할 수 있습니다.` },
+    ] : []),
 
     // 신뢰성 섹션
     { cat:'trust', label:'naver 블로그 의존도', status: !p.likelyNaver ? 'pass' : 'fail',
-      detail: !p.likelyNaver ? '네이버 블로그 의존 없음. AI 검색 최적화에 유리한 채널 구조입니다.' : '마케팅이 네이버 블로그에 집중되어 있는 경우, ChatGPT·Perplexity 노출이 0%입니다. 독립 도메인 사이트 구축이 필수입니다.' },
+      detail: !p.likelyNaver ? '네이버 블로그 의존 없음. AI 검색 최적화에 유리한 채널 구조입니다.' : 'ChatGPT·Perplexity 노출이 0%입니다. 독립 도메인 사이트 구축이 필수입니다.' },
     { cat:'trust', label:'HTTPS 신뢰 신호', status: p.isHttps ? 'pass' : 'fail',
       detail: p.isHttps ? 'HTTPS 적용으로 AI 봇과 구글 모두 기본 신뢰 신호를 확인합니다.' : 'HTTP 사이트입니다. 즉시 SSL 인증서를 발급받아야 합니다.' },
     { cat:'trust', label:'소셜 플랫폼 외부 링크 의존', status: (!p.isSNS) ? 'pass' : 'warn',
-      detail: (!p.isSNS) ? 'SNS 기반 마케팅이 아닌 독립 사이트입니다. AI가 직접 크롤링할 수 있습니다.' : 'SNS 외부 링크는 AI 인용의 직접적인 소스가 되기 어렵습니다. 독립 사이트를 기반으로 해야 합니다.' },
+      detail: (!p.isSNS) ? '독립 사이트입니다. AI가 직접 크롤링할 수 있습니다.' : 'SNS 외부 링크는 AI 인용의 직접 소스가 되기 어렵습니다. 독립 사이트를 기반으로 해야 합니다.' },
   ];
 }
 
 function buildRecos(p) {
   const recos = [];
+  const R = p.rRobots;
+  const S = p.rPage;
+  const hasReal = p.hasReal;
 
   if (p.isBlog || p.isSNS) {
-    recos.push({ priority:'high', title:'독립 도메인 웹사이트 즉시 구축', desc: '현재 플랫폼(네이버 블로그/SNS)은 GPTBot, PerplexityBot을 차단합니다. ChatGPT, Perplexity에서 업체 노출을 원한다면 독립 도메인 사이트가 필수입니다. Vercel, 카페24, 자체 호스팅 등을 활용하세요.' });
+    recos.push({ priority:'high', title:'독립 도메인 웹사이트 즉시 구축', desc: '현재 플랫폼(네이버 블로그/SNS)은 GPTBot, PerplexityBot을 차단합니다. ChatGPT, Perplexity에서 업체 노출을 원한다면 독립 도메인 사이트가 필수입니다.' });
   }
   if (!p.isHttps) {
     recos.push({ priority:'high', title:'SSL 인증서 즉시 적용', desc: 'HTTP 사이트는 AI 봇과 구글 모두 신뢰도를 낮게 평가합니다. 호스팅사 관리 패널에서 무료 Let\'s Encrypt SSL을 즉시 적용하세요.' });
   }
   if (p.isKoreanDomain) {
-    recos.push({ priority:'high', title:'한글 도메인 → 퓨니코드 메타태그 적용', desc: '한글 도메인을 og:url, og:image, canonical 태그에 그대로 사용하면 카카오톡·SNS 공유 시 이미지가 표시되지 않습니다. 브라우저 주소창에서 확인한 퓨니코드(xn--...) 형태로 모든 메타태그를 업데이트하세요.' });
+    recos.push({ priority:'high', title:'한글 도메인 → 퓨니코드 메타태그 적용', desc: '한글 도메인을 og:url, og:image, canonical 태그에 그대로 사용하면 카카오톡·SNS 공유 시 이미지가 표시되지 않습니다. 퓨니코드(xn--...) 형태로 모든 메타태그를 업데이트하세요.' });
   }
   if (!p.likelyNaver && !p.isSNS) {
-    recos.push({ priority:'high', title:'robots.txt에서 AI 봇 허용 설정 확인', desc: '사이트 루트(/robots.txt)에서 GPTBot(OpenAI), PerplexityBot, ClaudeBot(Anthropic)이 Disallow 처리되어 있지 않은지 확인하세요. 차단되어 있다면 Allow로 변경해야 합니다.' });
-    recos.push({ priority:'high', title:'FAQPage Schema Markup 적용', desc: 'JSON-LD 형식의 FAQPage Schema를 적용하면 Google AI Overview 노출 시 우선 인용됩니다. Google Rich Results Test(search.google.com/test/rich-results)에서 현재 적용 여부를 먼저 확인하세요.' });
-    recos.push({ priority:'mid', title:'Q&A 구조 콘텐츠 페이지 제작', desc: '"Q. [지역] [업종] 추천해줘 / A. [업체명]은 [위치], [전문분야], [경력/수치]..." 형식의 명확한 질문-답변 구조 페이지를 최소 10개 이상 제작하세요. AI는 이 구조를 가장 쉽게 인용합니다.' });
-    recos.push({ priority:'mid', title:'구체적 수치 포함 콘텐츠 작성', desc: '"많은 경험"이 아닌 "시공 경력 8년, 누적 시공 건수 350건"처럼 검증 가능한 수치를 포함하세요. 프린스턴 GEO 연구에 따르면 통계 수치 추가만으로 AI 인용률이 41% 향상됩니다.' });
-    recos.push({ priority:'mid', title:'sitemap.xml 최신 상태 유지', desc: '새 페이지를 추가할 때마다 sitemap.xml을 업데이트하세요. Google Search Console에서 sitemap을 제출하면 AI Overview(Gemini) 노출에도 유리합니다.' });
+    // robots.txt 실측 결과 기반 권장
+    if (hasReal && R?.exists) {
+      const blocked = ['gptbot','perplexitybot','claudebot'].filter(k => R[k] === 'blocked');
+      if (blocked.length > 0) {
+        recos.push({ priority:'high', title:`robots.txt에서 AI 봇 차단 해제 필요 (${blocked.join(', ')})`, desc: `현재 robots.txt에서 ${blocked.join(', ')}이 차단되어 있습니다. Disallow 규칙을 제거하거나 Allow: /로 변경하면 즉시 크롤링이 재개됩니다.` });
+      }
+    } else {
+      recos.push({ priority:'high', title:'robots.txt에서 AI 봇 허용 설정 확인', desc: '사이트 루트(/robots.txt)에서 GPTBot, PerplexityBot, ClaudeBot이 차단되어 있지 않은지 확인하세요.' });
+    }
+
+    // FAQPage Schema 실측 기반
+    if (hasReal && !S.hasFAQPageSchema) {
+      recos.push({ priority:'high', title:'FAQPage Schema Markup 추가 필요', desc: '실측 결과 FAQPage Schema가 없습니다. <script type="application/ld+json">으로 FAQPage Schema를 추가하면 Google AI Overview에서 우선 인용됩니다.' });
+    } else if (!hasReal) {
+      recos.push({ priority:'high', title:'FAQPage Schema Markup 적용 확인', desc: 'JSON-LD 형식의 FAQPage Schema를 적용하면 Google AI Overview 노출 시 우선 인용됩니다. Google Rich Results Test(search.google.com/test/rich-results)로 현재 적용 여부를 확인하세요.' });
+    }
+
+    if (hasReal && !S.hasFAQInHTML) {
+      recos.push({ priority:'mid', title:'Q&A 구조 콘텐츠 페이지 제작', desc: '"Q. [지역] [업종] 추천해줘 / A. [업체명]은 [위치], [전문분야]..." 형식의 질문-답변 구조 페이지를 최소 10개 이상 제작하세요. AI는 이 구조를 가장 쉽게 인용합니다.' });
+    }
+
+    recos.push({ priority:'mid', title:'구체적 수치 포함 콘텐츠 작성', desc: '"많은 경험"이 아닌 "시공 경력 8년, 누적 시공 건수 350건"처럼 검증 가능한 수치를 포함하세요. GEO 연구에 따르면 통계 수치 추가만으로 AI 인용률이 41% 향상됩니다.' });
+
+    if (hasReal && !p.rSitemap?.exists) {
+      recos.push({ priority:'mid', title:'sitemap.xml 생성 및 제출', desc: 'sitemap.xml이 없습니다. 모든 페이지 URL을 포함한 sitemap을 생성하고 Google Search Console에 제출하면 Gemini AI Overview 노출에 유리합니다.' });
+    } else {
+      recos.push({ priority:'mid', title:'sitemap.xml 최신 상태 유지', desc: '새 페이지를 추가할 때마다 sitemap.xml을 업데이트하고 Google Search Console에 제출하세요.' });
+    }
+
+    if (hasReal && !S.hasDescription) {
+      recos.push({ priority:'mid', title:'메타 디스크립션 추가', desc: '메타 디스크립션이 없습니다. 160자 이내로 페이지 핵심 내용을 요약해 <meta name="description">에 추가하세요. AI 검색 결과 요약에 직접 활용됩니다.' });
+    }
   }
   if (p.hasQueryParams) {
-    recos.push({ priority:'mid', title:'정적 URL 구조로 전환', desc: '동적 쿼리 파라미터(?id=, ?page= 등)가 포함된 URL은 AI 크롤러가 중복 콘텐츠로 인식할 수 있습니다. /blog/post-title 형식의 정적 URL로 변경을 권장합니다.' });
+    recos.push({ priority:'mid', title:'정적 URL 구조로 전환', desc: '동적 쿼리 파라미터(?id=, ?page= 등)는 AI 크롤러가 중복 콘텐츠로 인식할 수 있습니다. /blog/post-title 형식의 정적 URL로 변경을 권장합니다.' });
   }
-  recos.push({ priority:'low', title:'월 1회 AI 노출 현황 모니터링', desc: 'ChatGPT, Perplexity, Claude, Gemini에서 "[지역] [업종] 추천해줘"를 매월 동일하게 테스트해 업체 인용 여부를 기록하세요. 처음에는 나오지 않다가 서서히 언급되기 시작하면 최적화가 작동하는 신호입니다.' });
+  recos.push({ priority:'low', title:'월 1회 AI 노출 현황 모니터링', desc: 'ChatGPT, Perplexity, Claude, Gemini에서 "[지역] [업종] 추천해줘"를 매월 동일하게 테스트해 업체 인용 여부를 기록하세요.' });
 
   return recos;
 }
 
 // ─── RENDER ──────────────────────────────────
-function renderResults(d, rawUrl) {
+function renderResults(d, rawUrl, realData) {
   const section = document.getElementById('resultsSection');
   const grade = d.total >= 80 ? '최적화 완료' : d.total >= 60 ? '개선 필요' : d.total >= 40 ? '기초 작업 필요' : 'AI 검색 노출 불가 상태';
   const gradeColor = d.total >= 80 ? 'var(--green)' : d.total >= 60 ? 'var(--yellow)' : 'var(--red)';
@@ -690,7 +805,7 @@ function renderResults(d, rawUrl) {
   <div class="score-overview" id="pdfTarget">
     <div class="score-header">
       <div class="score-main">
-        <div class="score-site">분석 URL: ${rawUrl}</div>
+        <div class="score-site">분석 URL: ${rawUrl} ${d.hasReal ? '<span style="background:rgba(34,197,94,.15);color:#22c55e;font-size:11px;padding:2px 8px;border-radius:4px;margin-left:6px">🔍 실측 분석</span>' : '<span style="background:rgba(245,158,11,.15);color:#f59e0b;font-size:11px;padding:2px 8px;border-radius:4px;margin-left:6px">⚡ URL 분석</span>'}</div>
         <div class="score-title">AI 검색 최적화 종합 점수</div>
         <div class="score-big">${d.total}<span>/100</span></div>
         <div class="score-grade" style="color:${gradeColor}">● ${grade}</div>
