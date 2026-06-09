@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LocalBusiness Schema 작성 가이드 | 로컬 비즈니스 구조화 데이터 | 온종일AI</title>
+<meta name="description" content="LocalBusiness Schema Markup의 필수 필드, 업종별 하위 타입, JSON-LD 구현 예시를 Schema.org 공식 명세와 Google 가이드라인 기반으로 설명합니다.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ai.온종일.com/guide/localbusiness-schema.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style2.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "LocalBusiness Schema 작성 가이드 — 필수 필드와 업종별 타입",
+  "description": "LocalBusiness Schema Markup의 필수 필드와 업종별 하위 타입을 Schema.org 공식 명세 기반으로 설명합니다.",
+  "author": {"@type": "Organization", "name": "온종일AI"},
+  "publisher": {"@type": "Organization", "name": "온종일AI"},
+  "datePublished": "2026-06-09"
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
+  <div class="nav-links">
+    <div class="nav-drop">
+      <button class="nav-drop-btn">업종별 <span class="nav-arrow">▾</span></button>
+      <div class="drop-menu">
+        <a href="../industry/hospital.html">🏥 병원·치과·한의원</a>
+        <a href="../industry/interior.html">🏠 인테리어·리모델링</a>
+        <a href="../industry/law.html">⚖️ 법률·세무·회계</a>
+        <a href="../industry/health.html">💪 헬스·뷰티·피트니스</a>
+        <a href="../industry/restaurant.html">🍽️ 식당·카페·배달</a>
+        <a href="../industry/academy.html">📚 학원·교습소</a>
+        <a href="../industry/realestate.html">🏢 부동산·공인중개사</a>
+        <a href="../industry/dermatology.html">💉 피부과·성형외과</a>
+        <a href="../industry/auto.html">🚗 자동차 정비·중고차</a>
+        <a href="../industry/cleaning.html">🧹 세탁소·청소업체</a>
+      </div>
+    </div>
+    <div class="nav-drop">
+      <button class="nav-drop-btn">AI 검색 가이드 <span class="nav-arrow">▾</span></button>
+      <div class="drop-menu">
+        <a href="what-is-seo.html">📖 SEO란 무엇인가?</a>
+        <a href="what-is-aeo.html">🤖 AEO란 무엇인가?</a>
+        <a href="what-is-geo.html">🔬 GEO란 무엇인가?</a>
+        <a href="how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
+        <a href="naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
+        <a href="chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
+        <a href="perplexity-optimization.html">🔍 Perplexity 최적화</a>
+        <a href="gemini-ai-overview.html">♊ Google AI Overviews</a>
+        <a href="claude-ai-search.html">🧠 Claude AI 검색</a>
+        <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="메뉴"><span></span><span></span><span></span></button>
+    <button class="theme-btn" id="themeBtn">🌙</button>
+    <button class="nav-cta">상담 신청하기</button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mob-section">
+    <div class="mob-section-title">업종별 가이드</div>
+    <a href="/industry/hospital.html">🏥 병원·치과·한의원</a>
+    <a href="/industry/interior.html">🏠 인테리어·리모델링</a>
+    <a href="/industry/law.html">⚖️ 법률·세무·회계</a>
+    <a href="/industry/health.html">💪 헬스·뷰티·피트니스</a>
+    <a href="/industry/restaurant.html">🍽️ 식당·카페·배달</a>
+    <a href="/industry/academy.html">📚 학원·교습소</a>
+    <a href="/industry/realestate.html">🏢 부동산·공인중개사</a>
+    <a href="/industry/dermatology.html">💉 피부과·성형외과</a>
+    <a href="/industry/auto.html">🚗 자동차 정비·중고차</a>
+    <a href="/industry/cleaning.html">🧹 세탁소·청소업체</a>
+  </div>
+  <div class="mob-section">
+    <div class="mob-section-title">AI 검색 가이드</div>
+    <a href="/guide/what-is-seo.html">📖 SEO란 무엇인가?</a>
+    <a href="/guide/what-is-aeo.html">🤖 AEO란 무엇인가?</a>
+    <a href="/guide/what-is-geo.html">🔬 GEO란 무엇인가?</a>
+    <a href="/guide/how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
+    <a href="/guide/naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
+    <a href="/guide/how-to-check-ai.html">🔎 AI 노출 직접 확인하기</a>
+    <a href="/guide/ai-seo-checklist.html">✅ AI 검색 최적화 체크리스트</a>
+    <a href="/guide/chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
+    <a href="/guide/perplexity-optimization.html">🔍 Perplexity 최적화</a>
+    <a href="/guide/gemini-ai-overview.html">♊ Google AI Overviews</a>
+    <a href="/guide/claude-ai-search.html">🧠 Claude AI 검색</a>
+    <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
+  </div>
+  <button class="mob-cta">무료 상담 신청하기 →</button>
+</div>
+
+<div class="breadcrumb">
+  <a href="../index.html">홈</a><span>›</span>
+  <a href="index.html">AI 검색 가이드</a><span>›</span>
+  LocalBusiness Schema 가이드
+</div>
+
+<div class="article-hero">
+  <div class="article-hero-bg"></div>
+  <div class="article-category">기술 가이드 · Schema Markup</div>
+  <h1>LocalBusiness Schema<br><span class="hl">작성 가이드</span><br>필드 & 업종별 타입</h1>
+  <p>로컬 비즈니스가 AI 검색에서 추천받기 위한 핵심 기술인 LocalBusiness Schema Markup의 필수 필드와 업종별 하위 타입을 Schema.org 공식 명세 기반으로 설명합니다.</p>
+  <div class="article-meta">
+    <span>온종일AI 편집팀</span><span>·</span>
+    <span>2026년 6월 9일</span><span>·</span>
+    <span>약 5분 소요</span>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <p class="article-lead">
+    LocalBusiness Schema는 지역 비즈니스(병원, 식당, 학원, 부동산 등)를 AI와 검색 엔진에 알려주는 구조화 데이터입니다. Schema.org에서 정의하고 Google, Bing이 공식으로 지원합니다.
+  </p>
+
+  <div class="article-section">
+    <h2>LocalBusiness Schema 핵심 필드</h2>
+    <p>
+      Schema.org의 LocalBusiness 공식 명세(<a href="https://schema.org/LocalBusiness" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/LocalBusiness</a>)에 따른 주요 필드입니다.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="ico">🏢</div>
+        <h4>name (필수)</h4>
+        <p>업체의 공식 이름. 홈페이지와 Google 비즈니스 프로필의 이름과 일치해야 합니다. NAP(Name-Address-Phone) 일관성의 핵심입니다.</p>
+      </div>
+      <div class="info-card">
+        <div class="ico">📍</div>
+        <h4>address (필수)</h4>
+        <p>PostalAddress 타입을 사용해 상세 주소를 구조화합니다. addressLocality(시/구), addressRegion(도), postalCode(우편번호), streetAddress(도로명 주소)를 모두 포함합니다.</p>
+      </div>
+      <div class="info-card">
+        <div class="ico">📞</div>
+        <h4>telephone</h4>
+        <p>E.164 국제 전화번호 형식(+82-2-1234-5678)이 권장됩니다. NAP 정보의 핵심 요소로 AI 검색에서 로컬 비즈니스 인식에 중요합니다.</p>
+      </div>
+      <div class="info-card">
+        <div class="ico">🌐</div>
+        <h4>url</h4>
+        <p>업체 공식 웹사이트 URL. 검색 엔진이 Schema 정보와 실제 웹사이트를 연결하는 기준점입니다.</p>
+      </div>
+      <div class="info-card">
+        <div class="ico">⏰</div>
+        <h4>openingHoursSpecification</h4>
+        <p>영업시간을 구조화합니다. dayOfWeek, opens, closes 필드를 사용합니다. AI가 "지금 영업 중인 곳"을 판단하는 데 사용됩니다.</p>
+      </div>
+      <div class="info-card">
+        <div class="ico">🗺️</div>
+        <h4>geo (GeoCoordinates)</h4>
+        <p>위도(latitude)와 경도(longitude)를 제공합니다. Google Maps와 연동되며 지역 기반 AI 검색에서 정확한 위치 인식에 도움이 됩니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>JSON-LD 구현 예시</h2>
+
+    <div class="tip-box">
+      <div class="tip-label">📋 LocalBusiness Schema — 치과 예시 (JSON-LD)</div>
+      <p style="font-family:monospace;font-size:.78rem;line-height:1.6">
+        &lt;script type="application/ld+json"&gt;<br>
+        {<br>
+        &nbsp;&nbsp;"@context": "https://schema.org",<br>
+        &nbsp;&nbsp;"@type": "Dentist",<br>
+        &nbsp;&nbsp;"name": "스마일서울치과",<br>
+        &nbsp;&nbsp;"url": "https://우리도메인.com",<br>
+        &nbsp;&nbsp;"telephone": "+82-2-1234-5678",<br>
+        &nbsp;&nbsp;"address": {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;"@type": "PostalAddress",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;"streetAddress": "테헤란로 123",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;"addressLocality": "강남구",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;"addressRegion": "서울",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;"postalCode": "06234",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;"addressCountry": "KR"<br>
+        &nbsp;&nbsp;},<br>
+        &nbsp;&nbsp;"geo": {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;"@type": "GeoCoordinates",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;"latitude": 37.5012743,<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;"longitude": 127.0396597<br>
+        &nbsp;&nbsp;},<br>
+        &nbsp;&nbsp;"openingHoursSpecification": [<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"@type": "OpeningHoursSpecification",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"opens": "09:00",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"closes": "18:00"<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        &nbsp;&nbsp;]<br>
+        }<br>
+        &lt;/script&gt;
+      </p>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>업종별 LocalBusiness 하위 타입</h2>
+    <p>
+      Schema.org는 LocalBusiness의 다양한 하위 타입을 제공합니다. 일반적인 LocalBusiness 대신 업종에 맞는 구체적인 타입을 사용하면 AI가 업체 유형을 더 정확하게 인식합니다.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="ico">🏥</div>
+        <h4>의료 업종</h4>
+        <p>
+          Dentist (치과)<br>
+          MedicalClinic (의원·클리닉)<br>
+          Hospital (병원)<br>
+          출처: <a href="https://schema.org/MedicalOrganization" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/MedicalOrganization</a>
+        </p>
+      </div>
+      <div class="info-card">
+        <div class="ico">🍽️</div>
+        <h4>음식점</h4>
+        <p>
+          Restaurant (레스토랑)<br>
+          CafeOrCoffeeShop (카페)<br>
+          FastFoodRestaurant (패스트푸드)<br>
+          출처: <a href="https://schema.org/FoodEstablishment" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/FoodEstablishment</a>
+        </p>
+      </div>
+      <div class="info-card">
+        <div class="ico">⚖️</div>
+        <h4>전문직</h4>
+        <p>
+          LegalService (법무 서비스)<br>
+          AccountingService (회계 서비스)<br>
+          RealEstateAgent (공인중개사)<br>
+          출처: <a href="https://schema.org/ProfessionalService" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/ProfessionalService</a>
+        </p>
+      </div>
+      <div class="info-card">
+        <div class="ico">🚗</div>
+        <h4>자동차</h4>
+        <p>
+          AutomotiveBusiness (자동차 관련)<br>
+          AutoRepair (자동차 수리)<br>
+          AutoDealer (자동차 판매)<br>
+          출처: <a href="https://schema.org/AutomotiveBusiness" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/AutomotiveBusiness</a>
+        </p>
+      </div>
+      <div class="info-card">
+        <div class="ico">💪</div>
+        <h4>헬스·뷰티</h4>
+        <p>
+          HealthClub (헬스클럽)<br>
+          BeautySalon (미용실·뷰티)<br>
+          SportsActivityLocation (스포츠 시설)<br>
+          출처: <a href="https://schema.org/SportsActivityLocation" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/SportsActivityLocation</a>
+        </p>
+      </div>
+      <div class="info-card">
+        <div class="ico">🏠</div>
+        <h4>홈서비스</h4>
+        <p>
+          HomeAndConstructionBusiness (인테리어·건설)<br>
+          HousePainter (도장·인테리어)<br>
+          Plumber (배관)<br>
+          출처: <a href="https://schema.org/HomeAndConstructionBusiness" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/HomeAndConstructionBusiness</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>NAP 일관성과 AI 검색</h2>
+    <p>
+      NAP(Name, Address, Phone)는 로컬 SEO와 AI 검색 최적화에서 신뢰도의 핵심 신호입니다. Schema Markup의 NAP 정보가 Google 비즈니스 프로필, 네이버 플레이스, 웹사이트 본문의 연락처 정보와 모두 일치해야 합니다.
+    </p>
+
+    <div class="tip-box">
+      <div class="tip-label">✅ NAP 일관성 체크리스트</div>
+      <p>
+        · Schema Markup의 name = Google 비즈니스 프로필 업체명<br>
+        · Schema Markup의 address = 웹사이트 푸터/연락처 페이지 주소<br>
+        · Schema Markup의 telephone = 웹사이트에 표시된 전화번호<br>
+        · 도로명 주소 표기 방식 통일 (지번 vs 도로명 혼용 주의)
+      </p>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>자주 묻는 질문</h2>
+
+    <div class="tip-box">
+      <div class="tip-label">Q. LocalBusiness Schema를 메인 페이지(index.html)에만 넣으면 되나요?</div>
+      <p>일반적으로 LocalBusiness Schema는 메인 페이지에 적용하면 충분합니다. 다만 지점이 여러 개인 경우 각 지점 페이지에 별도의 LocalBusiness Schema를 적용하는 것이 좋습니다. 업종별 특화 페이지(예: 임플란트 전용 페이지)에는 Dentist 타입의 Schema를 추가로 적용할 수 있습니다.</p>
+    </div>
+    <div class="tip-box">
+      <div class="tip-label">Q. Google My Business(비즈니스 프로필)와 LocalBusiness Schema 중 뭐가 더 중요한가요?</div>
+      <p>두 가지 모두 중요합니다. Google 비즈니스 프로필은 Google Maps와 Google 검색 지도 결과에서 중요하고, LocalBusiness Schema는 검색 엔진과 AI가 웹사이트 자체에서 업체 정보를 인식하는 데 사용됩니다. 두 채널의 NAP 정보가 일치해야 합니다.</p>
+    </div>
+  </div>
+
+  <div class="article-related">
+    <h3>다음으로 읽어볼 가이드</h3>
+    <div class="related-grid">
+      <a href="faqpage-schema-guide.html" class="related-card">
+        <div class="rc-cat">기술 가이드 · Schema</div>
+        <div class="rc-title">📋 FAQPage Schema 구현법</div>
+      </a>
+      <a href="eeat-guide.html" class="related-card">
+        <div class="rc-cat">기술 가이드 · E-E-A-T</div>
+        <div class="rc-title">⭐ E-E-A-T 완전 가이드 — Google 신뢰도 기준</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="cta fi">
+  <h2>LocalBusiness Schema<br>적용 현황<br><span style="color:var(--accent)">무료로 진단받기</span></h2>
+  <p>NAP 정보 구조화 상태와 Schema Markup 적용 여부를 진단합니다.</p>
+  <a href="/analyze.html" class="btn-primary" style="font-size:18px;padding:20px 48px;text-decoration:none;display:inline-block">AI 최적화 진단기 →</a>
+</div>
+
+<div class="article-wrap" style="max-width:900px;margin:0 auto;padding:40px 24px 20px">
+  <div class="article-section">
+    <h2 style="font-size:1.1rem;margin-bottom:12px">참고 출처</h2>
+    <ul style="font-size:.85rem;line-height:1.8;color:var(--text-sub)">
+      <li><a href="https://schema.org/LocalBusiness" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org — LocalBusiness 공식 명세</a></li>
+      <li><a href="https://developers.google.com/search/docs/appearance/structured-data/local-business" target="_blank" rel="noopener" style="color:var(--accent)">Google Search Central — LocalBusiness 구조화 데이터 가이드</a></li>
+      <li><a href="https://schema.org/MedicalOrganization" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org — MedicalOrganization 명세 (의료 업종)</a></li>
+      <li><a href="https://schema.org/FoodEstablishment" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org — FoodEstablishment 명세 (음식점)</a></li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
+  <div style="margin:8px 0;font-size:.85rem;color:var(--text-sub)">문의: <a href="mailto:tarry9653@daum.net" style="color:var(--accent)">tarry9653@daum.net</a></div>
+  <div class="fcopy">© 2026 온종일AI. AI 검색 최적화 컨설팅.</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

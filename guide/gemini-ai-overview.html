@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Google AI Overviews 노출 조건 | Gemini AI 검색 최적화 | 온종일AI</title>
+<meta name="description" content="Google AI Overviews(구 SGE)에 업체·콘텐츠가 노출되는 조건. E-E-A-T, Schema Markup, 콘텐츠 구조 최적화 방법을 Google Search Central 공식 자료 기반으로 설명합니다.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ai.온종일.com/guide/gemini-ai-overview.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style2.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Google AI Overviews 노출 조건 — Gemini AI 검색 최적화",
+  "description": "Google AI Overviews에서 노출되는 조건과 최적화 방법을 Google Search Central 공식 자료 기반으로 설명합니다.",
+  "author": {"@type": "Organization", "name": "온종일AI"},
+  "publisher": {"@type": "Organization", "name": "온종일AI"},
+  "datePublished": "2026-06-09"
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
+  <div class="nav-links">
+    <div class="nav-drop">
+      <button class="nav-drop-btn">업종별 <span class="nav-arrow">▾</span></button>
+      <div class="drop-menu">
+        <a href="../industry/hospital.html">🏥 병원·치과·한의원</a>
+        <a href="../industry/interior.html">🏠 인테리어·리모델링</a>
+        <a href="../industry/law.html">⚖️ 법률·세무·회계</a>
+        <a href="../industry/health.html">💪 헬스·뷰티·피트니스</a>
+        <a href="../industry/restaurant.html">🍽️ 식당·카페·배달</a>
+        <a href="../industry/academy.html">📚 학원·교습소</a>
+        <a href="../industry/realestate.html">🏢 부동산·공인중개사</a>
+        <a href="../industry/dermatology.html">💉 피부과·성형외과</a>
+        <a href="../industry/auto.html">🚗 자동차 정비·중고차</a>
+        <a href="../industry/cleaning.html">🧹 세탁소·청소업체</a>
+      </div>
+    </div>
+    <div class="nav-drop">
+      <button class="nav-drop-btn">AI 검색 가이드 <span class="nav-arrow">▾</span></button>
+      <div class="drop-menu">
+        <a href="what-is-seo.html">📖 SEO란 무엇인가?</a>
+        <a href="what-is-aeo.html">🤖 AEO란 무엇인가?</a>
+        <a href="what-is-geo.html">🔬 GEO란 무엇인가?</a>
+        <a href="how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
+        <a href="naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
+        <a href="chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
+        <a href="perplexity-optimization.html">🔍 Perplexity 최적화</a>
+        <a href="gemini-ai-overview.html">♊ Google AI Overviews</a>
+        <a href="claude-ai-search.html">🧠 Claude AI 검색</a>
+        <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="메뉴"><span></span><span></span><span></span></button>
+    <button class="theme-btn" id="themeBtn">🌙</button>
+    <button class="nav-cta">상담 신청하기</button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mob-section">
+    <div class="mob-section-title">업종별 가이드</div>
+    <a href="/industry/hospital.html">🏥 병원·치과·한의원</a>
+    <a href="/industry/interior.html">🏠 인테리어·리모델링</a>
+    <a href="/industry/law.html">⚖️ 법률·세무·회계</a>
+    <a href="/industry/health.html">💪 헬스·뷰티·피트니스</a>
+    <a href="/industry/restaurant.html">🍽️ 식당·카페·배달</a>
+    <a href="/industry/academy.html">📚 학원·교습소</a>
+    <a href="/industry/realestate.html">🏢 부동산·공인중개사</a>
+    <a href="/industry/dermatology.html">💉 피부과·성형외과</a>
+    <a href="/industry/auto.html">🚗 자동차 정비·중고차</a>
+    <a href="/industry/cleaning.html">🧹 세탁소·청소업체</a>
+  </div>
+  <div class="mob-section">
+    <div class="mob-section-title">AI 검색 가이드</div>
+    <a href="/guide/what-is-seo.html">📖 SEO란 무엇인가?</a>
+    <a href="/guide/what-is-aeo.html">🤖 AEO란 무엇인가?</a>
+    <a href="/guide/what-is-geo.html">🔬 GEO란 무엇인가?</a>
+    <a href="/guide/how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
+    <a href="/guide/naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
+    <a href="/guide/how-to-check-ai.html">🔎 AI 노출 직접 확인하기</a>
+    <a href="/guide/ai-seo-checklist.html">✅ AI 검색 최적화 체크리스트</a>
+    <a href="/guide/chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
+    <a href="/guide/perplexity-optimization.html">🔍 Perplexity 최적화</a>
+    <a href="/guide/gemini-ai-overview.html">♊ Google AI Overviews</a>
+    <a href="/guide/claude-ai-search.html">🧠 Claude AI 검색</a>
+    <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
+  </div>
+  <button class="mob-cta">무료 상담 신청하기 →</button>
+</div>
+
+<div class="breadcrumb">
+  <a href="../index.html">홈</a><span>›</span>
+  <a href="index.html">AI 검색 가이드</a><span>›</span>
+  Google AI Overviews
+</div>
+
+<div class="article-hero">
+  <div class="article-hero-bg"></div>
+  <div class="article-category">AI 플랫폼 가이드 · Google</div>
+  <h1>Google AI Overviews<br><span class="hl">노출 조건</span><br>완전 가이드</h1>
+  <p>Google 검색 결과 상단에 나타나는 AI Overviews에 우리 콘텐츠·업체가 노출되려면 무엇이 필요한지 Google Search Central 공식 자료를 기반으로 설명합니다.</p>
+  <div class="article-meta">
+    <span>온종일AI 편집팀</span><span>·</span>
+    <span>2026년 6월 9일</span><span>·</span>
+    <span>약 5분 소요</span>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <p class="article-lead">
+    Google AI Overviews는 Google 검색 결과 상단에 AI가 생성한 요약 답변을 표시하는 기능입니다. 이 답변에 인용된 소스는 트래픽 유입 효과를 볼 수 있습니다. Google은 AI Overviews 노출에 대해 Search Quality Evaluator Guidelines와 공식 블로그를 통해 관련 기준을 공개하고 있습니다.
+  </p>
+
+  <div class="article-section">
+    <h2>Google AI Overviews란?</h2>
+    <p>
+      Google AI Overviews(구 SGE, Search Generative Experience)는 Google이 2024년 5월 Google I/O에서 발표하고 미국을 포함한 여러 국가에 순차 출시한 AI 기반 검색 기능입니다. 2024년 8월부터 미국 Google 검색에 기본 활성화되었으며, 한국 등 일부 국가에는 순차 출시 중입니다.
+    </p>
+
+    <div class="quote-box">
+      <p>"AI Overviews give people a helpful snapshot of information, with links to learn more. The sources linked in AI Overviews get more visibility than traditional search results."</p>
+      <cite>— Google Search Central 공식 블로그, 2024</cite>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>AI Overviews 노출에 영향을 미치는 요소</h2>
+    <p>
+      Google은 AI Overviews 소스 선정 기준을 별도로 공개하지 않았으나, Google Search Central의 공식 안내와 Search Quality Evaluator Guidelines를 통해 다음 요소가 핵심임을 확인할 수 있습니다.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="ico">⭐</div>
+        <h4>E-E-A-T</h4>
+        <p>Experience(경험), Expertise(전문성), Authoritativeness(권위성), Trustworthiness(신뢰성). Google의 Search Quality Evaluator Guidelines에서 콘텐츠 품질 평가의 핵심 기준으로 제시됩니다. (<a href="https://developers.google.com/search/blog/2022/12/google-raters-guidelines-e-e-a-t" target="_blank" rel="noopener" style="color:var(--accent)">Google 공식 E-E-A-T 안내</a>)</p>
+      </div>
+      <div class="info-card">
+        <div class="ico">📋</div>
+        <h4>구조화 데이터</h4>
+        <p>FAQPage, HowTo, LocalBusiness 등 Schema Markup을 적용하면 Google이 콘텐츠의 구조와 의미를 더 정확하게 파악합니다. Google은 Schema.org 구조화 데이터를 공식으로 지원합니다. (<a href="https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data" target="_blank" rel="noopener" style="color:var(--accent)">Google 구조화 데이터 공식 안내</a>)</p>
+      </div>
+      <div class="info-card">
+        <div class="ico">📄</div>
+        <h4>콘텐츠 품질</h4>
+        <p>Google Helpful Content System은 "사람을 위해 작성된 유용한 콘텐츠"를 우선시합니다. 검색 엔진만을 위한 키워드 나열보다 실제 질문에 답하는 깊이 있는 콘텐츠가 AI Overviews에서 유리합니다.</p>
+      </div>
+      <div class="info-card">
+        <div class="ico">🔍</div>
+        <h4>기존 SEO 신호</h4>
+        <p>Google은 AI Overviews 소스로 기존 검색에서도 신뢰도가 높은 페이지를 선호하는 경향이 있습니다. PageRank, 백링크, 도메인 권위도 등 기존 SEO 신호도 연관됩니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>Googlebot 크롤링 허용 확인</h2>
+    <p>
+      AI Overviews를 포함한 Google 검색 모든 기능에서 노출되려면 Googlebot이 페이지를 크롤링할 수 있어야 합니다. robots.txt에서 Googlebot이 차단되어 있으면 AI Overviews에도 노출이 불가합니다.
+    </p>
+
+    <div class="tip-box">
+      <div class="tip-label">✅ robots.txt — Googlebot 허용 기본 설정</div>
+      <p style="font-family:monospace;font-size:.9rem">User-agent: Googlebot<br>Allow: /</p>
+    </div>
+
+    <p>
+      Googlebot 외에도 Google-Extended라는 별도 user-agent가 있습니다. Google-Extended는 Gemini 앱 및 Google의 AI 제품 개선에 사용되는 크롤러입니다. AI Overviews 노출에는 Googlebot 허용이 핵심이며, Google-Extended 차단은 Gemini AI 학습 데이터 제공 여부에 영향을 미칩니다.
+    </p>
+
+    <div class="tip-box">
+      <div class="tip-label">📋 Google-Extended user-agent (Google Gemini AI 학습용)</div>
+      <p style="font-family:monospace;font-size:.9rem">User-agent: Google-Extended<br>
+      # Allow: / 또는 Disallow: / 로 설정 가능</p>
+      <p style="font-size:.85rem;margin-top:8px">출처: <a href="https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers" target="_blank" rel="noopener" style="color:var(--accent)">Google — 크롤러 종류 공식 안내</a></p>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>Google Search Console 활용</h2>
+    <p>
+      Google Search Console에서 AI Overviews 관련 통계를 일부 확인할 수 있습니다. 검색 결과 유형 필터에서 'AI Overview' 데이터를 확인해 우리 사이트가 AI Overviews에서 노출되고 있는지 파악합니다.
+    </p>
+
+    <div class="tip-box">
+      <div class="tip-label">💡 Google Search Console에서 AI Overviews 확인하기</div>
+      <p>
+        Google Search Console(<a href="https://search.google.com/search-console" target="_blank" rel="noopener" style="color:var(--accent)">search.google.com/search-console</a>) → 검색 실적 → 검색 유형: 'AI Overview' 필터를 선택하면 AI Overviews에서 우리 사이트가 노출된 검색어를 확인할 수 있습니다.
+      </p>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>자주 묻는 질문</h2>
+
+    <div class="tip-box">
+      <div class="tip-label">Q. AI Overviews에서 내 사이트 노출을 차단할 수 있나요?</div>
+      <p>네, 가능합니다. Google은 AI Overviews 노출을 원하지 않는 사이트를 위해 nosnippet 메타 태그 옵션을 제공합니다. 단, 이 설정은 일반 검색 스니펫에도 영향을 미칠 수 있습니다. (<a href="https://developers.google.com/search/docs/crawling-indexing/robots-meta-tag" target="_blank" rel="noopener" style="color:var(--accent)">Google 공식 로봇 메타 태그 안내 →</a>)</p>
+    </div>
+    <div class="tip-box">
+      <div class="tip-label">Q. 한국에서도 AI Overviews가 작동하나요?</div>
+      <p>Google AI Overviews는 미국에서 2024년 5월 기본 활성화 후 순차 글로벌 출시 중입니다. 한국 출시 현황은 Google Korea 공식 채널을 통해 확인하시기 바랍니다. 현재 한국에서도 Google 검색의 AI 기능이 일부 노출되고 있습니다.</p>
+    </div>
+    <div class="tip-box">
+      <div class="tip-label">Q. Google AI Overviews와 Gemini는 같은 건가요?</div>
+      <p>Google AI Overviews는 Google 검색 결과에 통합된 AI 요약 기능이고, Gemini는 Google의 독립형 AI 어시스턴트 앱/서비스입니다. 두 제품 모두 Google의 Gemini 모델을 기반으로 하지만 노출 경로와 최적화 방법에 차이가 있습니다. (<a href="https://blog.google/products/search/generative-ai-search/" target="_blank" rel="noopener" style="color:var(--accent)">Google 공식 AI 검색 블로그 →</a>)</p>
+    </div>
+  </div>
+
+  <div class="article-related">
+    <h3>다음으로 읽어볼 가이드</h3>
+    <div class="related-grid">
+      <a href="eeat-guide.html" class="related-card">
+        <div class="rc-cat">기술 가이드 · E-E-A-T</div>
+        <div class="rc-title">⭐ E-E-A-T 완전 가이드 — Google 신뢰도 기준</div>
+      </a>
+      <a href="google-ai-overviews.html" class="related-card">
+        <div class="rc-cat">정보성 가이드 · Google</div>
+        <div class="rc-title">🌐 Google AI Overviews 작동 방식 심층 분석</div>
+      </a>
+      <a href="faqpage-schema-guide.html" class="related-card">
+        <div class="rc-cat">기술 가이드 · Schema</div>
+        <div class="rc-title">📋 FAQPage Schema 구현법</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="cta fi">
+  <h2>Google AI Overviews<br>노출 현황<br><span style="color:var(--accent)">무료로 진단받기</span></h2>
+  <p>Googlebot 차단 여부, E-E-A-T 신호, Schema Markup 상태를 진단해드립니다.</p>
+  <button class="btn-primary" style="font-size:18px;padding:20px 48px">무료 진단 받기 →</button>
+</div>
+
+<div class="article-wrap" style="max-width:900px;margin:0 auto;padding:40px 24px 20px">
+  <div class="article-section">
+    <h2 style="font-size:1.1rem;margin-bottom:12px">참고 출처</h2>
+    <ul style="font-size:.85rem;line-height:1.8;color:var(--text-sub)">
+      <li><a href="https://developers.google.com/search/docs/appearance/ai-overviews" target="_blank" rel="noopener" style="color:var(--accent)">Google Search Central — AI Overviews 공식 안내</a></li>
+      <li><a href="https://developers.google.com/search/blog/2022/12/google-raters-guidelines-e-e-a-t" target="_blank" rel="noopener" style="color:var(--accent)">Google — E-E-A-T 공식 안내</a></li>
+      <li><a href="https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data" target="_blank" rel="noopener" style="color:var(--accent)">Google Search Central — 구조화 데이터 시작하기</a></li>
+      <li><a href="https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers" target="_blank" rel="noopener" style="color:var(--accent)">Google — 크롤러 종류 공식 안내 (Google-Extended 포함)</a></li>
+      <li><a href="https://blog.google/products/search/generative-ai-search/" target="_blank" rel="noopener" style="color:var(--accent)">Google 공식 블로그 — AI 검색 기능 소개</a></li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
+  <div style="margin:8px 0;font-size:.85rem;color:var(--text-sub)">문의: <a href="mailto:tarry9653@daum.net" style="color:var(--accent)">tarry9653@daum.net</a></div>
+  <div class="fcopy">© 2026 온종일AI. AI 검색 최적화 컨설팅.</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

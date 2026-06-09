@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>robots.txt AI 봇 설정 완벽 가이드 | GPTBot·PerplexityBot·ClaudeBot | 온종일AI</title>
+<meta name="description" content="ChatGPT, Perplexity, Claude, Google 등 AI 봇을 robots.txt에서 허용하는 방법. 각 봇의 공식 User-Agent를 각사 공식 문서 기반으로 정리합니다.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ai.온종일.com/guide/robots-txt-ai-guide.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style2.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "robots.txt AI 봇 설정 완벽 가이드",
+  "description": "GPTBot, PerplexityBot, ClaudeBot, Googlebot 등 AI 크롤러를 robots.txt에서 설정하는 방법을 각사 공식 문서 기반으로 설명합니다.",
+  "author": {"@type": "Organization", "name": "온종일AI"},
+  "publisher": {"@type": "Organization", "name": "온종일AI"},
+  "datePublished": "2026-06-09"
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
+  <div class="nav-links">
+    <div class="nav-drop">
+      <button class="nav-drop-btn">업종별 <span class="nav-arrow">▾</span></button>
+      <div class="drop-menu">
+        <a href="../industry/hospital.html">🏥 병원·치과·한의원</a>
+        <a href="../industry/interior.html">🏠 인테리어·리모델링</a>
+        <a href="../industry/law.html">⚖️ 법률·세무·회계</a>
+        <a href="../industry/health.html">💪 헬스·뷰티·피트니스</a>
+        <a href="../industry/restaurant.html">🍽️ 식당·카페·배달</a>
+        <a href="../industry/academy.html">📚 학원·교습소</a>
+        <a href="../industry/realestate.html">🏢 부동산·공인중개사</a>
+        <a href="../industry/dermatology.html">💉 피부과·성형외과</a>
+        <a href="../industry/auto.html">🚗 자동차 정비·중고차</a>
+        <a href="../industry/cleaning.html">🧹 세탁소·청소업체</a>
+      </div>
+    </div>
+    <div class="nav-drop">
+      <button class="nav-drop-btn">AI 검색 가이드 <span class="nav-arrow">▾</span></button>
+      <div class="drop-menu">
+        <a href="what-is-seo.html">📖 SEO란 무엇인가?</a>
+        <a href="what-is-aeo.html">🤖 AEO란 무엇인가?</a>
+        <a href="what-is-geo.html">🔬 GEO란 무엇인가?</a>
+        <a href="how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
+        <a href="naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
+        <a href="chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
+        <a href="perplexity-optimization.html">🔍 Perplexity 최적화</a>
+        <a href="gemini-ai-overview.html">♊ Google AI Overviews</a>
+        <a href="claude-ai-search.html">🧠 Claude AI 검색</a>
+        <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="메뉴"><span></span><span></span><span></span></button>
+    <button class="theme-btn" id="themeBtn">🌙</button>
+    <button class="nav-cta">상담 신청하기</button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mob-section">
+    <div class="mob-section-title">업종별 가이드</div>
+    <a href="/industry/hospital.html">🏥 병원·치과·한의원</a>
+    <a href="/industry/interior.html">🏠 인테리어·리모델링</a>
+    <a href="/industry/law.html">⚖️ 법률·세무·회계</a>
+    <a href="/industry/health.html">💪 헬스·뷰티·피트니스</a>
+    <a href="/industry/restaurant.html">🍽️ 식당·카페·배달</a>
+    <a href="/industry/academy.html">📚 학원·교습소</a>
+    <a href="/industry/realestate.html">🏢 부동산·공인중개사</a>
+    <a href="/industry/dermatology.html">💉 피부과·성형외과</a>
+    <a href="/industry/auto.html">🚗 자동차 정비·중고차</a>
+    <a href="/industry/cleaning.html">🧹 세탁소·청소업체</a>
+  </div>
+  <div class="mob-section">
+    <div class="mob-section-title">AI 검색 가이드</div>
+    <a href="/guide/what-is-seo.html">📖 SEO란 무엇인가?</a>
+    <a href="/guide/what-is-aeo.html">🤖 AEO란 무엇인가?</a>
+    <a href="/guide/what-is-geo.html">🔬 GEO란 무엇인가?</a>
+    <a href="/guide/how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
+    <a href="/guide/naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
+    <a href="/guide/how-to-check-ai.html">🔎 AI 노출 직접 확인하기</a>
+    <a href="/guide/ai-seo-checklist.html">✅ AI 검색 최적화 체크리스트</a>
+    <a href="/guide/chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
+    <a href="/guide/perplexity-optimization.html">🔍 Perplexity 최적화</a>
+    <a href="/guide/gemini-ai-overview.html">♊ Google AI Overviews</a>
+    <a href="/guide/claude-ai-search.html">🧠 Claude AI 검색</a>
+    <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
+  </div>
+  <button class="mob-cta">무료 상담 신청하기 →</button>
+</div>
+
+<div class="breadcrumb">
+  <a href="../index.html">홈</a><span>›</span>
+  <a href="index.html">AI 검색 가이드</a><span>›</span>
+  robots.txt AI 봇 설정
+</div>
+
+<div class="article-hero">
+  <div class="article-hero-bg"></div>
+  <div class="article-category">기술 가이드 · robots.txt</div>
+  <h1>robots.txt<br><span class="hl">AI 봇 설정</span><br>완벽 가이드</h1>
+  <p>GPTBot(OpenAI), PerplexityBot(Perplexity), ClaudeBot(Anthropic), Googlebot(Google) 등 주요 AI 봇을 robots.txt에서 허용하는 방법을 각사 공식 문서 기반으로 정리합니다.</p>
+  <div class="article-meta">
+    <span>온종일AI 편집팀</span><span>·</span>
+    <span>2026년 6월 9일</span><span>·</span>
+    <span>약 5분 소요</span>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <p class="article-lead">
+    robots.txt는 웹 크롤러에게 어떤 페이지를 크롤링할 수 있는지 안내하는 표준 파일입니다. AI 검색 최적화에서 가장 먼저 확인해야 할 항목입니다. 모든 주요 AI 봇은 robots.txt를 준수한다고 공식적으로 밝히고 있습니다.
+  </p>
+
+  <div class="article-section">
+    <h2>robots.txt 기본 개념</h2>
+    <p>
+      robots.txt는 웹사이트 루트 디렉토리에 위치하는 텍스트 파일입니다. Robots Exclusion Protocol(REP)로도 불리며, IETF RFC 9309에 표준화되어 있습니다. (<a href="https://www.rfc-editor.org/rfc/rfc9309" target="_blank" rel="noopener" style="color:var(--accent)">RFC 9309 원문 →</a>)
+    </p>
+
+    <div class="tip-box">
+      <div class="tip-label">📋 robots.txt 기본 구조</div>
+      <p style="font-family:monospace;font-size:.85rem">
+        User-agent: [봇 이름]<br>
+        Allow: [허용할 경로]<br>
+        Disallow: [차단할 경로]<br><br>
+        # User-agent: * 는 모든 봇에 적용<br>
+        User-agent: *<br>
+        Allow: /
+      </p>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>주요 AI 봇 User-Agent 완전 정리</h2>
+    <p>각사 공식 문서를 기반으로 정리한 주요 AI 봇 User-Agent입니다.</p>
+
+    <div class="tip-box">
+      <div class="tip-label">🤖 OpenAI — GPTBot & ChatGPT-User</div>
+      <p style="font-family:monospace;font-size:.85rem">
+        GPTBot (학습 데이터 수집용):<br>
+        User-agent: GPTBot<br><br>
+        ChatGPT-User (실시간 브라우징용):<br>
+        User-agent: ChatGPT-User
+      </p>
+      <p style="font-size:.85rem;margin-top:8px">출처: <a href="https://platform.openai.com/docs/plugins/bot" target="_blank" rel="noopener" style="color:var(--accent)">OpenAI 공식 문서</a></p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">🔍 Perplexity AI — PerplexityBot</div>
+      <p style="font-family:monospace;font-size:.85rem">User-agent: PerplexityBot</p>
+      <p style="font-size:.85rem;margin-top:8px">출처: <a href="https://docs.perplexity.ai" target="_blank" rel="noopener" style="color:var(--accent)">Perplexity 공식 문서</a></p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">🧠 Anthropic — anthropic-ai (ClaudeBot)</div>
+      <p style="font-family:monospace;font-size:.85rem">
+        User-agent: anthropic-ai<br>
+        (구버전: User-agent: Claude-Web)
+      </p>
+      <p style="font-size:.85rem;margin-top:8px">출처: <a href="https://support.anthropic.com/en/articles/8896518-does-anthropic-crawl-the-web-and-how-can-site-owners-block-the-crawler" target="_blank" rel="noopener" style="color:var(--accent)">Anthropic 공식 지원 문서</a></p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">♊ Google — Googlebot & Google-Extended</div>
+      <p style="font-family:monospace;font-size:.85rem">
+        Googlebot (검색 인덱싱용):<br>
+        User-agent: Googlebot<br><br>
+        Google-Extended (Gemini AI 학습용):<br>
+        User-agent: Google-Extended
+      </p>
+      <p style="font-size:.85rem;margin-top:8px">출처: <a href="https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers" target="_blank" rel="noopener" style="color:var(--accent)">Google Search Central 공식 문서</a></p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">🍎 Apple — Applebot</div>
+      <p style="font-family:monospace;font-size:.85rem">User-agent: Applebot</p>
+      <p style="font-size:.85rem;margin-top:8px">출처: <a href="https://support.apple.com/en-us/111900" target="_blank" rel="noopener" style="color:var(--accent)">Apple 공식 Applebot 안내</a></p>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>AI 검색 최적화를 위한 권장 robots.txt</h2>
+    <p>
+      모든 주요 AI 봇을 허용하는 권장 robots.txt 설정입니다.
+    </p>
+
+    <div class="tip-box">
+      <div class="tip-label">✅ AI 검색 최적화 권장 robots.txt 전체 예시</div>
+      <p style="font-family:monospace;font-size:.85rem">
+        # 모든 봇 기본 허용<br>
+        User-agent: *<br>
+        Allow: /<br><br>
+        # OpenAI GPTBot (학습 데이터)<br>
+        User-agent: GPTBot<br>
+        Allow: /<br><br>
+        # OpenAI ChatGPT-User (브라우징)<br>
+        User-agent: ChatGPT-User<br>
+        Allow: /<br><br>
+        # Perplexity AI<br>
+        User-agent: PerplexityBot<br>
+        Allow: /<br><br>
+        # Anthropic Claude<br>
+        User-agent: anthropic-ai<br>
+        Allow: /<br><br>
+        # Google Gemini AI 학습<br>
+        User-agent: Google-Extended<br>
+        Allow: /<br><br>
+        # Apple<br>
+        User-agent: Applebot<br>
+        Allow: /<br><br>
+        # Sitemap 위치<br>
+        Sitemap: https://우리도메인.com/sitemap.xml
+      </p>
+    </div>
+
+    <p>
+      실제 사이트에 적용할 때는 <code>우리도메인.com</code>을 실제 도메인으로 교체하고, robots.txt 파일을 도메인 루트에 업로드합니다.
+    </p>
+  </div>
+
+  <div class="article-section">
+    <h2>자주 묻는 질문</h2>
+
+    <div class="tip-box">
+      <div class="tip-label">Q. 현재 robots.txt를 어떻게 확인하나요?</div>
+      <p>브라우저에서 <code>https://우리도메인.com/robots.txt</code>로 직접 접근하면 현재 설정을 확인할 수 있습니다. 또는 온종일AI의 <a href="/analyze.html" style="color:var(--accent)">AI 최적화 진단기</a>에서 URL을 입력하면 GPTBot, PerplexityBot, ClaudeBot, Googlebot의 차단 여부를 자동으로 진단합니다.</p>
+    </div>
+    <div class="tip-box">
+      <div class="tip-label">Q. User-agent: * 로 모두 허용하면 AI 봇도 자동으로 허용되나요?</div>
+      <p>기술적으로는 그렇습니다. User-agent: * 에 Allow: / 를 설정하면 이름이 명시되지 않은 모든 봇을 허용합니다. 그러나 특정 봇에 대한 명시적 설정이 없으면 해당 봇이 robots.txt를 어떻게 해석하는지에 따라 결과가 다를 수 있습니다. 중요한 봇은 개별 명시 설정을 권장합니다.</p>
+    </div>
+    <div class="tip-box">
+      <div class="tip-label">Q. robots.txt 변경 후 AI 봇이 바로 재크롤링하나요?</div>
+      <p>AI 봇마다 다르지만, 일반적으로 robots.txt 변경 후 즉시 재크롤링되지 않습니다. 크롤링 주기는 봇마다 다르며, 사이트의 크롤링 빈도에 따라 수일~수주 후 변경 사항이 반영됩니다. Google Search Console을 통해 크롤링 재요청을 할 수 있으며, Bing Webmaster Tools도 유사한 기능을 제공합니다.</p>
+    </div>
+  </div>
+
+  <div class="article-related">
+    <h3>다음으로 읽어볼 가이드</h3>
+    <div class="related-grid">
+      <a href="gptbot-guide.html" class="related-card">
+        <div class="rc-cat">기술 가이드 · GPTBot</div>
+        <div class="rc-title">🤖 GPTBot 완전 가이드</div>
+      </a>
+      <a href="chatgpt-exposure.html" class="related-card">
+        <div class="rc-cat">AI 플랫폼 가이드 · ChatGPT</div>
+        <div class="rc-title">💬 ChatGPT에 내 업체 노출하기</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="cta fi">
+  <h2>내 사이트 AI 봇<br>차단 여부<br><span style="color:var(--accent)">무료로 진단받기</span></h2>
+  <p>URL 입력만으로 GPTBot, PerplexityBot, ClaudeBot 차단 여부를 즉시 확인합니다.</p>
+  <a href="/analyze.html" class="btn-primary" style="font-size:18px;padding:20px 48px;text-decoration:none;display:inline-block">AI 최적화 진단기 →</a>
+</div>
+
+<div class="article-wrap" style="max-width:900px;margin:0 auto;padding:40px 24px 20px">
+  <div class="article-section">
+    <h2 style="font-size:1.1rem;margin-bottom:12px">참고 출처</h2>
+    <ul style="font-size:.85rem;line-height:1.8;color:var(--text-sub)">
+      <li><a href="https://www.rfc-editor.org/rfc/rfc9309" target="_blank" rel="noopener" style="color:var(--accent)">IETF — RFC 9309 (Robots Exclusion Protocol 표준)</a></li>
+      <li><a href="https://platform.openai.com/docs/plugins/bot" target="_blank" rel="noopener" style="color:var(--accent)">OpenAI — GPTBot & ChatGPT-User 공식 안내</a></li>
+      <li><a href="https://docs.perplexity.ai" target="_blank" rel="noopener" style="color:var(--accent)">Perplexity AI — 공식 개발자 문서</a></li>
+      <li><a href="https://support.anthropic.com/en/articles/8896518-does-anthropic-crawl-the-web-and-how-can-site-owners-block-the-crawler" target="_blank" rel="noopener" style="color:var(--accent)">Anthropic — ClaudeBot 공식 안내</a></li>
+      <li><a href="https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers" target="_blank" rel="noopener" style="color:var(--accent)">Google Search Central — 크롤러 종류 공식 안내</a></li>
+      <li><a href="https://support.apple.com/en-us/111900" target="_blank" rel="noopener" style="color:var(--accent)">Apple — Applebot 공식 안내</a></li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
+  <div style="margin:8px 0;font-size:.85rem;color:var(--text-sub)">문의: <a href="mailto:tarry9653@daum.net" style="color:var(--accent)">tarry9653@daum.net</a></div>
+  <div class="fcopy">© 2026 온종일AI. AI 검색 최적화 컨설팅.</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
