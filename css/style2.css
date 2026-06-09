@@ -327,6 +327,8 @@ footer { background: var(--card-bg); border-top: 1px solid var(--border); paddin
 /* NAV LINKS & DROPDOWN */
 .nav-links { display: flex; align-items: center; gap: 4px; }
 .nav-drop { position: relative; }
+/* 버튼 아래 10px 투명 브릿지 — 틈을 지나는 동안 hover 유지 */
+.nav-drop::after { content: ''; position: absolute; bottom: -10px; left: 0; right: 0; height: 10px; }
 .nav-drop-btn { color: var(--sub); font-size: 14px; font-weight: 500; padding: 8px 14px; border-radius: 6px; background: none; border: none; cursor: pointer; font-family: inherit; transition: color .2s, background .2s; display: flex; align-items: center; gap: 5px; white-space: nowrap; }
 .nav-drop:hover .nav-drop-btn { color: var(--text); background: rgba(255,255,255,.04); }
 .nav-arrow { font-size: 9px; transition: transform .2s; }

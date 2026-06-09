@@ -284,22 +284,6 @@
   <div class="fcopy">© 2026 온종일AI. AI 검색 최적화 컨설팅 &nbsp;·&nbsp; 이메일: tarry9653@daum.net</div>
 </footer>
 
-<script>
-const themeBtn = document.getElementById('themeBtn');
-const html = document.documentElement;
-const saved = localStorage.getItem('theme') || 'dark';
-html.setAttribute('data-theme', saved);
-themeBtn.textContent = saved === 'dark' ? '🌙' : '☀️';
-themeBtn.onclick = () => {
-  const t = html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  html.setAttribute('data-theme', t);
-  localStorage.setItem('theme', t);
-  themeBtn.textContent = t === 'dark' ? '🌙' : '☀️';
-};
-document.getElementById('hamBtn').addEventListener('click', () => {
-  document.getElementById('hamBtn').classList.toggle('open');
-  document.getElementById('mobileMenu').classList.toggle('open');
-});
-</script>
+<script src="../js/main.js"></script>
 </body>
 </html>
