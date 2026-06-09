@@ -7,6 +7,7 @@
 <meta name="description" content="URL을 입력하면 SEO·AEO·GEO 최적화 현황을 즉시 분석해드립니다. PDF 저장 기능 포함.">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 <style>
 :root {
   --accent: #ff3b00;
@@ -550,8 +551,7 @@ function analyzeURL(parsed, rawUrl, realData) {
   const seo = {
     https: isHttps,
     cleanUrl: !hasQueryParams && pathDepth <= 4,
-    noKoreanDomain: !hasKoreanRaw,
-    punycode: hasPunycode,
+    noKoreanDomain: !hasKoreanRaw && !hasPunycode, // 퓨니코드=한글 도메인이므로 감점
     notSNS: !isSNS,
     notBlog: !isBlog,
     notDynamic: !hasDynamicParams,
@@ -956,150 +956,71 @@ function tagHTML(s) {
   return '<span class="tag tag-na">— 해당없음</span>';
 }
 
-// ─── PDF SAVE ────────────────────────────────
+// ─── PDF SAVE (html2canvas 방식 - 한글 완벽 지원) ────────────────
 async function savePDF(url, score) {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+  const btn = document.querySelector('.btn-pdf');
+  if (btn) { btn.disabled = true; btn.textContent = '⏳ PDF 생성 중...'; }
 
-  const date = new Date().toLocaleDateString('ko-KR');
-  const W = 210; const margin = 20;
+  try {
+    const { jsPDF } = window.jspdf;
+    const target = document.getElementById('resultsSection');
+    const date = new Date().toLocaleDateString('ko-KR');
 
-  // Header
-  doc.setFillColor(10, 10, 10);
-  doc.rect(0, 0, W, 40, 'F');
-  doc.setTextColor(255, 59, 0);
-  doc.setFontSize(22);
-  doc.setFont('helvetica', 'bold');
-  doc.text('AI Search Optimization Report', margin, 18);
-  doc.setTextColor(200, 200, 200);
-  doc.setFontSize(10);
-  doc.text('온종일AI | AI 검색 최적화 진단 리포트', margin, 28);
-  doc.text(date, W - margin, 28, { align: 'right' });
-
-  let y = 50;
-
-  // URL + Score
-  doc.setTextColor(50, 50, 50);
-  doc.setFontSize(11);
-  doc.setFont('helvetica', 'normal');
-  doc.text('분석 URL:', margin, y);
-  doc.setTextColor(255, 59, 0);
-  doc.text(url.length > 70 ? url.substring(0, 70) + '...' : url, margin + 22, y);
-  y += 10;
-
-  doc.setTextColor(50, 50, 50);
-  doc.setFontSize(11);
-  doc.text('종합 점수:', margin, y);
-  doc.setTextColor(255, 59, 0);
-  doc.setFontSize(28);
-  doc.setFont('helvetica', 'bold');
-  doc.text(score + ' / 100', margin + 24, y + 6);
-  y += 22;
-
-  // Divider
-  doc.setDrawColor(220, 220, 220);
-  doc.line(margin, y, W - margin, y);
-  y += 10;
-
-  // Checks
-  doc.setFontSize(13);
-  doc.setTextColor(30, 30, 30);
-  doc.setFont('helvetica', 'bold');
-  doc.text('항목별 분석 결과', margin, y);
-  y += 8;
-
-  doc.setFontSize(9);
-  doc.setFont('helvetica', 'normal');
-
-  const checks = document.querySelectorAll('.detail-table tbody tr');
-  checks.forEach(row => {
-    if (y > 270) { doc.addPage(); y = 20; }
-    const cells = row.querySelectorAll('td');
-    if (cells.length < 4) return;
-    const cat = cells[0].textContent.trim();
-    const label = cells[1].textContent.trim();
-    const status = cells[2].textContent.trim();
-    const detail = cells[3].textContent.trim();
-
-    const statusColor = status.includes('통과') ? [34,197,94] : status.includes('문제') ? [239,68,68] : [245,158,11];
-    doc.setFillColor(...statusColor);
-    doc.circle(margin + 2, y - 1, 1.5, 'F');
-
-    doc.setTextColor(80, 80, 80);
-    doc.setFont('helvetica', 'bold');
-    doc.text(`[${cat}] ${label}`, margin + 6, y);
-    doc.setTextColor(statusColor[0], statusColor[1], statusColor[2]);
-    doc.text(status, W - margin, y, { align: 'right' });
-    y += 5;
-
-    doc.setTextColor(120, 120, 120);
-    doc.setFont('helvetica', 'normal');
-    const lines = doc.splitTextToSize(detail, W - margin * 2 - 6);
-    lines.slice(0, 2).forEach(line => {
-      if (y > 270) { doc.addPage(); y = 20; }
-      doc.text(line, margin + 6, y);
-      y += 4.5;
+    // html2canvas로 결과 화면 캡처
+    const canvas = await html2canvas(target, {
+      scale: 2,
+      useCORS: true,
+      allowTaint: true,
+      backgroundColor: getComputedStyle(document.body).getPropertyValue('--bg').trim() || '#0a0a0a',
+      scrollY: 0,
+      windowWidth: 1200,
     });
-    y += 3;
-  });
 
-  // Recommendations
-  if (y > 240) { doc.addPage(); y = 20; }
-  doc.setDrawColor(220,220,220);
-  doc.line(margin, y, W - margin, y);
-  y += 10;
-  doc.setFontSize(13);
-  doc.setTextColor(30,30,30);
-  doc.setFont('helvetica','bold');
-  doc.text('우선순위별 개선 권장사항', margin, y);
-  y += 8;
+    const imgData = canvas.toDataURL('image/jpeg', 0.92);
+    const pageW = 210;
+    const pageH = 297;
+    const margin = 8;
+    const printW = pageW - margin * 2;
+    const ratio = printW / canvas.width;
+    const totalImgH = canvas.height * ratio;
 
-  const recoItems = document.querySelectorAll('.reco-item');
-  recoItems.forEach(item => {
-    if (y > 270) { doc.addPage(); y = 20; }
-    const title = item.querySelector('strong').textContent;
-    const desc  = item.querySelector('p').textContent;
-    const prioEl = item.querySelector('.reco-priority');
-    const prio = prioEl.textContent.trim();
-    const isHigh = prio === '높음';
-    const isMid  = prio === '중간';
+    const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
 
-    doc.setFillColor(isHigh ? 239 : isMid ? 245 : 59, isHigh ? 68 : isMid ? 158 : 130, isHigh ? 68 : isMid ? 11 : 246);
-    doc.roundedRect(margin, y - 4, 14, 6, 1, 1, 'F');
-    doc.setTextColor(255,255,255);
-    doc.setFontSize(7);
-    doc.setFont('helvetica','bold');
-    doc.text(prio, margin + 7, y, { align:'center' });
+    // 긴 이미지를 A4 페이지로 분할
+    const pageContentH = pageH - margin * 2;
+    let srcY = 0;
+    let pageNum = 0;
 
-    doc.setFontSize(10);
-    doc.setTextColor(30,30,30);
-    doc.setFont('helvetica','bold');
-    doc.text(title, margin + 18, y);
-    y += 6;
+    while (srcY < canvas.height) {
+      if (pageNum > 0) doc.addPage();
 
-    doc.setFontSize(8.5);
-    doc.setFont('helvetica','normal');
-    doc.setTextColor(100,100,100);
-    const lines = doc.splitTextToSize(desc, W - margin * 2 - 18);
-    lines.slice(0, 3).forEach(line => {
-      if (y > 272) { doc.addPage(); y = 20; }
-      doc.text(line, margin + 18, y);
-      y += 4.5;
-    });
-    y += 4;
-  });
+      const srcSliceH = Math.min(pageContentH / ratio, canvas.height - srcY);
+      const dstH = srcSliceH * ratio;
 
-  // Footer
-  const totalPages = doc.internal.getNumberOfPages();
-  for (let i = 1; i <= totalPages; i++) {
-    doc.setPage(i);
-    doc.setFontSize(8);
-    doc.setTextColor(180,180,180);
-    doc.text(`온종일AI AI 검색 최적화 진단 · ${date} · Page ${i}/${totalPages}`, W / 2, 290, { align: 'center' });
+      // 해당 슬라이스만 잘라낸 임시 캔버스
+      const slice = document.createElement('canvas');
+      slice.width = canvas.width;
+      slice.height = srcSliceH;
+      slice.getContext('2d').drawImage(canvas, 0, srcY, canvas.width, srcSliceH, 0, 0, canvas.width, srcSliceH);
+
+      doc.addImage(slice.toDataURL('image/jpeg', 0.92), 'JPEG', margin, margin, printW, dstH);
+
+      // 페이지 번호
+      doc.setFontSize(7);
+      doc.setTextColor(150, 150, 150);
+      doc.text(`온종일AI 진단 리포트 · ${date}`, pageW / 2, pageH - 4, { align: 'center' });
+
+      srcY += srcSliceH;
+      pageNum++;
+    }
+
+    const safeName = url.replace(/https?:\/\//, '').replace(/[^a-zA-Z0-9가-힣._-]/g, '_').substring(0, 30);
+    doc.save(`AI진단_${safeName}_${date}.pdf`);
+  } catch (e) {
+    alert('PDF 저장 중 오류가 발생했습니다: ' + e.message);
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = '📄 PDF로 저장'; }
   }
-
-  const filename = `AI진단_${url.replace(/https?:\/\//, '').replace(/[^a-zA-Z0-9가-힣]/g, '_').substring(0,30)}_${date}.pdf`;
-  doc.save(filename);
 }
 </script>
 </body>
