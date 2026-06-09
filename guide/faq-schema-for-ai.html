@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQPage Schema — AI가 내 답변을 그대로 인용하게 만드는 설정 | 온종일AI</title>
+<meta name="description" content="FAQPage Schema Markup이 없으면 ChatGPT·Perplexity가 경쟁사 내용을 인용합니다.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ai.xn--zk5biyyw.com/guide/faq-schema-for-ai.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style2.css">
+</head>
+<body>
+<nav>
+  <div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
+  <div class="nav-links">
+    <div class="nav-drop">
+      <button class="nav-drop-btn">업종별 <span class="nav-arrow">▾</span></button>
+      <div class="drop-menu">
+        <a href="../industry/hospital.html">🏥 병원·치과·한의원</a>
+        <a href="../industry/interior.html">🏠 인테리어·리모델링</a>
+        <a href="../industry/law.html">⚖️ 법률·세무·회계</a>
+        <a href="../industry/health.html">💪 헬스·뷰티·피트니스</a>
+        <a href="../industry/restaurant.html">🍽️ 식당·카페·배달</a>
+        <a href="../industry/academy.html">📚 학원·교습소</a>
+        <a href="../industry/realestate.html">🏢 부동산·공인중개사</a>
+        <a href="../industry/dermatology.html">💉 피부과·성형외과</a>
+        <a href="../industry/auto.html">🚗 자동차 정비·중고차</a>
+        <a href="../industry/cleaning.html">🧹 세탁소·청소업체</a>
+      </div>
+    </div>
+    <div class="nav-drop">
+      <button class="nav-drop-btn">온라인 마케팅 <span class="nav-arrow">▾</span></button>
+      <div class="drop-menu">
+        <a href="naver-place-guide.html">📍 네이버 플레이스 가이드</a>
+        <a href="google-business-profile.html">🗺️ 구글 비즈니스 프로필</a>
+        <a href="online-marketing-start.html">🚀 온라인 마케팅 시작하기</a>
+        <a href="review-management.html">⭐ 온라인 리뷰 관리</a>
+        <a href="free-marketing-methods.html">💡 무료 마케팅 방법</a>
+      </div>
+    </div>
+    <div class="nav-drop">
+      <button class="nav-drop-btn">🛠️ AI 진단기 <span class="nav-arrow">▾</span></button>
+      <div class="drop-menu">
+        <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
+        <a href="/analyze-guide.html">📖 사용방법</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="메뉴"><span></span><span></span><span></span></button>
+    <button class="theme-btn" id="themeBtn">🌙</button>
+    <a href="/contact.html" class="nav-cta" style="text-decoration:none">상담 신청하기</a>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mob-section">
+    <div class="mob-section-title">AI 진단기</div>
+    <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
+  </div>
+  <a href="/contact.html" class="mob-cta" style="text-decoration:none;display:block;text-align:center">무료 상담 신청하기 →</a>
+</div>
+<div class="breadcrumb">
+  <a href="../index.html">홈</a><span>›</span>
+  <a href="/analyze.html">AI 진단기</a><span>›</span>
+  FAQPage Schema
+</div>
+<div class="article-hero">
+  <div class="article-hero-bg"></div>
+  <div class="article-category">AI 최적화 · FAQPage Schema</div>
+  <h1>AI가 경쟁사 답변을<br><span class="hl">인용하는 이유</span></h1>
+  <p>고객이 AI에게 질문할 때 우리 업체 내용이 그 답변에 포함되길 원한다면, 단순히 글을 쓰는 것만으로는 부족합니다.</p>
+</div>
+<div class="article-wrap">
+
+  <h2 class="art-h2">이게 무엇인가요?</h2>
+  <p style="color:var(--sub);line-height:1.9;margin-bottom:32px;">AI 검색 플랫폼은 특정 질문에 답할 때 FAQPage Schema가 적용된 사이트의 내용을 우선 인용합니다. 이 설정이 없으면 아무리 좋은 콘텐츠를 써도 AI는 경쟁 업체의 답변을 선택할 가능성이 높아집니다. Schema Markup은 AI에게 이 페이지의 어떤 부분이 질문이고 어떤 부분이 답변인지 구조적으로 알려주는 신호입니다.</p>
+
+  <div style="background:rgba(255,59,0,.08);border:1px solid rgba(255,59,0,.25);border-radius:16px;padding:28px 32px;margin-bottom:40px;">
+    <h3 style="margin:0 0 16px;font-size:18px;font-weight:800;">이 항목이 없는 사이트에서 일어나는 일</h3>
+    <div style="display:grid;gap:12px;">
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <span style="font-size:20px;flex-shrink:0;">❌</span>
+        <p style="margin:0;color:var(--sub);font-size:14px;line-height:1.7;">강남 임플란트 가격을 물어보는 고객에게 경쟁 업체 페이지가 인용되고 내 업체는 나오지 않습니다.</p>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <span style="font-size:20px;flex-shrink:0;">❌</span>
+        <p style="margin:0;color:var(--sub);font-size:14px;line-height:1.7;">사이트에 글이 많아도 AI가 어디를 읽어야 할지 몰라서 그냥 지나칩니다.</p>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start;">
+        <span style="font-size:20px;flex-shrink:0;">❌</span>
+        <p style="margin:0;color:var(--sub);font-size:14px;line-height:1.7;">같은 질문에 매번 다른 업체들이 번갈아 추천받는 동안 내 업체는 계속 빠집니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="art-h2">왜 전문가가 필요한가요?</h2>
+  <div style="display:grid;gap:12px;margin-bottom:40px;">
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:18px 22px;display:flex;gap:14px;">
+      <span style="font-size:22px;flex-shrink:0;">⚠️</span>
+      <div><h3 style="margin:0 0 6px;font-size:15px;font-weight:700;">작성 위치와 형식이 정확해야 효과가 있습니다</h3>
+      <p style="margin:0;color:var(--sub);font-size:14px;line-height:1.7;">Schema Markup은 HTML 파일의 특정 위치에 정해진 형식으로 삽입해야 합니다. 위치가 틀리거나 형식이 어긋나면 AI가 인식하지 못하고 아무 효과가 없습니다.</p></div>
+    </div>
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:18px 22px;display:flex;gap:14px;">
+      <span style="font-size:22px;flex-shrink:0;">⚠️</span>
+      <div><h3 style="margin:0 0 6px;font-size:15px;font-weight:700;">질문·답변의 구조가 AI 인용 기준에 맞아야 합니다</h3>
+      <p style="margin:0;color:var(--sub);font-size:14px;line-height:1.7;">단순히 코드만 넣는다고 되지 않습니다. 질문의 표현 방식과 답변의 길이·구체성이 AI 인용 기준에 맞게 작성되어야 실제 인용이 일어납니다.</p></div>
+    </div>
+    <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:18px 22px;display:flex;gap:14px;">
+      <span style="font-size:22px;flex-shrink:0;">⚠️</span>
+      <div><h3 style="margin:0 0 6px;font-size:15px;font-weight:700;">구글 검증까지 통과해야 적용이 완료됩니다</h3>
+      <p style="margin:0;color:var(--sub);font-size:14px;line-height:1.7;">Schema를 삽입했어도 구글이 정상 인식하는지 별도 도구로 검증해야 합니다. 이 과정을 빠뜨리면 설정이 된 것처럼 보여도 실제로는 작동하지 않습니다.</p></div>
+    </div>
+  </div>
+
+  <h2 class="art-h2">온종일AI는 어떻게 처리하나요?</h2>
+  <p style="color:var(--sub);line-height:1.9;margin-bottom:32px;">온종일AI는 업종과 고객 질문 패턴을 분석해 <strong style='color:var(--text)'>AI가 실제로 인용하는 형식의 FAQPage Schema</strong>를 설계·적용합니다. 적용 후 구글 검증까지 완료하고, ChatGPT·Perplexity에서 인용이 시작되는지 모니터링합니다.</p>
+
+  <div style="background:linear-gradient(135deg,rgba(255,59,0,.1),rgba(255,100,50,.05));border:1px solid rgba(255,59,0,.25);border-radius:18px;padding:36px;text-align:center;margin-bottom:40px;">
+    <p style="margin:0 0 8px;font-size:13px;color:var(--sub);">진단기에서 이 항목이 FAIL로 나왔다면</p>
+    <h3 style="margin:0 0 20px;font-size:20px;font-weight:900;">지금 바로 온종일AI에 맡기세요</h3>
+    <a href="/analyze.html" style="display:inline-block;background:var(--card-bg);border:1px solid var(--border);color:var(--text);font-weight:600;padding:13px 24px;border-radius:9px;text-decoration:none;font-size:14px;margin-right:10px;">🛠️ 무료 진단 다시 하기</a>
+    <a href="mailto:tarry9653@daum.net?subject=%5BAI%20%EC%B5%9C%EC%A0%81%ED%99%94%20%EC%83%81%EB%8B%B4%5D" style="display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:13px 24px;border-radius:9px;text-decoration:none;font-size:14px;">온종일AI에 맡기기 →</a>
+  </div>
+
+</div>
+<footer>
+  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
+  <div class="flinks">
+    <a href="/about.html">서비스 소개</a>
+    <a href="/contact.html">문의하기</a>
+    <a href="/privacy.html">개인정보처리방침</a>
+  </div>
+  <div class="fcopy">© 2026 온종일AI. AI 검색 최적화 컨설팅 &nbsp;·&nbsp; 이메일: tarry9653@daum.net</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>

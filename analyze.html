@@ -952,7 +952,7 @@ function renderResults(d, rawUrl, realData) {
           <td style="color:var(--sub);white-space:nowrap">${catLabel(c.cat)}</td>
           <td style="font-weight:500;white-space:nowrap">${c.label}</td>
           <td>${tagHTML(c.status)}</td>
-          <td style="color:var(--sub);line-height:1.6">${c.detail}</td>
+          <td style="color:var(--sub);line-height:1.6">${c.detail}${(c.status === 'fail' || c.status === 'warn') && guideLink(c.label) ? ` <a href="${guideLink(c.label)}" target="_blank" style="color:var(--accent);font-size:12px;text-decoration:none;white-space:nowrap;margin-left:6px;">→ 해결 방법 보기</a>` : ''}</td>
         </tr>`).join('')}
       </tbody>
     </table>
@@ -1022,6 +1022,19 @@ function renderCatCard(name, checks, score) {
 
 function catLabel(cat) {
   return { tech:'기술 설정', aeo:'AEO', geo:'GEO', trust:'신뢰성' }[cat] || cat;
+}
+
+function guideLink(label) {
+  const map = {
+    'AI 봇 크롤링 (robots.txt 실측)': '/guide/ai-bot-access.html',
+    'FAQPage Schema Markup': '/guide/faq-schema-for-ai.html',
+    'Schema 완성도 (비즈니스)': '/guide/business-schema-for-ai.html',
+    '메타 디스크립션': '/guide/meta-description-ai.html',
+    'sitemap.xml': '/guide/sitemap-for-ai.html',
+    'H1/H2/H3 제목 계층 구조': '/guide/heading-structure-ai.html',
+    '이미지 alt 텍스트': '/guide/image-alt-for-ai.html',
+  };
+  return map[label] || null;
 }
 
 function tagHTML(s) {
