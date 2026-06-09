@@ -1031,7 +1031,7 @@ function tagHTML(s) {
   return '<span class="tag tag-na">— 해당없음</span>';
 }
 
-// ─── PDF SAVE (html2canvas 방식 - 한글 완벽 지원) ────────────────
+// ─── PDF SAVE ────────────────────────────────────────────────────
 async function savePDF(url, score) {
   const btn = document.querySelector('.btn-pdf');
   if (btn) { btn.disabled = true; btn.textContent = '⏳ PDF 생성 중...'; }
@@ -1040,29 +1040,47 @@ async function savePDF(url, score) {
     const { jsPDF } = window.jspdf;
     const target = document.getElementById('resultsSection');
     const date = new Date().toLocaleDateString('ko-KR');
+    const bgColor = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim() || '#0a0a0a';
 
-    // html2canvas로 결과 화면 캡처
+    // 본문 캡처
     const canvas = await html2canvas(target, {
       scale: 2,
       useCORS: true,
       allowTaint: true,
-      backgroundColor: getComputedStyle(document.body).getPropertyValue('--bg').trim() || '#0a0a0a',
+      backgroundColor: bgColor,
       scrollY: 0,
       windowWidth: 1200,
     });
 
-    const imgData = canvas.toDataURL('image/jpeg', 0.92);
+    // 푸터 텍스트를 DOM 요소로 렌더링 → 이미지로 변환 (한글 깨짐 방지)
+    const footerDiv = document.createElement('div');
+    footerDiv.style.cssText = [
+      'position:fixed', 'left:-9999px', 'top:0',
+      'width:1200px', 'padding:5px 0',
+      'font-family:"Noto Sans KR",sans-serif',
+      'font-size:16px', 'color:#888',
+      'text-align:center',
+      `background:${bgColor}`,
+      'white-space:nowrap'
+    ].join(';');
+    footerDiv.textContent = `온종일AI 진단 리포트  ·  ${date}`;
+    document.body.appendChild(footerDiv);
+    const footerCanvas = await html2canvas(footerDiv, {
+      scale: 2, useCORS: true, backgroundColor: bgColor
+    });
+    document.body.removeChild(footerDiv);
+
     const pageW = 210;
     const pageH = 297;
     const margin = 8;
     const printW = pageW - margin * 2;
     const ratio = printW / canvas.width;
-    const totalImgH = canvas.height * ratio;
+    const footerH = footerCanvas.height * (printW / footerCanvas.width);
+    const pageContentH = pageH - margin * 2 - footerH - 2;
 
     const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4' });
+    const footerImgData = footerCanvas.toDataURL('image/png');
 
-    // 긴 이미지를 A4 페이지로 분할
-    const pageContentH = pageH - margin * 2;
     let srcY = 0;
     let pageNum = 0;
 
@@ -1072,18 +1090,17 @@ async function savePDF(url, score) {
       const srcSliceH = Math.min(pageContentH / ratio, canvas.height - srcY);
       const dstH = srcSliceH * ratio;
 
-      // 해당 슬라이스만 잘라낸 임시 캔버스
       const slice = document.createElement('canvas');
       slice.width = canvas.width;
-      slice.height = srcSliceH;
-      slice.getContext('2d').drawImage(canvas, 0, srcY, canvas.width, srcSliceH, 0, 0, canvas.width, srcSliceH);
-
+      slice.height = Math.ceil(srcSliceH);
+      slice.getContext('2d').drawImage(
+        canvas, 0, srcY, canvas.width, Math.ceil(srcSliceH),
+        0, 0, canvas.width, Math.ceil(srcSliceH)
+      );
       doc.addImage(slice.toDataURL('image/jpeg', 0.92), 'JPEG', margin, margin, printW, dstH);
 
-      // 페이지 번호
-      doc.setFontSize(7);
-      doc.setTextColor(150, 150, 150);
-      doc.text(`온종일AI 진단 리포트 · ${date}`, pageW / 2, pageH - 4, { align: 'center' });
+      // 푸터 이미지 삽입 (한글 깨짐 없음)
+      doc.addImage(footerImgData, 'PNG', margin, pageH - footerH - 2, printW, footerH);
 
       srcY += srcSliceH;
       pageNum++;
