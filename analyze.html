@@ -558,11 +558,12 @@ function analyzeURL(parsed, rawUrl, realData) {
     commonTLD: isCommonTLD,
   };
 
-  // 실측 데이터가 있으면 우선 사용
+  // 실측 데이터
   const rPage = realData?.page;
   const rRobots = realData?.robots;
   const rSitemap = realData?.sitemap;
   const hasReal = !!rPage && !rPage.error;
+  const E = rPage?.eeat;
 
   const aeo = {
     independentDomain: !isBlog && !isSNS,
@@ -604,9 +605,23 @@ function analyzeURL(parsed, rawUrl, realData) {
     (Object.values(tech).filter(Boolean).length / Object.values(tech).length) * 100
   );
 
-  const total = Math.round((seoScore * 0.25 + aeoScore * 0.3 + geoScore * 0.25 + techScore * 0.2));
+  // 콘텐츠 품질 점수 (실측 데이터 있을 때만)
+  const contentScore = hasReal ? Math.round((([
+    rPage.hasEnoughContent,
+    rPage.imgAltRatio >= 80,
+    rPage.hasMobileViewport,
+    rPage.isProperHierarchy,
+    (E?.eatScore || 0) >= 2,
+    (E?.napScore || 0) >= 1,
+    rPage.hasCitations,
+    rPage.hasFAQInHTML,
+  ].filter(Boolean).length / 8) * 100)) : null;
 
-  const params = { isHttps, isBlog, isSNS, likelyNaver, likelyKakao, hasQueryParams, hasDynamicParams, pathDepth, isCommonTLD, isKoreanDomain, hasPunycode, hasKoreanRaw, likelyWordPress, likelyShopify, host, parsed, rPage, rRobots, rSitemap, hasReal };
+  const total = contentScore !== null
+    ? Math.round(seoScore * 0.2 + aeoScore * 0.25 + geoScore * 0.2 + techScore * 0.15 + contentScore * 0.2)
+    : Math.round(seoScore * 0.25 + aeoScore * 0.3 + geoScore * 0.25 + techScore * 0.2);
+
+  const params = { isHttps, isBlog, isSNS, likelyNaver, likelyKakao, hasQueryParams, hasDynamicParams, pathDepth, isCommonTLD, isKoreanDomain, hasPunycode, hasKoreanRaw, likelyWordPress, likelyShopify, host, parsed, rPage, rRobots, rSitemap, hasReal, E };
 
   // 체크 항목 생성
   const checks = buildChecks(params);
@@ -614,7 +629,7 @@ function analyzeURL(parsed, rawUrl, realData) {
   // 추천사항 생성
   const recos = buildRecos({ isHttps, isBlog, isSNS, likelyNaver, hasQueryParams, hasDynamicParams, pathDepth, isKoreanDomain, hasPunycode, aeoScore, geoScore, rPage, rRobots, rSitemap, hasReal });
 
-  return { seoScore, aeoScore, geoScore, techScore, total, checks, recos, host, isBlog, isSNS, likelyNaver, likelyShopify, likelyWordPress, hasReal };
+  return { seoScore, aeoScore, geoScore, techScore, contentScore, total, checks, recos, host, isBlog, isSNS, likelyNaver, likelyShopify, likelyWordPress, hasReal };
 }
 
 function buildChecks(p) {
@@ -670,12 +685,20 @@ function buildChecks(p) {
         return '퓨니코드 도메인입니다. og:url, og:image 메타태그에 퓨니코드 형식으로 일관되게 사용되어야 합니다.';
       })() },
     ...(hasReal ? [
-      { cat:'tech', label:'메타 디스크립션', status: S.hasDescription ? 'pass' : 'warn',
-        detail: S.hasDescription ? `메타 디스크립션이 설정되어 있습니다: "${(S.meta?.description||'').substring(0,80)}..."` : '메타 디스크립션이 없습니다. 검색 결과 미리보기와 AI 요약에 사용되므로 160자 이내로 작성하세요.' },
-      { cat:'tech', label:'OG 이미지 (소셜 공유)', status: S.hasOgImage ? 'pass' : 'warn',
-        detail: S.hasOgImage ? 'OG 이미지가 설정되어 있습니다. 소셜 공유 시 미리보기 이미지가 표시됩니다.' : 'og:image 메타태그가 없습니다. 카카오톡·SNS 공유 시 이미지가 표시되지 않습니다.' },
+      { cat:'tech', label:'메타 디스크립션', status: S.hasDescription ? (S.descriptionLength >= 50 && S.descriptionLength <= 160 ? 'pass' : 'warn') : 'fail',
+        detail: S.hasDescription
+          ? (S.descriptionLength < 50 ? `메타 디스크립션이 너무 짧습니다(${S.descriptionLength}자). 50~160자를 권장합니다.`
+            : S.descriptionLength > 160 ? `메타 디스크립션이 너무 깁니다(${S.descriptionLength}자). 160자 이내로 줄이세요.`
+            : `메타 디스크립션 ${S.descriptionLength}자. 적절한 길이입니다.`)
+          : '메타 디스크립션이 없습니다. 검색 결과 미리보기와 AI 요약에 직접 사용됩니다.' },
+      { cat:'tech', label:'OG 이미지 · Twitter Card', status: S.hasOgImage ? 'pass' : 'warn',
+        detail: S.hasOgImage ? `OG 이미지 설정됨${S.hasTwitterCard ? ' + Twitter Card 설정됨' : ' (Twitter Card 없음 — 선택사항)'}. 소셜 공유 미리보기 표시됩니다.` : 'og:image가 없습니다. 카카오톡·SNS 공유 시 이미지가 표시되지 않습니다.' },
+      { cat:'tech', label:'모바일 뷰포트 설정', status: S.hasMobileViewport ? 'pass' : 'fail',
+        detail: S.hasMobileViewport ? '모바일 뷰포트가 설정되어 있습니다. 스마트폰에서 정상 표시됩니다.' : '<meta name="viewport">가 없습니다. 모바일 기기에서 레이아웃이 깨집니다. AI 검색 사용자의 70%는 모바일입니다.' },
       { cat:'tech', label:'페이지 응답 속도', status: S.responseTime < 2000 ? 'pass' : S.responseTime < 4000 ? 'warn' : 'fail',
-        detail: `응답 시간: ${S.responseTime}ms. ${S.responseTime < 2000 ? 'AI 봇 크롤링에 적합한 속도입니다.' : S.responseTime < 4000 ? '응답이 다소 느립니다. 2초 이하를 권장합니다.' : '응답이 너무 느립니다. 서버 최적화가 필요합니다.'}` },
+        detail: `응답 시간: ${S.responseTime}ms. ${S.responseTime < 2000 ? 'AI 봇 크롤링에 최적입니다.' : S.responseTime < 4000 ? '응답이 다소 느립니다. 2초 이하를 권장합니다.' : '응답이 너무 느립니다. AI 봇은 타임아웃 시 크롤링을 건너뜁니다.'}` },
+      { cat:'tech', label:'페이지 색인 허용 여부', status: S.isIndexable ? 'pass' : 'fail',
+        detail: S.isIndexable ? `robots 메타태그: "${S.meta?.robots || '없음 (기본 index, follow)'}". AI 봇과 구글 모두 수집 가능합니다.` : `robots: "${S.meta?.robots}" — noindex가 설정되어 있어 AI와 구글이 이 페이지를 수집하지 않습니다.` },
     ] : []),
 
     // AEO 섹션
@@ -706,6 +729,16 @@ function buildChecks(p) {
         : ('URL에서 FAQ/Q&A 패턴 확인 불가. AI 인용 최적화를 위해 질문-답변 구조 페이지 제작을 권장합니다.') },
     { cat:'aeo', label:'플랫폼 AI 봇 차단 여부', status: p.likelyNaver ? 'fail' : (!p.isSNS ? 'pass' : 'warn'),
       detail: p.likelyNaver ? '네이버는 GPTBot, PerplexityBot, ClaudeBot을 공식 차단합니다.' : (!p.isSNS ? '알려진 AI 봇 차단 정책이 없는 도메인입니다.' : '이 플랫폼의 AI 봇 차단 정책을 별도로 확인하세요.') },
+    ...(hasReal ? [
+      { cat:'aeo', label:'Schema 완성도 (비즈니스)', status: S.businessScore >= 5 ? 'pass' : S.businessScore >= 3 ? 'warn' : (S.hasLocalBusinessSchema ? 'fail' : 'warn'),
+        detail: S.businessFields
+          ? `${S.hasLocalBusinessSchema ? 'LocalBusiness/ProfessionalService Schema 감지됨.' : '비즈니스 Schema 없음.'} 필드 완성도: ${S.businessScore || 0}/7 — ${['이름','설명','URL','서비스지역','전화번호','주소','서비스목록'].map((f,i) => (Object.values(S.businessFields||{})[i] ? '✓' : '✗') + f).join(' ')}`
+          : 'LocalBusiness/ProfessionalService Schema가 없습니다. 지역 비즈니스라면 필수 적용 항목입니다.' },
+      { cat:'aeo', label:'FAQ Schema 완성도', status: S.faqComplete === true ? 'pass' : S.faqCount > 0 ? 'warn' : (S.hasFAQPageSchema ? 'fail' : 'warn'),
+        detail: S.faqCount > 0
+          ? `FAQ ${S.faqCount}개 등록. ${S.faqComplete ? '모든 질문에 충분한 답변이 작성되어 있습니다.' : '일부 질문의 답변이 너무 짧습니다. 각 답변은 20자 이상이어야 합니다.'}`
+          : 'FAQPage Schema가 없습니다. 3개 이상의 질문-답변을 JSON-LD로 추가하세요.' },
+    ] : []),
 
     // GEO 섹션
     { cat:'geo', label:'독립 도메인 기반 여부', status: (!p.isBlog && !p.isSNS) ? 'pass' : 'fail',
@@ -731,8 +764,25 @@ function buildChecks(p) {
     { cat:'geo', label:'CMS 플랫폼 최적화 가능성', status: p.likelyWordPress ? 'pass' : (p.likelyShopify ? 'warn' : ((!p.isBlog && !p.isSNS) ? 'pass' : 'warn')),
       detail: p.likelyWordPress ? 'WordPress 기반으로 추정됩니다. Yoast SEO 플러그인으로 Schema Markup 추가가 쉽습니다.' : p.likelyShopify ? 'Shopify 기반입니다. Schema Markup 앱을 설치하세요.' : ((!p.isBlog && !p.isSNS) ? '커스텀 사이트입니다. Schema Markup을 직접 HTML에 삽입 가능합니다.' : '이 플랫폼에서는 GEO 최적화 요소 추가가 제한됩니다.') },
     ...(hasReal && S.headings ? [
-      { cat:'geo', label:'H1/H2 제목 구조', status: S.headings.h1Count === 1 && S.headings.h2Count >= 2 ? 'pass' : S.headings.h1Count === 0 ? 'fail' : 'warn',
-        detail: S.headings.h1Count === 0 ? 'H1 태그가 없습니다. 페이지 주제를 명확히 전달하는 H1을 반드시 추가하세요.' : S.headings.h1Count > 1 ? `H1이 ${S.headings.h1Count}개입니다. H1은 페이지당 1개만 권장합니다.` : `H1 1개, H2 ${S.headings.h2Count}개. AI가 페이지 구조를 쉽게 파악할 수 있습니다.` },
+      { cat:'geo', label:'H1/H2/H3 제목 계층 구조', status:
+          S.headings.h1Count === 0 ? 'fail' :
+          S.headings.h1Count > 1 ? 'warn' :
+          (!S.headings.isProperHierarchy) ? 'warn' :
+          S.headings.h2Count >= 2 ? 'pass' : 'warn',
+        detail: S.headings.h1Count === 0 ? 'H1 태그가 없습니다. 페이지당 H1이 1개 있어야 AI가 핵심 주제를 파악합니다.'
+          : S.headings.h1Count > 1 ? `H1이 ${S.headings.h1Count}개입니다. H1은 페이지당 1개만 권장합니다.`
+          : !S.headings.isProperHierarchy ? `제목 계층이 불규칙합니다(H${S.headings.hierarchySkips}레벨 건너뜀). H1→H2→H3 순서로 사용하세요.`
+          : `H1 ${S.headings.h1Count}개 / H2 ${S.headings.h2Count}개 / H3 ${S.headings.h3Count}개. 계층 구조가 올바릅니다.` },
+      { cat:'geo', label:'본문 콘텐츠 분량', status: S.wordCount >= 500 ? 'pass' : S.wordCount >= 200 ? 'warn' : 'fail',
+        detail: `본문 약 ${S.wordCount}자. ${S.wordCount >= 500 ? 'AI가 인용하기 충분한 콘텐츠 분량입니다.' : S.wordCount >= 200 ? '콘텐츠가 다소 짧습니다. 500자 이상을 권장합니다.' : '콘텐츠가 너무 짧습니다. AI는 내용이 충분한 페이지를 우선 인용합니다.'}` },
+      { cat:'geo', label:'외부 인용 링크 (권위성)', status: S.citationCount > 0 ? 'pass' : S.externalLinkCount > 0 ? 'warn' : 'warn',
+        detail: S.citationCount > 0
+          ? `권위 있는 외부 출처 ${S.citationCount}개 인용됨. GEO 연구에 따르면 통계·인용 추가 시 AI 인용률 41% 향상됩니다.`
+          : S.externalLinkCount > 0 ? `외부 링크 ${S.externalLinkCount}개 있음. Wikipedia, 정부 기관, 학술 자료 등 권위 있는 출처를 추가하면 GEO 점수가 높아집니다.`
+          : '외부 링크가 없습니다. 신뢰할 수 있는 출처(정부기관, 학술자료)를 인용하면 AI 신뢰도가 높아집니다.' },
+      { cat:'geo', label:'이미지 alt 텍스트', status: S.imgTotal === 0 ? 'warn' : S.imgAltRatio >= 90 ? 'pass' : S.imgAltRatio >= 60 ? 'warn' : 'fail',
+        detail: S.imgTotal === 0 ? '이미지가 없습니다. 관련 이미지 추가 시 콘텐츠 품질이 향상됩니다.'
+          : `이미지 ${S.imgTotal}개 중 ${S.imgWithAlt || Math.round(S.imgTotal * S.imgAltRatio / 100)}개에 alt 텍스트 있음 (${S.imgAltRatio}%). ${S.imgAltRatio >= 90 ? 'AI 크롤러가 이미지 맥락을 이해할 수 있습니다.' : '나머지 이미지에 alt 텍스트를 추가하세요.'}` },
     ] : []),
 
     // 신뢰성 섹션
@@ -742,6 +792,25 @@ function buildChecks(p) {
       detail: p.isHttps ? 'HTTPS 적용으로 AI 봇과 구글 모두 기본 신뢰 신호를 확인합니다.' : 'HTTP 사이트입니다. 즉시 SSL 인증서를 발급받아야 합니다.' },
     { cat:'trust', label:'소셜 플랫폼 외부 링크 의존', status: (!p.isSNS) ? 'pass' : 'warn',
       detail: (!p.isSNS) ? '독립 사이트입니다. AI가 직접 크롤링할 수 있습니다.' : 'SNS 외부 링크는 AI 인용의 직접 소스가 되기 어렵습니다. 독립 사이트를 기반으로 해야 합니다.' },
+    ...(hasReal ? [
+      { cat:'trust', label:'E-E-A-T 신호 (전문성·신뢰성)', status: S.eeat?.eatScore >= 3 ? 'pass' : S.eeat?.eatScore >= 1 ? 'warn' : 'fail',
+        detail: `감지된 E-E-A-T 신호 ${S.eeat?.eatScore || 0}/5 — `
+          + `${S.eeat?.hasAboutPage ? '✓' : '✗'}소개페이지 `
+          + `${S.eeat?.hasContactPage ? '✓' : '✗'}문의페이지 `
+          + `${S.eeat?.hasAuthorInfo ? '✓' : '✗'}전문가정보 `
+          + `${S.eeat?.hasPrivacyPolicy ? '✓' : '✗'}개인정보처리방침 `
+          + `${S.eeat?.hasBusinessInfo ? '✓' : '✗'}사업자정보. AI는 전문성 신호가 많은 사이트를 우선 인용합니다.` },
+      { cat:'trust', label:'NAP 정보 (전화·주소·이메일)', status: S.eeat?.napScore >= 2 ? 'pass' : S.eeat?.napScore >= 1 ? 'warn' : 'fail',
+        detail: `${S.eeat?.hasPhone ? '✓' : '✗'}전화번호 ${S.eeat?.hasAddress ? '✓' : '✗'}주소 ${S.eeat?.hasEmail ? '✓' : '✗'}이메일. `
+          + (S.eeat?.napScore >= 2 ? '지역 비즈니스 정보가 충분합니다. LocalBusiness Schema와 함께 AI 신뢰도를 높입니다.'
+            : '연락처 정보가 부족합니다. 전화번호·주소·이메일을 페이지에 명시하면 AI가 신뢰 있는 지역 사업체로 인식합니다.') },
+      { cat:'trust', label:'Applebot (Apple AI) 크롤링',
+        status: R?.applebot === 'blocked' ? 'fail' : R?.exists ? 'pass' : 'warn',
+        detail: R?.applebot === 'blocked'
+          ? 'Applebot이 차단되어 있습니다. Apple Intelligence 검색에 노출되지 않습니다.'
+          : R?.exists ? 'Applebot 허용됨. Apple Intelligence 검색 노출이 가능합니다.'
+          : 'robots.txt에서 확인 불가. 기본 허용 상태로 추정됩니다.' },
+    ] : []),
   ];
 }
 
@@ -808,10 +877,11 @@ function renderResults(d, rawUrl, realData) {
   const grade = d.total >= 80 ? '최적화 완료' : d.total >= 60 ? '개선 필요' : d.total >= 40 ? '기초 작업 필요' : 'AI 검색 노출 불가 상태';
   const gradeColor = d.total >= 80 ? 'var(--green)' : d.total >= 60 ? 'var(--yellow)' : 'var(--red)';
 
-  const techCat = d.checks.filter(c => c.cat === 'tech');
-  const aeoCat  = d.checks.filter(c => c.cat === 'aeo');
-  const geoCat  = d.checks.filter(c => c.cat === 'geo');
+  const techCat  = d.checks.filter(c => c.cat === 'tech');
+  const aeoCat   = d.checks.filter(c => c.cat === 'aeo');
+  const geoCat   = d.checks.filter(c => c.cat === 'geo');
   const trustCat = d.checks.filter(c => c.cat === 'trust');
+  const contCat  = d.checks.filter(c => c.cat === 'content');
 
   const catScore = (checks) => {
     const pass = checks.filter(c => c.status === 'pass').length;
@@ -845,6 +915,11 @@ function renderResults(d, rawUrl, realData) {
           <div class="sbar-label"><span>⚙️ 기술 설정</span><span>${d.techScore}점</span></div>
           <div class="sbar-track"><div class="sbar-fill" data-w="${d.techScore}"></div></div>
         </div>
+        ${d.contentScore !== null ? `
+        <div class="sbar-item" style="--bar-color:#a855f7">
+          <div class="sbar-label"><span>📝 콘텐츠 품질</span><span>${d.contentScore}점</span></div>
+          <div class="sbar-track"><div class="sbar-fill" data-w="${d.contentScore}" style="background:linear-gradient(90deg,#a855f7,#7c3aed)"></div></div>
+        </div>` : ''}
       </div>
     </div>
   </div>
