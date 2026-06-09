@@ -1,16 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ai.온종일.com/</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://ai.온종일.com/guide/</loc><lastmod>2026-06-05</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://ai.온종일.com/guide/what-is-seo.html</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ai.온종일.com/guide/what-is-aeo.html</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://ai.온종일.com/guide/what-is-geo.html</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://ai.온종일.com/guide/how-ai-search-works.html</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ai.온종일.com/guide/naver-vs-ai.html</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ai.온종일.com/industry/hospital.html</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://ai.온종일.com/industry/interior.html</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://ai.온종일.com/industry/law.html</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://ai.온종일.com/industry/health.html</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
-  <url><loc>https://ai.온종일.com/guide/how-to-check-ai.html</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://ai.온종일.com/guide/ai-seo-checklist.html</loc><lastmod>2026-06-05</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai.온종일.com/</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://ai.온종일.com/analyze.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ai.온종일.com/ai-seo-checklist.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- AI 검색 가이드 -->
+  <url><loc>https://ai.온종일.com/guide/</loc><lastmod>2026-06-09</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ai.온종일.com/guide/what-is-seo.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai.온종일.com/guide/what-is-aeo.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ai.온종일.com/guide/what-is-geo.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://ai.온종일.com/guide/how-ai-search-works.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai.온종일.com/guide/naver-vs-ai.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai.온종일.com/guide/how-to-check-ai.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai.온종일.com/guide/ai-seo-checklist.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- AI 플랫폼 가이드 -->
+  <url><loc>https://ai.온종일.com/guide/chatgpt-exposure.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://ai.온종일.com/guide/perplexity-optimization.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://ai.온종일.com/guide/gemini-ai-overview.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://ai.온종일.com/guide/claude-ai-search.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+
+  <!-- 기술 가이드 -->
+  <url><loc>https://ai.온종일.com/guide/gptbot-guide.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai.온종일.com/guide/robots-txt-ai-guide.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai.온종일.com/guide/faqpage-schema-guide.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai.온종일.com/guide/localbusiness-schema.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- 정보성 가이드 (신규) -->
+  <url><loc>https://ai.온종일.com/guide/google-ai-overviews.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://ai.온종일.com/guide/perplexity-how-it-works.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://ai.온종일.com/guide/chatgpt-search-guide.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://ai.온종일.com/guide/eeat-guide.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+
+  <!-- 업종별 가이드 -->
+  <url><loc>https://ai.온종일.com/industry/hospital.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://ai.온종일.com/industry/interior.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://ai.온종일.com/industry/law.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://ai.온종일.com/industry/health.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://ai.온종일.com/industry/restaurant.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://ai.온종일.com/industry/academy.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://ai.온종일.com/industry/realestate.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://ai.온종일.com/industry/dermatology.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://ai.온종일.com/industry/auto.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://ai.온종일.com/industry/cleaning.html</loc><lastmod>2026-06-09</lastmod><changefreq>monthly</changefreq><priority>0.85</priority></url>
 </urlset>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perplexity AI 작동 원리 | PerplexityBot 크롤링과 인용 방식 완전 해설 | 온종일AI</title>
+<meta name="description" content="Perplexity AI가 웹을 크롤링하고 출처를 인용하는 방식을 공식 문서 기반으로 설명합니다. PerplexityBot 허용 방법과 인용되기 위한 콘텐츠 전략을 안내합니다.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ai.온종일.com/guide/perplexity-how-it-works.html">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style2.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Perplexity AI 작동 원리 — PerplexityBot과 실시간 인용 메커니즘",
+  "description": "Perplexity AI가 어떻게 웹에서 정보를 수집하고 출처를 인용하는지 공식 문서 기반으로 설명합니다.",
+  "author": {"@type": "Organization", "name": "온종일AI"},
+  "publisher": {"@type": "Organization", "name": "온종일AI"},
+  "datePublished": "2026-06-09"
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
+  <div class="nav-links">
+    <div class="nav-drop">
+      <button class="nav-drop-btn">업종별 <span class="nav-arrow">▾</span></button>
+      <div class="drop-menu">
+        <a href="../industry/hospital.html">🏥 병원·치과·한의원</a>
+        <a href="../industry/interior.html">🏠 인테리어·리모델링</a>
+        <a href="../industry/law.html">⚖️ 법률·세무·회계</a>
+        <a href="../industry/health.html">💪 헬스·뷰티·피트니스</a>
+        <a href="../industry/restaurant.html">🍽️ 식당·카페·배달</a>
+        <a href="../industry/academy.html">📚 학원·교습소</a>
+        <a href="../industry/realestate.html">🏢 부동산·공인중개사</a>
+        <a href="../industry/dermatology.html">💉 피부과·성형외과</a>
+        <a href="../industry/auto.html">🚗 자동차 정비·중고차</a>
+        <a href="../industry/cleaning.html">🧹 세탁소·청소업체</a>
+      </div>
+    </div>
+    <div class="nav-drop">
+      <button class="nav-drop-btn">AI 검색 가이드 <span class="nav-arrow">▾</span></button>
+      <div class="drop-menu">
+        <a href="what-is-seo.html">📖 SEO란 무엇인가?</a>
+        <a href="what-is-aeo.html">🤖 AEO란 무엇인가?</a>
+        <a href="what-is-geo.html">🔬 GEO란 무엇인가?</a>
+        <a href="how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
+        <a href="naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
+        <a href="chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
+        <a href="perplexity-optimization.html">🔍 Perplexity 최적화</a>
+        <a href="gemini-ai-overview.html">♊ Google AI Overviews 최적화</a>
+        <a href="claude-ai-search.html">🧠 Claude AI 검색</a>
+        <a href="google-ai-overviews.html">🔎 Google AI Overviews 원리</a>
+        <a href="perplexity-how-it-works.html">📡 Perplexity 작동 원리</a>
+        <a href="chatgpt-search-guide.html">💡 ChatGPT Search 원리</a>
+        <a href="eeat-guide.html">⭐ E-E-A-T 가이드</a>
+        <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="메뉴"><span></span><span></span><span></span></button>
+    <button class="theme-btn" id="themeBtn">🌙</button>
+    <button class="nav-cta">상담 신청하기</button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mob-section">
+    <div class="mob-section-title">업종별 가이드</div>
+    <a href="/industry/hospital.html">🏥 병원·치과·한의원</a>
+    <a href="/industry/interior.html">🏠 인테리어·리모델링</a>
+    <a href="/industry/law.html">⚖️ 법률·세무·회계</a>
+    <a href="/industry/health.html">💪 헬스·뷰티·피트니스</a>
+    <a href="/industry/restaurant.html">🍽️ 식당·카페·배달</a>
+    <a href="/industry/academy.html">📚 학원·교습소</a>
+    <a href="/industry/realestate.html">🏢 부동산·공인중개사</a>
+    <a href="/industry/dermatology.html">💉 피부과·성형외과</a>
+    <a href="/industry/auto.html">🚗 자동차 정비·중고차</a>
+    <a href="/industry/cleaning.html">🧹 세탁소·청소업체</a>
+  </div>
+  <div class="mob-section">
+    <div class="mob-section-title">AI 검색 가이드</div>
+    <a href="/guide/what-is-seo.html">📖 SEO란 무엇인가?</a>
+    <a href="/guide/what-is-aeo.html">🤖 AEO란 무엇인가?</a>
+    <a href="/guide/what-is-geo.html">🔬 GEO란 무엇인가?</a>
+    <a href="/guide/how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
+    <a href="/guide/naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
+    <a href="/guide/how-to-check-ai.html">🔎 AI 노출 직접 확인하기</a>
+    <a href="/guide/ai-seo-checklist.html">✅ AI 검색 최적화 체크리스트</a>
+    <a href="/guide/chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
+    <a href="/guide/perplexity-optimization.html">🔍 Perplexity 최적화</a>
+    <a href="/guide/gemini-ai-overview.html">♊ Google AI Overviews 최적화</a>
+    <a href="/guide/claude-ai-search.html">🧠 Claude AI 검색</a>
+    <a href="/guide/google-ai-overviews.html">🔎 Google AI Overviews 원리</a>
+    <a href="/guide/perplexity-how-it-works.html">📡 Perplexity 작동 원리</a>
+    <a href="/guide/chatgpt-search-guide.html">💡 ChatGPT Search 원리</a>
+    <a href="/guide/eeat-guide.html">⭐ E-E-A-T 가이드</a>
+    <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
+  </div>
+  <button class="mob-cta">무료 상담 신청하기 →</button>
+</div>
+
+<div class="breadcrumb">
+  <a href="../index.html">홈</a><span>›</span>
+  <a href="index.html">AI 검색 가이드</a><span>›</span>
+  Perplexity AI 작동 원리
+</div>
+
+<div class="article-hero">
+  <div class="article-hero-bg"></div>
+  <div class="article-category">기술 가이드 · Perplexity AI</div>
+  <h1>Perplexity AI<br><span class="hl">작동 원리</span><br>완전 해설</h1>
+  <p>PerplexityBot이 어떻게 웹을 크롤링하고, 어떤 출처가 인용 답변에 선택되는지 Perplexity 공식 문서를 기반으로 설명합니다.</p>
+  <div class="article-meta">
+    <span>온종일AI 편집팀</span><span>·</span>
+    <span>2026년 6월 9일</span><span>·</span>
+    <span>약 5분 소요</span>
+  </div>
+</div>
+
+<div class="article-wrap">
+  <p class="article-lead">
+    Perplexity AI는 단순한 챗봇이 아닌 "Answer Engine"을 표방합니다. 사용자 질문에 대해 실시간으로 웹을 검색하고, 여러 출처를 종합해 번호가 매겨진 인용과 함께 답변을 생성합니다. 이 방식 때문에 Perplexity에 인용되는 것이 AI 검색 최적화에서 가장 추적하기 쉬운 목표 중 하나입니다.
+  </p>
+
+  <div class="article-section">
+    <h2>Perplexity AI의 구조</h2>
+    <p>
+      Perplexity AI는 질문을 받으면 두 단계로 처리합니다. 첫째, 실시간 웹 검색을 통해 관련 페이지를 수집합니다. 둘째, 수집된 페이지 내용을 AI가 요약하고 각 문장마다 출처 번호를 붙여 답변을 구성합니다.
+    </p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="ico">🔍</div>
+        <h4>실시간 검색</h4>
+        <p>Perplexity는 질문마다 실시간으로 웹을 검색합니다. 학습 데이터만 사용하는 것이 아니라, 답변 생성 시점에 최신 정보를 가져옵니다.</p>
+      </div>
+      <div class="info-card">
+        <div class="ico">📎</div>
+        <h4>인용 표시</h4>
+        <p>답변의 각 주요 문장마다 [1], [2] 형태로 출처 번호가 붙습니다. 이 번호를 클릭하면 원본 페이지로 이동합니다.</p>
+      </div>
+      <div class="info-card">
+        <div class="ico">🤖</div>
+        <h4>PerplexityBot</h4>
+        <p>Perplexity가 사용하는 공식 웹 크롤러입니다. PerplexityBot이 사이트를 크롤링해야 해당 콘텐츠가 Perplexity 검색에 포함될 수 있습니다.</p>
+      </div>
+      <div class="info-card">
+        <div class="ico">💬</div>
+        <h4>Pro Search</h4>
+        <p>Perplexity Pro에서는 더 깊은 웹 검색과 더 많은 출처를 참조합니다. 무료 버전과 Pro 버전의 검색 깊이에 차이가 있습니다.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>PerplexityBot이란?</h2>
+    <p>
+      PerplexityBot은 Perplexity AI가 운영하는 공식 웹 크롤러입니다. Perplexity는 PerplexityBot의 user-agent 정보를 공식 문서에서 제공합니다.
+    </p>
+
+    <div class="tip-box">
+      <div class="tip-label">📋 PerplexityBot 공식 User-Agent (출처: Perplexity 공식 문서)</div>
+      <p style="font-family:monospace;font-size:.9rem">Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)</p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">✅ robots.txt — PerplexityBot 허용 방법</div>
+      <p style="font-family:monospace;font-size:.9rem">User-agent: PerplexityBot<br>Allow: /</p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">❌ robots.txt — PerplexityBot 차단 방법</div>
+      <p style="font-family:monospace;font-size:.9rem">User-agent: PerplexityBot<br>Disallow: /</p>
+    </div>
+
+    <p>
+      PerplexityBot을 차단하면 해당 사이트의 콘텐츠가 Perplexity 답변에 인용되지 않습니다. AI 검색 노출을 원한다면 PerplexityBot을 허용해야 합니다.
+    </p>
+  </div>
+
+  <div class="article-section">
+    <h2>Perplexity가 출처를 선택하는 방식</h2>
+    <p>
+      Perplexity는 검색 쿼리와 관련성이 높은 페이지를 우선적으로 참조합니다. Perplexity의 공식 블로그와 기술 문서에서 밝힌 내용을 정리하면 다음과 같습니다.
+    </p>
+
+    <div class="compare-visual">
+      <div class="cv-panel">
+        <div class="cv-head bad" style="background:rgba(200,50,50,.08);color:#ff7070;border-bottom-color:rgba(200,50,50,.2)">인용되기 어려운 경우</div>
+        <div class="cv-body">
+          <div class="cv-item">PerplexityBot 차단된 사이트</div>
+          <div class="cv-item">질문과 관련 없는 일반 홈페이지</div>
+          <div class="cv-item">텍스트가 거의 없는 이미지 위주 페이지</div>
+          <div class="cv-item">응답 속도가 매우 느린 사이트</div>
+        </div>
+      </div>
+      <div class="cv-panel">
+        <div class="cv-head good">인용되기 유리한 경우</div>
+        <div class="cv-body">
+          <div class="cv-item"><span class="o">→</span> 질문에 직접 답하는 구체적 텍스트 콘텐츠</div>
+          <div class="cv-item"><span class="o">→</span> Q&A, FAQ 구조의 콘텐츠</div>
+          <div class="cv-item"><span class="o">→</span> 업종·지역이 명확한 페이지</div>
+          <div class="cv-item"><span class="o">→</span> 빠른 응답 속도와 HTTPS 적용</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="quote-box">
+      <p>"Perplexity is designed to provide direct answers to questions, with sources cited inline so users can verify the information."</p>
+      <cite>— Perplexity AI 공식 블로그</cite>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>Perplexity 인용을 위한 콘텐츠 전략</h2>
+
+    <div class="tip-box">
+      <div class="tip-label">✅ 1. 질문형 콘텐츠 페이지 구축</div>
+      <p>
+        Perplexity는 질문에 바로 답하는 콘텐츠를 선호합니다. "강남 교정 치료 비용은 얼마인가요?", "아파트 입주 청소 필요한 시간은?" 같은 실제 사용자 질문에 명확하게 답하는 페이지를 만듭니다. H2 또는 H3 제목을 질문 형태로 작성하면 더 효과적입니다.
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">✅ 2. FAQPage Schema 적용</div>
+      <p>
+        FAQPage Schema는 Perplexity가 Q&A 콘텐츠를 구조적으로 파악하도록 돕습니다. 각 FAQ의 질문과 답변을 Schema.org의 FAQPage 형식으로 마크업하면 인용 가능성이 높아집니다.
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">✅ 3. 업종·지역 정보 명시</div>
+      <p>
+        "강남구 임플란트 치과", "부산 인테리어 업체"처럼 업종과 지역이 명확하게 명시된 콘텐츠가 로컬 질문에서 인용되기 유리합니다. LocalBusiness Schema와 함께 적용하면 더 효과적입니다.
+      </p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">✅ 4. PerplexityBot 허용 및 HTTPS 적용</div>
+      <p>
+        robots.txt에서 PerplexityBot을 허용하고, HTTPS가 적용된 사이트인지 확인합니다. HTTP 사이트는 보안 경고로 인해 인용에서 불리할 수 있습니다.
+      </p>
+    </div>
+  </div>
+
+  <div class="article-section">
+    <h2>자주 묻는 질문</h2>
+
+    <div class="tip-box">
+      <div class="tip-label">Q. Perplexity가 내 사이트를 인용하는지 어떻게 확인하나요?</div>
+      <p>Perplexity에서 직접 업종 관련 질문을 입력해보고 인용 번호 목록을 확인하는 것이 가장 직접적인 방법입니다. 예: "강남 치과 임플란트 비용 알려줘" 같은 질문을 입력하고 출처 목록을 확인합니다. 서버 액세스 로그에서 PerplexityBot의 방문 기록을 확인할 수도 있습니다.</p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">Q. Perplexity와 ChatGPT Search 중 어느 쪽이 더 중요한가요?</div>
+      <p>두 플랫폼은 사용자 특성이 다릅니다. Perplexity는 정보 검색 중심의 사용자가 많고, ChatGPT는 다양한 용도로 사용됩니다. AI 검색 노출을 목표로 한다면 두 플랫폼 모두 최적화하는 것이 권장됩니다. Perplexity는 인용 방식이 명확해 최적화 효과를 추적하기 상대적으로 쉽습니다.</p>
+    </div>
+
+    <div class="tip-box">
+      <div class="tip-label">Q. Perplexity Pages 기능이란?</div>
+      <p>Perplexity Pages는 사용자가 특정 주제에 대해 AI가 생성한 종합 페이지를 만들 수 있는 기능입니다. 이 기능은 Perplexity 내부 콘텐츠 생성에 관한 것으로, 외부 사이트의 인용 최적화와는 별개입니다. (<a href="https://www.perplexity.ai" target="_blank" rel="noopener" style="color:var(--accent)">Perplexity AI 공식 사이트 →</a>)</p>
+    </div>
+  </div>
+
+  <div class="article-related">
+    <h3>다음으로 읽어볼 가이드</h3>
+    <div class="related-grid">
+      <a href="perplexity-optimization.html" class="related-card">
+        <div class="rc-cat">AI 플랫폼 가이드 · Perplexity</div>
+        <div class="rc-title">🔍 Perplexity 최적화 — 인용 가능성을 높이는 실전 전략</div>
+      </a>
+      <a href="robots-txt-ai-guide.html" class="related-card">
+        <div class="rc-cat">기술 가이드 · robots.txt</div>
+        <div class="rc-title">⚙️ robots.txt AI 봇 설정 — 4개 봇 완벽 가이드</div>
+      </a>
+      <a href="faqpage-schema-guide.html" class="related-card">
+        <div class="rc-cat">기술 가이드 · Schema</div>
+        <div class="rc-title">❓ FAQPage Schema 완전 가이드 — AI 인용률을 높이는 구조화 데이터</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="cta fi">
+  <h2>Perplexity 인용<br>현재 상태<br><span style="color:var(--accent)">무료로 진단받기</span></h2>
+  <p>PerplexityBot 허용 여부, FAQ 구조, 지역·업종 신호를 한 번에 진단해드립니다.</p>
+  <button class="btn-primary" style="font-size:18px;padding:20px 48px">무료 진단 받기 →</button>
+</div>
+
+<div class="article-wrap" style="max-width:900px;margin:0 auto;padding:40px 24px 20px">
+  <div class="article-section">
+    <h2 style="font-size:1.1rem;margin-bottom:12px">참고 출처</h2>
+    <ul style="font-size:.85rem;line-height:1.8;color:var(--text-sub)">
+      <li><a href="https://docs.perplexity.ai" target="_blank" rel="noopener" style="color:var(--accent)">Perplexity AI — 공식 개발자 문서</a></li>
+      <li><a href="https://www.perplexity.ai/hub/blog" target="_blank" rel="noopener" style="color:var(--accent)">Perplexity AI — 공식 블로그 (작동 방식 및 업데이트)</a></li>
+      <li><a href="https://schema.org/FAQPage" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org — FAQPage 구조화 데이터 명세</a></li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
+  <div style="margin:8px 0;font-size:.85rem;color:var(--text-sub)">문의: <a href="mailto:tarry9653@daum.net" style="color:var(--accent)">tarry9653@daum.net</a></div>
+  <div class="fcopy">© 2026 온종일AI. AI 검색 최적화 컨설팅.</div>
+</footer>
+<script src="../js/main.js"></script>
+</body>
+</html>
