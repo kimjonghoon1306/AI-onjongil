@@ -34,8 +34,11 @@ nav {
   transition: background .3s;
 }
 [data-theme="light"] nav { background: rgba(245,244,240,.92); }
+.logo-wrap { display:flex; flex-direction:column; line-height:1; gap:2px; }
 .logo { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 2px; color: var(--text); }
 .logo span { color: var(--accent); }
+.logo-by { font-size:10px; color:var(--sub); letter-spacing:.5px; font-family:'Noto Sans KR',sans-serif; font-weight:400; text-decoration:none; }
+.logo-by:hover { color:var(--accent); }
 .nav-right { display: flex; align-items: center; gap: 12px; }
 .theme-btn {
   width: 40px; height: 40px; border-radius: 50%;
