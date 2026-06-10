@@ -151,6 +151,40 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
+  <style>
+    .hero-alert{display:inline-flex;align-items:center;gap:10px;max-width:92%;margin:0 auto 22px;
+      padding:9px 16px;border-radius:999px;background:rgba(255,59,0,.1);
+      border:1px solid rgba(255,59,0,.32);color:var(--text);text-decoration:none;
+      font-size:13.5px;line-height:1.35;transition:background .2s,transform .2s;}
+    .hero-alert:hover{background:rgba(255,59,0,.18);transform:translateY(-1px);}
+    .hero-alert .ha-badge{flex-shrink:0;background:var(--accent);color:#fff;font-weight:800;
+      font-size:11px;padding:2px 8px;border-radius:999px;letter-spacing:.3px;}
+    .hero-alert .ha-dday{flex-shrink:0;font-weight:800;color:var(--accent);}
+    .hero-alert .ha-arrow{flex-shrink:0;opacity:.6;}
+    @media(max-width:520px){.hero-alert{font-size:12px;gap:7px;padding:8px 13px;}}
+  </style>
+  <a href="/guide/naver-place-star-rating-2026.html" class="hero-alert" id="starAlert">
+    <span class="ha-badge">속보</span>
+    <span class="ha-tx">⭐ 네이버 플레이스 <b>별점 7월 9일 전체공개</b> <span class="ha-dday" id="starDday">D-29</span> · 소상공인 대응 가이드</span>
+    <span class="ha-arrow">→</span>
+  </a>
+  <script>
+    (function(){
+      var el=document.getElementById('starDday');
+      var tx=document.querySelector('#starAlert .ha-tx');
+      if(!el)return;
+      var open=new Date(2026,6,9); // 2026-07-09 (월 0-base: 6=7월)
+      var now=new Date();
+      var d0=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+      var days=Math.round((open-d0)/86400000);
+      if(days>0){ el.textContent='D-'+days; }
+      else if(days===0){ el.textContent='D-DAY'; }
+      else { // 공개일 경과
+        el.style.display='none';
+        if(tx)tx.innerHTML='⭐ 네이버 플레이스 <b>별점 공개 시작</b> · 우리 가게 대응 가이드 보기';
+      }
+    })();
+  </script>
   <div class="hero-tag">GEO · AEO 최적화 전문</div>
   <h1>ChatGPT가<br>우리 업체를<br><span class="hl">1위 추천</span>하게<br>만듭니다</h1>
   <p class="hero-sub">네이버 블로그는 이제 한계입니다.<br><strong>AI 검색 시대</strong>, 온종일AI가 모든 업종의<br>ChatGPT · Perplexity · Gemini · Claude 노출을 설계합니다.</p>
