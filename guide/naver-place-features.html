@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ko" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>네이버 플레이스 기능 완전 해부 — 예약·주문·톡톡·쿠폰·단골까지 전 기능 활용법 | 온종일AI</title>
+<meta name="description" content="네이버 스마트플레이스의 모든 기능을 소상공인 관점에서 디테일하게 정리했습니다. 예약·주문(테이블/포장)·네이버 톡톡·스마트콜·쿠폰·소식·단골·통계·네이버페이·플레이스 광고까지 무엇을, 어떻게, 왜 켜야 하는지.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://ai.xn--zk5biyyw.com/guide/naver-place-features.html">
+<meta property="og:title" content="네이버 플레이스 기능 완전 해부 — 전 기능 활용법">
+<meta property="og:description" content="예약·주문·톡톡·스마트콜·쿠폰·소식·단골·통계·네이버페이·광고까지, 플레이스 모든 기능을 소상공인 관점에서 정리.">
+<meta property="og:url" content="https://ai.xn--zk5biyyw.com/guide/naver-place-features.html">
+<meta property="og:image" content="https://ai.xn--zk5biyyw.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style2.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "네이버 플레이스 기능 완전 해부 — 전 기능 활용법",
+  "description": "네이버 스마트플레이스의 예약·주문·톡톡·스마트콜·쿠폰·소식·단골·통계·네이버페이·광고 등 모든 기능을 소상공인 관점에서 정리한 가이드.",
+  "author": {"@type": "Organization", "name": "온종일AI", "url": "https://ai.온종일.com"},
+  "publisher": {"@type": "Organization", "name": "온종일AI"},
+  "datePublished": "2026-06-10",
+  "dateModified": "2026-06-10"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "네이버 플레이스 기능은 모두 무료인가요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "업체 정보 등록, 예약, 주문, 네이버 톡톡, 소식, 쿠폰, 단골, 통계 등 대부분의 운영 기능은 무료로 제공됩니다. 다만 네이버페이 결제 수수료, 스마트콜 안내 비용, 플레이스 광고(노출 광고)처럼 일부는 비용이 발생합니다. 정확한 비용은 각 기능의 공식 안내를 확인하세요."}
+    },
+    {
+      "@type": "Question",
+      "name": "예약과 주문 기능은 어떤 업종에 맞나요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "예약은 미용실·병원·학원·공방처럼 시간대를 잡아야 하는 업종에 적합하고, 주문(테이블 주문·포장·배달)은 음식점·카페에 적합합니다. 업종 특성에 맞는 기능만 선택해 켜면 됩니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "네이버 톡톡과 스마트콜의 차이는 무엇인가요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "네이버 톡톡은 손님이 채팅으로 문의하는 메신저 기능이고, 스마트콜은 플레이스에 표시되는 안심번호(가상번호)로 전화 문의를 받고 통화 통계를 보는 기능입니다. 톡톡은 글로, 스마트콜은 전화로 문의를 받는다는 점이 다릅니다."}
+    },
+    {
+      "@type": "Question",
+      "name": "단골 기능은 무엇인가요?",
+      "acceptedAnswer": {"@type": "Answer", "text": "손님이 우리 가게를 '단골'로 추가하면, 새 소식이나 쿠폰을 받아볼 수 있는 관계가 형성됩니다. 사업주는 단골에게 소식·혜택을 보내 재방문을 유도할 수 있어, 일종의 무료 고객 관리(CRM) 채널로 활용할 수 있습니다."}
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<nav>
+  <div class="logo-wrap"><div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div><a href="https://www.xn--zk5biyyw.com" target="_blank" rel="noopener" class="logo-by">by 온종일</a></div>
+  <div class="nav-links">
+    <div class="nav-drop">
+      <button class="nav-drop-btn">업종별 <span class="nav-arrow">▾</span></button>
+      <div class="drop-menu">
+        <a href="../industry/hospital.html">🏥 병원·치과·한의원</a>
+        <a href="../industry/interior.html">🏠 인테리어·리모델링</a>
+        <a href="../industry/law.html">⚖️ 법률·세무·회계</a>
+        <a href="../industry/health.html">💪 헬스·뷰티·피트니스</a>
+        <a href="../industry/restaurant.html">🍽️ 식당·카페·배달</a>
+        <a href="../industry/academy.html">📚 학원·교습소</a>
+        <a href="../industry/realestate.html">🏢 부동산·공인중개사</a>
+        <a href="../industry/dermatology.html">💉 피부과·성형외과</a>
+        <a href="../industry/auto.html">🚗 자동차 정비·중고차</a>
+        <a href="../industry/cleaning.html">🧹 세탁소·청소업체</a>
+      </div>
+    </div>
+    <div class="nav-drop">
+      <button class="nav-drop-btn">AI 검색 가이드 <span class="nav-arrow">▾</span></button>
+      <div class="drop-menu">
+        <a href="what-is-seo.html">📖 SEO란 무엇인가?</a>
+        <a href="what-is-aeo.html">🤖 AEO란 무엇인가?</a>
+        <a href="what-is-geo.html">🔬 GEO란 무엇인가?</a>
+        <a href="how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
+        <a href="naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
+        <a href="chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
+        <a href="perplexity-optimization.html">🔍 Perplexity 최적화</a>
+        <a href="gemini-ai-overview.html">♊ Google AI Overviews</a>
+        <a href="claude-ai-search.html">🧠 Claude AI 검색</a>
+        <a href="eeat-guide.html">⭐ E-E-A-T 가이드</a>
+      </div>
+    </div>
+    <div class="nav-drop">
+      <button class="nav-drop-btn">온라인 마케팅 <span class="nav-arrow">▾</span></button>
+      <div class="drop-menu">
+        <a href="naver-place-guide.html">📍 네이버 플레이스 가이드</a>
+        <a href="naver-place-features.html">🧩 플레이스 기능 완전 해부</a>
+        <a href="naver-place-star-rating-2026.html">⭐ 별점 부활 대응 가이드</a>
+        <a href="google-business-profile.html">🗺️ 구글 비즈니스 프로필</a>
+        <a href="online-marketing-start.html">🚀 온라인 마케팅 시작하기</a>
+        <a href="review-management.html">⭐ 온라인 리뷰 관리</a>
+        <a href="free-marketing-methods.html">💡 무료 마케팅 방법</a>
+      </div>
+    </div>
+    <div class="nav-drop">
+      <button class="nav-drop-btn">🛠️ AI 진단기 <span class="nav-arrow">▾</span></button>
+      <div class="drop-menu">
+        <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
+        <a href="/analyze-guide.html">📖 사용방법</a>
+        <div style="border-top:1px solid var(--border);margin:4px 2px"></div>
+        <a href="/guide/ai-bot-access.html">🤖 AI 봇 크롤링 설정</a>
+        <a href="/guide/faq-schema-for-ai.html">❓ FAQPage Schema</a>
+        <a href="/guide/business-schema-for-ai.html">🏢 LocalBusiness Schema</a>
+        <a href="/guide/meta-description-ai.html">📝 메타 디스크립션</a>
+        <a href="/guide/sitemap-for-ai.html">🗺️ sitemap.xml</a>
+        <a href="/guide/heading-structure-ai.html">📑 제목 계층 구조</a>
+        <a href="/guide/image-alt-for-ai.html">🖼️ 이미지 alt 텍스트</a>
+      </div>
+    </div>
+  </div>
+  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="메뉴"><span></span><span></span><span></span></button>
+    <button class="theme-btn" id="themeBtn">🌙</button>
+    <a href="mailto:tarry9653@daum.net?subject=%5B%EC%83%81%EB%8B%B4%EC%8B%A0%EC%B2%AD%5D" class="nav-cta" style="text-decoration:none">상담 신청하기</a>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mob-section">
+    <div class="mob-section-title">온라인 마케팅</div>
+    <a href="/guide/naver-place-guide.html">📍 네이버 플레이스 가이드</a>
+    <a href="/guide/naver-place-features.html">🧩 플레이스 기능 완전 해부</a>
+    <a href="/guide/naver-place-star-rating-2026.html">⭐ 별점 부활 대응 가이드</a>
+    <a href="/guide/google-business-profile.html">🗺️ 구글 비즈니스 프로필</a>
+    <a href="/guide/online-marketing-start.html">🚀 온라인 마케팅 시작하기</a>
+    <a href="/guide/review-management.html">⭐ 온라인 리뷰 관리</a>
+    <a href="/guide/free-marketing-methods.html">💡 무료 마케팅 방법</a>
+  </div>
+  <div class="mob-section">
+    <div class="mob-section-title">AI 진단기</div>
+    <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
+    <a href="/analyze-guide.html">📖 사용방법</a>
+    <a href="/guide/ai-bot-access.html">🤖 AI 봇 크롤링 설정</a>
+    <a href="/guide/faq-schema-for-ai.html">❓ FAQPage Schema</a>
+    <a href="/guide/business-schema-for-ai.html">🏢 LocalBusiness Schema</a>
+    <a href="/guide/meta-description-ai.html">📝 메타 디스크립션</a>
+    <a href="/guide/sitemap-for-ai.html">🗺️ sitemap.xml</a>
+    <a href="/guide/heading-structure-ai.html">📑 제목 계층 구조</a>
+    <a href="/guide/image-alt-for-ai.html">🖼️ 이미지 alt 텍스트</a>
+  </div>
+  <a href="mailto:tarry9653@daum.net" class="mob-cta" style="text-decoration:none;display:block;text-align:center">무료 상담 신청하기 →</a>
+</div>
+
+<div class="breadcrumb">
+  <a href="../index.html">홈</a><span>›</span>
+  <a href="naver-place-guide.html">온라인 마케팅</a><span>›</span>
+  네이버 플레이스 기능 완전 해부
+</div>
+
+<div class="article-hero">
+  <div class="article-hero-bg"></div>
+  <div class="article-category">온라인 마케팅 · 네이버 · 실전</div>
+  <h1>네이버 플레이스<br><span class="hl">기능 완전 해부</span></h1>
+  <p>예약·주문·톡톡·스마트콜·쿠폰·소식·단골·통계·네이버페이·광고까지.<br>스마트플레이스의 모든 기능을 <strong>무엇을·어떻게·왜</strong> 기준으로 정리했습니다.</p>
+  <div class="article-meta">
+    <span>온종일AI 편집팀</span><span>·</span>
+    <span>2026년 6월 10일</span><span>·</span>
+    <span>약 12분 소요</span>
+  </div>
+</div>
+
+<div class="article-wrap">
+
+  <p class="article-lead">
+    많은 사장님이 네이버 스마트플레이스를 '업체 정보 등록하는 곳' 정도로만 씁니다. 하지만 플레이스 안에는 손님을 받고, 소통하고, 다시 오게 만드는 운영 도구가 한가득 들어 있습니다. 게다가 대부분은 무료입니다. 이 글에서는 플레이스의 모든 기능을 하나씩 뜯어보며, 우리 가게에 어떤 기능을 켜면 좋은지 판단할 수 있게 정리했습니다.
+  </p>
+
+  <!-- 목차 -->
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:40px;">
+    <p style="margin:0 0 12px;font-weight:800;font-size:15px;">📑 이 글에서 다루는 기능</p>
+    <ul style="margin:0;padding-left:18px;color:var(--sub);line-height:2;font-size:14px;columns:2;column-gap:24px;">
+      <li><a href="#info" style="color:var(--accent);text-decoration:none;">기본 정보</a></li>
+      <li><a href="#reserve" style="color:var(--accent);text-decoration:none;">예약</a></li>
+      <li><a href="#order" style="color:var(--accent);text-decoration:none;">주문(테이블·포장·배달)</a></li>
+      <li><a href="#talk" style="color:var(--accent);text-decoration:none;">네이버 톡톡</a></li>
+      <li><a href="#smartcall" style="color:var(--accent);text-decoration:none;">스마트콜</a></li>
+      <li><a href="#coupon" style="color:var(--accent);text-decoration:none;">쿠폰</a></li>
+      <li><a href="#news" style="color:var(--accent);text-decoration:none;">소식</a></li>
+      <li><a href="#regular" style="color:var(--accent);text-decoration:none;">단골</a></li>
+      <li><a href="#review" style="color:var(--accent);text-decoration:none;">리뷰·별점</a></li>
+      <li><a href="#pay" style="color:var(--accent);text-decoration:none;">네이버페이</a></li>
+      <li><a href="#stats" style="color:var(--accent);text-decoration:none;">통계</a></li>
+      <li><a href="#ad" style="color:var(--accent);text-decoration:none;">플레이스 광고</a></li>
+    </ul>
+  </div>
+
+  <!-- 기본 정보 -->
+  <h2 class="art-h2" id="info">1. 기본 정보 — 모든 노출의 토대</h2>
+  <p style="color:var(--sub);line-height:1.9;margin-bottom:16px;">
+    업체명·카테고리·주소·전화번호·영업시간·대표 사진·소개글. 가장 기본이지만 가장 중요합니다. 네이버는 정보가 정확하고 완성도가 높은 업체를 검색에서 더 잘 노출시킵니다.
+  </p>
+  <ul style="color:var(--sub);line-height:2.1;padding-left:20px;margin-bottom:12px;">
+    <li><strong style="color:var(--text);">카테고리</strong> — 가능한 한 세부 카테고리까지 지정(예: 음식점 &gt; 한식 &gt; 국밥). 잘못 잡으면 엉뚱한 검색어에만 노출됩니다.</li>
+    <li><strong style="color:var(--text);">영업시간·정기휴무·임시휴무</strong> — 부정확하면 헛걸음한 손님이 낮은 별점을 남깁니다. 명절·공휴일도 갱신하세요.</li>
+    <li><strong style="color:var(--text);">대표 사진</strong> — 검색 결과에서 가장 먼저 눈에 띄는 요소. 외부·내부·대표 메뉴/시술 사진을 충분히 등록합니다.</li>
+  </ul>
+  <p style="color:var(--sub);font-size:14px;line-height:1.8;margin-bottom:40px;">
+    👉 등록과 최적화 절차는 <a href="naver-place-guide.html" style="color:var(--accent);text-decoration:none;">네이버 스마트플레이스 등록·최적화 가이드</a>에서 더 자세히 다룹니다.
+  </p>
+
+  <!-- 예약 -->
+  <h2 class="art-h2" id="reserve">2. 예약 — 전화 없이 24시간 손님을 받는다</h2>
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:16px;">
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 손님이 플레이스에서 직접 날짜·시간·인원을 골라 예약하는 기능입니다. 사장님은 예약 현황을 한 화면에서 관리합니다.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">어떤 업종에</strong> — 미용실·네일·왁싱, 병원·한의원, 공방·클래스, 학원 상담처럼 <em>시간대를 잡아야 하는</em> 업종에 특히 강력합니다.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 영업시간 외에 들어오는 예약을 잡아주는 게 핵심입니다. 전화를 못 받는 시간(시술 중·진료 중)에도 예약이 쌓입니다. 노쇼가 걱정되면 예약금·사전 안내 문구를 설정하세요.</p>
+  </div>
+  <p style="color:var(--sub);font-size:13px;margin-bottom:40px;">※ 일부 예약 유형은 결제·예약금 연동 시 수수료가 발생할 수 있습니다.</p>
+
+  <!-- 주문 -->
+  <h2 class="art-h2" id="order">3. 주문 — 테이블 주문·포장·배달</h2>
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:16px;">
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 음식점·카페가 메뉴를 등록해 두면 손님이 플레이스에서 <em>테이블 주문(매장 QR), 포장(미리 주문), 배달</em>을 할 수 있습니다.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">왜 켜나</strong> — 포장 주문을 미리 받아두면 손님 대기 시간이 줄고, 바쁜 시간대 회전이 빨라집니다. 테이블 주문은 직원이 주문을 받는 부담을 덜어줍니다.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 대표 메뉴 사진과 설명을 충실히 넣으세요. 메뉴판이 부실하면 주문 전환이 떨어집니다.</p>
+  </div>
+  <p style="color:var(--sub);font-size:13px;margin-bottom:40px;">※ 결제가 연동되는 주문은 네이버페이 결제 수수료가 적용됩니다. 정확한 요율은 공식 안내를 확인하세요.</p>
+
+  <!-- 톡톡 -->
+  <h2 class="art-h2" id="talk">4. 네이버 톡톡 — 채팅 상담 창구</h2>
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:40px;">
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 손님이 전화 대신 채팅으로 문의하는 메신저입니다. "주차 되나요?", "예약 가능한가요?" 같은 가벼운 질문이 많이 들어옵니다.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">왜 켜나</strong> — 전화가 부담스러운 손님(특히 젊은 층)을 놓치지 않습니다. 통화 중에도 문의가 쌓이지 않고 들어옵니다.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — <em>자주 묻는 질문은 자동응답·빠른 답변</em>으로 등록해 두면 응대 부담이 확 줄어듭니다. 응답이 빠를수록 예약·방문 전환이 높아집니다.</p>
+  </div>
+
+  <!-- 스마트콜 -->
+  <h2 class="art-h2" id="smartcall">5. 스마트콜 — 전화 문의를 '데이터'로 본다</h2>
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:40px;">
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 플레이스에 표시되는 <em>안심번호(가상번호)</em>입니다. 손님 전화가 실제 매장 번호로 연결되며, 어떤 시간대에 전화가 많은지·놓친 전화가 몇 건인지 통계로 보여줍니다.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">톡톡과 차이</strong> — 톡톡은 '글'로, 스마트콜은 '전화'로 문의를 받습니다. 통화 통계와 놓친 전화 확인이 스마트콜의 강점입니다.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 놓친 전화 통계를 보고 바쁜 시간대에 인력을 보강하거나, 부재 시 톡톡으로 안내하는 식으로 연계하면 문의 누수를 막을 수 있습니다.</p>
+  </div>
+
+  <!-- 쿠폰 -->
+  <h2 class="art-h2" id="coupon">6. 쿠폰 — 첫 방문과 재방문을 만든다</h2>
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:40px;">
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 할인·증정 쿠폰을 발행해 플레이스에서 손님이 받아 가게 하는 기능입니다.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">왜 켜나</strong> — "쿠폰 있는 가게"는 같은 검색 결과에서 한 번 더 눈길을 끕니다. 첫 방문 장벽을 낮추는 데 효과적입니다.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 쿠폰 받는 조건을 <em>리뷰 작성·단골 추가</em>와 연계하면 한 번의 쿠폰으로 재방문 관계까지 만들 수 있습니다. 단, 대가성 별점 유도는 정책 위반이 될 수 있으니 '리뷰 작성'까지만 권유하세요.</p>
+  </div>
+
+  <!-- 소식 -->
+  <h2 class="art-h2" id="news">7. 소식 — 우리 가게의 SNS 타임라인</h2>
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:40px;">
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 신메뉴·이벤트·휴무·새 시술 등 가게 소식을 글·사진으로 올리는 기능입니다. 플레이스 상세 페이지에 노출됩니다.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">왜 켜나</strong> — 소식이 꾸준히 올라오는 가게는 '살아있는 가게'로 보입니다. 새 소식은 단골에게 알림으로도 전달됩니다.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 주 1회라도 규칙적으로. 신메뉴·시즌 메뉴·영업 변경처럼 손님이 궁금해할 내용을 우선합니다.</p>
+  </div>
+
+  <!-- 단골 -->
+  <h2 class="art-h2" id="regular">8. 단골 — 무료로 쓰는 고객 관리(CRM)</h2>
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:40px;">
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 손님이 우리 가게를 '단골'로 추가하면, 새 소식·쿠폰을 받아보는 관계가 만들어집니다.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">왜 중요한가</strong> — 단골은 <em>광고비 없이 다시 부를 수 있는 손님 명단</em>입니다. 한 번 맺어두면 새 소식·혜택을 보낼 때마다 재방문 기회가 생깁니다.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 계산할 때 "단골 추가하시면 다음에 쓰실 쿠폰 드려요"처럼 자연스럽게 권유하세요. 단골 수가 쌓일수록 소식·쿠폰의 도달이 커집니다.</p>
+  </div>
+
+  <!-- 리뷰 별점 -->
+  <h2 class="art-h2" id="review">9. 리뷰·별점 — 2026년 별점이 돌아옵니다</h2>
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:16px;">
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 방문 손님이 남기는 텍스트·키워드 리뷰입니다. 여기에 더해 <strong style="color:var(--accent);">2026년 4월 6일부터 5점 별점이 부활</strong>했고, <strong style="color:var(--accent);">7월 9일부터 평균 별점이 공개</strong>됩니다.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">왜 중요한가</strong> — 리뷰와 별점은 검색 결과에서 손님이 클릭할지 말지를 좌우하는 신뢰 지표입니다.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 모든 리뷰(특히 낮은 점수)에 진정성 있는 답글을 다세요. 별점 공개일 전 만족한 손님의 리뷰를 늘려두는 것이 유리합니다.</p>
+  </div>
+  <p style="color:var(--sub);font-size:14px;line-height:1.8;margin-bottom:40px;">
+    👉 별점 부활의 정확한 일정과 테러 방지책은 <a href="naver-place-star-rating-2026.html" style="color:var(--accent);text-decoration:none;">별점 부활 대응 가이드</a>에서 자세히 다룹니다.
+  </p>
+
+  <!-- 네이버페이 -->
+  <h2 class="art-h2" id="pay">10. 네이버페이 — 결제 장벽을 없앤다</h2>
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:16px;">
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 예약·주문 시 네이버페이로 바로 결제하게 하는 기능입니다. 손님은 익숙한 페이로 빠르게 결제합니다.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 포인트 적립을 좋아하는 손님이 많아 결제 전환에 도움이 됩니다. 다만 결제 수수료가 있으므로, 마진 구조를 고려해 어떤 메뉴·서비스에 붙일지 정하세요.</p>
+  </div>
+  <p style="color:var(--sub);font-size:13px;margin-bottom:40px;">※ 결제 수수료 요율은 업종·정산 조건에 따라 다릅니다. 공식 안내를 확인하세요.</p>
+
+  <!-- 통계 -->
+  <h2 class="art-h2" id="stats">11. 통계 — 감이 아니라 숫자로 운영한다</h2>
+  <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:40px;">
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇을 보나</strong> — 며칠에 얼마나 노출됐는지, 어떤 검색어로 들어왔는지, 전화·예약·길찾기를 몇 번 눌렀는지를 보여줍니다.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">왜 중요한가</strong> — "어떤 키워드로 손님이 오는지"를 알면 소개글·소식·메뉴명에 어떤 단어를 넣을지 결정할 수 있습니다.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 유입 키워드 상위 몇 개를 소개글과 소식 제목에 자연스럽게 반영하세요. 노출 대비 전환(전화·예약 클릭)이 낮으면 대표 사진·메뉴를 점검합니다.</p>
+  </div>
+
+  <!-- 광고 -->
+  <h2 class="art-h2" id="ad">12. 플레이스 광고 — 유료, 마지막에 고려</h2>
+  <div style="background:rgba(255,59,0,.08);border:1px solid rgba(255,59,0,.2);border-radius:14px;padding:22px 26px;margin-bottom:40px;">
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 검색·지도에서 우리 가게를 상위에 더 노출시키는 유료 광고입니다.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">언제 쓰나</strong> — 위 무료 기능(정보·사진·리뷰·소식·단골)을 먼저 채운 뒤에 검토하는 것이 순서입니다. 기본기가 부실한 상태에서 광고만 돌리면 클릭은 늘어도 예약·방문 전환이 따라오지 않아 광고비가 새 나갑니다.</p>
+  </div>
+
+  <!-- 우선순위 요약 -->
+  <h2 class="art-h2">그래서 뭐부터 켜야 하나 — 우선순위</h2>
+  <div style="display:grid;gap:12px;margin-bottom:40px;">
+    <div style="background:var(--card-bg);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;">
+      <h3 style="margin:0 0 6px;font-size:15px;font-weight:700;">1순위 (모든 업종 필수)</h3>
+      <p style="margin:0;color:var(--sub);font-size:14px;line-height:1.7;">기본 정보 완성 → 사진 다수 등록 → 리뷰·별점 관리 → 소식 주 1회</p>
+    </div>
+    <div style="background:var(--card-bg);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;">
+      <h3 style="margin:0 0 6px;font-size:15px;font-weight:700;">2순위 (업종 맞춤)</h3>
+      <p style="margin:0;color:var(--sub);font-size:14px;line-height:1.7;">예약(미용·병원·공방·학원) / 주문(음식점·카페) / 톡톡·스마트콜(문의 많은 업종)</p>
+    </div>
+    <div style="background:var(--card-bg);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;">
+      <h3 style="margin:0 0 6px;font-size:15px;font-weight:700;">3순위 (재방문·확장)</h3>
+      <p style="margin:0;color:var(--sub);font-size:14px;line-height:1.7;">쿠폰·단골로 재방문 관계 만들기 → 통계로 점검 → 마지막에 광고 검토</p>
+    </div>
+  </div>
+
+  <!-- AI 한계 박스 -->
+  <h2 class="art-h2">플레이스를 꽉 채워도 — AI 검색은 별개입니다</h2>
+  <div style="background:rgba(255,59,0,.08);border:1px solid rgba(255,59,0,.2);border-radius:14px;padding:24px 28px;margin-bottom:40px;">
+    <p style="margin:0;color:var(--sub);line-height:1.9;font-size:14px;">
+      플레이스 기능을 아무리 잘 활용해도 그 효과는 <strong style="color:var(--text);">네이버 검색·지도 안</strong>에 머뭅니다. ChatGPT·Perplexity·Gemini 같은 AI 검색은 네이버 플레이스를 직접 크롤링하지 않기 때문에, 손님이 AI에게 "○○동 맛집 추천해줘"라고 물어도 플레이스 정보는 답변에 반영되지 않습니다. AI 검색 시대에 우리 가게가 추천받으려면, 플레이스와 <strong style="color:var(--text);">별개로 AI가 읽을 수 있는 독립 웹사이트와 구조화 데이터</strong>가 필요합니다.
+    </p>
+  </div>
+
+  <!-- FAQ -->
+  <h2 class="art-h2">자주 묻는 질문</h2>
+  <div style="display:grid;gap:10px;margin-bottom:48px;">
+    <details style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:18px 22px;">
+      <summary style="font-weight:600;font-size:15px;cursor:pointer;">기능을 다 켜야 하나요?</summary>
+      <p style="margin:12px 0 0;color:var(--sub);font-size:14px;line-height:1.8;">아니요. 업종에 맞는 기능만 켜면 됩니다. 음식점이 예약을, 미용실이 테이블 주문을 켤 필요는 없습니다. 1순위(정보·사진·리뷰·소식)는 공통, 2순위부터는 업종에 맞춰 선택하세요.</p>
+    </details>
+    <details style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:18px 22px;">
+      <summary style="font-weight:600;font-size:15px;cursor:pointer;">대부분 무료라는데 비용이 드는 건 무엇인가요?</summary>
+      <p style="margin:12px 0 0;color:var(--sub);font-size:14px;line-height:1.8;">정보·예약·톡톡·소식·쿠폰·단골·통계 같은 운영 기능은 대체로 무료입니다. 네이버페이 결제 수수료, 스마트콜 안내 비용, 플레이스 광고처럼 일부는 비용이 발생합니다. 정확한 요율·조건은 각 기능의 공식 안내를 확인하세요.</p>
+    </details>
+    <details style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:18px 22px;">
+      <summary style="font-weight:600;font-size:15px;cursor:pointer;">플레이스만 잘하면 ChatGPT에도 나오나요?</summary>
+      <p style="margin:12px 0 0;color:var(--sub);font-size:14px;line-height:1.8;">아닙니다. 플레이스는 네이버 안에서만 작동합니다. AI 검색 노출을 위해서는 AI 봇이 크롤링할 수 있는 독립 웹사이트와 Schema(LocalBusiness·FAQ 등), robots.txt 설정이 별도로 필요합니다.</p>
+    </details>
+  </div>
+
+  <!-- CTA -->
+  <div style="background:linear-gradient(135deg,rgba(255,59,0,.1),rgba(255,100,50,.05));border:1px solid rgba(255,59,0,.25);border-radius:18px;padding:36px;text-align:center;margin-bottom:40px;">
+    <p style="margin:0 0 8px;font-size:13px;color:var(--sub);">플레이스는 네이버 안, AI 검색은 그 바깥</p>
+    <h3 style="margin:0 0 16px;font-size:20px;font-weight:900;">우리 가게가 AI에 어떻게 보이는지 무료로 진단받으세요</h3>
+    <a href="mailto:tarry9653@daum.net?subject=%5BAI%20%EA%B2%80%EC%83%89%20%EC%B5%9C%EC%A0%81%ED%99%94%20%EC%83%81%EB%8B%B4%5D" style="display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:13px 28px;border-radius:9px;text-decoration:none;font-size:15px;margin-right:10px;margin-bottom:12px;">무료 상담 신청하기 →</a>
+    <a href="/analyze.html" style="display:inline-block;background:var(--card-bg);border:1px solid var(--border);color:var(--text);font-weight:600;padding:13px 28px;border-radius:9px;text-decoration:none;font-size:15px;">AI 진단기 바로 써보기</a>
+  </div>
+
+  <!-- 관련 글 -->
+  <div style="margin-bottom:40px;">
+    <h2 class="art-h2">함께 보면 좋은 글</h2>
+    <div style="display:grid;gap:10px;">
+      <a href="naver-place-star-rating-2026.html" style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;color:var(--text);display:block;">⭐ <strong>네이버 플레이스 별점 부활 대응 가이드</strong> — 7월 9일 전체공개 전 준비할 것</a>
+      <a href="naver-place-guide.html" style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;color:var(--text);display:block;">📍 <strong>네이버 스마트플레이스 등록·최적화 완전 가이드</strong></a>
+      <a href="review-management.html" style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;color:var(--text);display:block;">⭐ <strong>온라인 리뷰 관리</strong> — 부정 리뷰 대응과 답글 작성법</a>
+    </div>
+  </div>
+
+  <div class="ref-sources">
+    <h4>참고 출처</h4>
+    <ul>
+      <li><a href="https://smartplace.naver.com/" target="_blank" rel="noopener">네이버 스마트플레이스 공식 사이트</a></li>
+      <li><a href="https://help.naver.com/service/5603/contents/15494" target="_blank" rel="noopener">네이버 스마트플레이스 도움말</a></li>
+      <li><a href="https://partner.naver.com/" target="_blank" rel="noopener">네이버 파트너 센터</a></li>
+    </ul>
+    <p style="font-size:12px;color:var(--sub);margin-top:10px;line-height:1.6;">※ 각 기능의 제공 범위·비용·정책은 네이버 정책에 따라 변경될 수 있습니다. 실제 적용 전 스마트플레이스 공식 안내를 확인하세요.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
+  <div class="flinks">
+    <a href="/about.html">서비스 소개</a>
+    <a href="/contact.html">문의하기</a>
+    <a href="/privacy.html">개인정보처리방침</a>
+  </div>
+  <div class="fcopy">© 2026 온종일AI. AI 검색 최적화 컨설팅 &nbsp;·&nbsp; 이메일: tarry9653@daum.net</div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script src="../js/proof.js"></script>
+</body>
+</html>
