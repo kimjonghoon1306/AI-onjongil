@@ -617,3 +617,11 @@ footer { background: var(--card-bg); border-top: 1px solid var(--border); paddin
   .sstat-row { gap: 8px; }
   .sstat-row-lbl { gap: 6px; }
 }
+
+/* 참고 출처·첨부 링크 — 다크/라이트 모두 핑크로 가독성 확보 */
+.ref-sources { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); }
+.ref-sources h4 { font-size: 14px; color: var(--text); margin: 0 0 12px; }
+.ref-sources ul { margin: 0; padding-left: 18px; }
+.ref-sources li { margin-bottom: 6px; line-height: 1.6; }
+.ref-sources a { color: #ff4d8d; text-decoration: none; }
+.ref-sources a:hover { color: #ff79ab; text-decoration: underline; }
