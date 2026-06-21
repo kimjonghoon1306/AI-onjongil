@@ -81,8 +81,8 @@ nav {
 }
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.2} }
 .hero h1 {
-  font-size: clamp(44px,8vw,96px); font-weight: 900;
-  line-height: 1.05; letter-spacing: -2px; margin-bottom: 16px;
+  font-size: clamp(40px,7vw,92px); font-weight: 900;
+  line-height: 1.22; letter-spacing: -1px; margin-bottom: 18px;
 }
 .hero h1 .hl { color: var(--accent); }
 .hero-sub {
@@ -392,7 +392,7 @@ footer { background: var(--card-bg); border-top: 1px solid var(--border); paddin
   text-align: center; text-decoration: none;
 }
 /* 모바일: CTA 섹션의 가로형 og 이미지 숨김(좁은 화면서 작고 어색) */
-@media(max-width:600px) { .cta > img { display: none; } }
+@media(max-width:1024px) { .cta > img { display: none; } }
 
 /* BREADCRUMB */
 .breadcrumb { padding: 14px 40px; font-size: 12px; color: var(--sub); background: var(--bg); border-bottom: 1px solid var(--border); }
