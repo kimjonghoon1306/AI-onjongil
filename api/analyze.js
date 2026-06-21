@@ -219,9 +219,14 @@ function parseRobotsTxt(txt, targetUA) {
       currentUA = lower.replace('user-agent:', '').trim();
     } else if (lower.startsWith('disallow:')) {
       const path = lower.replace('disallow:', '').trim();
-      if (path === '/' || path === '') {
+      if (path === '/') {
+        // 전체 차단
         if (currentUA === ua) explicit.blocked = true;
         if (currentUA === '*') global.blocked = true;
+      } else if (path === '') {
+        // 빈 Disallow = "전체 허용" (robots.txt 표준). 차단 아님.
+        if (currentUA === ua) explicit.allowed = true;
+        if (currentUA === '*') global.allowed = true;
       }
     } else if (lower.startsWith('allow:')) {
       const path = lower.replace('allow:', '').trim();
@@ -324,13 +329,15 @@ module.exports = async (req, res) => {
     result.robots = {
       exists: rResp.status === 200,
       gptbot: parseRobotsTxt(txt, 'GPTBot'),
+      oaisearchbot: parseRobotsTxt(txt, 'OAI-SearchBot'),
       perplexitybot: parseRobotsTxt(txt, 'PerplexityBot'),
       claudebot: parseRobotsTxt(txt, 'ClaudeBot'),
       googlebot: parseRobotsTxt(txt, 'Googlebot'),
+      googleextended: parseRobotsTxt(txt, 'Google-Extended'),
       applebot: parseRobotsTxt(txt, 'Applebot'),
     };
   } catch {
-    result.robots = { exists: false, gptbot: 'unknown', perplexitybot: 'unknown', claudebot: 'unknown', googlebot: 'unknown', applebot: 'unknown' };
+    result.robots = { exists: false, gptbot: 'unknown', oaisearchbot: 'unknown', perplexitybot: 'unknown', claudebot: 'unknown', googlebot: 'unknown', googleextended: 'unknown', applebot: 'unknown' };
   }
 
   // 3) sitemap.xml

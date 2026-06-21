@@ -4,6 +4,12 @@ Allow: /
 User-agent: GPTBot
 Allow: /
 
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
 User-agent: PerplexityBot
 Allow: /
 
@@ -13,4 +19,10 @@ Allow: /
 User-agent: Googlebot
 Allow: /
 
-Sitemap: https://ai.온종일.com/sitemap.xml
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+Sitemap: https://ai.xn--zk5biyyw.com/sitemap.xml
