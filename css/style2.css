@@ -113,10 +113,10 @@ nav {
   border: 1px solid var(--border); border-radius: 16px;
   overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,.5);
 }
-@media(max-width:900px) {
+@media(max-width:1024px) {
   .demo-card { display: none; }
-  .hero { text-align: center; align-items: center; }
-  .hero-tag { margin: 0 auto 32px; }
+  .hero { text-align: center; align-items: center; min-height: auto; justify-content: flex-start; padding: 96px 24px 56px; }
+  .hero-tag { margin: 0 auto 28px; }
   .hero-sub { text-align: center; }
   .hero-actions { justify-content: center; }
 }
@@ -321,7 +321,7 @@ footer { background: var(--card-bg); border-top: 1px solid var(--border); paddin
 @media(max-width:600px) {
   nav { padding: 16px 20px; }
   section { padding: 80px 20px; }
-  .hero { padding: 100px 20px 60px; }
+  .hero { padding: 84px 20px 48px; }
   .statsbar { padding: 60px 20px; }
   footer { padding: 30px 20px; flex-direction: column; text-align: center; }
   .cta { padding: 80px 20px; }
