@@ -627,3 +627,10 @@ footer { background: var(--card-bg); border-top: 1px solid var(--border); paddin
 .ref-sources li { margin-bottom: 6px; line-height: 1.6; }
 .ref-sources a { color: #ff4d8d; text-decoration: none; }
 .ref-sources a:hover { color: #ff79ab; text-decoration: underline; }
+
+/* ✨ AI 프롬프트 단일 nav 링크 + NEW 뱃지 (lab.html 연결) */
+.nav-single-link{display:inline-flex;align-items:center;gap:6px;color:var(--text);font-size:14px;font-weight:700;padding:8px 14px;border-radius:6px;text-decoration:none;transition:color .2s,background .2s;white-space:nowrap}
+.nav-single-link:hover{color:var(--accent);background:rgba(255,59,0,.06)}
+.nav-new{background:var(--accent);color:#fff;font-size:9px;font-weight:900;padding:2px 5px;border-radius:5px;letter-spacing:.5px;line-height:1;animation:navNewPulse 1.8s ease-in-out infinite}
+@keyframes navNewPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,59,0,.5)}50%{box-shadow:0 0 0 4px rgba(255,59,0,0)}}
+.mob-single-link{display:flex;align-items:center;gap:8px;font-weight:800;color:var(--accent)!important}

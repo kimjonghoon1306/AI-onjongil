@@ -1,9 +1,18 @@
 <!DOCTYPE html>
-<html lang="ko" data-theme="dark">
+<html lang="ko" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>온종일 AI — AI 검색 노출 1위 컨설팅</title>
+
+<!-- PWA (크롬앱 설치) -->
+<link rel="manifest" href="/manifest.webmanifest">
+<meta name="theme-color" content="#ff3b00">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="온종일AI">
 
 <!-- AEO/GEO 최적화 -->
 <meta name="description" content="ChatGPT, Perplexity, Gemini, Claude 등 AI 검색에서 업체를 1위 추천받게 만드는 GEO·AEO 최적화 컨설팅 서비스. 모든 업종 가능.">
@@ -102,6 +111,7 @@
         <a href="/guide/image-alt-for-ai.html">🖼️ 이미지 alt 텍스트</a>
       </div>
     </div>
+    <a href="/lab.html" class="nav-single-link">✨ AI 프롬프트<span class="nav-new">NEW</span></a>
   </div>
   <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="메뉴"><span></span><span></span><span></span></button>
     <button class="theme-btn" id="themeBtn">🌙</button>
@@ -109,6 +119,9 @@
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <div class="mob-section">
+    <a href="/lab.html" class="mob-single-link">✨ AI 프롬프트 · 글쓰기 랩 <span class="nav-new">NEW</span></a>
+  </div>
   <div class="mob-section">
     <div class="mob-section-title">업종별 가이드</div>
     <a href="/industry/hospital.html">🏥 병원·치과·한의원</a>
@@ -831,5 +844,24 @@
 <script src="js/main.js"></script>
 <script src="js/proof.js"></script>
 <script src="/js/onbot.js?v=3" defer></script>
+
+<!-- PWA: 서비스워커 + 앱 설치 버튼 -->
+<button id="pwaInstallBtn" type="button" aria-label="온종일 AI 앱 설치"
+  style="position:fixed;left:18px;bottom:20px;z-index:80;display:none;align-items:center;gap:7px;
+  background:#ff3b00;color:#fff;border:none;border-radius:14px;padding:12px 16px;font-size:14px;font-weight:800;
+  font-family:'Noto Sans KR',sans-serif;cursor:pointer;box-shadow:0 12px 30px rgba(255,59,0,.35)">⬇ 앱 설치</button>
+<script>
+(function(){
+  if('serviceWorker' in navigator){window.addEventListener('load',function(){navigator.serviceWorker.register('/sw.js').catch(function(){});});}
+  var deferred=null, btn=document.getElementById('pwaInstallBtn');
+  var standalone=function(){return window.matchMedia('(display-mode: standalone)').matches||window.navigator.standalone===true;};
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();deferred=e;if(!standalone())btn.style.display='inline-flex';});
+  btn.addEventListener('click',async function(){
+    if(deferred){deferred.prompt();await deferred.userChoice;deferred=null;btn.style.display='none';}
+    else{alert('브라우저 메뉴에서 “홈 화면에 추가” 또는 “앱 설치”를 선택해 주세요.');}
+  });
+  window.addEventListener('appinstalled',function(){btn.style.display='none';deferred=null;});
+})();
+</script>
 </body>
 </html>

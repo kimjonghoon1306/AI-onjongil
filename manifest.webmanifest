@@ -1,0 +1,22 @@
+{
+  "name": "온종일 AI — AI 검색 노출 컨설팅",
+  "short_name": "온종일AI",
+  "description": "AI 검색 노출 1위 컨설팅 · AI 프롬프트 허브 · 글쓰기 랩",
+  "start_url": "/?utm_source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f5f4f0",
+  "theme_color": "#ff3b00",
+  "lang": "ko-KR",
+  "categories": ["business", "productivity", "marketing"],
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "AI 프롬프트·글쓰기 랩", "url": "/lab.html", "description": "실전 프롬프트 100개 + 글쓰기 랩" },
+    { "name": "무료 AI 노출 진단", "url": "/analyze.html", "description": "내 사이트 AI 노출 진단" }
+  ]
+}

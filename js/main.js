@@ -1,13 +1,20 @@
-// THEME
-var themeBtn = document.getElementById('themeBtn');
-if (themeBtn) {
-  themeBtn.addEventListener('click', function() {
-    var h = document.documentElement;
-    var dark = h.getAttribute('data-theme') === 'dark';
-    h.setAttribute('data-theme', dark ? 'light' : 'dark');
-    this.textContent = dark ? '☀️' : '🌙';
-  });
-}
+// THEME (첫 방문 라이트, 선택은 localStorage 기억)
+(function () {
+  var h = document.documentElement;
+  try { var saved = localStorage.getItem('oji_theme'); if (saved) h.setAttribute('data-theme', saved); } catch (e) {}
+  var themeBtn = document.getElementById('themeBtn');
+  function setIcon() { if (themeBtn) themeBtn.textContent = h.getAttribute('data-theme') === 'dark' ? '🌙' : '☀️'; }
+  setIcon();
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var dark = h.getAttribute('data-theme') === 'dark';
+      var next = dark ? 'light' : 'dark';
+      h.setAttribute('data-theme', next);
+      try { localStorage.setItem('oji_theme', next); } catch (e) {}
+      setIcon();
+    });
+  }
+})();
 
 // CINEMATIC (index.html only)
 var slides = document.querySelectorAll('.cslide');
