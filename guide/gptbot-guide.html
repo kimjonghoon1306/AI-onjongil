@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GPTBot ìì  ê°ì´ë | robots.txt ì¤ì  & AI í¬ë¡¤ë§ íì© | ì¨ì¢ì¼AI</title>
-<meta name="description" content="OpenAI GPTBotì ê³µì User-Agent, IP ë²ì, robots.txt ì¤ì  ë°©ë²ì OpenAI ê³µì ë¬¸ì ê¸°ë°ì¼ë¡ ì¤ëªí©ëë¤. ChatGPT ë¸ì¶ì ìí GPTBot íì© ìë²½ ê°ì´ë.">
+<title>GPTBot 완전 가이드 | robots.txt 설정 & AI 크롤링 허용 | 온종일AI</title>
+<meta name="description" content="OpenAI GPTBot의 공식 User-Agent, IP 범위, robots.txt 설정 방법을 OpenAI 공식 문서 기반으로 설명합니다. ChatGPT 노출을 위한 GPTBot 허용 완벽 가이드.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ai.xn--zk5biyyw.com/guide/gptbot-guide.html">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -13,10 +13,10 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "GPTBot ìì  ê°ì´ë â robots.txt ì¤ì ê³¼ ChatGPT í¬ë¡¤ë§",
-  "description": "OpenAI GPTBotì ê³µì User-Agent, robots.txt ì¤ì  ë°©ë²ì OpenAI ê³µì ë¬¸ì ê¸°ë°ì¼ë¡ ì¤ëªí©ëë¤.",
-  "author": {"@type": "Organization", "name": "ì¨ì¢ì¼AI"},
-  "publisher": {"@type": "Organization", "name": "ì¨ì¢ì¼AI"},
+  "headline": "GPTBot 완전 가이드 — robots.txt 설정과 ChatGPT 크롤링",
+  "description": "OpenAI GPTBot의 공식 User-Agent, robots.txt 설정 방법을 OpenAI 공식 문서 기반으로 설명합니다.",
+  "author": {"@type": "Organization", "name": "온종일AI"},
+  "publisher": {"@type": "Organization", "name": "온종일AI"},
   "datePublished": "2026-06-09"
 }
 </script>
@@ -24,321 +24,321 @@
 <body>
 
 <nav>
-  <div class="logo-wrap"><div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">ì¨ì¢ì¼<span>AI</span></a></div><a href="https://www.xn--zk5biyyw.com" target="_blank" rel="noopener" class="logo-by">by ì¨ì¢ì¼</a></div>
+  <div class="logo-wrap"><div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div><a href="https://www.xn--zk5biyyw.com" target="_blank" rel="noopener" class="logo-by">by 온종일</a></div>
   <div class="nav-links">
     <div class="nav-drop">
-      <button class="nav-drop-btn">ìì¢ë³ <span class="nav-arrow">â¾</span></button>
+      <button class="nav-drop-btn">업종별 <span class="nav-arrow">▾</span></button>
       <div class="drop-menu">
-        <a href="../industry/hospital.html">ð¥ ë³ìÂ·ì¹ê³¼Â·íìì</a>
-        <a href="../industry/interior.html">ð  ì¸íë¦¬ì´Â·ë¦¬ëª¨ë¸ë§</a>
-        <a href="../industry/law.html">âï¸ ë²ë¥ Â·ì¸ë¬´Â·íê³</a>
-        <a href="../industry/health.html">ðª í¬ì¤Â·ë·°í°Â·í¼í¸ëì¤</a>
-        <a href="../industry/restaurant.html">ð½ï¸ ìë¹Â·ì¹´íÂ·ë°°ë¬</a>
-        <a href="../industry/academy.html">ð íìÂ·êµìµì</a>
-        <a href="../industry/realestate.html">ð¢ ë¶ëì°Â·ê³µì¸ì¤ê°ì¬</a>
-        <a href="../industry/dermatology.html">ð í¼ë¶ê³¼Â·ì±íì¸ê³¼</a>
-        <a href="../industry/auto.html">ð ìëì°¨ ì ë¹Â·ì¤ê³ ì°¨</a>
-        <a href="../industry/cleaning.html">ð§¹ ì¸íìÂ·ì²­ììì²´</a>
+        <a href="../industry/hospital.html">🏥 병원·치과·한의원</a>
+        <a href="../industry/interior.html">🏠 인테리어·리모델링</a>
+        <a href="../industry/law.html">⚖️ 법률·세무·회계</a>
+        <a href="../industry/health.html">💪 헬스·뷰티·피트니스</a>
+        <a href="../industry/restaurant.html">🍽️ 식당·카페·배달</a>
+        <a href="../industry/academy.html">📚 학원·교습소</a>
+        <a href="../industry/realestate.html">🏢 부동산·공인중개사</a>
+        <a href="../industry/dermatology.html">💉 피부과·성형외과</a>
+        <a href="../industry/auto.html">🚗 자동차 정비·중고차</a>
+        <a href="../industry/cleaning.html">🧹 세탁소·청소업체</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">AI ê²ì ê°ì´ë <span class="nav-arrow">â¾</span></button>
+      <button class="nav-drop-btn">AI 검색 가이드 <span class="nav-arrow">▾</span></button>
       <div class="drop-menu">
-        <a href="what-is-seo.html">ð SEOë ë¬´ìì¸ê°?</a>
-        <a href="what-is-aeo.html">ð¤ AEOë ë¬´ìì¸ê°?</a>
-        <a href="what-is-geo.html">ð¬ GEOë ë¬´ìì¸ê°?</a>
-        <a href="how-ai-search-works.html">âï¸ AIë ì´ë»ê² ì¶ì²íë?</a>
-        <a href="naver-vs-ai.html">â¡ ë¤ì´ë² vs AI ê²ì</a>
-        <a href="chatgpt-exposure.html">ð¬ ChatGPT ë¸ì¶íê¸°</a>
-        <a href="perplexity-optimization.html">ð Perplexity ìµì í</a>
-        <a href="gemini-ai-overview.html">â Google AI Overviews</a>
-        <a href="claude-ai-search.html">ð§  Claude AI ê²ì</a>
-        <a href="google-ai-overviews.html">ð Google AI Overviews ìë¦¬</a>
-        <a href="perplexity-how-it-works.html">ð¡ Perplexity ìë ìë¦¬</a>
-        <a href="chatgpt-search-guide.html">ð¡ ChatGPT Search ìë¦¬</a>
-        <a href="eeat-guide.html">â­ E-E-A-T ê°ì´ë</a>
+        <a href="what-is-seo.html">📖 SEO란 무엇인가?</a>
+        <a href="what-is-aeo.html">🤖 AEO란 무엇인가?</a>
+        <a href="what-is-geo.html">🔬 GEO란 무엇인가?</a>
+        <a href="how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
+        <a href="naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
+        <a href="chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
+        <a href="perplexity-optimization.html">🔍 Perplexity 최적화</a>
+        <a href="gemini-ai-overview.html">♊ Google AI Overviews</a>
+        <a href="claude-ai-search.html">🧠 Claude AI 검색</a>
+        <a href="google-ai-overviews.html">🔎 Google AI Overviews 원리</a>
+        <a href="perplexity-how-it-works.html">📡 Perplexity 작동 원리</a>
+        <a href="chatgpt-search-guide.html">💡 ChatGPT Search 원리</a>
+        <a href="eeat-guide.html">⭐ E-E-A-T 가이드</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">ð ë¤ì´ë² íë ì´ì¤ <span class="nav-arrow">â¾</span></button>
+      <button class="nav-drop-btn">📍 네이버 플레이스 <span class="nav-arrow">▾</span></button>
       <div class="drop-menu">
-        <a href="/guide/naver-place-guide.html">ð íë ì´ì¤ ë±ë¡Â·ìµì í</a>
-        <a href="/guide/naver-place-features.html">ð§© ê¸°ë¥ ìì  í´ë¶</a>
-        <a href="/guide/naver-place-star-rating-2026.html">â­ ë³ì  ë¶í ëì</a>
-        <a href="/guide/place-photo-tips.html">ð¸ ì¬ì§ ì ì°ë ë²</a>
+        <a href="/guide/naver-place-guide.html">📍 플레이스 등록·최적화</a>
+        <a href="/guide/naver-place-features.html">🧩 기능 완전 해부</a>
+        <a href="/guide/naver-place-star-rating-2026.html">⭐ 별점 부활 대응</a>
+        <a href="/guide/place-photo-tips.html">📸 사진 잘 찍는 법</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">â­ ë¦¬ë·° ê´ë¦¬ <span class="nav-arrow">â¾</span></button>
+      <button class="nav-drop-btn">⭐ 리뷰 관리 <span class="nav-arrow">▾</span></button>
       <div class="drop-menu">
-        <a href="/guide/bad-review-response.html">ð¡ï¸ ìì± ë¦¬ë·°Â·ë³ì  íë¬ ëì</a>
-        <a href="/guide/get-more-reviews.html">ð ë¦¬ë·° ëë¦¬ë ë²</a>
-        <a href="/guide/review-management.html">â­ ì¨ë¼ì¸ ë¦¬ë·° ê´ë¦¬</a>
+        <a href="/guide/bad-review-response.html">🛡️ 악성 리뷰·별점 테러 대응</a>
+        <a href="/guide/get-more-reviews.html">📈 리뷰 늘리는 법</a>
+        <a href="/guide/review-management.html">⭐ 온라인 리뷰 관리</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">ð§­ ë§ì¼í <span class="nav-arrow">â¾</span></button>
+      <button class="nav-drop-btn">🧭 마케팅 <span class="nav-arrow">▾</span></button>
       <div class="drop-menu">
-        <a href="/guide/naver-google-ai-search.html">ð§­ ë¤ì´ë²Â·êµ¬ê¸Â·AI ê²ì ë¹êµ</a>
-        <a href="/guide/google-business-profile.html">ðºï¸ êµ¬ê¸ ë¹ì¦ëì¤ íë¡í</a>
-        <a href="/guide/online-marketing-start.html">ð ì¨ë¼ì¸ ë§ì¼í ììíê¸°</a>
-        <a href="/guide/free-marketing-methods.html">ð¡ ë¬´ë£ ë§ì¼í ë°©ë²</a>
+        <a href="/guide/naver-google-ai-search.html">🧭 네이버·구글·AI 검색 비교</a>
+        <a href="/guide/google-business-profile.html">🗺️ 구글 비즈니스 프로필</a>
+        <a href="/guide/online-marketing-start.html">🚀 온라인 마케팅 시작하기</a>
+        <a href="/guide/free-marketing-methods.html">💡 무료 마케팅 방법</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">ð ï¸ AI ì§ë¨ê¸° <span class="nav-arrow">â¾</span></button>
+      <button class="nav-drop-btn">🛠️ AI 진단기 <span class="nav-arrow">▾</span></button>
       <div class="drop-menu">
-        <a href="/analyze.html">ð ï¸ AI ìµì í ì§ë¨ê¸°</a>
-        <a href="/analyze-guide.html">ð ì¬ì©ë°©ë²</a>
+        <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
+        <a href="/analyze-guide.html">📖 사용방법</a>
         <div style="border-top:1px solid var(--border);margin:4px 2px"></div>
-        <a href="/guide/ai-bot-access.html">ð¤ AI ë´ í¬ë¡¤ë§ ì¤ì </a>
-        <a href="/guide/faq-schema-for-ai.html">â FAQPage Schema</a>
-        <a href="/guide/business-schema-for-ai.html">ð¢ LocalBusiness Schema</a>
-        <a href="/guide/meta-description-ai.html">ð ë©í ëì¤í¬ë¦½ì</a>
-        <a href="/guide/sitemap-for-ai.html">ðºï¸ sitemap.xml</a>
-        <a href="/guide/heading-structure-ai.html">ð ì ëª© ê³ì¸µ êµ¬ì¡°</a>
-        <a href="/guide/image-alt-for-ai.html">ð¼ï¸ ì´ë¯¸ì§ alt íì¤í¸</a>
+        <a href="/guide/ai-bot-access.html">🤖 AI 봇 크롤링 설정</a>
+        <a href="/guide/faq-schema-for-ai.html">❓ FAQPage Schema</a>
+        <a href="/guide/business-schema-for-ai.html">🏢 LocalBusiness Schema</a>
+        <a href="/guide/meta-description-ai.html">📝 메타 디스크립션</a>
+        <a href="/guide/sitemap-for-ai.html">🗺️ sitemap.xml</a>
+        <a href="/guide/heading-structure-ai.html">📑 제목 계층 구조</a>
+        <a href="/guide/image-alt-for-ai.html">🖼️ 이미지 alt 텍스트</a>
       </div>
     </div>
     <a href="/lab.html" class="nav-single-link">✨ AI 프롬프트<span class="nav-new">NEW</span></a>
   </div>
-  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="ë©ë´"><span></span><span></span><span></span></button>
-    <button class="theme-btn" id="themeBtn">ð</button>
-    <button class="nav-cta">ìë´ ì ì²­íê¸°</button>
+  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="메뉴"><span></span><span></span><span></span></button>
+    <button class="theme-btn" id="themeBtn">🌙</button>
+    <button class="nav-cta">상담 신청하기</button>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <div class="mob-section"><a href="/lab.html" class="mob-single-link">✨ AI 프롬프트 · 글쓰기 랩 <span class="nav-new">NEW</span></a></div>
   <div class="mob-section">
-    <div class="mob-section-title">ìì¢ë³ ê°ì´ë</div>
-    <a href="/industry/hospital.html">ð¥ ë³ìÂ·ì¹ê³¼Â·íìì</a>
-    <a href="/industry/interior.html">ð  ì¸íë¦¬ì´Â·ë¦¬ëª¨ë¸ë§</a>
-    <a href="/industry/law.html">âï¸ ë²ë¥ Â·ì¸ë¬´Â·íê³</a>
-    <a href="/industry/health.html">ðª í¬ì¤Â·ë·°í°Â·í¼í¸ëì¤</a>
-    <a href="/industry/restaurant.html">ð½ï¸ ìë¹Â·ì¹´íÂ·ë°°ë¬</a>
-    <a href="/industry/academy.html">ð íìÂ·êµìµì</a>
-    <a href="/industry/realestate.html">ð¢ ë¶ëì°Â·ê³µì¸ì¤ê°ì¬</a>
-    <a href="/industry/dermatology.html">ð í¼ë¶ê³¼Â·ì±íì¸ê³¼</a>
-    <a href="/industry/auto.html">ð ìëì°¨ ì ë¹Â·ì¤ê³ ì°¨</a>
-    <a href="/industry/cleaning.html">ð§¹ ì¸íìÂ·ì²­ììì²´</a>
+    <div class="mob-section-title">업종별 가이드</div>
+    <a href="/industry/hospital.html">🏥 병원·치과·한의원</a>
+    <a href="/industry/interior.html">🏠 인테리어·리모델링</a>
+    <a href="/industry/law.html">⚖️ 법률·세무·회계</a>
+    <a href="/industry/health.html">💪 헬스·뷰티·피트니스</a>
+    <a href="/industry/restaurant.html">🍽️ 식당·카페·배달</a>
+    <a href="/industry/academy.html">📚 학원·교습소</a>
+    <a href="/industry/realestate.html">🏢 부동산·공인중개사</a>
+    <a href="/industry/dermatology.html">💉 피부과·성형외과</a>
+    <a href="/industry/auto.html">🚗 자동차 정비·중고차</a>
+    <a href="/industry/cleaning.html">🧹 세탁소·청소업체</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">AI ê²ì ê°ì´ë</div>
-    <a href="/guide/what-is-seo.html">ð SEOë ë¬´ìì¸ê°?</a>
-    <a href="/guide/what-is-aeo.html">ð¤ AEOë ë¬´ìì¸ê°?</a>
-    <a href="/guide/what-is-geo.html">ð¬ GEOë ë¬´ìì¸ê°?</a>
-    <a href="/guide/how-ai-search-works.html">âï¸ AIë ì´ë»ê² ì¶ì²íë?</a>
-    <a href="/guide/naver-vs-ai.html">â¡ ë¤ì´ë² vs AI ê²ì</a>
-    <a href="/guide/how-to-check-ai.html">ð AI ë¸ì¶ ì§ì  íì¸íê¸°</a>
-    <a href="/guide/ai-seo-checklist.html">â AI ê²ì ìµì í ì²´í¬ë¦¬ì¤í¸</a>
-    <a href="/guide/chatgpt-exposure.html">ð¬ ChatGPT ë¸ì¶íê¸°</a>
-    <a href="/guide/perplexity-optimization.html">ð Perplexity ìµì í</a>
-    <a href="/guide/gemini-ai-overview.html">â Google AI Overviews</a>
-    <a href="/guide/claude-ai-search.html">ð§  Claude AI ê²ì</a>
-    <a href="/guide/google-ai-overviews.html">ð Google AI Overviews ìë¦¬</a>
-    <a href="/guide/perplexity-how-it-works.html">ð¡ Perplexity ìë ìë¦¬</a>
-    <a href="/guide/chatgpt-search-guide.html">ð¡ ChatGPT Search ìë¦¬</a>
-    <a href="/guide/eeat-guide.html">â­ E-E-A-T ê°ì´ë</a>
+    <div class="mob-section-title">AI 검색 가이드</div>
+    <a href="/guide/what-is-seo.html">📖 SEO란 무엇인가?</a>
+    <a href="/guide/what-is-aeo.html">🤖 AEO란 무엇인가?</a>
+    <a href="/guide/what-is-geo.html">🔬 GEO란 무엇인가?</a>
+    <a href="/guide/how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
+    <a href="/guide/naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
+    <a href="/guide/how-to-check-ai.html">🔎 AI 노출 직접 확인하기</a>
+    <a href="/guide/ai-seo-checklist.html">✅ AI 검색 최적화 체크리스트</a>
+    <a href="/guide/chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
+    <a href="/guide/perplexity-optimization.html">🔍 Perplexity 최적화</a>
+    <a href="/guide/gemini-ai-overview.html">♊ Google AI Overviews</a>
+    <a href="/guide/claude-ai-search.html">🧠 Claude AI 검색</a>
+    <a href="/guide/google-ai-overviews.html">🔎 Google AI Overviews 원리</a>
+    <a href="/guide/perplexity-how-it-works.html">📡 Perplexity 작동 원리</a>
+    <a href="/guide/chatgpt-search-guide.html">💡 ChatGPT Search 원리</a>
+    <a href="/guide/eeat-guide.html">⭐ E-E-A-T 가이드</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">ð ë¤ì´ë² íë ì´ì¤</div>
-    <a href="/guide/naver-place-guide.html">ð íë ì´ì¤ ë±ë¡Â·ìµì í</a>
-    <a href="/guide/naver-place-features.html">ð§© ê¸°ë¥ ìì  í´ë¶</a>
-    <a href="/guide/naver-place-star-rating-2026.html">â­ ë³ì  ë¶í ëì</a>
-    <a href="/guide/place-photo-tips.html">ð¸ ì¬ì§ ì ì°ë ë²</a>
+    <div class="mob-section-title">📍 네이버 플레이스</div>
+    <a href="/guide/naver-place-guide.html">📍 플레이스 등록·최적화</a>
+    <a href="/guide/naver-place-features.html">🧩 기능 완전 해부</a>
+    <a href="/guide/naver-place-star-rating-2026.html">⭐ 별점 부활 대응</a>
+    <a href="/guide/place-photo-tips.html">📸 사진 잘 찍는 법</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">â­ ë¦¬ë·° ê´ë¦¬</div>
-    <a href="/guide/bad-review-response.html">ð¡ï¸ ìì± ë¦¬ë·°Â·ë³ì  íë¬ ëì</a>
-    <a href="/guide/get-more-reviews.html">ð ë¦¬ë·° ëë¦¬ë ë²</a>
-    <a href="/guide/review-management.html">â­ ì¨ë¼ì¸ ë¦¬ë·° ê´ë¦¬</a>
+    <div class="mob-section-title">⭐ 리뷰 관리</div>
+    <a href="/guide/bad-review-response.html">🛡️ 악성 리뷰·별점 테러 대응</a>
+    <a href="/guide/get-more-reviews.html">📈 리뷰 늘리는 법</a>
+    <a href="/guide/review-management.html">⭐ 온라인 리뷰 관리</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">ð§­ ë§ì¼í</div>
-    <a href="/guide/naver-google-ai-search.html">ð§­ ë¤ì´ë²Â·êµ¬ê¸Â·AI ê²ì ë¹êµ</a>
-    <a href="/guide/google-business-profile.html">ðºï¸ êµ¬ê¸ ë¹ì¦ëì¤ íë¡í</a>
-    <a href="/guide/online-marketing-start.html">ð ì¨ë¼ì¸ ë§ì¼í ììíê¸°</a>
-    <a href="/guide/free-marketing-methods.html">ð¡ ë¬´ë£ ë§ì¼í ë°©ë²</a>
+    <div class="mob-section-title">🧭 마케팅</div>
+    <a href="/guide/naver-google-ai-search.html">🧭 네이버·구글·AI 검색 비교</a>
+    <a href="/guide/google-business-profile.html">🗺️ 구글 비즈니스 프로필</a>
+    <a href="/guide/online-marketing-start.html">🚀 온라인 마케팅 시작하기</a>
+    <a href="/guide/free-marketing-methods.html">💡 무료 마케팅 방법</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">AI ì§ë¨ê¸°</div>
-    <a href="/analyze.html">ð ï¸ AI ìµì í ì§ë¨ê¸°</a>
-    <a href="/analyze-guide.html">ð ì¬ì©ë°©ë²</a>
-    <a href="/guide/ai-bot-access.html">ð¤ AI ë´ í¬ë¡¤ë§ ì¤ì </a>
-    <a href="/guide/faq-schema-for-ai.html">â FAQPage Schema</a>
-    <a href="/guide/business-schema-for-ai.html">ð¢ LocalBusiness Schema</a>
-    <a href="/guide/meta-description-ai.html">ð ë©í ëì¤í¬ë¦½ì</a>
-    <a href="/guide/sitemap-for-ai.html">ðºï¸ sitemap.xml</a>
-    <a href="/guide/heading-structure-ai.html">ð ì ëª© ê³ì¸µ êµ¬ì¡°</a>
-    <a href="/guide/image-alt-for-ai.html">ð¼ï¸ ì´ë¯¸ì§ alt íì¤í¸</a>
+    <div class="mob-section-title">AI 진단기</div>
+    <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
+    <a href="/analyze-guide.html">📖 사용방법</a>
+    <a href="/guide/ai-bot-access.html">🤖 AI 봇 크롤링 설정</a>
+    <a href="/guide/faq-schema-for-ai.html">❓ FAQPage Schema</a>
+    <a href="/guide/business-schema-for-ai.html">🏢 LocalBusiness Schema</a>
+    <a href="/guide/meta-description-ai.html">📝 메타 디스크립션</a>
+    <a href="/guide/sitemap-for-ai.html">🗺️ sitemap.xml</a>
+    <a href="/guide/heading-structure-ai.html">📑 제목 계층 구조</a>
+    <a href="/guide/image-alt-for-ai.html">🖼️ 이미지 alt 텍스트</a>
   </div>
-  <button class="mob-cta">ë¬´ë£ ìë´ ì ì²­íê¸° â</button>
+  <button class="mob-cta">무료 상담 신청하기 →</button>
 </div>
 
 <div class="breadcrumb">
-  <a href="../index.html">í</a><span>âº</span>
-  <a href="index.html">AI ê²ì ê°ì´ë</a><span>âº</span>
-  GPTBot ìì  ê°ì´ë
+  <a href="../index.html">홈</a><span>›</span>
+  <a href="index.html">AI 검색 가이드</a><span>›</span>
+  GPTBot 완전 가이드
 </div>
 
 <div class="article-hero">
   <div class="article-hero-bg"></div>
-  <div class="article-category">ê¸°ì  ê°ì´ë Â· GPTBot</div>
-  <h1>GPTBot<br><span class="hl">ìì  ê°ì´ë</span><br>robots.txt ì¤ì ê¹ì§</h1>
-  <p>OpenAI GPTBotì ê³µì User-Agent, IP ë²ì, robots.txt ì¤ì  ë°©ë²ì OpenAI ê³µì ë¬¸ì ê¸°ë°ì¼ë¡ ì¤ëªí©ëë¤.</p>
+  <div class="article-category">기술 가이드 · GPTBot</div>
+  <h1>GPTBot<br><span class="hl">완전 가이드</span><br>robots.txt 설정까지</h1>
+  <p>OpenAI GPTBot의 공식 User-Agent, IP 범위, robots.txt 설정 방법을 OpenAI 공식 문서 기반으로 설명합니다.</p>
   <div class="article-meta">
-    <span>ì¨ì¢ì¼AI í¸ì§í</span><span>Â·</span>
-    <span>2026ë 6ì 9ì¼</span><span>Â·</span>
-    <span>ì½ 4ë¶ ìì</span>
+    <span>온종일AI 편집팀</span><span>·</span>
+    <span>2026년 6월 9일</span><span>·</span>
+    <span>약 4분 소요</span>
   </div>
 </div>
 
 <div class="article-wrap">
   <p class="article-lead">
-    GPTBotì OpenAIê° ì´ìíë ê³µì ì¹ í¬ë¡¤ë¬ìëë¤. ChatGPTìì ì°ë¦¬ ìì²´ê° ë¸ì¶ëë ¤ë©´ GPTBotì´ ì°ë¦¬ ì¬ì´í¸ë¥¼ í¬ë¡¤ë§í  ì ìì´ì¼ í©ëë¤. OpenAIë GPTBotì ëí ê³µì ë¬¸ìë¥¼ ê³µê°íê³  ììµëë¤.
+    GPTBot은 OpenAI가 운영하는 공식 웹 크롤러입니다. ChatGPT에서 우리 업체가 노출되려면 GPTBot이 우리 사이트를 크롤링할 수 있어야 합니다. OpenAI는 GPTBot에 대한 공식 문서를 공개하고 있습니다.
   </p>
 
   <div class="article-section">
-    <h2>GPTBot ê³µì ì ë³´ (ì¶ì²: OpenAI)</h2>
+    <h2>GPTBot 공식 정보 (출처: OpenAI)</h2>
     <p>
-      OpenAI ê³µì ë¬¸ì(<a href="https://platform.openai.com/docs/plugins/bot" target="_blank" rel="noopener" style="color:var(--accent)">platform.openai.com/docs/plugins/bot</a>)ì ë°ë¥´ë©´ GPTBotì ê³µì ì ë³´ë ë¤ìê³¼ ê°ìµëë¤.
+      OpenAI 공식 문서(<a href="https://platform.openai.com/docs/plugins/bot" target="_blank" rel="noopener" style="color:var(--accent)">platform.openai.com/docs/plugins/bot</a>)에 따르면 GPTBot의 공식 정보는 다음과 같습니다.
     </p>
 
     <div class="tip-box">
-      <div class="tip-label">ð GPTBot ê³µì User-Agent</div>
+      <div class="tip-label">📋 GPTBot 공식 User-Agent</div>
       <p style="font-family:monospace;font-size:.85rem">Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; GPTBot/1.0; +https://openai.com/gptbot)</p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">ð GPTBot ê³µì ì¤ëª (OpenAI ê³µì ë¬¸ì)</div>
-      <p>OpenAIë GPTBotì "OpenAIì AI ëª¨ë¸ì ê°ì íë ë° ì¬ì©ëë ìëí ì¹ í¬ë¡¤ë¬"ë¡ ì ìí©ëë¤. GPTBotì´ ìì§í ì½íì¸ ë í¥í AI ëª¨ë¸ ê°ì ì íì©ë  ì ììµëë¤.</p>
+      <div class="tip-label">📋 GPTBot 공식 설명 (OpenAI 공식 문서)</div>
+      <p>OpenAI는 GPTBot을 "OpenAI의 AI 모델을 개선하는 데 사용되는 자동화 웹 크롤러"로 정의합니다. GPTBot이 수집한 콘텐츠는 향후 AI 모델 개선에 활용될 수 있습니다.</p>
     </div>
   </div>
 
   <div class="article-section">
-    <h2>robots.txt GPTBot ì¤ì  ë°©ë²</h2>
+    <h2>robots.txt GPTBot 설정 방법</h2>
 
     <div class="tip-box">
-      <div class="tip-label">â ì ì²´ íì© (ê¶ì¥ â ChatGPT ë¸ì¶ ìíë ê²½ì°)</div>
+      <div class="tip-label">✅ 전체 허용 (권장 — ChatGPT 노출 원하는 경우)</div>
       <p style="font-family:monospace;font-size:.9rem">User-agent: GPTBot<br>Allow: /</p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">â ï¸ í¹ì  ê²½ë¡ë§ ì°¨ë¨ (ì¼ë¶ íì´ì§ë§ ì ì¸íë ê²½ì°)</div>
+      <div class="tip-label">⚠️ 특정 경로만 차단 (일부 페이지만 제외하는 경우)</div>
       <p style="font-family:monospace;font-size:.9rem">User-agent: GPTBot<br>Disallow: /private/<br>Disallow: /members-only/</p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">â ì ì²´ ì°¨ë¨ (ChatGPT íìµ ë°ì´í° ì ê³µ ìì¹ ìë ê²½ì°)</div>
+      <div class="tip-label">❌ 전체 차단 (ChatGPT 학습 데이터 제공 원치 않는 경우)</div>
       <p style="font-family:monospace;font-size:.9rem">User-agent: GPTBot<br>Disallow: /</p>
     </div>
 
     <p>
-      robots.txt íì¼ì ì¹ì¬ì´í¸ ë£¨í¸ ëë í ë¦¬ì ìì¹í´ì¼ í©ëë¤. ì: <code>https://ì°ë¦¬ëë©ì¸.com/robots.txt</code>
+      robots.txt 파일은 웹사이트 루트 디렉토리에 위치해야 합니다. 예: <code>https://우리도메인.com/robots.txt</code>
     </p>
   </div>
 
   <div class="article-section">
-    <h2>GPTBotê³¼ ChatGPT-Userì ì°¨ì´</h2>
+    <h2>GPTBot과 ChatGPT-User의 차이</h2>
     <p>
-      OpenAIë GPTBot ì¸ì ChatGPT-Userë¼ë ë³ëì user-agentë ì´ìí©ëë¤. ë í¬ë¡¤ë¬ì ì°¨ì´ë¥¼ ì´í´íê³  ë ë¤ ì ì í ì¤ì í´ì¼ í©ëë¤.
+      OpenAI는 GPTBot 외에 ChatGPT-User라는 별도의 user-agent도 운영합니다. 두 크롤러의 차이를 이해하고 둘 다 적절히 설정해야 합니다.
     </p>
 
     <div class="compare-visual">
       <div class="cv-panel">
         <div class="cv-head bad" style="background:rgba(0,100,255,.08);color:#6699ff;border-bottom-color:rgba(0,100,255,.2)">GPTBot</div>
         <div class="cv-body">
-          <div class="cv-item">AI ëª¨ë¸ íìµ ë°ì´í° ìì§ì©</div>
-          <div class="cv-item">ë¹ì¤ìê° í¬ë¡¤ë§</div>
-          <div class="cv-item">ì¥ê¸°ì  ëª¨ë¸ ë°ì</div>
-          <div class="cv-item">robots.txt ì¤ì</div>
+          <div class="cv-item">AI 모델 학습 데이터 수집용</div>
+          <div class="cv-item">비실시간 크롤링</div>
+          <div class="cv-item">장기적 모델 반영</div>
+          <div class="cv-item">robots.txt 준수</div>
         </div>
       </div>
       <div class="cv-panel">
         <div class="cv-head good">ChatGPT-User</div>
         <div class="cv-body">
-          <div class="cv-item"><span class="o">â</span> ChatGPT ë¸ë¼ì°ì§/ê²ì ê¸°ë¥ì©</div>
-          <div class="cv-item"><span class="o">â</span> ì¤ìê° ëµë³ ìì± ì¤ ì ê·¼</div>
-          <div class="cv-item"><span class="o">â</span> ì¦ê°ì ì¸ ì ë³´ ìì§</div>
-          <div class="cv-item"><span class="o">â</span> robots.txt ì¤ì</div>
+          <div class="cv-item"><span class="o">→</span> ChatGPT 브라우징/검색 기능용</div>
+          <div class="cv-item"><span class="o">→</span> 실시간 답변 생성 중 접근</div>
+          <div class="cv-item"><span class="o">→</span> 즉각적인 정보 수집</div>
+          <div class="cv-item"><span class="o">→</span> robots.txt 준수</div>
         </div>
       </div>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">â ê¶ì¥ robots.txt ì¤ì  (GPTBot + ChatGPT-User ëª¨ë íì©)</div>
+      <div class="tip-label">✅ 권장 robots.txt 설정 (GPTBot + ChatGPT-User 모두 허용)</div>
       <p style="font-family:monospace;font-size:.9rem">User-agent: GPTBot<br>Allow: /<br><br>User-agent: ChatGPT-User<br>Allow: /</p>
-      <p style="font-size:.85rem;margin-top:8px">ì¶ì²: <a href="https://platform.openai.com/docs/plugins/bot" target="_blank" rel="noopener" style="color:var(--accent)">OpenAI ê³µì ë¬¸ì</a></p>
+      <p style="font-size:.85rem;margin-top:8px">출처: <a href="https://platform.openai.com/docs/plugins/bot" target="_blank" rel="noopener" style="color:var(--accent)">OpenAI 공식 문서</a></p>
     </div>
   </div>
 
   <div class="article-section">
-    <h2>GPTBotì íì©íë©´ ChatGPTì ë¸ì¶ëëì?</h2>
+    <h2>GPTBot을 허용하면 ChatGPT에 노출되나요?</h2>
     <p>
-      <b>GPTBot íì©ê³¼ ChatGPT 'ê²ì' ë¸ì¶ì ìë¡ ë¤ë¥¸ ê²½ë¡ìëë¤.</b> GPTBotì OpenAIì AI ëª¨ë¸ <b>íìµ ë°ì´í°</b> ìì§ì© í¬ë¡¤ë¬ë¡, íì©íëë¼ë ì¤ì  ChatGPT ëµë³ì ë°ìëë ìì Â·ì¬ë¶ë ëª¨ë¸ íìµ ì£¼ê¸°ì ë¬ë ¤ ìê³  OpenAIë êµ¬ì²´ì  ê¸°ê°ì ê³µê°íì§ ììµëë¤.<br><br>
-      ë°ë©´ ChatGPTì <b>ì¤ìê° ê²ì(ChatGPT Search) ë¸ì¶</b>ì ë³ë í¬ë¡¤ë¬ì¸ <b>OAI-SearchBot</b>(ê²ì ì¸ë±ì±ì©)ê³¼ <b>ChatGPT-User</b>(ì¬ì©ì ìì²­ ì ì¤ìê° íì¹)ê° ë´ë¹í©ëë¤. ë°ë¼ì ChatGPT ê²ìì ì¸ì©ëë ¤ë©´ robots.txtìì GPTBotë¿ ìëë¼ <b>OAI-SearchBotÂ·ChatGPT-Userê¹ì§ íì©</b>íê³ , ì½íì¸ ê° í¬ë¡¤ë§ ê°ë¥í êµ¬ì¡°ì¬ì¼ í©ëë¤. (ChatGPT Searchë OpenAI ìì²´ ì¸ë±ì¤ì Bing ë± ê²ì íí¸ë ê²°ê³¼ë¥¼ í¨ê» íì©í©ëë¤.)
+      <b>GPTBot 허용과 ChatGPT '검색' 노출은 서로 다른 경로입니다.</b> GPTBot은 OpenAI의 AI 모델 <b>학습 데이터</b> 수집용 크롤러로, 허용하더라도 실제 ChatGPT 답변에 반영되는 시점·여부는 모델 학습 주기에 달려 있고 OpenAI는 구체적 기간을 공개하지 않습니다.<br><br>
+      반면 ChatGPT의 <b>실시간 검색(ChatGPT Search) 노출</b>은 별도 크롤러인 <b>OAI-SearchBot</b>(검색 인덱싱용)과 <b>ChatGPT-User</b>(사용자 요청 시 실시간 페치)가 담당합니다. 따라서 ChatGPT 검색에 인용되려면 robots.txt에서 GPTBot뿐 아니라 <b>OAI-SearchBot·ChatGPT-User까지 허용</b>하고, 콘텐츠가 크롤링 가능한 구조여야 합니다. (ChatGPT Search는 OpenAI 자체 인덱스와 Bing 등 검색 파트너 결과를 함께 활용합니다.)
     </p>
     <p style="font-size:0.9em;color:#888;margin-top:8px">
-      ì°¸ê³ : <a href="https://platform.openai.com/docs/bots" target="_blank" rel="noopener">OpenAI Bots ê³µì ë¬¸ì</a> (GPTBotÂ·OAI-SearchBotÂ·ChatGPT-User êµ¬ë¶)
+      참고: <a href="https://platform.openai.com/docs/bots" target="_blank" rel="noopener">OpenAI Bots 공식 문서</a> (GPTBot·OAI-SearchBot·ChatGPT-User 구분)
     </p>
   </div>
 
   <div class="article-section">
-    <h2>ìì£¼ ë¬»ë ì§ë¬¸</h2>
+    <h2>자주 묻는 질문</h2>
 
     <div class="tip-box">
-      <div class="tip-label">Q. íì¬ GPTBotì´ ì°¨ë¨ëì´ ìëì§ ì´ë»ê² íì¸íëì?</div>
-      <p>ì°ë¦¬ ì¬ì´í¸ì robots.txt íì¼(https://ì°ë¦¬ëë©ì¸.com/robots.txt)ì ì§ì  íì¸í©ëë¤. "User-agent: *" ë¤ì "Disallow: /"ê° ìê±°ë, "User-agent: GPTBot" ë¤ì "Disallow: /"ê° ìì¼ë©´ ì°¨ë¨ ìíìëë¤. ì¨ì¢ì¼AIì <a href="/analyze.html" style="color:var(--accent)">AI ìµì í ì§ë¨ê¸°</a>ììë GPTBot ì°¨ë¨ ì¬ë¶ë¥¼ ìëì¼ë¡ ì§ë¨í©ëë¤.</p>
+      <div class="tip-label">Q. 현재 GPTBot이 차단되어 있는지 어떻게 확인하나요?</div>
+      <p>우리 사이트의 robots.txt 파일(https://우리도메인.com/robots.txt)을 직접 확인합니다. "User-agent: *" 뒤에 "Disallow: /"가 있거나, "User-agent: GPTBot" 뒤에 "Disallow: /"가 있으면 차단 상태입니다. 온종일AI의 <a href="/analyze.html" style="color:var(--accent)">AI 최적화 진단기</a>에서도 GPTBot 차단 여부를 자동으로 진단합니다.</p>
     </div>
     <div class="tip-box">
-      <div class="tip-label">Q. GPTBot IP ë²ìë ì´ëì íì¸íëì?</div>
-      <p>OpenAIë GPTBotì´ ì¬ì©íë IP ë²ìë¥¼ ê³µì JSON íì¼ë¡ ì ê³µí©ëë¤. (<a href="https://openai.com/gptbot-ranges.txt" target="_blank" rel="noopener" style="color:var(--accent)">openai.com/gptbot-ranges.txt</a>) ì´ íì¼ìì GPTBotì ì ê·¼ IPë¥¼ íì¸í  ì ììµëë¤. IP ê¸°ë° ì ê·¼ ì ì´ë¥¼ ì¤ì íë ê²½ì° ì´ íì¼ì ì°¸ì¡°í©ëë¤.</p>
+      <div class="tip-label">Q. GPTBot IP 범위는 어디서 확인하나요?</div>
+      <p>OpenAI는 GPTBot이 사용하는 IP 범위를 공식 JSON 파일로 제공합니다. (<a href="https://openai.com/gptbot-ranges.txt" target="_blank" rel="noopener" style="color:var(--accent)">openai.com/gptbot-ranges.txt</a>) 이 파일에서 GPTBot의 접근 IP를 확인할 수 있습니다. IP 기반 접근 제어를 설정하는 경우 이 파일을 참조합니다.</p>
     </div>
     <div class="tip-box">
-      <div class="tip-label">Q. WordPress, Wix ê°ì ë¹ëìì GPTBotì ì´ë»ê² íì©íëì?</div>
-      <p>WordPressì ê²½ì° Yoast SEO, Rank Math ë± SEO íë¬ê·¸ì¸ì robots.txt í¸ì§ ê¸°ë¥ì ì¬ì©íê±°ë, WordPress ë£¨í¸ ëë í ë¦¬ì robots.txt íì¼ì ì§ì  ìì í©ëë¤. Wix, Squarespace ë± ë¹ëë ê´ë¦¬ì í¨ëì SEO ì¤ì ìì robots.txtë¥¼ í¸ì§í©ëë¤. ë¤ì´ë² ëª¨ë(Modoo), ì¹´ì¹´ì¤ ì±ëì²ë¼ robots.txt í¸ì§ì´ ë¶ê°í íë«í¼ì AI í¬ë¡¤ë§ íì©ì´ ë¶ê°íë¯ë¡ ëë¦½ ëë©ì¸ ì¹ì¬ì´í¸ê° íìí©ëë¤.</p>
+      <div class="tip-label">Q. WordPress, Wix 같은 빌더에서 GPTBot을 어떻게 허용하나요?</div>
+      <p>WordPress의 경우 Yoast SEO, Rank Math 등 SEO 플러그인의 robots.txt 편집 기능을 사용하거나, WordPress 루트 디렉토리의 robots.txt 파일을 직접 수정합니다. Wix, Squarespace 등 빌더는 관리자 패널의 SEO 설정에서 robots.txt를 편집합니다. 네이버 모두(Modoo), 카카오 채널처럼 robots.txt 편집이 불가한 플랫폼은 AI 크롤링 허용이 불가하므로 독립 도메인 웹사이트가 필요합니다.</p>
     </div>
   </div>
 
   <div class="article-related">
-    <h3>ë¤ìì¼ë¡ ì½ì´ë³¼ ê°ì´ë</h3>
+    <h3>다음으로 읽어볼 가이드</h3>
     <div class="related-grid">
       <a href="robots-txt-ai-guide.html" class="related-card">
-        <div class="rc-cat">ê¸°ì  ê°ì´ë Â· robots.txt</div>
-        <div class="rc-title">âï¸ robots.txt AI ë´ ì¤ì  â GPTBotÂ·PerplexityBotÂ·ClaudeBotÂ·Applebot</div>
+        <div class="rc-cat">기술 가이드 · robots.txt</div>
+        <div class="rc-title">⚙️ robots.txt AI 봇 설정 — GPTBot·PerplexityBot·ClaudeBot·Applebot</div>
       </a>
       <a href="chatgpt-exposure.html" class="related-card">
-        <div class="rc-cat">AI íë«í¼ ê°ì´ë Â· ChatGPT</div>
-        <div class="rc-title">ð¬ ChatGPTì ë´ ìì²´ ë¸ì¶íê¸°</div>
+        <div class="rc-cat">AI 플랫폼 가이드 · ChatGPT</div>
+        <div class="rc-title">💬 ChatGPT에 내 업체 노출하기</div>
       </a>
     </div>
   </div>
 </div>
 
 <div class="cta fi">
-  <h2>GPTBot ì°¨ë¨ ì¬ë¶<br><span style="color:var(--accent)">ë¬´ë£ë¡ ì§ë¨ë°ê¸°</span></h2>
-  <p>robots.txt ë¶ìì¼ë¡ GPTBot, PerplexityBot, ClaudeBot ì°¨ë¨ ì¬ë¶ë¥¼ ì¦ì íì¸í©ëë¤.</p>
-  <a href="/analyze.html" class="btn-primary" style="font-size:18px;padding:20px 48px;text-decoration:none;display:inline-block">AI ìµì í ì§ë¨ê¸° â</a>
+  <h2>GPTBot 차단 여부<br><span style="color:var(--accent)">무료로 진단받기</span></h2>
+  <p>robots.txt 분석으로 GPTBot, PerplexityBot, ClaudeBot 차단 여부를 즉시 확인합니다.</p>
+  <a href="/analyze.html" class="btn-primary" style="font-size:18px;padding:20px 48px;text-decoration:none;display:inline-block">AI 최적화 진단기 →</a>
 </div>
 
 <div class="article-wrap" style="max-width:900px;margin:0 auto;padding:40px 24px 20px">
   <div class="article-section">
-    <h2 style="font-size:1.1rem;margin-bottom:12px">ì°¸ê³  ì¶ì²</h2>
+    <h2 style="font-size:1.1rem;margin-bottom:12px">참고 출처</h2>
     <ul style="font-size:.85rem;line-height:1.8;color:var(--text-sub)">
-      <li><a href="https://platform.openai.com/docs/plugins/bot" target="_blank" rel="noopener" style="color:var(--accent)">OpenAI â GPTBot ê³µì í¬ë¡¤ë¬ ìë´</a></li>
-      <li><a href="https://openai.com/gptbot-ranges.txt" target="_blank" rel="noopener" style="color:var(--accent)">OpenAI â GPTBot IP ë²ì ê³µì íì¼</a></li>
+      <li><a href="https://platform.openai.com/docs/plugins/bot" target="_blank" rel="noopener" style="color:var(--accent)">OpenAI — GPTBot 공식 크롤러 안내</a></li>
+      <li><a href="https://openai.com/gptbot-ranges.txt" target="_blank" rel="noopener" style="color:var(--accent)">OpenAI — GPTBot IP 범위 공식 파일</a></li>
     </ul>
   </div>
 </div>
 
 <footer>
-  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">ì¨ì¢ì¼<span>AI</span></a></div>
+  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
   <div class="flinks">
-    <a href="/about.html">ìë¹ì¤ ìê°</a>
-    <a href="/contact.html">ë¬¸ìíê¸°</a>
-    <a href="/privacy.html">ê°ì¸ì ë³´ì²ë¦¬ë°©ì¹¨</a>
+    <a href="/about.html">서비스 소개</a>
+    <a href="/contact.html">문의하기</a>
+    <a href="/privacy.html">개인정보처리방침</a>
   </div>
-  <div class="fcopy">Â© 2026 ì¨ì¢ì¼AI. AI ê²ì ìµì í ì»¨ì¤í &nbsp;Â·&nbsp; ì´ë©ì¼: tarry9653@daum.net</div>
+  <div class="fcopy">© 2026 온종일AI. AI 검색 최적화 컨설팅 &nbsp;·&nbsp; 이메일: tarry9653@daum.net</div>
 </footer>
 <script src="../js/main.js"></script>
 <script src="../js/proof.js"></script>

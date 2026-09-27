@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Perplexity AI ìë ìë¦¬ | PerplexityBot í¬ë¡¤ë§ê³¼ ì¸ì© ë°©ì ìì  í´ì¤ | ì¨ì¢ì¼AI</title>
-<meta name="description" content="Perplexity AIê° ì¹ì í¬ë¡¤ë§íê³  ì¶ì²ë¥¼ ì¸ì©íë ë°©ìì ê³µì ë¬¸ì ê¸°ë°ì¼ë¡ ì¤ëªí©ëë¤. PerplexityBot íì© ë°©ë²ê³¼ ì¸ì©ëê¸° ìí ì½íì¸  ì ëµì ìë´í©ëë¤.">
+<title>Perplexity AI 작동 원리 | PerplexityBot 크롤링과 인용 방식 완전 해설 | 온종일AI</title>
+<meta name="description" content="Perplexity AI가 웹을 크롤링하고 출처를 인용하는 방식을 공식 문서 기반으로 설명합니다. PerplexityBot 허용 방법과 인용되기 위한 콘텐츠 전략을 안내합니다.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ai.xn--zk5biyyw.com/guide/perplexity-how-it-works.html">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -13,10 +13,10 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Perplexity AI ìë ìë¦¬ â PerplexityBotê³¼ ì¤ìê° ì¸ì© ë©ì»¤ëì¦",
-  "description": "Perplexity AIê° ì´ë»ê² ì¹ìì ì ë³´ë¥¼ ìì§íê³  ì¶ì²ë¥¼ ì¸ì©íëì§ ê³µì ë¬¸ì ê¸°ë°ì¼ë¡ ì¤ëªí©ëë¤.",
-  "author": {"@type": "Organization", "name": "ì¨ì¢ì¼AI"},
-  "publisher": {"@type": "Organization", "name": "ì¨ì¢ì¼AI"},
+  "headline": "Perplexity AI 작동 원리 — PerplexityBot과 실시간 인용 메커니즘",
+  "description": "Perplexity AI가 어떻게 웹에서 정보를 수집하고 출처를 인용하는지 공식 문서 기반으로 설명합니다.",
+  "author": {"@type": "Organization", "name": "온종일AI"},
+  "publisher": {"@type": "Organization", "name": "온종일AI"},
   "datePublished": "2026-06-09"
 }
 </script>
@@ -24,364 +24,364 @@
 <body>
 
 <nav>
-  <div class="logo-wrap"><div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">ì¨ì¢ì¼<span>AI</span></a></div><a href="https://www.xn--zk5biyyw.com" target="_blank" rel="noopener" class="logo-by">by ì¨ì¢ì¼</a></div>
+  <div class="logo-wrap"><div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div><a href="https://www.xn--zk5biyyw.com" target="_blank" rel="noopener" class="logo-by">by 온종일</a></div>
   <div class="nav-links">
     <div class="nav-drop">
-      <button class="nav-drop-btn">ìì¢ë³ <span class="nav-arrow">â¾</span></button>
+      <button class="nav-drop-btn">업종별 <span class="nav-arrow">▾</span></button>
       <div class="drop-menu">
-        <a href="../industry/hospital.html">ð¥ ë³ìÂ·ì¹ê³¼Â·íìì</a>
-        <a href="../industry/interior.html">ð  ì¸íë¦¬ì´Â·ë¦¬ëª¨ë¸ë§</a>
-        <a href="../industry/law.html">âï¸ ë²ë¥ Â·ì¸ë¬´Â·íê³</a>
-        <a href="../industry/health.html">ðª í¬ì¤Â·ë·°í°Â·í¼í¸ëì¤</a>
-        <a href="../industry/restaurant.html">ð½ï¸ ìë¹Â·ì¹´íÂ·ë°°ë¬</a>
-        <a href="../industry/academy.html">ð íìÂ·êµìµì</a>
-        <a href="../industry/realestate.html">ð¢ ë¶ëì°Â·ê³µì¸ì¤ê°ì¬</a>
-        <a href="../industry/dermatology.html">ð í¼ë¶ê³¼Â·ì±íì¸ê³¼</a>
-        <a href="../industry/auto.html">ð ìëì°¨ ì ë¹Â·ì¤ê³ ì°¨</a>
-        <a href="../industry/cleaning.html">ð§¹ ì¸íìÂ·ì²­ììì²´</a>
+        <a href="../industry/hospital.html">🏥 병원·치과·한의원</a>
+        <a href="../industry/interior.html">🏠 인테리어·리모델링</a>
+        <a href="../industry/law.html">⚖️ 법률·세무·회계</a>
+        <a href="../industry/health.html">💪 헬스·뷰티·피트니스</a>
+        <a href="../industry/restaurant.html">🍽️ 식당·카페·배달</a>
+        <a href="../industry/academy.html">📚 학원·교습소</a>
+        <a href="../industry/realestate.html">🏢 부동산·공인중개사</a>
+        <a href="../industry/dermatology.html">💉 피부과·성형외과</a>
+        <a href="../industry/auto.html">🚗 자동차 정비·중고차</a>
+        <a href="../industry/cleaning.html">🧹 세탁소·청소업체</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">AI ê²ì ê°ì´ë <span class="nav-arrow">â¾</span></button>
+      <button class="nav-drop-btn">AI 검색 가이드 <span class="nav-arrow">▾</span></button>
       <div class="drop-menu">
-        <a href="what-is-seo.html">ð SEOë ë¬´ìì¸ê°?</a>
-        <a href="what-is-aeo.html">ð¤ AEOë ë¬´ìì¸ê°?</a>
-        <a href="what-is-geo.html">ð¬ GEOë ë¬´ìì¸ê°?</a>
-        <a href="how-ai-search-works.html">âï¸ AIë ì´ë»ê² ì¶ì²íë?</a>
-        <a href="naver-vs-ai.html">â¡ ë¤ì´ë² vs AI ê²ì</a>
-        <a href="chatgpt-exposure.html">ð¬ ChatGPT ë¸ì¶íê¸°</a>
-        <a href="perplexity-optimization.html">ð Perplexity ìµì í</a>
-        <a href="gemini-ai-overview.html">â Google AI Overviews ìµì í</a>
-        <a href="claude-ai-search.html">ð§  Claude AI ê²ì</a>
-        <a href="google-ai-overviews.html">ð Google AI Overviews ìë¦¬</a>
-        <a href="perplexity-how-it-works.html">ð¡ Perplexity ìë ìë¦¬</a>
-        <a href="chatgpt-search-guide.html">ð¡ ChatGPT Search ìë¦¬</a>
-        <a href="eeat-guide.html">â­ E-E-A-T ê°ì´ë</a>
+        <a href="what-is-seo.html">📖 SEO란 무엇인가?</a>
+        <a href="what-is-aeo.html">🤖 AEO란 무엇인가?</a>
+        <a href="what-is-geo.html">🔬 GEO란 무엇인가?</a>
+        <a href="how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
+        <a href="naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
+        <a href="chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
+        <a href="perplexity-optimization.html">🔍 Perplexity 최적화</a>
+        <a href="gemini-ai-overview.html">♊ Google AI Overviews 최적화</a>
+        <a href="claude-ai-search.html">🧠 Claude AI 검색</a>
+        <a href="google-ai-overviews.html">🔎 Google AI Overviews 원리</a>
+        <a href="perplexity-how-it-works.html">📡 Perplexity 작동 원리</a>
+        <a href="chatgpt-search-guide.html">💡 ChatGPT Search 원리</a>
+        <a href="eeat-guide.html">⭐ E-E-A-T 가이드</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">ð ë¤ì´ë² íë ì´ì¤ <span class="nav-arrow">â¾</span></button>
+      <button class="nav-drop-btn">📍 네이버 플레이스 <span class="nav-arrow">▾</span></button>
       <div class="drop-menu">
-        <a href="/guide/naver-place-guide.html">ð íë ì´ì¤ ë±ë¡Â·ìµì í</a>
-        <a href="/guide/naver-place-features.html">ð§© ê¸°ë¥ ìì  í´ë¶</a>
-        <a href="/guide/naver-place-star-rating-2026.html">â­ ë³ì  ë¶í ëì</a>
-        <a href="/guide/place-photo-tips.html">ð¸ ì¬ì§ ì ì°ë ë²</a>
+        <a href="/guide/naver-place-guide.html">📍 플레이스 등록·최적화</a>
+        <a href="/guide/naver-place-features.html">🧩 기능 완전 해부</a>
+        <a href="/guide/naver-place-star-rating-2026.html">⭐ 별점 부활 대응</a>
+        <a href="/guide/place-photo-tips.html">📸 사진 잘 찍는 법</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">â­ ë¦¬ë·° ê´ë¦¬ <span class="nav-arrow">â¾</span></button>
+      <button class="nav-drop-btn">⭐ 리뷰 관리 <span class="nav-arrow">▾</span></button>
       <div class="drop-menu">
-        <a href="/guide/bad-review-response.html">ð¡ï¸ ìì± ë¦¬ë·°Â·ë³ì  íë¬ ëì</a>
-        <a href="/guide/get-more-reviews.html">ð ë¦¬ë·° ëë¦¬ë ë²</a>
-        <a href="/guide/review-management.html">â­ ì¨ë¼ì¸ ë¦¬ë·° ê´ë¦¬</a>
+        <a href="/guide/bad-review-response.html">🛡️ 악성 리뷰·별점 테러 대응</a>
+        <a href="/guide/get-more-reviews.html">📈 리뷰 늘리는 법</a>
+        <a href="/guide/review-management.html">⭐ 온라인 리뷰 관리</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">ð§­ ë§ì¼í <span class="nav-arrow">â¾</span></button>
+      <button class="nav-drop-btn">🧭 마케팅 <span class="nav-arrow">▾</span></button>
       <div class="drop-menu">
-        <a href="/guide/naver-google-ai-search.html">ð§­ ë¤ì´ë²Â·êµ¬ê¸Â·AI ê²ì ë¹êµ</a>
-        <a href="/guide/google-business-profile.html">ðºï¸ êµ¬ê¸ ë¹ì¦ëì¤ íë¡í</a>
-        <a href="/guide/online-marketing-start.html">ð ì¨ë¼ì¸ ë§ì¼í ììíê¸°</a>
-        <a href="/guide/free-marketing-methods.html">ð¡ ë¬´ë£ ë§ì¼í ë°©ë²</a>
+        <a href="/guide/naver-google-ai-search.html">🧭 네이버·구글·AI 검색 비교</a>
+        <a href="/guide/google-business-profile.html">🗺️ 구글 비즈니스 프로필</a>
+        <a href="/guide/online-marketing-start.html">🚀 온라인 마케팅 시작하기</a>
+        <a href="/guide/free-marketing-methods.html">💡 무료 마케팅 방법</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">ð ï¸ AI ì§ë¨ê¸° <span class="nav-arrow">â¾</span></button>
+      <button class="nav-drop-btn">🛠️ AI 진단기 <span class="nav-arrow">▾</span></button>
       <div class="drop-menu">
-        <a href="/analyze.html">ð ï¸ AI ìµì í ì§ë¨ê¸°</a>
-        <a href="/analyze-guide.html">ð ì¬ì©ë°©ë²</a>
+        <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
+        <a href="/analyze-guide.html">📖 사용방법</a>
         <div style="border-top:1px solid var(--border);margin:4px 2px"></div>
-        <a href="/guide/ai-bot-access.html">ð¤ AI ë´ í¬ë¡¤ë§ ì¤ì </a>
-        <a href="/guide/faq-schema-for-ai.html">â FAQPage Schema</a>
-        <a href="/guide/business-schema-for-ai.html">ð¢ LocalBusiness Schema</a>
-        <a href="/guide/meta-description-ai.html">ð ë©í ëì¤í¬ë¦½ì</a>
-        <a href="/guide/sitemap-for-ai.html">ðºï¸ sitemap.xml</a>
-        <a href="/guide/heading-structure-ai.html">ð ì ëª© ê³ì¸µ êµ¬ì¡°</a>
-        <a href="/guide/image-alt-for-ai.html">ð¼ï¸ ì´ë¯¸ì§ alt íì¤í¸</a>
+        <a href="/guide/ai-bot-access.html">🤖 AI 봇 크롤링 설정</a>
+        <a href="/guide/faq-schema-for-ai.html">❓ FAQPage Schema</a>
+        <a href="/guide/business-schema-for-ai.html">🏢 LocalBusiness Schema</a>
+        <a href="/guide/meta-description-ai.html">📝 메타 디스크립션</a>
+        <a href="/guide/sitemap-for-ai.html">🗺️ sitemap.xml</a>
+        <a href="/guide/heading-structure-ai.html">📑 제목 계층 구조</a>
+        <a href="/guide/image-alt-for-ai.html">🖼️ 이미지 alt 텍스트</a>
       </div>
     </div>
     <a href="/lab.html" class="nav-single-link">✨ AI 프롬프트<span class="nav-new">NEW</span></a>
   </div>
-  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="ë©ë´"><span></span><span></span><span></span></button>
-    <button class="theme-btn" id="themeBtn">ð</button>
-    <button class="nav-cta">ìë´ ì ì²­íê¸°</button>
+  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="메뉴"><span></span><span></span><span></span></button>
+    <button class="theme-btn" id="themeBtn">🌙</button>
+    <button class="nav-cta">상담 신청하기</button>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <div class="mob-section"><a href="/lab.html" class="mob-single-link">✨ AI 프롬프트 · 글쓰기 랩 <span class="nav-new">NEW</span></a></div>
   <div class="mob-section">
-    <div class="mob-section-title">ìì¢ë³ ê°ì´ë</div>
-    <a href="/industry/hospital.html">ð¥ ë³ìÂ·ì¹ê³¼Â·íìì</a>
-    <a href="/industry/interior.html">ð  ì¸íë¦¬ì´Â·ë¦¬ëª¨ë¸ë§</a>
-    <a href="/industry/law.html">âï¸ ë²ë¥ Â·ì¸ë¬´Â·íê³</a>
-    <a href="/industry/health.html">ðª í¬ì¤Â·ë·°í°Â·í¼í¸ëì¤</a>
-    <a href="/industry/restaurant.html">ð½ï¸ ìë¹Â·ì¹´íÂ·ë°°ë¬</a>
-    <a href="/industry/academy.html">ð íìÂ·êµìµì</a>
-    <a href="/industry/realestate.html">ð¢ ë¶ëì°Â·ê³µì¸ì¤ê°ì¬</a>
-    <a href="/industry/dermatology.html">ð í¼ë¶ê³¼Â·ì±íì¸ê³¼</a>
-    <a href="/industry/auto.html">ð ìëì°¨ ì ë¹Â·ì¤ê³ ì°¨</a>
-    <a href="/industry/cleaning.html">ð§¹ ì¸íìÂ·ì²­ììì²´</a>
+    <div class="mob-section-title">업종별 가이드</div>
+    <a href="/industry/hospital.html">🏥 병원·치과·한의원</a>
+    <a href="/industry/interior.html">🏠 인테리어·리모델링</a>
+    <a href="/industry/law.html">⚖️ 법률·세무·회계</a>
+    <a href="/industry/health.html">💪 헬스·뷰티·피트니스</a>
+    <a href="/industry/restaurant.html">🍽️ 식당·카페·배달</a>
+    <a href="/industry/academy.html">📚 학원·교습소</a>
+    <a href="/industry/realestate.html">🏢 부동산·공인중개사</a>
+    <a href="/industry/dermatology.html">💉 피부과·성형외과</a>
+    <a href="/industry/auto.html">🚗 자동차 정비·중고차</a>
+    <a href="/industry/cleaning.html">🧹 세탁소·청소업체</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">AI ê²ì ê°ì´ë</div>
-    <a href="/guide/what-is-seo.html">ð SEOë ë¬´ìì¸ê°?</a>
-    <a href="/guide/what-is-aeo.html">ð¤ AEOë ë¬´ìì¸ê°?</a>
-    <a href="/guide/what-is-geo.html">ð¬ GEOë ë¬´ìì¸ê°?</a>
-    <a href="/guide/how-ai-search-works.html">âï¸ AIë ì´ë»ê² ì¶ì²íë?</a>
-    <a href="/guide/naver-vs-ai.html">â¡ ë¤ì´ë² vs AI ê²ì</a>
-    <a href="/guide/how-to-check-ai.html">ð AI ë¸ì¶ ì§ì  íì¸íê¸°</a>
-    <a href="/guide/ai-seo-checklist.html">â AI ê²ì ìµì í ì²´í¬ë¦¬ì¤í¸</a>
-    <a href="/guide/chatgpt-exposure.html">ð¬ ChatGPT ë¸ì¶íê¸°</a>
-    <a href="/guide/perplexity-optimization.html">ð Perplexity ìµì í</a>
-    <a href="/guide/gemini-ai-overview.html">â Google AI Overviews ìµì í</a>
-    <a href="/guide/claude-ai-search.html">ð§  Claude AI ê²ì</a>
-    <a href="/guide/google-ai-overviews.html">ð Google AI Overviews ìë¦¬</a>
-    <a href="/guide/perplexity-how-it-works.html">ð¡ Perplexity ìë ìë¦¬</a>
-    <a href="/guide/chatgpt-search-guide.html">ð¡ ChatGPT Search ìë¦¬</a>
-    <a href="/guide/eeat-guide.html">â­ E-E-A-T ê°ì´ë</a>
+    <div class="mob-section-title">AI 검색 가이드</div>
+    <a href="/guide/what-is-seo.html">📖 SEO란 무엇인가?</a>
+    <a href="/guide/what-is-aeo.html">🤖 AEO란 무엇인가?</a>
+    <a href="/guide/what-is-geo.html">🔬 GEO란 무엇인가?</a>
+    <a href="/guide/how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
+    <a href="/guide/naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
+    <a href="/guide/how-to-check-ai.html">🔎 AI 노출 직접 확인하기</a>
+    <a href="/guide/ai-seo-checklist.html">✅ AI 검색 최적화 체크리스트</a>
+    <a href="/guide/chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
+    <a href="/guide/perplexity-optimization.html">🔍 Perplexity 최적화</a>
+    <a href="/guide/gemini-ai-overview.html">♊ Google AI Overviews 최적화</a>
+    <a href="/guide/claude-ai-search.html">🧠 Claude AI 검색</a>
+    <a href="/guide/google-ai-overviews.html">🔎 Google AI Overviews 원리</a>
+    <a href="/guide/perplexity-how-it-works.html">📡 Perplexity 작동 원리</a>
+    <a href="/guide/chatgpt-search-guide.html">💡 ChatGPT Search 원리</a>
+    <a href="/guide/eeat-guide.html">⭐ E-E-A-T 가이드</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">ð ë¤ì´ë² íë ì´ì¤</div>
-    <a href="/guide/naver-place-guide.html">ð íë ì´ì¤ ë±ë¡Â·ìµì í</a>
-    <a href="/guide/naver-place-features.html">ð§© ê¸°ë¥ ìì  í´ë¶</a>
-    <a href="/guide/naver-place-star-rating-2026.html">â­ ë³ì  ë¶í ëì</a>
-    <a href="/guide/place-photo-tips.html">ð¸ ì¬ì§ ì ì°ë ë²</a>
+    <div class="mob-section-title">📍 네이버 플레이스</div>
+    <a href="/guide/naver-place-guide.html">📍 플레이스 등록·최적화</a>
+    <a href="/guide/naver-place-features.html">🧩 기능 완전 해부</a>
+    <a href="/guide/naver-place-star-rating-2026.html">⭐ 별점 부활 대응</a>
+    <a href="/guide/place-photo-tips.html">📸 사진 잘 찍는 법</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">â­ ë¦¬ë·° ê´ë¦¬</div>
-    <a href="/guide/bad-review-response.html">ð¡ï¸ ìì± ë¦¬ë·°Â·ë³ì  íë¬ ëì</a>
-    <a href="/guide/get-more-reviews.html">ð ë¦¬ë·° ëë¦¬ë ë²</a>
-    <a href="/guide/review-management.html">â­ ì¨ë¼ì¸ ë¦¬ë·° ê´ë¦¬</a>
+    <div class="mob-section-title">⭐ 리뷰 관리</div>
+    <a href="/guide/bad-review-response.html">🛡️ 악성 리뷰·별점 테러 대응</a>
+    <a href="/guide/get-more-reviews.html">📈 리뷰 늘리는 법</a>
+    <a href="/guide/review-management.html">⭐ 온라인 리뷰 관리</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">ð§­ ë§ì¼í</div>
-    <a href="/guide/naver-google-ai-search.html">ð§­ ë¤ì´ë²Â·êµ¬ê¸Â·AI ê²ì ë¹êµ</a>
-    <a href="/guide/google-business-profile.html">ðºï¸ êµ¬ê¸ ë¹ì¦ëì¤ íë¡í</a>
-    <a href="/guide/online-marketing-start.html">ð ì¨ë¼ì¸ ë§ì¼í ììíê¸°</a>
-    <a href="/guide/free-marketing-methods.html">ð¡ ë¬´ë£ ë§ì¼í ë°©ë²</a>
+    <div class="mob-section-title">🧭 마케팅</div>
+    <a href="/guide/naver-google-ai-search.html">🧭 네이버·구글·AI 검색 비교</a>
+    <a href="/guide/google-business-profile.html">🗺️ 구글 비즈니스 프로필</a>
+    <a href="/guide/online-marketing-start.html">🚀 온라인 마케팅 시작하기</a>
+    <a href="/guide/free-marketing-methods.html">💡 무료 마케팅 방법</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">AI ì§ë¨ê¸°</div>
-    <a href="/analyze.html">ð ï¸ AI ìµì í ì§ë¨ê¸°</a>
-    <a href="/analyze-guide.html">ð ì¬ì©ë°©ë²</a>
-    <a href="/guide/ai-bot-access.html">ð¤ AI ë´ í¬ë¡¤ë§ ì¤ì </a>
-    <a href="/guide/faq-schema-for-ai.html">â FAQPage Schema</a>
-    <a href="/guide/business-schema-for-ai.html">ð¢ LocalBusiness Schema</a>
-    <a href="/guide/meta-description-ai.html">ð ë©í ëì¤í¬ë¦½ì</a>
-    <a href="/guide/sitemap-for-ai.html">ðºï¸ sitemap.xml</a>
-    <a href="/guide/heading-structure-ai.html">ð ì ëª© ê³ì¸µ êµ¬ì¡°</a>
-    <a href="/guide/image-alt-for-ai.html">ð¼ï¸ ì´ë¯¸ì§ alt íì¤í¸</a>
+    <div class="mob-section-title">AI 진단기</div>
+    <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
+    <a href="/analyze-guide.html">📖 사용방법</a>
+    <a href="/guide/ai-bot-access.html">🤖 AI 봇 크롤링 설정</a>
+    <a href="/guide/faq-schema-for-ai.html">❓ FAQPage Schema</a>
+    <a href="/guide/business-schema-for-ai.html">🏢 LocalBusiness Schema</a>
+    <a href="/guide/meta-description-ai.html">📝 메타 디스크립션</a>
+    <a href="/guide/sitemap-for-ai.html">🗺️ sitemap.xml</a>
+    <a href="/guide/heading-structure-ai.html">📑 제목 계층 구조</a>
+    <a href="/guide/image-alt-for-ai.html">🖼️ 이미지 alt 텍스트</a>
   </div>
-  <button class="mob-cta">ë¬´ë£ ìë´ ì ì²­íê¸° â</button>
+  <button class="mob-cta">무료 상담 신청하기 →</button>
 </div>
 
 <div class="breadcrumb">
-  <a href="../index.html">í</a><span>âº</span>
-  <a href="index.html">AI ê²ì ê°ì´ë</a><span>âº</span>
-  Perplexity AI ìë ìë¦¬
+  <a href="../index.html">홈</a><span>›</span>
+  <a href="index.html">AI 검색 가이드</a><span>›</span>
+  Perplexity AI 작동 원리
 </div>
 
 <div class="article-hero">
   <div class="article-hero-bg"></div>
-  <div class="article-category">ê¸°ì  ê°ì´ë Â· Perplexity AI</div>
-  <h1>Perplexity AI<br><span class="hl">ìë ìë¦¬</span><br>ìì  í´ì¤</h1>
-  <p>PerplexityBotì´ ì´ë»ê² ì¹ì í¬ë¡¤ë§íê³ , ì´ë¤ ì¶ì²ê° ì¸ì© ëµë³ì ì íëëì§ Perplexity ê³µì ë¬¸ìë¥¼ ê¸°ë°ì¼ë¡ ì¤ëªí©ëë¤.</p>
+  <div class="article-category">기술 가이드 · Perplexity AI</div>
+  <h1>Perplexity AI<br><span class="hl">작동 원리</span><br>완전 해설</h1>
+  <p>PerplexityBot이 어떻게 웹을 크롤링하고, 어떤 출처가 인용 답변에 선택되는지 Perplexity 공식 문서를 기반으로 설명합니다.</p>
   <div class="article-meta">
-    <span>ì¨ì¢ì¼AI í¸ì§í</span><span>Â·</span>
-    <span>2026ë 6ì 9ì¼</span><span>Â·</span>
-    <span>ì½ 5ë¶ ìì</span>
+    <span>온종일AI 편집팀</span><span>·</span>
+    <span>2026년 6월 9일</span><span>·</span>
+    <span>약 5분 소요</span>
   </div>
 </div>
 
 <div class="article-wrap">
   <p class="article-lead">
-    Perplexity AIë ë¨ìí ì±ë´ì´ ìë "Answer Engine"ì íë°©í©ëë¤. ì¬ì©ì ì§ë¬¸ì ëí´ ì¤ìê°ì¼ë¡ ì¹ì ê²ìíê³ , ì¬ë¬ ì¶ì²ë¥¼ ì¢í©í´ ë²í¸ê° ë§¤ê²¨ì§ ì¸ì©ê³¼ í¨ê» ëµë³ì ìì±í©ëë¤. ì´ ë°©ì ëë¬¸ì Perplexityì ì¸ì©ëë ê²ì´ AI ê²ì ìµì íìì ê°ì¥ ì¶ì íê¸° ì¬ì´ ëª©í ì¤ íëìëë¤.
+    Perplexity AI는 단순한 챗봇이 아닌 "Answer Engine"을 표방합니다. 사용자 질문에 대해 실시간으로 웹을 검색하고, 여러 출처를 종합해 번호가 매겨진 인용과 함께 답변을 생성합니다. 이 방식 때문에 Perplexity에 인용되는 것이 AI 검색 최적화에서 가장 추적하기 쉬운 목표 중 하나입니다.
   </p>
 
   <div class="article-section">
-    <h2>Perplexity AIì êµ¬ì¡°</h2>
+    <h2>Perplexity AI의 구조</h2>
     <p>
-      Perplexity AIë ì§ë¬¸ì ë°ì¼ë©´ ë ë¨ê³ë¡ ì²ë¦¬í©ëë¤. ì²«ì§¸, ì¤ìê° ì¹ ê²ìì íµí´ ê´ë ¨ íì´ì§ë¥¼ ìì§í©ëë¤. ëì§¸, ìì§ë íì´ì§ ë´ì©ì AIê° ìì½íê³  ê° ë¬¸ì¥ë§ë¤ ì¶ì² ë²í¸ë¥¼ ë¶ì¬ ëµë³ì êµ¬ì±í©ëë¤.
+      Perplexity AI는 질문을 받으면 두 단계로 처리합니다. 첫째, 실시간 웹 검색을 통해 관련 페이지를 수집합니다. 둘째, 수집된 페이지 내용을 AI가 요약하고 각 문장마다 출처 번호를 붙여 답변을 구성합니다.
     </p>
 
     <div class="info-grid">
       <div class="info-card">
-        <div class="ico">ð</div>
-        <h4>ì¤ìê° ê²ì</h4>
-        <p>Perplexityë ì§ë¬¸ë§ë¤ ì¤ìê°ì¼ë¡ ì¹ì ê²ìí©ëë¤. íìµ ë°ì´í°ë§ ì¬ì©íë ê²ì´ ìëë¼, ëµë³ ìì± ìì ì ìµì  ì ë³´ë¥¼ ê°ì ¸ìµëë¤.</p>
+        <div class="ico">🔍</div>
+        <h4>실시간 검색</h4>
+        <p>Perplexity는 질문마다 실시간으로 웹을 검색합니다. 학습 데이터만 사용하는 것이 아니라, 답변 생성 시점에 최신 정보를 가져옵니다.</p>
       </div>
       <div class="info-card">
-        <div class="ico">ð</div>
-        <h4>ì¸ì© íì</h4>
-        <p>ëµë³ì ê° ì£¼ì ë¬¸ì¥ë§ë¤ [1], [2] ííë¡ ì¶ì² ë²í¸ê° ë¶ìµëë¤. ì´ ë²í¸ë¥¼ í´ë¦­íë©´ ìë³¸ íì´ì§ë¡ ì´ëí©ëë¤.</p>
+        <div class="ico">📎</div>
+        <h4>인용 표시</h4>
+        <p>답변의 각 주요 문장마다 [1], [2] 형태로 출처 번호가 붙습니다. 이 번호를 클릭하면 원본 페이지로 이동합니다.</p>
       </div>
       <div class="info-card">
-        <div class="ico">ð¤</div>
+        <div class="ico">🤖</div>
         <h4>PerplexityBot</h4>
-        <p>Perplexityê° ì¬ì©íë ê³µì ì¹ í¬ë¡¤ë¬ìëë¤. PerplexityBotì´ ì¬ì´í¸ë¥¼ í¬ë¡¤ë§í´ì¼ í´ë¹ ì½íì¸ ê° Perplexity ê²ìì í¬í¨ë  ì ììµëë¤.</p>
+        <p>Perplexity가 사용하는 공식 웹 크롤러입니다. PerplexityBot이 사이트를 크롤링해야 해당 콘텐츠가 Perplexity 검색에 포함될 수 있습니다.</p>
       </div>
       <div class="info-card">
-        <div class="ico">ð¬</div>
+        <div class="ico">💬</div>
         <h4>Pro Search</h4>
-        <p>Perplexity Proììë ë ê¹ì ì¹ ê²ìê³¼ ë ë§ì ì¶ì²ë¥¼ ì°¸ì¡°í©ëë¤. ë¬´ë£ ë²ì ê³¼ Pro ë²ì ì ê²ì ê¹ì´ì ì°¨ì´ê° ììµëë¤.</p>
+        <p>Perplexity Pro에서는 더 깊은 웹 검색과 더 많은 출처를 참조합니다. 무료 버전과 Pro 버전의 검색 깊이에 차이가 있습니다.</p>
       </div>
     </div>
   </div>
 
   <div class="article-section">
-    <h2>PerplexityBotì´ë?</h2>
+    <h2>PerplexityBot이란?</h2>
     <p>
-      PerplexityBotì Perplexity AIê° ì´ìíë ê³µì ì¹ í¬ë¡¤ë¬ìëë¤. Perplexityë PerplexityBotì user-agent ì ë³´ë¥¼ ê³µì ë¬¸ììì ì ê³µí©ëë¤.
+      PerplexityBot은 Perplexity AI가 운영하는 공식 웹 크롤러입니다. Perplexity는 PerplexityBot의 user-agent 정보를 공식 문서에서 제공합니다.
     </p>
 
     <div class="tip-box">
-      <div class="tip-label">ð PerplexityBot ê³µì User-Agent (ì¶ì²: Perplexity ê³µì ë¬¸ì)</div>
+      <div class="tip-label">📋 PerplexityBot 공식 User-Agent (출처: Perplexity 공식 문서)</div>
       <p style="font-family:monospace;font-size:.9rem">Mozilla/5.0 AppleWebKit/537.36 (KHTML, like Gecko; compatible; PerplexityBot/1.0; +https://perplexity.ai/perplexitybot)</p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">â robots.txt â PerplexityBot íì© ë°©ë²</div>
+      <div class="tip-label">✅ robots.txt — PerplexityBot 허용 방법</div>
       <p style="font-family:monospace;font-size:.9rem">User-agent: PerplexityBot<br>Allow: /</p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">â robots.txt â PerplexityBot ì°¨ë¨ ë°©ë²</div>
+      <div class="tip-label">❌ robots.txt — PerplexityBot 차단 방법</div>
       <p style="font-family:monospace;font-size:.9rem">User-agent: PerplexityBot<br>Disallow: /</p>
     </div>
 
     <p>
-      PerplexityBotì ì°¨ë¨íë©´ í´ë¹ ì¬ì´í¸ì ì½íì¸ ê° Perplexity ëµë³ì ì¸ì©ëì§ ììµëë¤. AI ê²ì ë¸ì¶ì ìíë¤ë©´ PerplexityBotì íì©í´ì¼ í©ëë¤.
+      PerplexityBot을 차단하면 해당 사이트의 콘텐츠가 Perplexity 답변에 인용되지 않습니다. AI 검색 노출을 원한다면 PerplexityBot을 허용해야 합니다.
     </p>
   </div>
 
   <div class="article-section">
-    <h2>Perplexityê° ì¶ì²ë¥¼ ì ííë ë°©ì</h2>
+    <h2>Perplexity가 출처를 선택하는 방식</h2>
     <p>
-      Perplexityë ê²ì ì¿¼ë¦¬ì ê´ë ¨ì±ì´ ëì íì´ì§ë¥¼ ì°ì ì ì¼ë¡ ì°¸ì¡°í©ëë¤. Perplexityì ê³µì ë¸ë¡ê·¸ì ê¸°ì  ë¬¸ììì ë°í ë´ì©ì ì ë¦¬íë©´ ë¤ìê³¼ ê°ìµëë¤.
+      Perplexity는 검색 쿼리와 관련성이 높은 페이지를 우선적으로 참조합니다. Perplexity의 공식 블로그와 기술 문서에서 밝힌 내용을 정리하면 다음과 같습니다.
     </p>
 
     <div class="compare-visual">
       <div class="cv-panel">
-        <div class="cv-head bad" style="background:rgba(200,50,50,.08);color:#ff7070;border-bottom-color:rgba(200,50,50,.2)">ì¸ì©ëê¸° ì´ë ¤ì´ ê²½ì°</div>
+        <div class="cv-head bad" style="background:rgba(200,50,50,.08);color:#ff7070;border-bottom-color:rgba(200,50,50,.2)">인용되기 어려운 경우</div>
         <div class="cv-body">
-          <div class="cv-item">PerplexityBot ì°¨ë¨ë ì¬ì´í¸</div>
-          <div class="cv-item">ì§ë¬¸ê³¼ ê´ë ¨ ìë ì¼ë° ííì´ì§</div>
-          <div class="cv-item">íì¤í¸ê° ê±°ì ìë ì´ë¯¸ì§ ìì£¼ íì´ì§</div>
-          <div class="cv-item">ìëµ ìëê° ë§¤ì° ëë¦° ì¬ì´í¸</div>
+          <div class="cv-item">PerplexityBot 차단된 사이트</div>
+          <div class="cv-item">질문과 관련 없는 일반 홈페이지</div>
+          <div class="cv-item">텍스트가 거의 없는 이미지 위주 페이지</div>
+          <div class="cv-item">응답 속도가 매우 느린 사이트</div>
         </div>
       </div>
       <div class="cv-panel">
-        <div class="cv-head good">ì¸ì©ëê¸° ì ë¦¬í ê²½ì°</div>
+        <div class="cv-head good">인용되기 유리한 경우</div>
         <div class="cv-body">
-          <div class="cv-item"><span class="o">â</span> ì§ë¬¸ì ì§ì  ëµíë êµ¬ì²´ì  íì¤í¸ ì½íì¸ </div>
-          <div class="cv-item"><span class="o">â</span> Q&A, FAQ êµ¬ì¡°ì ì½íì¸ </div>
-          <div class="cv-item"><span class="o">â</span> ìì¢Â·ì§ì­ì´ ëªíí íì´ì§</div>
-          <div class="cv-item"><span class="o">â</span> ë¹ ë¥¸ ìëµ ìëì HTTPS ì ì©</div>
+          <div class="cv-item"><span class="o">→</span> 질문에 직접 답하는 구체적 텍스트 콘텐츠</div>
+          <div class="cv-item"><span class="o">→</span> Q&A, FAQ 구조의 콘텐츠</div>
+          <div class="cv-item"><span class="o">→</span> 업종·지역이 명확한 페이지</div>
+          <div class="cv-item"><span class="o">→</span> 빠른 응답 속도와 HTTPS 적용</div>
         </div>
       </div>
     </div>
 
     <div class="quote-box">
       <p>"Perplexity is designed to provide direct answers to questions, with sources cited inline so users can verify the information."</p>
-      <cite>â Perplexity AI ê³µì ë¸ë¡ê·¸</cite>
+      <cite>— Perplexity AI 공식 블로그</cite>
     </div>
   </div>
 
   <div class="article-section">
-    <h2>Perplexity ì¸ì©ì ìí ì½íì¸  ì ëµ</h2>
+    <h2>Perplexity 인용을 위한 콘텐츠 전략</h2>
 
     <div class="tip-box">
-      <div class="tip-label">â 1. ì§ë¬¸í ì½íì¸  íì´ì§ êµ¬ì¶</div>
+      <div class="tip-label">✅ 1. 질문형 콘텐츠 페이지 구축</div>
       <p>
-        Perplexityë ì§ë¬¸ì ë°ë¡ ëµíë ì½íì¸ ë¥¼ ì í¸í©ëë¤. "ê°ë¨ êµì  ì¹ë£ ë¹ì©ì ì¼ë§ì¸ê°ì?", "ìíí¸ ìì£¼ ì²­ì íìí ìê°ì?" ê°ì ì¤ì  ì¬ì©ì ì§ë¬¸ì ëªííê² ëµíë íì´ì§ë¥¼ ë§ë­ëë¤. H2 ëë H3 ì ëª©ì ì§ë¬¸ ííë¡ ìì±íë©´ ë í¨ê³¼ì ìëë¤.
+        Perplexity는 질문에 바로 답하는 콘텐츠를 선호합니다. "강남 교정 치료 비용은 얼마인가요?", "아파트 입주 청소 필요한 시간은?" 같은 실제 사용자 질문에 명확하게 답하는 페이지를 만듭니다. H2 또는 H3 제목을 질문 형태로 작성하면 더 효과적입니다.
       </p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">â 2. FAQPage Schema ì ì©</div>
+      <div class="tip-label">✅ 2. FAQPage Schema 적용</div>
       <p>
-        FAQPage Schemaë Perplexityê° Q&A ì½íì¸ ë¥¼ êµ¬ì¡°ì ì¼ë¡ íìíëë¡ ëìµëë¤. ê° FAQì ì§ë¬¸ê³¼ ëµë³ì Schema.orgì FAQPage íìì¼ë¡ ë§í¬ìíë©´ ì¸ì© ê°ë¥ì±ì´ ëìì§ëë¤.
+        FAQPage Schema는 Perplexity가 Q&A 콘텐츠를 구조적으로 파악하도록 돕습니다. 각 FAQ의 질문과 답변을 Schema.org의 FAQPage 형식으로 마크업하면 인용 가능성이 높아집니다.
       </p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">â 3. ìì¢Â·ì§ì­ ì ë³´ ëªì</div>
+      <div class="tip-label">✅ 3. 업종·지역 정보 명시</div>
       <p>
-        "ê°ë¨êµ¬ ìíëí¸ ì¹ê³¼", "ë¶ì° ì¸íë¦¬ì´ ìì²´"ì²ë¼ ìì¢ê³¼ ì§ì­ì´ ëªííê² ëªìë ì½íì¸ ê° ë¡ì»¬ ì§ë¬¸ìì ì¸ì©ëê¸° ì ë¦¬í©ëë¤. LocalBusiness Schemaì í¨ê» ì ì©íë©´ ë í¨ê³¼ì ìëë¤.
+        "강남구 임플란트 치과", "부산 인테리어 업체"처럼 업종과 지역이 명확하게 명시된 콘텐츠가 로컬 질문에서 인용되기 유리합니다. LocalBusiness Schema와 함께 적용하면 더 효과적입니다.
       </p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">â 4. PerplexityBot íì© ë° HTTPS ì ì©</div>
+      <div class="tip-label">✅ 4. PerplexityBot 허용 및 HTTPS 적용</div>
       <p>
-        robots.txtìì PerplexityBotì íì©íê³ , HTTPSê° ì ì©ë ì¬ì´í¸ì¸ì§ íì¸í©ëë¤. HTTP ì¬ì´í¸ë ë³´ì ê²½ê³ ë¡ ì¸í´ ì¸ì©ìì ë¶ë¦¬í  ì ììµëë¤.
+        robots.txt에서 PerplexityBot을 허용하고, HTTPS가 적용된 사이트인지 확인합니다. HTTP 사이트는 보안 경고로 인해 인용에서 불리할 수 있습니다.
       </p>
     </div>
   </div>
 
   <div class="article-section">
-    <h2>ìì£¼ ë¬»ë ì§ë¬¸</h2>
+    <h2>자주 묻는 질문</h2>
 
     <div class="tip-box">
-      <div class="tip-label">Q. Perplexityê° ë´ ì¬ì´í¸ë¥¼ ì¸ì©íëì§ ì´ë»ê² íì¸íëì?</div>
-      <p>Perplexityìì ì§ì  ìì¢ ê´ë ¨ ì§ë¬¸ì ìë ¥í´ë³´ê³  ì¸ì© ë²í¸ ëª©ë¡ì íì¸íë ê²ì´ ê°ì¥ ì§ì ì ì¸ ë°©ë²ìëë¤. ì: "ê°ë¨ ì¹ê³¼ ìíëí¸ ë¹ì© ìë ¤ì¤" ê°ì ì§ë¬¸ì ìë ¥íê³  ì¶ì² ëª©ë¡ì íì¸í©ëë¤. ìë² ì¡ì¸ì¤ ë¡ê·¸ìì PerplexityBotì ë°©ë¬¸ ê¸°ë¡ì íì¸í  ìë ììµëë¤.</p>
+      <div class="tip-label">Q. Perplexity가 내 사이트를 인용하는지 어떻게 확인하나요?</div>
+      <p>Perplexity에서 직접 업종 관련 질문을 입력해보고 인용 번호 목록을 확인하는 것이 가장 직접적인 방법입니다. 예: "강남 치과 임플란트 비용 알려줘" 같은 질문을 입력하고 출처 목록을 확인합니다. 서버 액세스 로그에서 PerplexityBot의 방문 기록을 확인할 수도 있습니다.</p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">Q. Perplexityì ChatGPT Search ì¤ ì´ë ìª½ì´ ë ì¤ìíê°ì?</div>
-      <p>ë íë«í¼ì ì¬ì©ì í¹ì±ì´ ë¤ë¦ëë¤. Perplexityë ì ë³´ ê²ì ì¤ì¬ì ì¬ì©ìê° ë§ê³ , ChatGPTë ë¤ìí ì©ëë¡ ì¬ì©ë©ëë¤. AI ê²ì ë¸ì¶ì ëª©íë¡ íë¤ë©´ ë íë«í¼ ëª¨ë ìµì ííë ê²ì´ ê¶ì¥ë©ëë¤. Perplexityë ì¸ì© ë°©ìì´ ëªíí´ ìµì í í¨ê³¼ë¥¼ ì¶ì íê¸° ìëì ì¼ë¡ ì½ìµëë¤.</p>
+      <div class="tip-label">Q. Perplexity와 ChatGPT Search 중 어느 쪽이 더 중요한가요?</div>
+      <p>두 플랫폼은 사용자 특성이 다릅니다. Perplexity는 정보 검색 중심의 사용자가 많고, ChatGPT는 다양한 용도로 사용됩니다. AI 검색 노출을 목표로 한다면 두 플랫폼 모두 최적화하는 것이 권장됩니다. Perplexity는 인용 방식이 명확해 최적화 효과를 추적하기 상대적으로 쉽습니다.</p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">Q. Perplexity Pages ê¸°ë¥ì´ë?</div>
-      <p>Perplexity Pagesë ì¬ì©ìê° í¹ì  ì£¼ì ì ëí´ AIê° ìì±í ì¢í© íì´ì§ë¥¼ ë§ë¤ ì ìë ê¸°ë¥ìëë¤. ì´ ê¸°ë¥ì Perplexity ë´ë¶ ì½íì¸  ìì±ì ê´í ê²ì¼ë¡, ì¸ë¶ ì¬ì´í¸ì ì¸ì© ìµì íìë ë³ê°ìëë¤. (<a href="https://www.perplexity.ai" target="_blank" rel="noopener" style="color:var(--accent)">Perplexity AI ê³µì ì¬ì´í¸ â</a>)</p>
+      <div class="tip-label">Q. Perplexity Pages 기능이란?</div>
+      <p>Perplexity Pages는 사용자가 특정 주제에 대해 AI가 생성한 종합 페이지를 만들 수 있는 기능입니다. 이 기능은 Perplexity 내부 콘텐츠 생성에 관한 것으로, 외부 사이트의 인용 최적화와는 별개입니다. (<a href="https://www.perplexity.ai" target="_blank" rel="noopener" style="color:var(--accent)">Perplexity AI 공식 사이트 →</a>)</p>
     </div>
   </div>
 
   <div class="article-related">
-    <h3>ë¤ìì¼ë¡ ì½ì´ë³¼ ê°ì´ë</h3>
+    <h3>다음으로 읽어볼 가이드</h3>
     <div class="related-grid">
       <a href="perplexity-optimization.html" class="related-card">
-        <div class="rc-cat">AI íë«í¼ ê°ì´ë Â· Perplexity</div>
-        <div class="rc-title">ð Perplexity ìµì í â ì¸ì© ê°ë¥ì±ì ëì´ë ì¤ì  ì ëµ</div>
+        <div class="rc-cat">AI 플랫폼 가이드 · Perplexity</div>
+        <div class="rc-title">🔍 Perplexity 최적화 — 인용 가능성을 높이는 실전 전략</div>
       </a>
       <a href="robots-txt-ai-guide.html" class="related-card">
-        <div class="rc-cat">ê¸°ì  ê°ì´ë Â· robots.txt</div>
-        <div class="rc-title">âï¸ robots.txt AI ë´ ì¤ì  â 4ê° ë´ ìë²½ ê°ì´ë</div>
+        <div class="rc-cat">기술 가이드 · robots.txt</div>
+        <div class="rc-title">⚙️ robots.txt AI 봇 설정 — 4개 봇 완벽 가이드</div>
       </a>
       <a href="faqpage-schema-guide.html" class="related-card">
-        <div class="rc-cat">ê¸°ì  ê°ì´ë Â· Schema</div>
-        <div class="rc-title">â FAQPage Schema ìì  ê°ì´ë â AI ì¸ì©ë¥ ì ëì´ë êµ¬ì¡°í ë°ì´í°</div>
+        <div class="rc-cat">기술 가이드 · Schema</div>
+        <div class="rc-title">❓ FAQPage Schema 완전 가이드 — AI 인용률을 높이는 구조화 데이터</div>
       </a>
     </div>
   </div>
 </div>
 
 <div class="cta fi">
-  <h2>Perplexity ì¸ì©<br>íì¬ ìí<br><span style="color:var(--accent)">ë¬´ë£ë¡ ì§ë¨ë°ê¸°</span></h2>
-  <p>PerplexityBot íì© ì¬ë¶, FAQ êµ¬ì¡°, ì§ì­Â·ìì¢ ì í¸ë¥¼ í ë²ì ì§ë¨í´ëë¦½ëë¤.</p>
-  <button class="btn-primary" style="font-size:18px;padding:20px 48px">ë¬´ë£ ì§ë¨ ë°ê¸° â</button>
+  <h2>Perplexity 인용<br>현재 상태<br><span style="color:var(--accent)">무료로 진단받기</span></h2>
+  <p>PerplexityBot 허용 여부, FAQ 구조, 지역·업종 신호를 한 번에 진단해드립니다.</p>
+  <button class="btn-primary" style="font-size:18px;padding:20px 48px">무료 진단 받기 →</button>
 </div>
 
 <div class="article-wrap" style="max-width:900px;margin:0 auto;padding:40px 24px 20px">
   <div class="article-section">
-    <h2 style="font-size:1.1rem;margin-bottom:12px">ì°¸ê³  ì¶ì²</h2>
+    <h2 style="font-size:1.1rem;margin-bottom:12px">참고 출처</h2>
     <ul style="font-size:.85rem;line-height:1.8;color:var(--text-sub)">
-      <li><a href="https://docs.perplexity.ai" target="_blank" rel="noopener" style="color:var(--accent)">Perplexity AI â ê³µì ê°ë°ì ë¬¸ì</a></li>
-      <li><a href="https://www.perplexity.ai/hub/blog" target="_blank" rel="noopener" style="color:var(--accent)">Perplexity AI â ê³µì ë¸ë¡ê·¸ (ìë ë°©ì ë° ìë°ì´í¸)</a></li>
-      <li><a href="https://schema.org/FAQPage" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org â FAQPage êµ¬ì¡°í ë°ì´í° ëªì¸</a></li>
+      <li><a href="https://docs.perplexity.ai" target="_blank" rel="noopener" style="color:var(--accent)">Perplexity AI — 공식 개발자 문서</a></li>
+      <li><a href="https://www.perplexity.ai/hub/blog" target="_blank" rel="noopener" style="color:var(--accent)">Perplexity AI — 공식 블로그 (작동 방식 및 업데이트)</a></li>
+      <li><a href="https://schema.org/FAQPage" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org — FAQPage 구조화 데이터 명세</a></li>
     </ul>
   </div>
 </div>
 
 <footer>
-  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">ì¨ì¢ì¼<span>AI</span></a></div>
+  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
   <div class="flinks">
-    <a href="/about.html">ìë¹ì¤ ìê°</a>
-    <a href="/contact.html">ë¬¸ìíê¸°</a>
-    <a href="/privacy.html">ê°ì¸ì ë³´ì²ë¦¬ë°©ì¹¨</a>
+    <a href="/about.html">서비스 소개</a>
+    <a href="/contact.html">문의하기</a>
+    <a href="/privacy.html">개인정보처리방침</a>
   </div>
-  <div class="fcopy">Â© 2026 ì¨ì¢ì¼AI. AI ê²ì ìµì í ì»¨ì¤í &nbsp;Â·&nbsp; ì´ë©ì¼: tarry9653@daum.net</div>
+  <div class="fcopy">© 2026 온종일AI. AI 검색 최적화 컨설팅 &nbsp;·&nbsp; 이메일: tarry9653@daum.net</div>
 </footer>
 <script src="../js/main.js"></script>
 <script src="../js/proof.js"></script>
