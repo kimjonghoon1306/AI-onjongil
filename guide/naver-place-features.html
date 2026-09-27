@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>네이버 플레이스 기능 완전 해부 — 예약·주문·톡톡·쿠폰·단골까지 전 기능 활용법 | 온종일AI</title>
-<meta name="description" content="네이버 스마트플레이스의 모든 기능을 소상공인 관점에서 디테일하게 정리했습니다. 예약·주문(테이블/포장)·네이버 톡톡·스마트콜·쿠폰·소식·단골·통계·네이버페이·플레이스 광고까지 무엇을, 어떻게, 왜 켜야 하는지.">
+<title>ë¤ì´ë² íë ì´ì¤ ê¸°ë¥ ìì  í´ë¶ â ìì½Â·ì£¼ë¬¸Â·í¡í¡Â·ì¿ í°Â·ë¨ê³¨ê¹ì§ ì  ê¸°ë¥ íì©ë² | ì¨ì¢ì¼AI</title>
+<meta name="description" content="ë¤ì´ë² ì¤ë§í¸íë ì´ì¤ì ëª¨ë  ê¸°ë¥ì ììê³µì¸ ê´ì ìì ëíì¼íê² ì ë¦¬íìµëë¤. ìì½Â·ì£¼ë¬¸(íì´ë¸/í¬ì¥)Â·ë¤ì´ë² í¡í¡Â·ì¤ë§í¸ì½Â·ì¿ í°Â·ììÂ·ë¨ê³¨Â·íµê³Â·ë¤ì´ë²íì´Â·íë ì´ì¤ ê´ê³ ê¹ì§ ë¬´ìì, ì´ë»ê², ì ì¼ì¼ íëì§.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ai.xn--zk5biyyw.com/guide/naver-place-features.html">
-<meta property="og:title" content="네이버 플레이스 기능 완전 해부 — 전 기능 활용법">
-<meta property="og:description" content="예약·주문·톡톡·스마트콜·쿠폰·소식·단골·통계·네이버페이·광고까지, 플레이스 모든 기능을 소상공인 관점에서 정리.">
+<meta property="og:title" content="ë¤ì´ë² íë ì´ì¤ ê¸°ë¥ ìì  í´ë¶ â ì  ê¸°ë¥ íì©ë²">
+<meta property="og:description" content="ìì½Â·ì£¼ë¬¸Â·í¡í¡Â·ì¤ë§í¸ì½Â·ì¿ í°Â·ììÂ·ë¨ê³¨Â·íµê³Â·ë¤ì´ë²íì´Â·ê´ê³ ê¹ì§, íë ì´ì¤ ëª¨ë  ê¸°ë¥ì ììê³µì¸ ê´ì ìì ì ë¦¬.">
 <meta property="og:url" content="https://ai.xn--zk5biyyw.com/guide/naver-place-features.html">
 <meta property="og:image" content="https://ai.xn--zk5biyyw.com/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -18,10 +18,10 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "네이버 플레이스 기능 완전 해부 — 전 기능 활용법",
-  "description": "네이버 스마트플레이스의 예약·주문·톡톡·스마트콜·쿠폰·소식·단골·통계·네이버페이·광고 등 모든 기능을 소상공인 관점에서 정리한 가이드.",
-  "author": {"@type": "Organization", "name": "온종일AI", "url": "https://ai.xn--zk5biyyw.com"},
-  "publisher": {"@type": "Organization", "name": "온종일AI"},
+  "headline": "ë¤ì´ë² íë ì´ì¤ ê¸°ë¥ ìì  í´ë¶ â ì  ê¸°ë¥ íì©ë²",
+  "description": "ë¤ì´ë² ì¤ë§í¸íë ì´ì¤ì ìì½Â·ì£¼ë¬¸Â·í¡í¡Â·ì¤ë§í¸ì½Â·ì¿ í°Â·ììÂ·ë¨ê³¨Â·íµê³Â·ë¤ì´ë²íì´Â·ê´ê³  ë± ëª¨ë  ê¸°ë¥ì ììê³µì¸ ê´ì ìì ì ë¦¬í ê°ì´ë.",
+  "author": {"@type": "Organization", "name": "ì¨ì¢ì¼AI", "url": "https://ai.xn--zk5biyyw.com"},
+  "publisher": {"@type": "Organization", "name": "ì¨ì¢ì¼AI"},
   "datePublished": "2026-06-10",
   "dateModified": "2026-06-10"
 }
@@ -33,23 +33,23 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "네이버 플레이스 기능은 모두 무료인가요?",
-      "acceptedAnswer": {"@type": "Answer", "text": "업체 정보 등록, 예약, 주문, 네이버 톡톡, 소식, 쿠폰, 단골, 통계 등 대부분의 운영 기능은 무료로 제공됩니다. 다만 네이버페이 결제 수수료, 스마트콜 안내 비용, 플레이스 광고(노출 광고)처럼 일부는 비용이 발생합니다. 정확한 비용은 각 기능의 공식 안내를 확인하세요."}
+      "name": "ë¤ì´ë² íë ì´ì¤ ê¸°ë¥ì ëª¨ë ë¬´ë£ì¸ê°ì?",
+      "acceptedAnswer": {"@type": "Answer", "text": "ìì²´ ì ë³´ ë±ë¡, ìì½, ì£¼ë¬¸, ë¤ì´ë² í¡í¡, ìì, ì¿ í°, ë¨ê³¨, íµê³ ë± ëë¶ë¶ì ì´ì ê¸°ë¥ì ë¬´ë£ë¡ ì ê³µë©ëë¤. ë¤ë§ ë¤ì´ë²íì´ ê²°ì  ììë£, ì¤ë§í¸ì½ ìë´ ë¹ì©, íë ì´ì¤ ê´ê³ (ë¸ì¶ ê´ê³ )ì²ë¼ ì¼ë¶ë ë¹ì©ì´ ë°ìí©ëë¤. ì íí ë¹ì©ì ê° ê¸°ë¥ì ê³µì ìë´ë¥¼ íì¸íì¸ì."}
     },
     {
       "@type": "Question",
-      "name": "예약과 주문 기능은 어떤 업종에 맞나요?",
-      "acceptedAnswer": {"@type": "Answer", "text": "예약은 미용실·병원·학원·공방처럼 시간대를 잡아야 하는 업종에 적합하고, 주문(테이블 주문·포장·배달)은 음식점·카페에 적합합니다. 업종 특성에 맞는 기능만 선택해 켜면 됩니다."}
+      "name": "ìì½ê³¼ ì£¼ë¬¸ ê¸°ë¥ì ì´ë¤ ìì¢ì ë§ëì?",
+      "acceptedAnswer": {"@type": "Answer", "text": "ìì½ì ë¯¸ì©ì¤Â·ë³ìÂ·íìÂ·ê³µë°©ì²ë¼ ìê°ëë¥¼ ì¡ìì¼ íë ìì¢ì ì í©íê³ , ì£¼ë¬¸(íì´ë¸ ì£¼ë¬¸Â·í¬ì¥Â·ë°°ë¬)ì ììì Â·ì¹´íì ì í©í©ëë¤. ìì¢ í¹ì±ì ë§ë ê¸°ë¥ë§ ì íí´ ì¼ë©´ ë©ëë¤."}
     },
     {
       "@type": "Question",
-      "name": "네이버 톡톡과 스마트콜의 차이는 무엇인가요?",
-      "acceptedAnswer": {"@type": "Answer", "text": "네이버 톡톡은 손님이 채팅으로 문의하는 메신저 기능이고, 스마트콜은 플레이스에 표시되는 안심번호(가상번호)로 전화 문의를 받고 통화 통계를 보는 기능입니다. 톡톡은 글로, 스마트콜은 전화로 문의를 받는다는 점이 다릅니다."}
+      "name": "ë¤ì´ë² í¡í¡ê³¼ ì¤ë§í¸ì½ì ì°¨ì´ë ë¬´ìì¸ê°ì?",
+      "acceptedAnswer": {"@type": "Answer", "text": "ë¤ì´ë² í¡í¡ì ìëì´ ì±íì¼ë¡ ë¬¸ìíë ë©ì ì  ê¸°ë¥ì´ê³ , ì¤ë§í¸ì½ì íë ì´ì¤ì íìëë ìì¬ë²í¸(ê°ìë²í¸)ë¡ ì í ë¬¸ìë¥¼ ë°ê³  íµí íµê³ë¥¼ ë³´ë ê¸°ë¥ìëë¤. í¡í¡ì ê¸ë¡, ì¤ë§í¸ì½ì ì íë¡ ë¬¸ìë¥¼ ë°ëë¤ë ì ì´ ë¤ë¦ëë¤."}
     },
     {
       "@type": "Question",
-      "name": "단골 기능은 무엇인가요?",
-      "acceptedAnswer": {"@type": "Answer", "text": "손님이 우리 가게를 '단골'로 추가하면, 새 소식이나 쿠폰을 받아볼 수 있는 관계가 형성됩니다. 사업주는 단골에게 소식·혜택을 보내 재방문을 유도할 수 있어, 일종의 무료 고객 관리(CRM) 채널로 활용할 수 있습니다."}
+      "name": "ë¨ê³¨ ê¸°ë¥ì ë¬´ìì¸ê°ì?",
+      "acceptedAnswer": {"@type": "Answer", "text": "ìëì´ ì°ë¦¬ ê°ê²ë¥¼ 'ë¨ê³¨'ë¡ ì¶ê°íë©´, ì ììì´ë ì¿ í°ì ë°ìë³¼ ì ìë ê´ê³ê° íì±ë©ëë¤. ì¬ìì£¼ë ë¨ê³¨ìê² ììÂ·ííì ë³´ë´ ì¬ë°©ë¬¸ì ì ëí  ì ìì´, ì¼ì¢ì ë¬´ë£ ê³ ê° ê´ë¦¬(CRM) ì±ëë¡ íì©í  ì ììµëë¤."}
     }
   ]
 }
@@ -58,350 +58,352 @@
 <body>
 
 <nav>
-  <div class="logo-wrap"><div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div><a href="https://www.xn--zk5biyyw.com" target="_blank" rel="noopener" class="logo-by">by 온종일</a></div>
+  <div class="logo-wrap"><div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">ì¨ì¢ì¼<span>AI</span></a></div><a href="https://www.xn--zk5biyyw.com" target="_blank" rel="noopener" class="logo-by">by ì¨ì¢ì¼</a></div>
   <div class="nav-links">
     <div class="nav-drop">
-      <button class="nav-drop-btn">업종별 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">ìì¢ë³ <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="../industry/hospital.html">🏥 병원·치과·한의원</a>
-        <a href="../industry/interior.html">🏠 인테리어·리모델링</a>
-        <a href="../industry/law.html">⚖️ 법률·세무·회계</a>
-        <a href="../industry/health.html">💪 헬스·뷰티·피트니스</a>
-        <a href="../industry/restaurant.html">🍽️ 식당·카페·배달</a>
-        <a href="../industry/academy.html">📚 학원·교습소</a>
-        <a href="../industry/realestate.html">🏢 부동산·공인중개사</a>
-        <a href="../industry/dermatology.html">💉 피부과·성형외과</a>
-        <a href="../industry/auto.html">🚗 자동차 정비·중고차</a>
-        <a href="../industry/cleaning.html">🧹 세탁소·청소업체</a>
+        <a href="../industry/hospital.html">ð¥ ë³ìÂ·ì¹ê³¼Â·íìì</a>
+        <a href="../industry/interior.html">ð  ì¸íë¦¬ì´Â·ë¦¬ëª¨ë¸ë§</a>
+        <a href="../industry/law.html">âï¸ ë²ë¥ Â·ì¸ë¬´Â·íê³</a>
+        <a href="../industry/health.html">ðª í¬ì¤Â·ë·°í°Â·í¼í¸ëì¤</a>
+        <a href="../industry/restaurant.html">ð½ï¸ ìë¹Â·ì¹´íÂ·ë°°ë¬</a>
+        <a href="../industry/academy.html">ð íìÂ·êµìµì</a>
+        <a href="../industry/realestate.html">ð¢ ë¶ëì°Â·ê³µì¸ì¤ê°ì¬</a>
+        <a href="../industry/dermatology.html">ð í¼ë¶ê³¼Â·ì±íì¸ê³¼</a>
+        <a href="../industry/auto.html">ð ìëì°¨ ì ë¹Â·ì¤ê³ ì°¨</a>
+        <a href="../industry/cleaning.html">ð§¹ ì¸íìÂ·ì²­ììì²´</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">AI 검색 가이드 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">AI ê²ì ê°ì´ë <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="what-is-seo.html">📖 SEO란 무엇인가?</a>
-        <a href="what-is-aeo.html">🤖 AEO란 무엇인가?</a>
-        <a href="what-is-geo.html">🔬 GEO란 무엇인가?</a>
-        <a href="how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
-        <a href="naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
-        <a href="chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
-        <a href="perplexity-optimization.html">🔍 Perplexity 최적화</a>
-        <a href="gemini-ai-overview.html">♊ Google AI Overviews</a>
-        <a href="claude-ai-search.html">🧠 Claude AI 검색</a>
-        <a href="eeat-guide.html">⭐ E-E-A-T 가이드</a>
+        <a href="what-is-seo.html">ð SEOë ë¬´ìì¸ê°?</a>
+        <a href="what-is-aeo.html">ð¤ AEOë ë¬´ìì¸ê°?</a>
+        <a href="what-is-geo.html">ð¬ GEOë ë¬´ìì¸ê°?</a>
+        <a href="how-ai-search-works.html">âï¸ AIë ì´ë»ê² ì¶ì²íë?</a>
+        <a href="naver-vs-ai.html">â¡ ë¤ì´ë² vs AI ê²ì</a>
+        <a href="chatgpt-exposure.html">ð¬ ChatGPT ë¸ì¶íê¸°</a>
+        <a href="perplexity-optimization.html">ð Perplexity ìµì í</a>
+        <a href="gemini-ai-overview.html">â Google AI Overviews</a>
+        <a href="claude-ai-search.html">ð§  Claude AI ê²ì</a>
+        <a href="eeat-guide.html">â­ E-E-A-T ê°ì´ë</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">📍 네이버 플레이스 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">ð ë¤ì´ë² íë ì´ì¤ <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="/guide/naver-place-guide.html">📍 플레이스 등록·최적화</a>
-        <a href="/guide/naver-place-features.html">🧩 기능 완전 해부</a>
-        <a href="/guide/naver-place-star-rating-2026.html">⭐ 별점 부활 대응</a>
-        <a href="/guide/place-photo-tips.html">📸 사진 잘 찍는 법</a>
+        <a href="/guide/naver-place-guide.html">ð íë ì´ì¤ ë±ë¡Â·ìµì í</a>
+        <a href="/guide/naver-place-features.html">ð§© ê¸°ë¥ ìì  í´ë¶</a>
+        <a href="/guide/naver-place-star-rating-2026.html">â­ ë³ì  ë¶í ëì</a>
+        <a href="/guide/place-photo-tips.html">ð¸ ì¬ì§ ì ì°ë ë²</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">⭐ 리뷰 관리 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">â­ ë¦¬ë·° ê´ë¦¬ <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="/guide/bad-review-response.html">🛡️ 악성 리뷰·별점 테러 대응</a>
-        <a href="/guide/get-more-reviews.html">📈 리뷰 늘리는 법</a>
-        <a href="/guide/review-management.html">⭐ 온라인 리뷰 관리</a>
+        <a href="/guide/bad-review-response.html">ð¡ï¸ ìì± ë¦¬ë·°Â·ë³ì  íë¬ ëì</a>
+        <a href="/guide/get-more-reviews.html">ð ë¦¬ë·° ëë¦¬ë ë²</a>
+        <a href="/guide/review-management.html">â­ ì¨ë¼ì¸ ë¦¬ë·° ê´ë¦¬</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">🧭 마케팅 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">ð§­ ë§ì¼í <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="/guide/naver-google-ai-search.html">🧭 네이버·구글·AI 검색 비교</a>
-        <a href="/guide/google-business-profile.html">🗺️ 구글 비즈니스 프로필</a>
-        <a href="/guide/online-marketing-start.html">🚀 온라인 마케팅 시작하기</a>
-        <a href="/guide/free-marketing-methods.html">💡 무료 마케팅 방법</a>
+        <a href="/guide/naver-google-ai-search.html">ð§­ ë¤ì´ë²Â·êµ¬ê¸Â·AI ê²ì ë¹êµ</a>
+        <a href="/guide/google-business-profile.html">ðºï¸ êµ¬ê¸ ë¹ì¦ëì¤ íë¡í</a>
+        <a href="/guide/online-marketing-start.html">ð ì¨ë¼ì¸ ë§ì¼í ììíê¸°</a>
+        <a href="/guide/free-marketing-methods.html">ð¡ ë¬´ë£ ë§ì¼í ë°©ë²</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">🛠️ AI 진단기 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">ð ï¸ AI ì§ë¨ê¸° <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
-        <a href="/analyze-guide.html">📖 사용방법</a>
+        <a href="/analyze.html">ð ï¸ AI ìµì í ì§ë¨ê¸°</a>
+        <a href="/analyze-guide.html">ð ì¬ì©ë°©ë²</a>
         <div style="border-top:1px solid var(--border);margin:4px 2px"></div>
-        <a href="/guide/ai-bot-access.html">🤖 AI 봇 크롤링 설정</a>
-        <a href="/guide/faq-schema-for-ai.html">❓ FAQPage Schema</a>
-        <a href="/guide/business-schema-for-ai.html">🏢 LocalBusiness Schema</a>
-        <a href="/guide/meta-description-ai.html">📝 메타 디스크립션</a>
-        <a href="/guide/sitemap-for-ai.html">🗺️ sitemap.xml</a>
-        <a href="/guide/heading-structure-ai.html">📑 제목 계층 구조</a>
-        <a href="/guide/image-alt-for-ai.html">🖼️ 이미지 alt 텍스트</a>
+        <a href="/guide/ai-bot-access.html">ð¤ AI ë´ í¬ë¡¤ë§ ì¤ì </a>
+        <a href="/guide/faq-schema-for-ai.html">â FAQPage Schema</a>
+        <a href="/guide/business-schema-for-ai.html">ð¢ LocalBusiness Schema</a>
+        <a href="/guide/meta-description-ai.html">ð ë©í ëì¤í¬ë¦½ì</a>
+        <a href="/guide/sitemap-for-ai.html">ðºï¸ sitemap.xml</a>
+        <a href="/guide/heading-structure-ai.html">ð ì ëª© ê³ì¸µ êµ¬ì¡°</a>
+        <a href="/guide/image-alt-for-ai.html">ð¼ï¸ ì´ë¯¸ì§ alt íì¤í¸</a>
       </div>
     </div>
+    <a href="/lab.html" class="nav-single-link">✨ AI 프롬프트<span class="nav-new">NEW</span></a>
   </div>
-  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="메뉴"><span></span><span></span><span></span></button>
-    <button class="theme-btn" id="themeBtn">🌙</button>
-    <a href="mailto:tarry9653@daum.net?subject=%5B%EC%83%81%EB%8B%B4%EC%8B%A0%EC%B2%AD%5D" class="nav-cta" style="text-decoration:none">상담 신청하기</a>
+  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="ë©ë´"><span></span><span></span><span></span></button>
+    <button class="theme-btn" id="themeBtn">ð</button>
+    <a href="mailto:tarry9653@daum.net?subject=%5B%EC%83%81%EB%8B%B4%EC%8B%A0%EC%B2%AD%5D" class="nav-cta" style="text-decoration:none">ìë´ ì ì²­íê¸°</a>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <div class="mob-section"><a href="/lab.html" class="mob-single-link">✨ AI 프롬프트 · 글쓰기 랩 <span class="nav-new">NEW</span></a></div>
   <div class="mob-section">
-    <div class="mob-section-title">📍 네이버 플레이스</div>
-    <a href="/guide/naver-place-guide.html">📍 플레이스 등록·최적화</a>
-    <a href="/guide/naver-place-features.html">🧩 기능 완전 해부</a>
-    <a href="/guide/naver-place-star-rating-2026.html">⭐ 별점 부활 대응</a>
-    <a href="/guide/place-photo-tips.html">📸 사진 잘 찍는 법</a>
+    <div class="mob-section-title">ð ë¤ì´ë² íë ì´ì¤</div>
+    <a href="/guide/naver-place-guide.html">ð íë ì´ì¤ ë±ë¡Â·ìµì í</a>
+    <a href="/guide/naver-place-features.html">ð§© ê¸°ë¥ ìì  í´ë¶</a>
+    <a href="/guide/naver-place-star-rating-2026.html">â­ ë³ì  ë¶í ëì</a>
+    <a href="/guide/place-photo-tips.html">ð¸ ì¬ì§ ì ì°ë ë²</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">⭐ 리뷰 관리</div>
-    <a href="/guide/bad-review-response.html">🛡️ 악성 리뷰·별점 테러 대응</a>
-    <a href="/guide/get-more-reviews.html">📈 리뷰 늘리는 법</a>
-    <a href="/guide/review-management.html">⭐ 온라인 리뷰 관리</a>
+    <div class="mob-section-title">â­ ë¦¬ë·° ê´ë¦¬</div>
+    <a href="/guide/bad-review-response.html">ð¡ï¸ ìì± ë¦¬ë·°Â·ë³ì  íë¬ ëì</a>
+    <a href="/guide/get-more-reviews.html">ð ë¦¬ë·° ëë¦¬ë ë²</a>
+    <a href="/guide/review-management.html">â­ ì¨ë¼ì¸ ë¦¬ë·° ê´ë¦¬</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">🧭 마케팅</div>
-    <a href="/guide/naver-google-ai-search.html">🧭 네이버·구글·AI 검색 비교</a>
-    <a href="/guide/google-business-profile.html">🗺️ 구글 비즈니스 프로필</a>
-    <a href="/guide/online-marketing-start.html">🚀 온라인 마케팅 시작하기</a>
-    <a href="/guide/free-marketing-methods.html">💡 무료 마케팅 방법</a>
+    <div class="mob-section-title">ð§­ ë§ì¼í</div>
+    <a href="/guide/naver-google-ai-search.html">ð§­ ë¤ì´ë²Â·êµ¬ê¸Â·AI ê²ì ë¹êµ</a>
+    <a href="/guide/google-business-profile.html">ðºï¸ êµ¬ê¸ ë¹ì¦ëì¤ íë¡í</a>
+    <a href="/guide/online-marketing-start.html">ð ì¨ë¼ì¸ ë§ì¼í ììíê¸°</a>
+    <a href="/guide/free-marketing-methods.html">ð¡ ë¬´ë£ ë§ì¼í ë°©ë²</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">AI 진단기</div>
-    <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
-    <a href="/analyze-guide.html">📖 사용방법</a>
-    <a href="/guide/ai-bot-access.html">🤖 AI 봇 크롤링 설정</a>
-    <a href="/guide/faq-schema-for-ai.html">❓ FAQPage Schema</a>
-    <a href="/guide/business-schema-for-ai.html">🏢 LocalBusiness Schema</a>
-    <a href="/guide/meta-description-ai.html">📝 메타 디스크립션</a>
-    <a href="/guide/sitemap-for-ai.html">🗺️ sitemap.xml</a>
-    <a href="/guide/heading-structure-ai.html">📑 제목 계층 구조</a>
-    <a href="/guide/image-alt-for-ai.html">🖼️ 이미지 alt 텍스트</a>
+    <div class="mob-section-title">AI ì§ë¨ê¸°</div>
+    <a href="/analyze.html">ð ï¸ AI ìµì í ì§ë¨ê¸°</a>
+    <a href="/analyze-guide.html">ð ì¬ì©ë°©ë²</a>
+    <a href="/guide/ai-bot-access.html">ð¤ AI ë´ í¬ë¡¤ë§ ì¤ì </a>
+    <a href="/guide/faq-schema-for-ai.html">â FAQPage Schema</a>
+    <a href="/guide/business-schema-for-ai.html">ð¢ LocalBusiness Schema</a>
+    <a href="/guide/meta-description-ai.html">ð ë©í ëì¤í¬ë¦½ì</a>
+    <a href="/guide/sitemap-for-ai.html">ðºï¸ sitemap.xml</a>
+    <a href="/guide/heading-structure-ai.html">ð ì ëª© ê³ì¸µ êµ¬ì¡°</a>
+    <a href="/guide/image-alt-for-ai.html">ð¼ï¸ ì´ë¯¸ì§ alt íì¤í¸</a>
   </div>
-  <a href="mailto:tarry9653@daum.net" class="mob-cta" style="text-decoration:none;display:block;text-align:center">무료 상담 신청하기 →</a>
+  <a href="mailto:tarry9653@daum.net" class="mob-cta" style="text-decoration:none;display:block;text-align:center">ë¬´ë£ ìë´ ì ì²­íê¸° â</a>
 </div>
 
 <div class="breadcrumb">
-  <a href="../index.html">홈</a><span>›</span>
-  <a href="naver-place-guide.html">온라인 마케팅</a><span>›</span>
-  네이버 플레이스 기능 완전 해부
+  <a href="../index.html">í</a><span>âº</span>
+  <a href="naver-place-guide.html">ì¨ë¼ì¸ ë§ì¼í</a><span>âº</span>
+  ë¤ì´ë² íë ì´ì¤ ê¸°ë¥ ìì  í´ë¶
 </div>
 
 <div class="article-hero">
   <div class="article-hero-bg"></div>
-  <div class="article-category">온라인 마케팅 · 네이버 · 실전</div>
-  <h1>네이버 플레이스<br><span class="hl">기능 완전 해부</span></h1>
-  <p>예약·주문·톡톡·스마트콜·쿠폰·소식·단골·통계·네이버페이·광고까지.<br>스마트플레이스의 모든 기능을 <strong>무엇을·어떻게·왜</strong> 기준으로 정리했습니다.</p>
+  <div class="article-category">ì¨ë¼ì¸ ë§ì¼í Â· ë¤ì´ë² Â· ì¤ì </div>
+  <h1>ë¤ì´ë² íë ì´ì¤<br><span class="hl">ê¸°ë¥ ìì  í´ë¶</span></h1>
+  <p>ìì½Â·ì£¼ë¬¸Â·í¡í¡Â·ì¤ë§í¸ì½Â·ì¿ í°Â·ììÂ·ë¨ê³¨Â·íµê³Â·ë¤ì´ë²íì´Â·ê´ê³ ê¹ì§.<br>ì¤ë§í¸íë ì´ì¤ì ëª¨ë  ê¸°ë¥ì <strong>ë¬´ììÂ·ì´ë»ê²Â·ì</strong> ê¸°ì¤ì¼ë¡ ì ë¦¬íìµëë¤.</p>
   <div class="article-meta">
-    <span>온종일AI 편집팀</span><span>·</span>
-    <span>2026년 6월 10일</span><span>·</span>
-    <span>약 12분 소요</span>
+    <span>ì¨ì¢ì¼AI í¸ì§í</span><span>Â·</span>
+    <span>2026ë 6ì 10ì¼</span><span>Â·</span>
+    <span>ì½ 12ë¶ ìì</span>
   </div>
 </div>
 
 <div class="article-wrap">
 
   <p class="article-lead">
-    많은 사장님이 네이버 스마트플레이스를 '업체 정보 등록하는 곳' 정도로만 씁니다. 하지만 플레이스 안에는 손님을 받고, 소통하고, 다시 오게 만드는 운영 도구가 한가득 들어 있습니다. 게다가 대부분은 무료입니다. 이 글에서는 플레이스의 모든 기능을 하나씩 뜯어보며, 우리 가게에 어떤 기능을 켜면 좋은지 판단할 수 있게 정리했습니다.
+    ë§ì ì¬ì¥ëì´ ë¤ì´ë² ì¤ë§í¸íë ì´ì¤ë¥¼ 'ìì²´ ì ë³´ ë±ë¡íë ê³³' ì ëë¡ë§ ìëë¤. íì§ë§ íë ì´ì¤ ììë ìëì ë°ê³ , ìíµíê³ , ë¤ì ì¤ê² ë§ëë ì´ì ëêµ¬ê° íê°ë ë¤ì´ ììµëë¤. ê²ë¤ê° ëë¶ë¶ì ë¬´ë£ìëë¤. ì´ ê¸ììë íë ì´ì¤ì ëª¨ë  ê¸°ë¥ì íëì© ë¯ì´ë³´ë©°, ì°ë¦¬ ê°ê²ì ì´ë¤ ê¸°ë¥ì ì¼ë©´ ì¢ìì§ íë¨í  ì ìê² ì ë¦¬íìµëë¤.
   </p>
 
-  <!-- 목차 -->
+  <!-- ëª©ì°¨ -->
   <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:40px;">
-    <p style="margin:0 0 12px;font-weight:800;font-size:15px;">📑 이 글에서 다루는 기능</p>
+    <p style="margin:0 0 12px;font-weight:800;font-size:15px;">ð ì´ ê¸ìì ë¤ë£¨ë ê¸°ë¥</p>
     <ul style="margin:0;padding-left:18px;color:var(--sub);line-height:2;font-size:14px;columns:2;column-gap:24px;">
-      <li><a href="#info" style="color:var(--accent);text-decoration:none;">기본 정보</a></li>
-      <li><a href="#reserve" style="color:var(--accent);text-decoration:none;">예약</a></li>
-      <li><a href="#order" style="color:var(--accent);text-decoration:none;">주문(테이블·포장·배달)</a></li>
-      <li><a href="#talk" style="color:var(--accent);text-decoration:none;">네이버 톡톡</a></li>
-      <li><a href="#smartcall" style="color:var(--accent);text-decoration:none;">스마트콜</a></li>
-      <li><a href="#coupon" style="color:var(--accent);text-decoration:none;">쿠폰</a></li>
-      <li><a href="#news" style="color:var(--accent);text-decoration:none;">소식</a></li>
-      <li><a href="#regular" style="color:var(--accent);text-decoration:none;">단골</a></li>
-      <li><a href="#review" style="color:var(--accent);text-decoration:none;">리뷰·별점</a></li>
-      <li><a href="#pay" style="color:var(--accent);text-decoration:none;">네이버페이</a></li>
-      <li><a href="#stats" style="color:var(--accent);text-decoration:none;">통계</a></li>
-      <li><a href="#ad" style="color:var(--accent);text-decoration:none;">플레이스 광고</a></li>
+      <li><a href="#info" style="color:var(--accent);text-decoration:none;">ê¸°ë³¸ ì ë³´</a></li>
+      <li><a href="#reserve" style="color:var(--accent);text-decoration:none;">ìì½</a></li>
+      <li><a href="#order" style="color:var(--accent);text-decoration:none;">ì£¼ë¬¸(íì´ë¸Â·í¬ì¥Â·ë°°ë¬)</a></li>
+      <li><a href="#talk" style="color:var(--accent);text-decoration:none;">ë¤ì´ë² í¡í¡</a></li>
+      <li><a href="#smartcall" style="color:var(--accent);text-decoration:none;">ì¤ë§í¸ì½</a></li>
+      <li><a href="#coupon" style="color:var(--accent);text-decoration:none;">ì¿ í°</a></li>
+      <li><a href="#news" style="color:var(--accent);text-decoration:none;">ìì</a></li>
+      <li><a href="#regular" style="color:var(--accent);text-decoration:none;">ë¨ê³¨</a></li>
+      <li><a href="#review" style="color:var(--accent);text-decoration:none;">ë¦¬ë·°Â·ë³ì </a></li>
+      <li><a href="#pay" style="color:var(--accent);text-decoration:none;">ë¤ì´ë²íì´</a></li>
+      <li><a href="#stats" style="color:var(--accent);text-decoration:none;">íµê³</a></li>
+      <li><a href="#ad" style="color:var(--accent);text-decoration:none;">íë ì´ì¤ ê´ê³ </a></li>
     </ul>
   </div>
 
-  <!-- 기본 정보 -->
-  <h2 class="art-h2" id="info">1. 기본 정보 — 모든 노출의 토대</h2>
+  <!-- ê¸°ë³¸ ì ë³´ -->
+  <h2 class="art-h2" id="info">1. ê¸°ë³¸ ì ë³´ â ëª¨ë  ë¸ì¶ì í ë</h2>
   <p style="color:var(--sub);line-height:1.9;margin-bottom:16px;">
-    업체명·카테고리·주소·전화번호·영업시간·대표 사진·소개글. 가장 기본이지만 가장 중요합니다. 네이버는 정보가 정확하고 완성도가 높은 업체를 검색에서 더 잘 노출시킵니다.
+    ìì²´ëªÂ·ì¹´íê³ ë¦¬Â·ì£¼ìÂ·ì íë²í¸Â·ìììê°Â·ëí ì¬ì§Â·ìê°ê¸. ê°ì¥ ê¸°ë³¸ì´ì§ë§ ê°ì¥ ì¤ìí©ëë¤. ë¤ì´ë²ë ì ë³´ê° ì ííê³  ìì±ëê° ëì ìì²´ë¥¼ ê²ììì ë ì ë¸ì¶ìíµëë¤.
   </p>
   <ul style="color:var(--sub);line-height:2.1;padding-left:20px;margin-bottom:12px;">
-    <li><strong style="color:var(--text);">카테고리</strong> — 가능한 한 세부 카테고리까지 지정(예: 음식점 &gt; 한식 &gt; 국밥). 잘못 잡으면 엉뚱한 검색어에만 노출됩니다.</li>
-    <li><strong style="color:var(--text);">영업시간·정기휴무·임시휴무</strong> — 부정확하면 헛걸음한 손님이 낮은 별점을 남깁니다. 명절·공휴일도 갱신하세요.</li>
-    <li><strong style="color:var(--text);">대표 사진</strong> — 검색 결과에서 가장 먼저 눈에 띄는 요소. 외부·내부·대표 메뉴/시술 사진을 충분히 등록합니다.</li>
+    <li><strong style="color:var(--text);">ì¹´íê³ ë¦¬</strong> â ê°ë¥í í ì¸ë¶ ì¹´íê³ ë¦¬ê¹ì§ ì§ì (ì: ììì  &gt; íì &gt; êµ­ë°¥). ìëª» ì¡ì¼ë©´ ìë±í ê²ìì´ìë§ ë¸ì¶ë©ëë¤.</li>
+    <li><strong style="color:var(--text);">ìììê°Â·ì ê¸°í´ë¬´Â·ììí´ë¬´</strong> â ë¶ì ííë©´ íê±¸ìí ìëì´ ë®ì ë³ì ì ë¨ê¹ëë¤. ëªì Â·ê³µí´ì¼ë ê°±ì íì¸ì.</li>
+    <li><strong style="color:var(--text);">ëí ì¬ì§</strong> â ê²ì ê²°ê³¼ìì ê°ì¥ ë¨¼ì  ëì ëë ìì. ì¸ë¶Â·ë´ë¶Â·ëí ë©ë´/ìì  ì¬ì§ì ì¶©ë¶í ë±ë¡í©ëë¤.</li>
   </ul>
   <p style="color:var(--sub);font-size:14px;line-height:1.8;margin-bottom:40px;">
-    👉 등록과 최적화 절차는 <a href="naver-place-guide.html" style="color:var(--accent);text-decoration:none;">네이버 스마트플레이스 등록·최적화 가이드</a>에서 더 자세히 다룹니다.
+    ð ë±ë¡ê³¼ ìµì í ì ì°¨ë <a href="naver-place-guide.html" style="color:var(--accent);text-decoration:none;">ë¤ì´ë² ì¤ë§í¸íë ì´ì¤ ë±ë¡Â·ìµì í ê°ì´ë</a>ìì ë ìì¸í ë¤ë£¹ëë¤.
   </p>
 
-  <!-- 예약 -->
-  <h2 class="art-h2" id="reserve">2. 예약 — 전화 없이 24시간 손님을 받는다</h2>
+  <!-- ìì½ -->
+  <h2 class="art-h2" id="reserve">2. ìì½ â ì í ìì´ 24ìê° ìëì ë°ëë¤</h2>
   <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:16px;">
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 손님이 플레이스에서 직접 날짜·시간·인원을 골라 예약하는 기능입니다. 사장님은 예약 현황을 한 화면에서 관리합니다.</p>
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">어떤 업종에</strong> — 미용실·네일·왁싱, 병원·한의원, 공방·클래스, 학원 상담처럼 <em>시간대를 잡아야 하는</em> 업종에 특히 강력합니다.</p>
-    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 영업시간 외에 들어오는 예약을 잡아주는 게 핵심입니다. 전화를 못 받는 시간(시술 중·진료 중)에도 예약이 쌓입니다. 노쇼가 걱정되면 예약금·사전 안내 문구를 설정하세요.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ë¬´ìì¸ê°</strong> â ìëì´ íë ì´ì¤ìì ì§ì  ë ì§Â·ìê°Â·ì¸ìì ê³¨ë¼ ìì½íë ê¸°ë¥ìëë¤. ì¬ì¥ëì ìì½ íí©ì í íë©´ìì ê´ë¦¬í©ëë¤.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ì´ë¤ ìì¢ì</strong> â ë¯¸ì©ì¤Â·ë¤ì¼Â·ìì±, ë³ìÂ·íìì, ê³µë°©Â·í´ëì¤, íì ìë´ì²ë¼ <em>ìê°ëë¥¼ ì¡ìì¼ íë</em> ìì¢ì í¹í ê°ë ¥í©ëë¤.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">íì© í</strong> â ìììê° ì¸ì ë¤ì´ì¤ë ìì½ì ì¡ìì£¼ë ê² íµì¬ìëë¤. ì íë¥¼ ëª» ë°ë ìê°(ìì  ì¤Â·ì§ë£ ì¤)ìë ìì½ì´ ììëë¤. ë¸ì¼ê° ê±±ì ëë©´ ìì½ê¸Â·ì¬ì  ìë´ ë¬¸êµ¬ë¥¼ ì¤ì íì¸ì.</p>
   </div>
-  <p style="color:var(--sub);font-size:13px;margin-bottom:40px;">※ 일부 예약 유형은 결제·예약금 연동 시 수수료가 발생할 수 있습니다.</p>
+  <p style="color:var(--sub);font-size:13px;margin-bottom:40px;">â» ì¼ë¶ ìì½ ì íì ê²°ì Â·ìì½ê¸ ì°ë ì ììë£ê° ë°ìí  ì ììµëë¤.</p>
 
-  <!-- 주문 -->
-  <h2 class="art-h2" id="order">3. 주문 — 테이블 주문·포장·배달</h2>
+  <!-- ì£¼ë¬¸ -->
+  <h2 class="art-h2" id="order">3. ì£¼ë¬¸ â íì´ë¸ ì£¼ë¬¸Â·í¬ì¥Â·ë°°ë¬</h2>
   <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:16px;">
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 음식점·카페가 메뉴를 등록해 두면 손님이 플레이스에서 <em>테이블 주문(매장 QR), 포장(미리 주문), 배달</em>을 할 수 있습니다.</p>
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">왜 켜나</strong> — 포장 주문을 미리 받아두면 손님 대기 시간이 줄고, 바쁜 시간대 회전이 빨라집니다. 테이블 주문은 직원이 주문을 받는 부담을 덜어줍니다.</p>
-    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 대표 메뉴 사진과 설명을 충실히 넣으세요. 메뉴판이 부실하면 주문 전환이 떨어집니다.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ë¬´ìì¸ê°</strong> â ììì Â·ì¹´íê° ë©ë´ë¥¼ ë±ë¡í´ ëë©´ ìëì´ íë ì´ì¤ìì <em>íì´ë¸ ì£¼ë¬¸(ë§¤ì¥ QR), í¬ì¥(ë¯¸ë¦¬ ì£¼ë¬¸), ë°°ë¬</em>ì í  ì ììµëë¤.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ì ì¼ë</strong> â í¬ì¥ ì£¼ë¬¸ì ë¯¸ë¦¬ ë°ìëë©´ ìë ëê¸° ìê°ì´ ì¤ê³ , ë°ì ìê°ë íì ì´ ë¹¨ë¼ì§ëë¤. íì´ë¸ ì£¼ë¬¸ì ì§ìì´ ì£¼ë¬¸ì ë°ë ë¶ë´ì ëì´ì¤ëë¤.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">íì© í</strong> â ëí ë©ë´ ì¬ì§ê³¼ ì¤ëªì ì¶©ì¤í ë£ì¼ì¸ì. ë©ë´íì´ ë¶ì¤íë©´ ì£¼ë¬¸ ì íì´ ë¨ì´ì§ëë¤.</p>
   </div>
-  <p style="color:var(--sub);font-size:13px;margin-bottom:40px;">※ 결제가 연동되는 주문은 네이버페이 결제 수수료가 적용됩니다. 정확한 요율은 공식 안내를 확인하세요.</p>
+  <p style="color:var(--sub);font-size:13px;margin-bottom:40px;">â» ê²°ì ê° ì°ëëë ì£¼ë¬¸ì ë¤ì´ë²íì´ ê²°ì  ììë£ê° ì ì©ë©ëë¤. ì íí ìì¨ì ê³µì ìë´ë¥¼ íì¸íì¸ì.</p>
 
-  <!-- 톡톡 -->
-  <h2 class="art-h2" id="talk">4. 네이버 톡톡 — 채팅 상담 창구</h2>
+  <!-- í¡í¡ -->
+  <h2 class="art-h2" id="talk">4. ë¤ì´ë² í¡í¡ â ì±í ìë´ ì°½êµ¬</h2>
   <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:40px;">
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 손님이 전화 대신 채팅으로 문의하는 메신저입니다. "주차 되나요?", "예약 가능한가요?" 같은 가벼운 질문이 많이 들어옵니다.</p>
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">왜 켜나</strong> — 전화가 부담스러운 손님(특히 젊은 층)을 놓치지 않습니다. 통화 중에도 문의가 쌓이지 않고 들어옵니다.</p>
-    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — <em>자주 묻는 질문은 자동응답·빠른 답변</em>으로 등록해 두면 응대 부담이 확 줄어듭니다. 응답이 빠를수록 예약·방문 전환이 높아집니다.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ë¬´ìì¸ê°</strong> â ìëì´ ì í ëì  ì±íì¼ë¡ ë¬¸ìíë ë©ì ì ìëë¤. "ì£¼ì°¨ ëëì?", "ìì½ ê°ë¥íê°ì?" ê°ì ê°ë²¼ì´ ì§ë¬¸ì´ ë§ì´ ë¤ì´ìµëë¤.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ì ì¼ë</strong> â ì íê° ë¶ë´ì¤ë¬ì´ ìë(í¹í ì ì ì¸µ)ì ëì¹ì§ ììµëë¤. íµí ì¤ìë ë¬¸ìê° ìì´ì§ ìê³  ë¤ì´ìµëë¤.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">íì© í</strong> â <em>ìì£¼ ë¬»ë ì§ë¬¸ì ìëìëµÂ·ë¹ ë¥¸ ëµë³</em>ì¼ë¡ ë±ë¡í´ ëë©´ ìë ë¶ë´ì´ í ì¤ì´ë­ëë¤. ìëµì´ ë¹ ë¥¼ìë¡ ìì½Â·ë°©ë¬¸ ì íì´ ëìì§ëë¤.</p>
   </div>
 
-  <!-- 스마트콜 -->
-  <h2 class="art-h2" id="smartcall">5. 스마트콜 — 전화 문의를 '데이터'로 본다</h2>
+  <!-- ì¤ë§í¸ì½ -->
+  <h2 class="art-h2" id="smartcall">5. ì¤ë§í¸ì½ â ì í ë¬¸ìë¥¼ 'ë°ì´í°'ë¡ ë³¸ë¤</h2>
   <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:40px;">
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 플레이스에 표시되는 <em>안심번호(가상번호)</em>입니다. 손님 전화가 실제 매장 번호로 연결되며, 어떤 시간대에 전화가 많은지·놓친 전화가 몇 건인지 통계로 보여줍니다.</p>
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">톡톡과 차이</strong> — 톡톡은 '글'로, 스마트콜은 '전화'로 문의를 받습니다. 통화 통계와 놓친 전화 확인이 스마트콜의 강점입니다.</p>
-    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 놓친 전화 통계를 보고 바쁜 시간대에 인력을 보강하거나, 부재 시 톡톡으로 안내하는 식으로 연계하면 문의 누수를 막을 수 있습니다.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ë¬´ìì¸ê°</strong> â íë ì´ì¤ì íìëë <em>ìì¬ë²í¸(ê°ìë²í¸)</em>ìëë¤. ìë ì íê° ì¤ì  ë§¤ì¥ ë²í¸ë¡ ì°ê²°ëë©°, ì´ë¤ ìê°ëì ì íê° ë§ìì§Â·ëì¹ ì íê° ëª ê±´ì¸ì§ íµê³ë¡ ë³´ì¬ì¤ëë¤.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">í¡í¡ê³¼ ì°¨ì´</strong> â í¡í¡ì 'ê¸'ë¡, ì¤ë§í¸ì½ì 'ì í'ë¡ ë¬¸ìë¥¼ ë°ìµëë¤. íµí íµê³ì ëì¹ ì í íì¸ì´ ì¤ë§í¸ì½ì ê°ì ìëë¤.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">íì© í</strong> â ëì¹ ì í íµê³ë¥¼ ë³´ê³  ë°ì ìê°ëì ì¸ë ¥ì ë³´ê°íê±°ë, ë¶ì¬ ì í¡í¡ì¼ë¡ ìë´íë ìì¼ë¡ ì°ê³íë©´ ë¬¸ì ëìë¥¼ ë§ì ì ììµëë¤.</p>
   </div>
 
-  <!-- 쿠폰 -->
-  <h2 class="art-h2" id="coupon">6. 쿠폰 — 첫 방문과 재방문을 만든다</h2>
+  <!-- ì¿ í° -->
+  <h2 class="art-h2" id="coupon">6. ì¿ í° â ì²« ë°©ë¬¸ê³¼ ì¬ë°©ë¬¸ì ë§ë ë¤</h2>
   <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:40px;">
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 할인·증정 쿠폰을 발행해 플레이스에서 손님이 받아 가게 하는 기능입니다.</p>
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">왜 켜나</strong> — "쿠폰 있는 가게"는 같은 검색 결과에서 한 번 더 눈길을 끕니다. 첫 방문 장벽을 낮추는 데 효과적입니다.</p>
-    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 쿠폰 받는 조건을 <em>리뷰 작성·단골 추가</em>와 연계하면 한 번의 쿠폰으로 재방문 관계까지 만들 수 있습니다. 단, 대가성 별점 유도는 정책 위반이 될 수 있으니 '리뷰 작성'까지만 권유하세요.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ë¬´ìì¸ê°</strong> â í ì¸Â·ì¦ì  ì¿ í°ì ë°íí´ íë ì´ì¤ìì ìëì´ ë°ì ê°ê² íë ê¸°ë¥ìëë¤.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ì ì¼ë</strong> â "ì¿ í° ìë ê°ê²"ë ê°ì ê²ì ê²°ê³¼ìì í ë² ë ëê¸¸ì ëëë¤. ì²« ë°©ë¬¸ ì¥ë²½ì ë®ì¶ë ë° í¨ê³¼ì ìëë¤.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">íì© í</strong> â ì¿ í° ë°ë ì¡°ê±´ì <em>ë¦¬ë·° ìì±Â·ë¨ê³¨ ì¶ê°</em>ì ì°ê³íë©´ í ë²ì ì¿ í°ì¼ë¡ ì¬ë°©ë¬¸ ê´ê³ê¹ì§ ë§ë¤ ì ììµëë¤. ë¨, ëê°ì± ë³ì  ì ëë ì ì± ìë°ì´ ë  ì ìì¼ë 'ë¦¬ë·° ìì±'ê¹ì§ë§ ê¶ì íì¸ì.</p>
   </div>
 
-  <!-- 소식 -->
-  <h2 class="art-h2" id="news">7. 소식 — 우리 가게의 SNS 타임라인</h2>
+  <!-- ìì -->
+  <h2 class="art-h2" id="news">7. ìì â ì°ë¦¬ ê°ê²ì SNS íìë¼ì¸</h2>
   <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:40px;">
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 신메뉴·이벤트·휴무·새 시술 등 가게 소식을 글·사진으로 올리는 기능입니다. 플레이스 상세 페이지에 노출됩니다.</p>
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">왜 켜나</strong> — 소식이 꾸준히 올라오는 가게는 '살아있는 가게'로 보입니다. 새 소식은 단골에게 알림으로도 전달됩니다.</p>
-    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 주 1회라도 규칙적으로. 신메뉴·시즌 메뉴·영업 변경처럼 손님이 궁금해할 내용을 우선합니다.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ë¬´ìì¸ê°</strong> â ì ë©ë´Â·ì´ë²¤í¸Â·í´ë¬´Â·ì ìì  ë± ê°ê² ììì ê¸Â·ì¬ì§ì¼ë¡ ì¬ë¦¬ë ê¸°ë¥ìëë¤. íë ì´ì¤ ìì¸ íì´ì§ì ë¸ì¶ë©ëë¤.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ì ì¼ë</strong> â ììì´ ê¾¸ì¤í ì¬ë¼ì¤ë ê°ê²ë 'ì´ììë ê°ê²'ë¡ ë³´ìëë¤. ì ììì ë¨ê³¨ìê² ìë¦¼ì¼ë¡ë ì ë¬ë©ëë¤.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">íì© í</strong> â ì£¼ 1íë¼ë ê·ì¹ì ì¼ë¡. ì ë©ë´Â·ìì¦ ë©ë´Â·ìì ë³ê²½ì²ë¼ ìëì´ ê¶ê¸í´í  ë´ì©ì ì°ì í©ëë¤.</p>
   </div>
 
-  <!-- 단골 -->
-  <h2 class="art-h2" id="regular">8. 단골 — 무료로 쓰는 고객 관리(CRM)</h2>
+  <!-- ë¨ê³¨ -->
+  <h2 class="art-h2" id="regular">8. ë¨ê³¨ â ë¬´ë£ë¡ ì°ë ê³ ê° ê´ë¦¬(CRM)</h2>
   <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:40px;">
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 손님이 우리 가게를 '단골'로 추가하면, 새 소식·쿠폰을 받아보는 관계가 만들어집니다.</p>
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">왜 중요한가</strong> — 단골은 <em>광고비 없이 다시 부를 수 있는 손님 명단</em>입니다. 한 번 맺어두면 새 소식·혜택을 보낼 때마다 재방문 기회가 생깁니다.</p>
-    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 계산할 때 "단골 추가하시면 다음에 쓰실 쿠폰 드려요"처럼 자연스럽게 권유하세요. 단골 수가 쌓일수록 소식·쿠폰의 도달이 커집니다.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ë¬´ìì¸ê°</strong> â ìëì´ ì°ë¦¬ ê°ê²ë¥¼ 'ë¨ê³¨'ë¡ ì¶ê°íë©´, ì ììÂ·ì¿ í°ì ë°ìë³´ë ê´ê³ê° ë§ë¤ì´ì§ëë¤.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ì ì¤ìíê°</strong> â ë¨ê³¨ì <em>ê´ê³ ë¹ ìì´ ë¤ì ë¶ë¥¼ ì ìë ìë ëªë¨</em>ìëë¤. í ë² ë§ºì´ëë©´ ì ììÂ·ííì ë³´ë¼ ëë§ë¤ ì¬ë°©ë¬¸ ê¸°íê° ìê¹ëë¤.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">íì© í</strong> â ê³ì°í  ë "ë¨ê³¨ ì¶ê°íìë©´ ë¤ìì ì°ì¤ ì¿ í° ëë ¤ì"ì²ë¼ ìì°ì¤ë½ê² ê¶ì íì¸ì. ë¨ê³¨ ìê° ìì¼ìë¡ ììÂ·ì¿ í°ì ëë¬ì´ ì»¤ì§ëë¤.</p>
   </div>
 
-  <!-- 리뷰 별점 -->
-  <h2 class="art-h2" id="review">9. 리뷰·별점 — 2026년 별점이 돌아옵니다</h2>
+  <!-- ë¦¬ë·° ë³ì  -->
+  <h2 class="art-h2" id="review">9. ë¦¬ë·°Â·ë³ì  â 2026ë ë³ì ì´ ëììµëë¤</h2>
   <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:16px;">
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 방문 손님이 남기는 텍스트·키워드 리뷰입니다. 여기에 더해 <strong style="color:var(--accent);">2026년 4월 6일부터 5점 별점이 부활</strong>했고, <strong style="color:var(--accent);">7월 9일부터 평균 별점이 공개</strong>됩니다.</p>
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">왜 중요한가</strong> — 리뷰와 별점은 검색 결과에서 손님이 클릭할지 말지를 좌우하는 신뢰 지표입니다.</p>
-    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 모든 리뷰(특히 낮은 점수)에 진정성 있는 답글을 다세요. 별점 공개일 전 만족한 손님의 리뷰를 늘려두는 것이 유리합니다.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ë¬´ìì¸ê°</strong> â ë°©ë¬¸ ìëì´ ë¨ê¸°ë íì¤í¸Â·í¤ìë ë¦¬ë·°ìëë¤. ì¬ê¸°ì ëí´ <strong style="color:var(--accent);">2026ë 4ì 6ì¼ë¶í° 5ì  ë³ì ì´ ë¶í</strong>íê³ , <strong style="color:var(--accent);">7ì 9ì¼ë¶í° íê·  ë³ì ì´ ê³µê°</strong>ë©ëë¤.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ì ì¤ìíê°</strong> â ë¦¬ë·°ì ë³ì ì ê²ì ê²°ê³¼ìì ìëì´ í´ë¦­í ì§ ë§ì§ë¥¼ ì¢ì°íë ì ë¢° ì§íìëë¤.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">íì© í</strong> â ëª¨ë  ë¦¬ë·°(í¹í ë®ì ì ì)ì ì§ì ì± ìë ëµê¸ì ë¤ì¸ì. ë³ì  ê³µê°ì¼ ì  ë§ì¡±í ìëì ë¦¬ë·°ë¥¼ ëë ¤ëë ê²ì´ ì ë¦¬í©ëë¤.</p>
   </div>
   <p style="color:var(--sub);font-size:14px;line-height:1.8;margin-bottom:40px;">
-    👉 별점 부활의 정확한 일정과 테러 방지책은 <a href="naver-place-star-rating-2026.html" style="color:var(--accent);text-decoration:none;">별점 부활 대응 가이드</a>에서 자세히 다룹니다.
+    ð ë³ì  ë¶íì ì íí ì¼ì ê³¼ íë¬ ë°©ì§ì±ì <a href="naver-place-star-rating-2026.html" style="color:var(--accent);text-decoration:none;">ë³ì  ë¶í ëì ê°ì´ë</a>ìì ìì¸í ë¤ë£¹ëë¤.
   </p>
 
-  <!-- 네이버페이 -->
-  <h2 class="art-h2" id="pay">10. 네이버페이 — 결제 장벽을 없앤다</h2>
+  <!-- ë¤ì´ë²íì´ -->
+  <h2 class="art-h2" id="pay">10. ë¤ì´ë²íì´ â ê²°ì  ì¥ë²½ì ìì¤ë¤</h2>
   <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:16px;">
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 예약·주문 시 네이버페이로 바로 결제하게 하는 기능입니다. 손님은 익숙한 페이로 빠르게 결제합니다.</p>
-    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 포인트 적립을 좋아하는 손님이 많아 결제 전환에 도움이 됩니다. 다만 결제 수수료가 있으므로, 마진 구조를 고려해 어떤 메뉴·서비스에 붙일지 정하세요.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ë¬´ìì¸ê°</strong> â ìì½Â·ì£¼ë¬¸ ì ë¤ì´ë²íì´ë¡ ë°ë¡ ê²°ì íê² íë ê¸°ë¥ìëë¤. ìëì ìµìí íì´ë¡ ë¹ ë¥´ê² ê²°ì í©ëë¤.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">íì© í</strong> â í¬ì¸í¸ ì ë¦½ì ì¢ìíë ìëì´ ë§ì ê²°ì  ì íì ëìì´ ë©ëë¤. ë¤ë§ ê²°ì  ììë£ê° ìì¼ë¯ë¡, ë§ì§ êµ¬ì¡°ë¥¼ ê³ ë ¤í´ ì´ë¤ ë©ë´Â·ìë¹ì¤ì ë¶ì¼ì§ ì íì¸ì.</p>
   </div>
-  <p style="color:var(--sub);font-size:13px;margin-bottom:40px;">※ 결제 수수료 요율은 업종·정산 조건에 따라 다릅니다. 공식 안내를 확인하세요.</p>
+  <p style="color:var(--sub);font-size:13px;margin-bottom:40px;">â» ê²°ì  ììë£ ìì¨ì ìì¢Â·ì ì° ì¡°ê±´ì ë°ë¼ ë¤ë¦ëë¤. ê³µì ìë´ë¥¼ íì¸íì¸ì.</p>
 
-  <!-- 통계 -->
-  <h2 class="art-h2" id="stats">11. 통계 — 감이 아니라 숫자로 운영한다</h2>
+  <!-- íµê³ -->
+  <h2 class="art-h2" id="stats">11. íµê³ â ê°ì´ ìëë¼ ì«ìë¡ ì´ìíë¤</h2>
   <div style="background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:22px 26px;margin-bottom:40px;">
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇을 보나</strong> — 며칠에 얼마나 노출됐는지, 어떤 검색어로 들어왔는지, 전화·예약·길찾기를 몇 번 눌렀는지를 보여줍니다.</p>
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">왜 중요한가</strong> — "어떤 키워드로 손님이 오는지"를 알면 소개글·소식·메뉴명에 어떤 단어를 넣을지 결정할 수 있습니다.</p>
-    <p style="margin:0;"><strong style="color:var(--text);">활용 팁</strong> — 유입 키워드 상위 몇 개를 소개글과 소식 제목에 자연스럽게 반영하세요. 노출 대비 전환(전화·예약 클릭)이 낮으면 대표 사진·메뉴를 점검합니다.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ë¬´ìì ë³´ë</strong> â ë©°ì¹ ì ì¼ë§ë ë¸ì¶ëëì§, ì´ë¤ ê²ìì´ë¡ ë¤ì´ìëì§, ì íÂ·ìì½Â·ê¸¸ì°¾ê¸°ë¥¼ ëª ë² ëë ëì§ë¥¼ ë³´ì¬ì¤ëë¤.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ì ì¤ìíê°</strong> â "ì´ë¤ í¤ìëë¡ ìëì´ ì¤ëì§"ë¥¼ ìë©´ ìê°ê¸Â·ììÂ·ë©ë´ëªì ì´ë¤ ë¨ì´ë¥¼ ë£ìì§ ê²°ì í  ì ììµëë¤.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">íì© í</strong> â ì ì í¤ìë ìì ëª ê°ë¥¼ ìê°ê¸ê³¼ ìì ì ëª©ì ìì°ì¤ë½ê² ë°ìíì¸ì. ë¸ì¶ ëë¹ ì í(ì íÂ·ìì½ í´ë¦­)ì´ ë®ì¼ë©´ ëí ì¬ì§Â·ë©ë´ë¥¼ ì ê²í©ëë¤.</p>
   </div>
 
-  <!-- 광고 -->
-  <h2 class="art-h2" id="ad">12. 플레이스 광고 — 유료, 마지막에 고려</h2>
+  <!-- ê´ê³  -->
+  <h2 class="art-h2" id="ad">12. íë ì´ì¤ ê´ê³  â ì ë£, ë§ì§ë§ì ê³ ë ¤</h2>
   <div style="background:rgba(255,59,0,.08);border:1px solid rgba(255,59,0,.2);border-radius:14px;padding:22px 26px;margin-bottom:40px;">
-    <p style="margin:0 0 10px;"><strong style="color:var(--text);">무엇인가</strong> — 검색·지도에서 우리 가게를 상위에 더 노출시키는 유료 광고입니다.</p>
-    <p style="margin:0;"><strong style="color:var(--text);">언제 쓰나</strong> — 위 무료 기능(정보·사진·리뷰·소식·단골)을 먼저 채운 뒤에 검토하는 것이 순서입니다. 기본기가 부실한 상태에서 광고만 돌리면 클릭은 늘어도 예약·방문 전환이 따라오지 않아 광고비가 새 나갑니다.</p>
+    <p style="margin:0 0 10px;"><strong style="color:var(--text);">ë¬´ìì¸ê°</strong> â ê²ìÂ·ì§ëìì ì°ë¦¬ ê°ê²ë¥¼ ììì ë ë¸ì¶ìí¤ë ì ë£ ê´ê³ ìëë¤.</p>
+    <p style="margin:0;"><strong style="color:var(--text);">ì¸ì  ì°ë</strong> â ì ë¬´ë£ ê¸°ë¥(ì ë³´Â·ì¬ì§Â·ë¦¬ë·°Â·ììÂ·ë¨ê³¨)ì ë¨¼ì  ì±ì´ ë¤ì ê²í íë ê²ì´ ìììëë¤. ê¸°ë³¸ê¸°ê° ë¶ì¤í ìíìì ê´ê³ ë§ ëë¦¬ë©´ í´ë¦­ì ëì´ë ìì½Â·ë°©ë¬¸ ì íì´ ë°ë¼ì¤ì§ ìì ê´ê³ ë¹ê° ì ëê°ëë¤.</p>
   </div>
 
-  <!-- 우선순위 요약 -->
-  <h2 class="art-h2">그래서 뭐부터 켜야 하나 — 우선순위</h2>
+  <!-- ì°ì ìì ìì½ -->
+  <h2 class="art-h2">ê·¸ëì ë­ë¶í° ì¼ì¼ íë â ì°ì ìì</h2>
   <div style="display:grid;gap:12px;margin-bottom:40px;">
     <div style="background:var(--card-bg);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;">
-      <h3 style="margin:0 0 6px;font-size:15px;font-weight:700;">1순위 (모든 업종 필수)</h3>
-      <p style="margin:0;color:var(--sub);font-size:14px;line-height:1.7;">기본 정보 완성 → 사진 다수 등록 → 리뷰·별점 관리 → 소식 주 1회</p>
+      <h3 style="margin:0 0 6px;font-size:15px;font-weight:700;">1ìì (ëª¨ë  ìì¢ íì)</h3>
+      <p style="margin:0;color:var(--sub);font-size:14px;line-height:1.7;">ê¸°ë³¸ ì ë³´ ìì± â ì¬ì§ ë¤ì ë±ë¡ â ë¦¬ë·°Â·ë³ì  ê´ë¦¬ â ìì ì£¼ 1í</p>
     </div>
     <div style="background:var(--card-bg);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;">
-      <h3 style="margin:0 0 6px;font-size:15px;font-weight:700;">2순위 (업종 맞춤)</h3>
-      <p style="margin:0;color:var(--sub);font-size:14px;line-height:1.7;">예약(미용·병원·공방·학원) / 주문(음식점·카페) / 톡톡·스마트콜(문의 많은 업종)</p>
+      <h3 style="margin:0 0 6px;font-size:15px;font-weight:700;">2ìì (ìì¢ ë§ì¶¤)</h3>
+      <p style="margin:0;color:var(--sub);font-size:14px;line-height:1.7;">ìì½(ë¯¸ì©Â·ë³ìÂ·ê³µë°©Â·íì) / ì£¼ë¬¸(ììì Â·ì¹´í) / í¡í¡Â·ì¤ë§í¸ì½(ë¬¸ì ë§ì ìì¢)</p>
     </div>
     <div style="background:var(--card-bg);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:16px 20px;">
-      <h3 style="margin:0 0 6px;font-size:15px;font-weight:700;">3순위 (재방문·확장)</h3>
-      <p style="margin:0;color:var(--sub);font-size:14px;line-height:1.7;">쿠폰·단골로 재방문 관계 만들기 → 통계로 점검 → 마지막에 광고 검토</p>
+      <h3 style="margin:0 0 6px;font-size:15px;font-weight:700;">3ìì (ì¬ë°©ë¬¸Â·íì¥)</h3>
+      <p style="margin:0;color:var(--sub);font-size:14px;line-height:1.7;">ì¿ í°Â·ë¨ê³¨ë¡ ì¬ë°©ë¬¸ ê´ê³ ë§ë¤ê¸° â íµê³ë¡ ì ê² â ë§ì§ë§ì ê´ê³  ê²í </p>
     </div>
   </div>
 
-  <!-- AI 한계 박스 -->
-  <h2 class="art-h2">플레이스를 꽉 채워도 — AI 검색은 별개입니다</h2>
+  <!-- AI íê³ ë°ì¤ -->
+  <h2 class="art-h2">íë ì´ì¤ë¥¼ ê½ ì±ìë â AI ê²ìì ë³ê°ìëë¤</h2>
   <div style="background:rgba(255,59,0,.08);border:1px solid rgba(255,59,0,.2);border-radius:14px;padding:24px 28px;margin-bottom:40px;">
     <p style="margin:0;color:var(--sub);line-height:1.9;font-size:14px;">
-      플레이스 기능을 아무리 잘 활용해도 그 효과는 <strong style="color:var(--text);">네이버 검색·지도 안</strong>에 머뭅니다. ChatGPT·Perplexity·Gemini 같은 AI 검색은 네이버 플레이스를 직접 크롤링하지 않기 때문에, 손님이 AI에게 "○○동 맛집 추천해줘"라고 물어도 플레이스 정보는 답변에 반영되지 않습니다. AI 검색 시대에 우리 가게가 추천받으려면, 플레이스와 <strong style="color:var(--text);">별개로 AI가 읽을 수 있는 독립 웹사이트와 구조화 데이터</strong>가 필요합니다.
+      íë ì´ì¤ ê¸°ë¥ì ìë¬´ë¦¬ ì íì©í´ë ê·¸ í¨ê³¼ë <strong style="color:var(--text);">ë¤ì´ë² ê²ìÂ·ì§ë ì</strong>ì ë¨¸ë­ëë¤. ChatGPTÂ·PerplexityÂ·Gemini ê°ì AI ê²ìì ë¤ì´ë² íë ì´ì¤ë¥¼ ì§ì  í¬ë¡¤ë§íì§ ìê¸° ëë¬¸ì, ìëì´ AIìê² "ââë ë§ì§ ì¶ì²í´ì¤"ë¼ê³  ë¬¼ì´ë íë ì´ì¤ ì ë³´ë ëµë³ì ë°ìëì§ ììµëë¤. AI ê²ì ìëì ì°ë¦¬ ê°ê²ê° ì¶ì²ë°ì¼ë ¤ë©´, íë ì´ì¤ì <strong style="color:var(--text);">ë³ê°ë¡ AIê° ì½ì ì ìë ëë¦½ ì¹ì¬ì´í¸ì êµ¬ì¡°í ë°ì´í°</strong>ê° íìí©ëë¤.
     </p>
   </div>
 
   <!-- FAQ -->
-  <h2 class="art-h2">자주 묻는 질문</h2>
+  <h2 class="art-h2">ìì£¼ ë¬»ë ì§ë¬¸</h2>
   <div style="display:grid;gap:10px;margin-bottom:48px;">
     <details style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:18px 22px;">
-      <summary style="font-weight:600;font-size:15px;cursor:pointer;">기능을 다 켜야 하나요?</summary>
-      <p style="margin:12px 0 0;color:var(--sub);font-size:14px;line-height:1.8;">아니요. 업종에 맞는 기능만 켜면 됩니다. 음식점이 예약을, 미용실이 테이블 주문을 켤 필요는 없습니다. 1순위(정보·사진·리뷰·소식)는 공통, 2순위부터는 업종에 맞춰 선택하세요.</p>
+      <summary style="font-weight:600;font-size:15px;cursor:pointer;">ê¸°ë¥ì ë¤ ì¼ì¼ íëì?</summary>
+      <p style="margin:12px 0 0;color:var(--sub);font-size:14px;line-height:1.8;">ìëì. ìì¢ì ë§ë ê¸°ë¥ë§ ì¼ë©´ ë©ëë¤. ììì ì´ ìì½ì, ë¯¸ì©ì¤ì´ íì´ë¸ ì£¼ë¬¸ì ì¼¤ íìë ììµëë¤. 1ìì(ì ë³´Â·ì¬ì§Â·ë¦¬ë·°Â·ìì)ë ê³µíµ, 2ììë¶í°ë ìì¢ì ë§ì¶° ì ííì¸ì.</p>
     </details>
     <details style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:18px 22px;">
-      <summary style="font-weight:600;font-size:15px;cursor:pointer;">대부분 무료라는데 비용이 드는 건 무엇인가요?</summary>
-      <p style="margin:12px 0 0;color:var(--sub);font-size:14px;line-height:1.8;">정보·예약·톡톡·소식·쿠폰·단골·통계 같은 운영 기능은 대체로 무료입니다. 네이버페이 결제 수수료, 스마트콜 안내 비용, 플레이스 광고처럼 일부는 비용이 발생합니다. 정확한 요율·조건은 각 기능의 공식 안내를 확인하세요.</p>
+      <summary style="font-weight:600;font-size:15px;cursor:pointer;">ëë¶ë¶ ë¬´ë£ë¼ëë° ë¹ì©ì´ ëë ê±´ ë¬´ìì¸ê°ì?</summary>
+      <p style="margin:12px 0 0;color:var(--sub);font-size:14px;line-height:1.8;">ì ë³´Â·ìì½Â·í¡í¡Â·ììÂ·ì¿ í°Â·ë¨ê³¨Â·íµê³ ê°ì ì´ì ê¸°ë¥ì ëì²´ë¡ ë¬´ë£ìëë¤. ë¤ì´ë²íì´ ê²°ì  ììë£, ì¤ë§í¸ì½ ìë´ ë¹ì©, íë ì´ì¤ ê´ê³ ì²ë¼ ì¼ë¶ë ë¹ì©ì´ ë°ìí©ëë¤. ì íí ìì¨Â·ì¡°ê±´ì ê° ê¸°ë¥ì ê³µì ìë´ë¥¼ íì¸íì¸ì.</p>
     </details>
     <details style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:18px 22px;">
-      <summary style="font-weight:600;font-size:15px;cursor:pointer;">플레이스만 잘하면 ChatGPT에도 나오나요?</summary>
-      <p style="margin:12px 0 0;color:var(--sub);font-size:14px;line-height:1.8;">아닙니다. 플레이스는 네이버 안에서만 작동합니다. AI 검색 노출을 위해서는 AI 봇이 크롤링할 수 있는 독립 웹사이트와 Schema(LocalBusiness·FAQ 등), robots.txt 설정이 별도로 필요합니다.</p>
+      <summary style="font-weight:600;font-size:15px;cursor:pointer;">íë ì´ì¤ë§ ìíë©´ ChatGPTìë ëì¤ëì?</summary>
+      <p style="margin:12px 0 0;color:var(--sub);font-size:14px;line-height:1.8;">ìëëë¤. íë ì´ì¤ë ë¤ì´ë² ìììë§ ìëí©ëë¤. AI ê²ì ë¸ì¶ì ìí´ìë AI ë´ì´ í¬ë¡¤ë§í  ì ìë ëë¦½ ì¹ì¬ì´í¸ì Schema(LocalBusinessÂ·FAQ ë±), robots.txt ì¤ì ì´ ë³ëë¡ íìí©ëë¤.</p>
     </details>
   </div>
 
   <!-- CTA -->
   <div style="background:linear-gradient(135deg,rgba(255,59,0,.1),rgba(255,100,50,.05));border:1px solid rgba(255,59,0,.25);border-radius:18px;padding:36px;text-align:center;margin-bottom:40px;">
-    <p style="margin:0 0 8px;font-size:13px;color:var(--sub);">플레이스는 네이버 안, AI 검색은 그 바깥</p>
-    <h3 style="margin:0 0 16px;font-size:20px;font-weight:900;">우리 가게가 AI에 어떻게 보이는지 무료로 진단받으세요</h3>
-    <a href="mailto:tarry9653@daum.net?subject=%5BAI%20%EA%B2%80%EC%83%89%20%EC%B5%9C%EC%A0%81%ED%99%94%20%EC%83%81%EB%8B%B4%5D" style="display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:13px 28px;border-radius:9px;text-decoration:none;font-size:15px;margin-right:10px;margin-bottom:12px;">무료 상담 신청하기 →</a>
-    <a href="/analyze.html" style="display:inline-block;background:var(--card-bg);border:1px solid var(--border);color:var(--text);font-weight:600;padding:13px 28px;border-radius:9px;text-decoration:none;font-size:15px;">AI 진단기 바로 써보기</a>
+    <p style="margin:0 0 8px;font-size:13px;color:var(--sub);">íë ì´ì¤ë ë¤ì´ë² ì, AI ê²ìì ê·¸ ë°ê¹¥</p>
+    <h3 style="margin:0 0 16px;font-size:20px;font-weight:900;">ì°ë¦¬ ê°ê²ê° AIì ì´ë»ê² ë³´ì´ëì§ ë¬´ë£ë¡ ì§ë¨ë°ì¼ì¸ì</h3>
+    <a href="mailto:tarry9653@daum.net?subject=%5BAI%20%EA%B2%80%EC%83%89%20%EC%B5%9C%EC%A0%81%ED%99%94%20%EC%83%81%EB%8B%B4%5D" style="display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:13px 28px;border-radius:9px;text-decoration:none;font-size:15px;margin-right:10px;margin-bottom:12px;">ë¬´ë£ ìë´ ì ì²­íê¸° â</a>
+    <a href="/analyze.html" style="display:inline-block;background:var(--card-bg);border:1px solid var(--border);color:var(--text);font-weight:600;padding:13px 28px;border-radius:9px;text-decoration:none;font-size:15px;">AI ì§ë¨ê¸° ë°ë¡ ì¨ë³´ê¸°</a>
   </div>
 
-  <!-- 관련 글 -->
+  <!-- ê´ë ¨ ê¸ -->
   <div style="margin-bottom:40px;">
-    <h2 class="art-h2">함께 보면 좋은 글</h2>
+    <h2 class="art-h2">í¨ê» ë³´ë©´ ì¢ì ê¸</h2>
     <div style="display:grid;gap:10px;">
-      <a href="naver-place-star-rating-2026.html" style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;color:#ff4d8d;display:block;">⭐ <strong>네이버 플레이스 별점 부활 대응 가이드</strong> — 7월 9일 전체공개 전 준비할 것</a>
-      <a href="naver-place-guide.html" style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;color:#ff4d8d;display:block;">📍 <strong>네이버 스마트플레이스 등록·최적화 완전 가이드</strong></a>
-      <a href="review-management.html" style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;color:#ff4d8d;display:block;">⭐ <strong>온라인 리뷰 관리</strong> — 부정 리뷰 대응과 답글 작성법</a>
+      <a href="naver-place-star-rating-2026.html" style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;color:#ff4d8d;display:block;">â­ <strong>ë¤ì´ë² íë ì´ì¤ ë³ì  ë¶í ëì ê°ì´ë</strong> â 7ì 9ì¼ ì ì²´ê³µê° ì  ì¤ë¹í  ê²</a>
+      <a href="naver-place-guide.html" style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;color:#ff4d8d;display:block;">ð <strong>ë¤ì´ë² ì¤ë§í¸íë ì´ì¤ ë±ë¡Â·ìµì í ìì  ê°ì´ë</strong></a>
+      <a href="review-management.html" style="background:var(--card-bg);border:1px solid var(--border);border-radius:10px;padding:16px 20px;text-decoration:none;color:#ff4d8d;display:block;">â­ <strong>ì¨ë¼ì¸ ë¦¬ë·° ê´ë¦¬</strong> â ë¶ì  ë¦¬ë·° ëìê³¼ ëµê¸ ìì±ë²</a>
     </div>
   </div>
 
   <div class="ref-sources">
-    <h4>참고 출처</h4>
+    <h4>ì°¸ê³  ì¶ì²</h4>
     <ul>
-      <li><a href="https://smartplace.naver.com/" target="_blank" rel="noopener">네이버 스마트플레이스 공식 사이트</a></li>
-      <li><a href="https://help.naver.com/service/5603/contents/15494" target="_blank" rel="noopener">네이버 스마트플레이스 도움말</a></li>
-      <li><a href="https://partner.naver.com/" target="_blank" rel="noopener">네이버 파트너 센터</a></li>
+      <li><a href="https://smartplace.naver.com/" target="_blank" rel="noopener">ë¤ì´ë² ì¤ë§í¸íë ì´ì¤ ê³µì ì¬ì´í¸</a></li>
+      <li><a href="https://help.naver.com/service/5603/contents/15494" target="_blank" rel="noopener">ë¤ì´ë² ì¤ë§í¸íë ì´ì¤ ëìë§</a></li>
+      <li><a href="https://partner.naver.com/" target="_blank" rel="noopener">ë¤ì´ë² íí¸ë ì¼í°</a></li>
     </ul>
-    <p style="font-size:12px;color:var(--sub);margin-top:10px;line-height:1.6;">※ 각 기능의 제공 범위·비용·정책은 네이버 정책에 따라 변경될 수 있습니다. 실제 적용 전 스마트플레이스 공식 안내를 확인하세요.</p>
+    <p style="font-size:12px;color:var(--sub);margin-top:10px;line-height:1.6;">â» ê° ê¸°ë¥ì ì ê³µ ë²ìÂ·ë¹ì©Â·ì ì±ì ë¤ì´ë² ì ì±ì ë°ë¼ ë³ê²½ë  ì ììµëë¤. ì¤ì  ì ì© ì  ì¤ë§í¸íë ì´ì¤ ê³µì ìë´ë¥¼ íì¸íì¸ì.</p>
   </div>
 
 </div>
 
 <footer>
-  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
+  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">ì¨ì¢ì¼<span>AI</span></a></div>
   <div class="flinks">
-    <a href="/about.html">서비스 소개</a>
-    <a href="/contact.html">문의하기</a>
-    <a href="/privacy.html">개인정보처리방침</a>
+    <a href="/about.html">ìë¹ì¤ ìê°</a>
+    <a href="/contact.html">ë¬¸ìíê¸°</a>
+    <a href="/privacy.html">ê°ì¸ì ë³´ì²ë¦¬ë°©ì¹¨</a>
   </div>
-  <div class="fcopy">© 2026 온종일AI. AI 검색 최적화 컨설팅 &nbsp;·&nbsp; 이메일: tarry9653@daum.net</div>
+  <div class="fcopy">Â© 2026 ì¨ì¢ì¼AI. AI ê²ì ìµì í ì»¨ì¤í &nbsp;Â·&nbsp; ì´ë©ì¼: tarry9653@daum.net</div>
 </footer>
 
 <script src="../js/main.js"></script>

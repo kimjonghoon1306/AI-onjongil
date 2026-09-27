@@ -432,7 +432,7 @@ footer a { color:var(--accent); text-decoration:none; }
 // ─── THEME ───────────────────────────────────
 const themeBtn = document.getElementById('themeBtn');
 const html = document.documentElement;
-const saved = localStorage.getItem('theme') || 'dark';
+const saved = localStorage.getItem('theme') || 'light';
 html.setAttribute('data-theme', saved);
 themeBtn.textContent = saved === 'dark' ? '🌙' : '☀️';
 themeBtn.onclick = () => {

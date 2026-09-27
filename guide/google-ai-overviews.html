@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Google AI Overviews 작동 원리 | AI 답변에 내 사이트 인용되는 방법 | 온종일AI</title>
-<meta name="description" content="Google AI Overviews가 어떻게 출처를 선택하는지, 어떤 콘텐츠가 인용되는지 Google Search Central 공식 자료를 바탕으로 설명합니다.">
+<title>Google AI Overviews ìë ìë¦¬ | AI ëµë³ì ë´ ì¬ì´í¸ ì¸ì©ëë ë°©ë² | ì¨ì¢ì¼AI</title>
+<meta name="description" content="Google AI Overviewsê° ì´ë»ê² ì¶ì²ë¥¼ ì ííëì§, ì´ë¤ ì½íì¸ ê° ì¸ì©ëëì§ Google Search Central ê³µì ìë£ë¥¼ ë°íì¼ë¡ ì¤ëªí©ëë¤.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ai.xn--zk5biyyw.com/guide/google-ai-overviews.html">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -13,10 +13,10 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Google AI Overviews 작동 원리 — AI 답변에 내 사이트가 인용되려면",
-  "description": "Google AI Overviews가 웹 콘텐츠를 인용하는 방식과 출처 선택 기준을 Google 공식 문서를 기반으로 설명합니다.",
-  "author": {"@type": "Organization", "name": "온종일AI"},
-  "publisher": {"@type": "Organization", "name": "온종일AI"},
+  "headline": "Google AI Overviews ìë ìë¦¬ â AI ëµë³ì ë´ ì¬ì´í¸ê° ì¸ì©ëë ¤ë©´",
+  "description": "Google AI Overviewsê° ì¹ ì½íì¸ ë¥¼ ì¸ì©íë ë°©ìê³¼ ì¶ì² ì í ê¸°ì¤ì Google ê³µì ë¬¸ìë¥¼ ê¸°ë°ì¼ë¡ ì¤ëªí©ëë¤.",
+  "author": {"@type": "Organization", "name": "ì¨ì¢ì¼AI"},
+  "publisher": {"@type": "Organization", "name": "ì¨ì¢ì¼AI"},
   "datePublished": "2026-06-09"
 }
 </script>
@@ -24,377 +24,379 @@
 <body>
 
 <nav>
-  <div class="logo-wrap"><div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div><a href="https://www.xn--zk5biyyw.com" target="_blank" rel="noopener" class="logo-by">by 온종일</a></div>
+  <div class="logo-wrap"><div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">ì¨ì¢ì¼<span>AI</span></a></div><a href="https://www.xn--zk5biyyw.com" target="_blank" rel="noopener" class="logo-by">by ì¨ì¢ì¼</a></div>
   <div class="nav-links">
     <div class="nav-drop">
-      <button class="nav-drop-btn">업종별 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">ìì¢ë³ <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="../industry/hospital.html">🏥 병원·치과·한의원</a>
-        <a href="../industry/interior.html">🏠 인테리어·리모델링</a>
-        <a href="../industry/law.html">⚖️ 법률·세무·회계</a>
-        <a href="../industry/health.html">💪 헬스·뷰티·피트니스</a>
-        <a href="../industry/restaurant.html">🍽️ 식당·카페·배달</a>
-        <a href="../industry/academy.html">📚 학원·교습소</a>
-        <a href="../industry/realestate.html">🏢 부동산·공인중개사</a>
-        <a href="../industry/dermatology.html">💉 피부과·성형외과</a>
-        <a href="../industry/auto.html">🚗 자동차 정비·중고차</a>
-        <a href="../industry/cleaning.html">🧹 세탁소·청소업체</a>
+        <a href="../industry/hospital.html">ð¥ ë³ìÂ·ì¹ê³¼Â·íìì</a>
+        <a href="../industry/interior.html">ð  ì¸íë¦¬ì´Â·ë¦¬ëª¨ë¸ë§</a>
+        <a href="../industry/law.html">âï¸ ë²ë¥ Â·ì¸ë¬´Â·íê³</a>
+        <a href="../industry/health.html">ðª í¬ì¤Â·ë·°í°Â·í¼í¸ëì¤</a>
+        <a href="../industry/restaurant.html">ð½ï¸ ìë¹Â·ì¹´íÂ·ë°°ë¬</a>
+        <a href="../industry/academy.html">ð íìÂ·êµìµì</a>
+        <a href="../industry/realestate.html">ð¢ ë¶ëì°Â·ê³µì¸ì¤ê°ì¬</a>
+        <a href="../industry/dermatology.html">ð í¼ë¶ê³¼Â·ì±íì¸ê³¼</a>
+        <a href="../industry/auto.html">ð ìëì°¨ ì ë¹Â·ì¤ê³ ì°¨</a>
+        <a href="../industry/cleaning.html">ð§¹ ì¸íìÂ·ì²­ììì²´</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">AI 검색 가이드 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">AI ê²ì ê°ì´ë <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="what-is-seo.html">📖 SEO란 무엇인가?</a>
-        <a href="what-is-aeo.html">🤖 AEO란 무엇인가?</a>
-        <a href="what-is-geo.html">🔬 GEO란 무엇인가?</a>
-        <a href="how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
-        <a href="naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
-        <a href="chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
-        <a href="perplexity-optimization.html">🔍 Perplexity 최적화</a>
-        <a href="gemini-ai-overview.html">♊ Google AI Overviews 최적화</a>
-        <a href="claude-ai-search.html">🧠 Claude AI 검색</a>
-        <a href="google-ai-overviews.html">🔎 Google AI Overviews 원리</a>
-        <a href="perplexity-how-it-works.html">📡 Perplexity 작동 원리</a>
-        <a href="chatgpt-search-guide.html">💡 ChatGPT Search 원리</a>
-        <a href="eeat-guide.html">⭐ E-E-A-T 가이드</a>
+        <a href="what-is-seo.html">ð SEOë ë¬´ìì¸ê°?</a>
+        <a href="what-is-aeo.html">ð¤ AEOë ë¬´ìì¸ê°?</a>
+        <a href="what-is-geo.html">ð¬ GEOë ë¬´ìì¸ê°?</a>
+        <a href="how-ai-search-works.html">âï¸ AIë ì´ë»ê² ì¶ì²íë?</a>
+        <a href="naver-vs-ai.html">â¡ ë¤ì´ë² vs AI ê²ì</a>
+        <a href="chatgpt-exposure.html">ð¬ ChatGPT ë¸ì¶íê¸°</a>
+        <a href="perplexity-optimization.html">ð Perplexity ìµì í</a>
+        <a href="gemini-ai-overview.html">â Google AI Overviews ìµì í</a>
+        <a href="claude-ai-search.html">ð§  Claude AI ê²ì</a>
+        <a href="google-ai-overviews.html">ð Google AI Overviews ìë¦¬</a>
+        <a href="perplexity-how-it-works.html">ð¡ Perplexity ìë ìë¦¬</a>
+        <a href="chatgpt-search-guide.html">ð¡ ChatGPT Search ìë¦¬</a>
+        <a href="eeat-guide.html">â­ E-E-A-T ê°ì´ë</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">📍 네이버 플레이스 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">ð ë¤ì´ë² íë ì´ì¤ <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="/guide/naver-place-guide.html">📍 플레이스 등록·최적화</a>
-        <a href="/guide/naver-place-features.html">🧩 기능 완전 해부</a>
-        <a href="/guide/naver-place-star-rating-2026.html">⭐ 별점 부활 대응</a>
-        <a href="/guide/place-photo-tips.html">📸 사진 잘 찍는 법</a>
+        <a href="/guide/naver-place-guide.html">ð íë ì´ì¤ ë±ë¡Â·ìµì í</a>
+        <a href="/guide/naver-place-features.html">ð§© ê¸°ë¥ ìì  í´ë¶</a>
+        <a href="/guide/naver-place-star-rating-2026.html">â­ ë³ì  ë¶í ëì</a>
+        <a href="/guide/place-photo-tips.html">ð¸ ì¬ì§ ì ì°ë ë²</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">⭐ 리뷰 관리 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">â­ ë¦¬ë·° ê´ë¦¬ <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="/guide/bad-review-response.html">🛡️ 악성 리뷰·별점 테러 대응</a>
-        <a href="/guide/get-more-reviews.html">📈 리뷰 늘리는 법</a>
-        <a href="/guide/review-management.html">⭐ 온라인 리뷰 관리</a>
+        <a href="/guide/bad-review-response.html">ð¡ï¸ ìì± ë¦¬ë·°Â·ë³ì  íë¬ ëì</a>
+        <a href="/guide/get-more-reviews.html">ð ë¦¬ë·° ëë¦¬ë ë²</a>
+        <a href="/guide/review-management.html">â­ ì¨ë¼ì¸ ë¦¬ë·° ê´ë¦¬</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">🧭 마케팅 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">ð§­ ë§ì¼í <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="/guide/naver-google-ai-search.html">🧭 네이버·구글·AI 검색 비교</a>
-        <a href="/guide/google-business-profile.html">🗺️ 구글 비즈니스 프로필</a>
-        <a href="/guide/online-marketing-start.html">🚀 온라인 마케팅 시작하기</a>
-        <a href="/guide/free-marketing-methods.html">💡 무료 마케팅 방법</a>
+        <a href="/guide/naver-google-ai-search.html">ð§­ ë¤ì´ë²Â·êµ¬ê¸Â·AI ê²ì ë¹êµ</a>
+        <a href="/guide/google-business-profile.html">ðºï¸ êµ¬ê¸ ë¹ì¦ëì¤ íë¡í</a>
+        <a href="/guide/online-marketing-start.html">ð ì¨ë¼ì¸ ë§ì¼í ììíê¸°</a>
+        <a href="/guide/free-marketing-methods.html">ð¡ ë¬´ë£ ë§ì¼í ë°©ë²</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">🛠️ AI 진단기 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">ð ï¸ AI ì§ë¨ê¸° <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
-        <a href="/analyze-guide.html">📖 사용방법</a>
+        <a href="/analyze.html">ð ï¸ AI ìµì í ì§ë¨ê¸°</a>
+        <a href="/analyze-guide.html">ð ì¬ì©ë°©ë²</a>
         <div style="border-top:1px solid var(--border);margin:4px 2px"></div>
-        <a href="/guide/ai-bot-access.html">🤖 AI 봇 크롤링 설정</a>
-        <a href="/guide/faq-schema-for-ai.html">❓ FAQPage Schema</a>
-        <a href="/guide/business-schema-for-ai.html">🏢 LocalBusiness Schema</a>
-        <a href="/guide/meta-description-ai.html">📝 메타 디스크립션</a>
-        <a href="/guide/sitemap-for-ai.html">🗺️ sitemap.xml</a>
-        <a href="/guide/heading-structure-ai.html">📑 제목 계층 구조</a>
-        <a href="/guide/image-alt-for-ai.html">🖼️ 이미지 alt 텍스트</a>
+        <a href="/guide/ai-bot-access.html">ð¤ AI ë´ í¬ë¡¤ë§ ì¤ì </a>
+        <a href="/guide/faq-schema-for-ai.html">â FAQPage Schema</a>
+        <a href="/guide/business-schema-for-ai.html">ð¢ LocalBusiness Schema</a>
+        <a href="/guide/meta-description-ai.html">ð ë©í ëì¤í¬ë¦½ì</a>
+        <a href="/guide/sitemap-for-ai.html">ðºï¸ sitemap.xml</a>
+        <a href="/guide/heading-structure-ai.html">ð ì ëª© ê³ì¸µ êµ¬ì¡°</a>
+        <a href="/guide/image-alt-for-ai.html">ð¼ï¸ ì´ë¯¸ì§ alt íì¤í¸</a>
       </div>
     </div>
+    <a href="/lab.html" class="nav-single-link">✨ AI 프롬프트<span class="nav-new">NEW</span></a>
   </div>
-  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="메뉴"><span></span><span></span><span></span></button>
-    <button class="theme-btn" id="themeBtn">🌙</button>
-    <button class="nav-cta">상담 신청하기</button>
+  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="ë©ë´"><span></span><span></span><span></span></button>
+    <button class="theme-btn" id="themeBtn">ð</button>
+    <button class="nav-cta">ìë´ ì ì²­íê¸°</button>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <div class="mob-section"><a href="/lab.html" class="mob-single-link">✨ AI 프롬프트 · 글쓰기 랩 <span class="nav-new">NEW</span></a></div>
   <div class="mob-section">
-    <div class="mob-section-title">업종별 가이드</div>
-    <a href="/industry/hospital.html">🏥 병원·치과·한의원</a>
-    <a href="/industry/interior.html">🏠 인테리어·리모델링</a>
-    <a href="/industry/law.html">⚖️ 법률·세무·회계</a>
-    <a href="/industry/health.html">💪 헬스·뷰티·피트니스</a>
-    <a href="/industry/restaurant.html">🍽️ 식당·카페·배달</a>
-    <a href="/industry/academy.html">📚 학원·교습소</a>
-    <a href="/industry/realestate.html">🏢 부동산·공인중개사</a>
-    <a href="/industry/dermatology.html">💉 피부과·성형외과</a>
-    <a href="/industry/auto.html">🚗 자동차 정비·중고차</a>
-    <a href="/industry/cleaning.html">🧹 세탁소·청소업체</a>
+    <div class="mob-section-title">ìì¢ë³ ê°ì´ë</div>
+    <a href="/industry/hospital.html">ð¥ ë³ìÂ·ì¹ê³¼Â·íìì</a>
+    <a href="/industry/interior.html">ð  ì¸íë¦¬ì´Â·ë¦¬ëª¨ë¸ë§</a>
+    <a href="/industry/law.html">âï¸ ë²ë¥ Â·ì¸ë¬´Â·íê³</a>
+    <a href="/industry/health.html">ðª í¬ì¤Â·ë·°í°Â·í¼í¸ëì¤</a>
+    <a href="/industry/restaurant.html">ð½ï¸ ìë¹Â·ì¹´íÂ·ë°°ë¬</a>
+    <a href="/industry/academy.html">ð íìÂ·êµìµì</a>
+    <a href="/industry/realestate.html">ð¢ ë¶ëì°Â·ê³µì¸ì¤ê°ì¬</a>
+    <a href="/industry/dermatology.html">ð í¼ë¶ê³¼Â·ì±íì¸ê³¼</a>
+    <a href="/industry/auto.html">ð ìëì°¨ ì ë¹Â·ì¤ê³ ì°¨</a>
+    <a href="/industry/cleaning.html">ð§¹ ì¸íìÂ·ì²­ììì²´</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">AI 검색 가이드</div>
-    <a href="/guide/what-is-seo.html">📖 SEO란 무엇인가?</a>
-    <a href="/guide/what-is-aeo.html">🤖 AEO란 무엇인가?</a>
-    <a href="/guide/what-is-geo.html">🔬 GEO란 무엇인가?</a>
-    <a href="/guide/how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
-    <a href="/guide/naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
-    <a href="/guide/how-to-check-ai.html">🔎 AI 노출 직접 확인하기</a>
-    <a href="/guide/ai-seo-checklist.html">✅ AI 검색 최적화 체크리스트</a>
-    <a href="/guide/chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
-    <a href="/guide/perplexity-optimization.html">🔍 Perplexity 최적화</a>
-    <a href="/guide/gemini-ai-overview.html">♊ Google AI Overviews 최적화</a>
-    <a href="/guide/claude-ai-search.html">🧠 Claude AI 검색</a>
-    <a href="/guide/google-ai-overviews.html">🔎 Google AI Overviews 원리</a>
-    <a href="/guide/perplexity-how-it-works.html">📡 Perplexity 작동 원리</a>
-    <a href="/guide/chatgpt-search-guide.html">💡 ChatGPT Search 원리</a>
-    <a href="/guide/eeat-guide.html">⭐ E-E-A-T 가이드</a>
+    <div class="mob-section-title">AI ê²ì ê°ì´ë</div>
+    <a href="/guide/what-is-seo.html">ð SEOë ë¬´ìì¸ê°?</a>
+    <a href="/guide/what-is-aeo.html">ð¤ AEOë ë¬´ìì¸ê°?</a>
+    <a href="/guide/what-is-geo.html">ð¬ GEOë ë¬´ìì¸ê°?</a>
+    <a href="/guide/how-ai-search-works.html">âï¸ AIë ì´ë»ê² ì¶ì²íë?</a>
+    <a href="/guide/naver-vs-ai.html">â¡ ë¤ì´ë² vs AI ê²ì</a>
+    <a href="/guide/how-to-check-ai.html">ð AI ë¸ì¶ ì§ì  íì¸íê¸°</a>
+    <a href="/guide/ai-seo-checklist.html">â AI ê²ì ìµì í ì²´í¬ë¦¬ì¤í¸</a>
+    <a href="/guide/chatgpt-exposure.html">ð¬ ChatGPT ë¸ì¶íê¸°</a>
+    <a href="/guide/perplexity-optimization.html">ð Perplexity ìµì í</a>
+    <a href="/guide/gemini-ai-overview.html">â Google AI Overviews ìµì í</a>
+    <a href="/guide/claude-ai-search.html">ð§  Claude AI ê²ì</a>
+    <a href="/guide/google-ai-overviews.html">ð Google AI Overviews ìë¦¬</a>
+    <a href="/guide/perplexity-how-it-works.html">ð¡ Perplexity ìë ìë¦¬</a>
+    <a href="/guide/chatgpt-search-guide.html">ð¡ ChatGPT Search ìë¦¬</a>
+    <a href="/guide/eeat-guide.html">â­ E-E-A-T ê°ì´ë</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">📍 네이버 플레이스</div>
-    <a href="/guide/naver-place-guide.html">📍 플레이스 등록·최적화</a>
-    <a href="/guide/naver-place-features.html">🧩 기능 완전 해부</a>
-    <a href="/guide/naver-place-star-rating-2026.html">⭐ 별점 부활 대응</a>
-    <a href="/guide/place-photo-tips.html">📸 사진 잘 찍는 법</a>
+    <div class="mob-section-title">ð ë¤ì´ë² íë ì´ì¤</div>
+    <a href="/guide/naver-place-guide.html">ð íë ì´ì¤ ë±ë¡Â·ìµì í</a>
+    <a href="/guide/naver-place-features.html">ð§© ê¸°ë¥ ìì  í´ë¶</a>
+    <a href="/guide/naver-place-star-rating-2026.html">â­ ë³ì  ë¶í ëì</a>
+    <a href="/guide/place-photo-tips.html">ð¸ ì¬ì§ ì ì°ë ë²</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">⭐ 리뷰 관리</div>
-    <a href="/guide/bad-review-response.html">🛡️ 악성 리뷰·별점 테러 대응</a>
-    <a href="/guide/get-more-reviews.html">📈 리뷰 늘리는 법</a>
-    <a href="/guide/review-management.html">⭐ 온라인 리뷰 관리</a>
+    <div class="mob-section-title">â­ ë¦¬ë·° ê´ë¦¬</div>
+    <a href="/guide/bad-review-response.html">ð¡ï¸ ìì± ë¦¬ë·°Â·ë³ì  íë¬ ëì</a>
+    <a href="/guide/get-more-reviews.html">ð ë¦¬ë·° ëë¦¬ë ë²</a>
+    <a href="/guide/review-management.html">â­ ì¨ë¼ì¸ ë¦¬ë·° ê´ë¦¬</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">🧭 마케팅</div>
-    <a href="/guide/naver-google-ai-search.html">🧭 네이버·구글·AI 검색 비교</a>
-    <a href="/guide/google-business-profile.html">🗺️ 구글 비즈니스 프로필</a>
-    <a href="/guide/online-marketing-start.html">🚀 온라인 마케팅 시작하기</a>
-    <a href="/guide/free-marketing-methods.html">💡 무료 마케팅 방법</a>
+    <div class="mob-section-title">ð§­ ë§ì¼í</div>
+    <a href="/guide/naver-google-ai-search.html">ð§­ ë¤ì´ë²Â·êµ¬ê¸Â·AI ê²ì ë¹êµ</a>
+    <a href="/guide/google-business-profile.html">ðºï¸ êµ¬ê¸ ë¹ì¦ëì¤ íë¡í</a>
+    <a href="/guide/online-marketing-start.html">ð ì¨ë¼ì¸ ë§ì¼í ììíê¸°</a>
+    <a href="/guide/free-marketing-methods.html">ð¡ ë¬´ë£ ë§ì¼í ë°©ë²</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">AI 진단기</div>
-    <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
-    <a href="/analyze-guide.html">📖 사용방법</a>
-    <a href="/guide/ai-bot-access.html">🤖 AI 봇 크롤링 설정</a>
-    <a href="/guide/faq-schema-for-ai.html">❓ FAQPage Schema</a>
-    <a href="/guide/business-schema-for-ai.html">🏢 LocalBusiness Schema</a>
-    <a href="/guide/meta-description-ai.html">📝 메타 디스크립션</a>
-    <a href="/guide/sitemap-for-ai.html">🗺️ sitemap.xml</a>
-    <a href="/guide/heading-structure-ai.html">📑 제목 계층 구조</a>
-    <a href="/guide/image-alt-for-ai.html">🖼️ 이미지 alt 텍스트</a>
+    <div class="mob-section-title">AI ì§ë¨ê¸°</div>
+    <a href="/analyze.html">ð ï¸ AI ìµì í ì§ë¨ê¸°</a>
+    <a href="/analyze-guide.html">ð ì¬ì©ë°©ë²</a>
+    <a href="/guide/ai-bot-access.html">ð¤ AI ë´ í¬ë¡¤ë§ ì¤ì </a>
+    <a href="/guide/faq-schema-for-ai.html">â FAQPage Schema</a>
+    <a href="/guide/business-schema-for-ai.html">ð¢ LocalBusiness Schema</a>
+    <a href="/guide/meta-description-ai.html">ð ë©í ëì¤í¬ë¦½ì</a>
+    <a href="/guide/sitemap-for-ai.html">ðºï¸ sitemap.xml</a>
+    <a href="/guide/heading-structure-ai.html">ð ì ëª© ê³ì¸µ êµ¬ì¡°</a>
+    <a href="/guide/image-alt-for-ai.html">ð¼ï¸ ì´ë¯¸ì§ alt íì¤í¸</a>
   </div>
-  <button class="mob-cta">무료 상담 신청하기 →</button>
+  <button class="mob-cta">ë¬´ë£ ìë´ ì ì²­íê¸° â</button>
 </div>
 
 <div class="breadcrumb">
-  <a href="../index.html">홈</a><span>›</span>
-  <a href="index.html">AI 검색 가이드</a><span>›</span>
-  Google AI Overviews 작동 원리
+  <a href="../index.html">í</a><span>âº</span>
+  <a href="index.html">AI ê²ì ê°ì´ë</a><span>âº</span>
+  Google AI Overviews ìë ìë¦¬
 </div>
 
 <div class="article-hero">
   <div class="article-hero-bg"></div>
-  <div class="article-category">기술 가이드 · Google AI Overviews</div>
-  <h1>Google AI Overviews<br><span class="hl">작동 원리</span><br>완전 해설</h1>
-  <p>Google Search Central 공식 자료를 바탕으로 AI Overviews가 어떻게 출처를 선택하는지, 어떤 사이트가 인용되는지 설명합니다.</p>
+  <div class="article-category">ê¸°ì  ê°ì´ë Â· Google AI Overviews</div>
+  <h1>Google AI Overviews<br><span class="hl">ìë ìë¦¬</span><br>ìì  í´ì¤</h1>
+  <p>Google Search Central ê³µì ìë£ë¥¼ ë°íì¼ë¡ AI Overviewsê° ì´ë»ê² ì¶ì²ë¥¼ ì ííëì§, ì´ë¤ ì¬ì´í¸ê° ì¸ì©ëëì§ ì¤ëªí©ëë¤.</p>
   <div class="article-meta">
-    <span>온종일AI 편집팀</span><span>·</span>
-    <span>2026년 6월 9일</span><span>·</span>
-    <span>약 6분 소요</span>
+    <span>ì¨ì¢ì¼AI í¸ì§í</span><span>Â·</span>
+    <span>2026ë 6ì 9ì¼</span><span>Â·</span>
+    <span>ì½ 6ë¶ ìì</span>
   </div>
 </div>
 
 <div class="article-wrap">
   <p class="article-lead">
-    Google AI Overviews는 2024년 5월 Google I/O에서 정식 출시된 기능으로, Google Search 상단에 AI가 생성한 요약 답변을 제공합니다. 이 기능은 이전에 Search Generative Experience(SGE)라는 이름으로 실험 운영되었으며, Google이 Gemini 모델을 Search에 통합한 결과물입니다.
+    Google AI Overviewsë 2024ë 5ì Google I/Oìì ì ì ì¶ìë ê¸°ë¥ì¼ë¡, Google Search ìë¨ì AIê° ìì±í ìì½ ëµë³ì ì ê³µí©ëë¤. ì´ ê¸°ë¥ì ì´ì ì Search Generative Experience(SGE)ë¼ë ì´ë¦ì¼ë¡ ì¤í ì´ìëìì¼ë©°, Googleì´ Gemini ëª¨ë¸ì Searchì íµí©í ê²°ê³¼ë¬¼ìëë¤.
   </p>
 
   <div class="article-section">
-    <h2>Google AI Overviews란?</h2>
+    <h2>Google AI Overviewsë?</h2>
     <p>
-      AI Overviews는 검색 결과 페이지 상단에 나타나는 AI 생성 요약 박스입니다. Google은 이를 통해 사용자가 여러 페이지를 방문하지 않아도 핵심 답변을 얻을 수 있도록 설계했습니다. AI Overviews 박스 안에는 출처로 사용된 웹사이트 링크가 함께 표시됩니다.
+      AI Overviewsë ê²ì ê²°ê³¼ íì´ì§ ìë¨ì ëíëë AI ìì± ìì½ ë°ì¤ìëë¤. Googleì ì´ë¥¼ íµí´ ì¬ì©ìê° ì¬ë¬ íì´ì§ë¥¼ ë°©ë¬¸íì§ ììë íµì¬ ëµë³ì ì»ì ì ìëë¡ ì¤ê³íìµëë¤. AI Overviews ë°ì¤ ììë ì¶ì²ë¡ ì¬ì©ë ì¹ì¬ì´í¸ ë§í¬ê° í¨ê» íìë©ëë¤.
     </p>
 
     <div class="quote-box">
       <p>"AI Overviews help people quickly get an overview of a topic, with links to explore more from across the web."</p>
-      <cite>— Google Search Central 공식 블로그, 2024년 5월</cite>
+      <cite>â Google Search Central ê³µì ë¸ë¡ê·¸, 2024ë 5ì</cite>
     </div>
 
     <p>
-      AI Overviews는 모든 검색어에 표시되는 것이 아닙니다. Google은 주로 정보성 질문(How, What, Why 형태)에서 AI Overviews를 활성화합니다. 단순 키워드 검색이나 상업적 쿼리에는 표시되지 않는 경우가 많습니다.
+      AI Overviewsë ëª¨ë  ê²ìì´ì íìëë ê²ì´ ìëëë¤. Googleì ì£¼ë¡ ì ë³´ì± ì§ë¬¸(How, What, Why íí)ìì AI Overviewsë¥¼ íì±íí©ëë¤. ë¨ì í¤ìë ê²ìì´ë ììì  ì¿¼ë¦¬ìë íìëì§ ìë ê²½ì°ê° ë§ìµëë¤.
     </p>
 
     <div class="info-grid">
       <div class="info-card">
-        <div class="ico">🔎</div>
-        <h4>표시 조건</h4>
-        <p>정보성 질문, How-to, 비교 질문 등에서 주로 활성화됩니다. 단순 브랜드 검색이나 로컬 업체 직접 검색에는 잘 표시되지 않습니다.</p>
+        <div class="ico">ð</div>
+        <h4>íì ì¡°ê±´</h4>
+        <p>ì ë³´ì± ì§ë¬¸, How-to, ë¹êµ ì§ë¬¸ ë±ìì ì£¼ë¡ íì±íë©ëë¤. ë¨ì ë¸ëë ê²ìì´ë ë¡ì»¬ ìì²´ ì§ì  ê²ììë ì íìëì§ ììµëë¤.</p>
       </div>
       <div class="info-card">
-        <div class="ico">🔗</div>
-        <h4>출처 표시</h4>
-        <p>AI Overviews 박스 내에 인용된 웹사이트가 링크로 표시됩니다. 출처로 선택된 사이트는 해당 박스 안에서 가시성을 얻게 됩니다.</p>
+        <div class="ico">ð</div>
+        <h4>ì¶ì² íì</h4>
+        <p>AI Overviews ë°ì¤ ë´ì ì¸ì©ë ì¹ì¬ì´í¸ê° ë§í¬ë¡ íìë©ëë¤. ì¶ì²ë¡ ì íë ì¬ì´í¸ë í´ë¹ ë°ì¤ ììì ê°ìì±ì ì»ê² ë©ëë¤.</p>
       </div>
       <div class="info-card">
-        <div class="ico">🤖</div>
-        <h4>Googlebot 기반</h4>
-        <p>AI Overviews가 참조하는 콘텐츠는 Googlebot이 기존에 크롤링한 Google 인덱스에서 가져옵니다. 별도 크롤러가 있는 것이 아닙니다.</p>
+        <div class="ico">ð¤</div>
+        <h4>Googlebot ê¸°ë°</h4>
+        <p>AI Overviewsê° ì°¸ì¡°íë ì½íì¸ ë Googlebotì´ ê¸°ì¡´ì í¬ë¡¤ë§í Google ì¸ë±ì¤ìì ê°ì ¸ìµëë¤. ë³ë í¬ë¡¤ë¬ê° ìë ê²ì´ ìëëë¤.</p>
       </div>
       <div class="info-card">
-        <div class="ico">📍</div>
-        <h4>지역 검색 적용</h4>
-        <p>"강남 치과 추천해줘" 같은 지역 정보성 질문에도 AI Overviews가 나타날 수 있습니다. 이 경우 LocalBusiness Schema가 도움이 됩니다.</p>
+        <div class="ico">ð</div>
+        <h4>ì§ì­ ê²ì ì ì©</h4>
+        <p>"ê°ë¨ ì¹ê³¼ ì¶ì²í´ì¤" ê°ì ì§ì­ ì ë³´ì± ì§ë¬¸ìë AI Overviewsê° ëíë  ì ììµëë¤. ì´ ê²½ì° LocalBusiness Schemaê° ëìì´ ë©ëë¤.</p>
       </div>
     </div>
   </div>
 
   <div class="article-section">
-    <h2>AI Overviews는 어떻게 출처를 선택하나?</h2>
+    <h2>AI Overviewsë ì´ë»ê² ì¶ì²ë¥¼ ì ííë?</h2>
     <p>
-      Google은 AI Overviews의 출처 선택 알고리즘을 공개하지 않습니다. 그러나 Google Search Central에서 공식적으로 밝힌 내용을 바탕으로 주요 요소를 정리할 수 있습니다.
+      Googleì AI Overviewsì ì¶ì² ì í ìê³ ë¦¬ì¦ì ê³µê°íì§ ììµëë¤. ê·¸ë¬ë Google Search Centralìì ê³µìì ì¼ë¡ ë°í ë´ì©ì ë°íì¼ë¡ ì£¼ì ììë¥¼ ì ë¦¬í  ì ììµëë¤.
     </p>
 
     <div class="tip-box">
-      <div class="tip-label">📋 Google 공식 입장 (Google Search Central)</div>
-      <p>Google은 "AI Overviews uses the same signals as our core ranking systems" — AI Overviews는 기존 핵심 랭킹 시스템과 동일한 신호를 사용한다고 밝혔습니다. 즉, 기존 Google SEO 최적화가 AI Overviews 노출에도 영향을 미칩니다.</p>
+      <div class="tip-label">ð Google ê³µì ìì¥ (Google Search Central)</div>
+      <p>Googleì "AI Overviews uses the same signals as our core ranking systems" â AI Overviewsë ê¸°ì¡´ íµì¬ ë­í¹ ìì¤íê³¼ ëì¼í ì í¸ë¥¼ ì¬ì©íë¤ê³  ë°íìµëë¤. ì¦, ê¸°ì¡´ Google SEO ìµì íê° AI Overviews ë¸ì¶ìë ìí¥ì ë¯¸ì¹©ëë¤.</p>
     </div>
 
     <p>
-      Google이 공식적으로 언급한 AI Overviews 출처 선택 관련 요소들은 다음과 같습니다.
+      Googleì´ ê³µìì ì¼ë¡ ì¸ê¸í AI Overviews ì¶ì² ì í ê´ë ¨ ììë¤ì ë¤ìê³¼ ê°ìµëë¤.
     </p>
 
     <div class="compare-visual">
       <div class="cv-panel">
-        <div class="cv-head bad" style="background:rgba(200,50,50,.08);color:#ff7070;border-bottom-color:rgba(200,50,50,.2)">인용되기 어려운 콘텐츠</div>
+        <div class="cv-head bad" style="background:rgba(200,50,50,.08);color:#ff7070;border-bottom-color:rgba(200,50,50,.2)">ì¸ì©ëê¸° ì´ë ¤ì´ ì½íì¸ </div>
         <div class="cv-body">
-          <div class="cv-item">Google 인덱스에 없는 페이지</div>
-          <div class="cv-item">Googlebot 차단된 사이트</div>
-          <div class="cv-item">E-E-A-T 신호가 약한 콘텐츠</div>
-          <div class="cv-item">콘텐츠 없는 단순 광고 페이지</div>
+          <div class="cv-item">Google ì¸ë±ì¤ì ìë íì´ì§</div>
+          <div class="cv-item">Googlebot ì°¨ë¨ë ì¬ì´í¸</div>
+          <div class="cv-item">E-E-A-T ì í¸ê° ì½í ì½íì¸ </div>
+          <div class="cv-item">ì½íì¸  ìë ë¨ì ê´ê³  íì´ì§</div>
         </div>
       </div>
       <div class="cv-panel">
-        <div class="cv-head good">인용되기 유리한 콘텐츠</div>
+        <div class="cv-head good">ì¸ì©ëê¸° ì ë¦¬í ì½íì¸ </div>
         <div class="cv-body">
-          <div class="cv-item"><span class="o">→</span> Google 검색 결과 상위 노출 페이지</div>
-          <div class="cv-item"><span class="o">→</span> 구체적 질문에 답하는 FAQPage Schema</div>
-          <div class="cv-item"><span class="o">→</span> 신뢰할 수 있는 저자 정보 포함</div>
-          <div class="cv-item"><span class="o">→</span> 명확한 사실 기반의 정보 페이지</div>
+          <div class="cv-item"><span class="o">â</span> Google ê²ì ê²°ê³¼ ìì ë¸ì¶ íì´ì§</div>
+          <div class="cv-item"><span class="o">â</span> êµ¬ì²´ì  ì§ë¬¸ì ëµíë FAQPage Schema</div>
+          <div class="cv-item"><span class="o">â</span> ì ë¢°í  ì ìë ì ì ì ë³´ í¬í¨</div>
+          <div class="cv-item"><span class="o">â</span> ëªíí ì¬ì¤ ê¸°ë°ì ì ë³´ íì´ì§</div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="article-section">
-    <h2>AI Overviews 노출을 위한 핵심 조건</h2>
+    <h2>AI Overviews ë¸ì¶ì ìí íµì¬ ì¡°ê±´</h2>
 
     <div class="tip-box">
-      <div class="tip-label">✅ 1. Google 색인 확인</div>
+      <div class="tip-label">â 1. Google ìì¸ íì¸</div>
       <p>
-        AI Overviews는 Google 인덱스에 있는 콘텐츠만 인용합니다. Google Search Console에서 페이지가 정상 색인되어 있는지 확인합니다. <a href="https://search.google.com/search-console" target="_blank" rel="noopener" style="color:var(--accent)">Google Search Console →</a>
+        AI Overviewsë Google ì¸ë±ì¤ì ìë ì½íì¸ ë§ ì¸ì©í©ëë¤. Google Search Consoleìì íì´ì§ê° ì ì ìì¸ëì´ ìëì§ íì¸í©ëë¤. <a href="https://search.google.com/search-console" target="_blank" rel="noopener" style="color:var(--accent)">Google Search Console â</a>
       </p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">✅ 2. Googlebot 허용 확인</div>
+      <div class="tip-label">â 2. Googlebot íì© íì¸</div>
       <p>
-        robots.txt에서 Googlebot 차단 여부를 확인합니다. AI Overviews는 Googlebot이 크롤링한 데이터를 기반으로 하므로, Googlebot이 차단되면 AI Overviews 노출이 불가능합니다.
+        robots.txtìì Googlebot ì°¨ë¨ ì¬ë¶ë¥¼ íì¸í©ëë¤. AI Overviewsë Googlebotì´ í¬ë¡¤ë§í ë°ì´í°ë¥¼ ê¸°ë°ì¼ë¡ íë¯ë¡, Googlebotì´ ì°¨ë¨ëë©´ AI Overviews ë¸ì¶ì´ ë¶ê°ë¥í©ëë¤.
       </p>
       <p style="font-family:monospace;font-size:.9rem">User-agent: Googlebot<br>Allow: /</p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">✅ 3. 정보성 콘텐츠 구축</div>
+      <div class="tip-label">â 3. ì ë³´ì± ì½íì¸  êµ¬ì¶</div>
       <p>
-        AI Overviews는 주로 정보성 질문("강남 임플란트 비용이 얼마인가요?", "인테리어 리모델링 기간은 얼마나 걸리나요?")에서 활성화됩니다. 업종 관련 자주 묻는 질문에 답하는 콘텐츠 페이지를 구축합니다.
+        AI Overviewsë ì£¼ë¡ ì ë³´ì± ì§ë¬¸("ê°ë¨ ìíëí¸ ë¹ì©ì´ ì¼ë§ì¸ê°ì?", "ì¸íë¦¬ì´ ë¦¬ëª¨ë¸ë§ ê¸°ê°ì ì¼ë§ë ê±¸ë¦¬ëì?")ìì íì±íë©ëë¤. ìì¢ ê´ë ¨ ìì£¼ ë¬»ë ì§ë¬¸ì ëµíë ì½íì¸  íì´ì§ë¥¼ êµ¬ì¶í©ëë¤.
       </p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">✅ 4. FAQPage Schema 적용</div>
+      <div class="tip-label">â 4. FAQPage Schema ì ì©</div>
       <p>
-        FAQPage Schema는 Google이 콘텐츠의 Q&A 구조를 명확히 파악하도록 돕습니다. Google은 Schema.org의 FAQPage 구조화 데이터를 AI Overviews 출처 선택에 활용합니다. (<a href="https://schema.org/FAQPage" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org FAQPage →</a>)
+        FAQPage Schemaë Googleì´ ì½íì¸ ì Q&A êµ¬ì¡°ë¥¼ ëªíí íìíëë¡ ëìµëë¤. Googleì Schema.orgì FAQPage êµ¬ì¡°í ë°ì´í°ë¥¼ AI Overviews ì¶ì² ì íì íì©í©ëë¤. (<a href="https://schema.org/FAQPage" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org FAQPage â</a>)
       </p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">✅ 5. E-E-A-T 신호 강화</div>
+      <div class="tip-label">â 5. E-E-A-T ì í¸ ê°í</div>
       <p>
-        Google은 E-E-A-T(경험, 전문성, 권위, 신뢰)를 콘텐츠 품질 평가의 핵심 기준으로 사용합니다. 저자 정보, About 페이지, 사업자 정보, 연락처 등이 E-E-A-T 신호에 해당합니다. (<a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" target="_blank" rel="noopener" style="color:var(--accent)">Google 도움말 콘텐츠 가이드 →</a>)
+        Googleì E-E-A-T(ê²½í, ì ë¬¸ì±, ê¶ì, ì ë¢°)ë¥¼ ì½íì¸  íì§ íê°ì íµì¬ ê¸°ì¤ì¼ë¡ ì¬ì©í©ëë¤. ì ì ì ë³´, About íì´ì§, ì¬ìì ì ë³´, ì°ë½ì² ë±ì´ E-E-A-T ì í¸ì í´ë¹í©ëë¤. (<a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" target="_blank" rel="noopener" style="color:var(--accent)">Google ëìë§ ì½íì¸  ê°ì´ë â</a>)
       </p>
     </div>
   </div>
 
   <div class="article-section">
-    <h2>AI Overviews 차단 설정</h2>
+    <h2>AI Overviews ì°¨ë¨ ì¤ì </h2>
     <p>
-      콘텐츠가 AI Overviews에 사용되는 것을 원하지 않는다면, Google은 공식적으로 두 가지 방법을 제공합니다.
+      ì½íì¸ ê° AI Overviewsì ì¬ì©ëë ê²ì ìíì§ ìëë¤ë©´, Googleì ê³µìì ì¼ë¡ ë ê°ì§ ë°©ë²ì ì ê³µí©ëë¤.
     </p>
 
     <div class="tip-box">
-      <div class="tip-label">방법 1: nosnippet 메타 태그</div>
+      <div class="tip-label">ë°©ë² 1: nosnippet ë©í íê·¸</div>
       <p style="font-family:monospace;font-size:.9rem">&lt;meta name="robots" content="nosnippet"&gt;</p>
-      <p>이 태그를 적용하면 Google이 해당 페이지의 콘텐츠를 AI Overviews 및 검색 결과 스니펫에 사용하지 않습니다. 단, Google 색인 자체에서는 제외되지 않습니다.</p>
+      <p>ì´ íê·¸ë¥¼ ì ì©íë©´ Googleì´ í´ë¹ íì´ì§ì ì½íì¸ ë¥¼ AI Overviews ë° ê²ì ê²°ê³¼ ì¤ëí«ì ì¬ì©íì§ ììµëë¤. ë¨, Google ìì¸ ìì²´ììë ì ì¸ëì§ ììµëë¤.</p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">방법 2: Google-Extended 차단</div>
+      <div class="tip-label">ë°©ë² 2: Google-Extended ì°¨ë¨</div>
       <p style="font-family:monospace;font-size:.9rem">User-agent: Google-Extended<br>Disallow: /</p>
-      <p>Google-Extended는 Gemini 앱 및 Vertex AI 학습 데이터 수집에 사용되는 크롤러입니다. 단, Google-Extended를 차단해도 AI Overviews에서 제외되지는 않습니다 — AI Overviews는 기존 Googlebot 인덱스를 사용합니다. (<a href="https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers" target="_blank" rel="noopener" style="color:var(--accent)">Google 크롤러 공식 안내 →</a>)</p>
+      <p>Google-Extendedë Gemini ì± ë° Vertex AI íìµ ë°ì´í° ìì§ì ì¬ì©ëë í¬ë¡¤ë¬ìëë¤. ë¨, Google-Extendedë¥¼ ì°¨ë¨í´ë AI Overviewsìì ì ì¸ëì§ë ììµëë¤ â AI Overviewsë ê¸°ì¡´ Googlebot ì¸ë±ì¤ë¥¼ ì¬ì©í©ëë¤. (<a href="https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers" target="_blank" rel="noopener" style="color:var(--accent)">Google í¬ë¡¤ë¬ ê³µì ìë´ â</a>)</p>
     </div>
   </div>
 
   <div class="article-section">
-    <h2>자주 묻는 질문</h2>
+    <h2>ìì£¼ ë¬»ë ì§ë¬¸</h2>
 
     <div class="tip-box">
-      <div class="tip-label">Q. AI Overviews에 인용되면 사이트 트래픽이 늘어나나요?</div>
-      <p>Google의 공식 발표에 따르면, AI Overviews가 표시된 검색 결과에서 인용된 사이트들의 클릭률이 일반 검색 결과보다 높다고 합니다. 그러나 일부 연구에서는 AI Overviews가 사용자가 사이트를 직접 방문하는 횟수를 줄일 수 있다는 의견도 있습니다. Google은 AI Overviews를 통해 더 높은 품질의 트래픽이 유입된다고 입장을 밝히고 있습니다.</p>
+      <div class="tip-label">Q. AI Overviewsì ì¸ì©ëë©´ ì¬ì´í¸ í¸ëí½ì´ ëì´ëëì?</div>
+      <p>Googleì ê³µì ë°íì ë°ë¥´ë©´, AI Overviewsê° íìë ê²ì ê²°ê³¼ìì ì¸ì©ë ì¬ì´í¸ë¤ì í´ë¦­ë¥ ì´ ì¼ë° ê²ì ê²°ê³¼ë³´ë¤ ëë¤ê³  í©ëë¤. ê·¸ë¬ë ì¼ë¶ ì°êµ¬ììë AI Overviewsê° ì¬ì©ìê° ì¬ì´í¸ë¥¼ ì§ì  ë°©ë¬¸íë íìë¥¼ ì¤ì¼ ì ìë¤ë ìê²¬ë ììµëë¤. Googleì AI Overviewsë¥¼ íµí´ ë ëì íì§ì í¸ëí½ì´ ì ìëë¤ê³  ìì¥ì ë°íê³  ììµëë¤.</p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">Q. AI Overviews는 어떤 국가에서 사용 가능한가요?</div>
-      <p>2024년 5월 미국에서 공식 출시된 이후 Google은 AI Overviews를 글로벌로 확대하고 있습니다. 국가별 출시 현황은 Google Search Central 블로그에서 최신 정보를 확인하는 것이 정확합니다. (<a href="https://developers.google.com/search/blog" target="_blank" rel="noopener" style="color:var(--accent)">Google Search Central 블로그 →</a>)</p>
+      <div class="tip-label">Q. AI Overviewsë ì´ë¤ êµ­ê°ìì ì¬ì© ê°ë¥íê°ì?</div>
+      <p>2024ë 5ì ë¯¸êµ­ìì ê³µì ì¶ìë ì´í Googleì AI Overviewsë¥¼ ê¸ë¡ë²ë¡ íëíê³  ììµëë¤. êµ­ê°ë³ ì¶ì íí©ì Google Search Central ë¸ë¡ê·¸ìì ìµì  ì ë³´ë¥¼ íì¸íë ê²ì´ ì íí©ëë¤. (<a href="https://developers.google.com/search/blog" target="_blank" rel="noopener" style="color:var(--accent)">Google Search Central ë¸ë¡ê·¸ â</a>)</p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">Q. AI Overviews와 기존 Featured Snippet의 차이는?</div>
-      <p>Featured Snippet은 특정 페이지의 텍스트를 그대로 발췌하는 방식입니다. AI Overviews는 여러 소스를 종합해 AI가 새로운 요약문을 생성합니다. 두 기능은 공존할 수 있으며, AI Overviews가 표시될 때는 Featured Snippet이 함께 나타나지 않는 경우가 많습니다.</p>
+      <div class="tip-label">Q. AI Overviewsì ê¸°ì¡´ Featured Snippetì ì°¨ì´ë?</div>
+      <p>Featured Snippetì í¹ì  íì´ì§ì íì¤í¸ë¥¼ ê·¸ëë¡ ë°ì·íë ë°©ììëë¤. AI Overviewsë ì¬ë¬ ìì¤ë¥¼ ì¢í©í´ AIê° ìë¡ì´ ìì½ë¬¸ì ìì±í©ëë¤. ë ê¸°ë¥ì ê³µì¡´í  ì ìì¼ë©°, AI Overviewsê° íìë  ëë Featured Snippetì´ í¨ê» ëíëì§ ìë ê²½ì°ê° ë§ìµëë¤.</p>
     </div>
   </div>
 
   <div class="article-related">
-    <h3>다음으로 읽어볼 가이드</h3>
+    <h3>ë¤ìì¼ë¡ ì½ì´ë³¼ ê°ì´ë</h3>
     <div class="related-grid">
       <a href="gemini-ai-overview.html" class="related-card">
-        <div class="rc-cat">AI 플랫폼 가이드 · Google</div>
-        <div class="rc-title">♊ Google AI Overviews 최적화 — 내 사이트가 인용되게 하는 법</div>
+        <div class="rc-cat">AI íë«í¼ ê°ì´ë Â· Google</div>
+        <div class="rc-title">â Google AI Overviews ìµì í â ë´ ì¬ì´í¸ê° ì¸ì©ëê² íë ë²</div>
       </a>
       <a href="eeat-guide.html" class="related-card">
-        <div class="rc-cat">기술 가이드 · E-E-A-T</div>
-        <div class="rc-title">⭐ E-E-A-T 완전 가이드 — Google 품질 평가 기준 완벽 정리</div>
+        <div class="rc-cat">ê¸°ì  ê°ì´ë Â· E-E-A-T</div>
+        <div class="rc-title">â­ E-E-A-T ìì  ê°ì´ë â Google íì§ íê° ê¸°ì¤ ìë²½ ì ë¦¬</div>
       </a>
       <a href="faqpage-schema-guide.html" class="related-card">
-        <div class="rc-cat">기술 가이드 · Schema</div>
-        <div class="rc-title">❓ FAQPage Schema 완전 가이드 — AI 인용률을 높이는 구조화 데이터</div>
+        <div class="rc-cat">ê¸°ì  ê°ì´ë Â· Schema</div>
+        <div class="rc-title">â FAQPage Schema ìì  ê°ì´ë â AI ì¸ì©ë¥ ì ëì´ë êµ¬ì¡°í ë°ì´í°</div>
       </a>
     </div>
   </div>
 </div>
 
 <div class="cta fi">
-  <h2>Google AI Overviews<br>출처 인용 현황<br><span style="color:var(--accent)">무료로 진단받기</span></h2>
-  <p>Googlebot 허용 여부, FAQPage Schema, E-E-A-T 신호를 한 번에 진단해드립니다.</p>
-  <button class="btn-primary" style="font-size:18px;padding:20px 48px">무료 진단 받기 →</button>
+  <h2>Google AI Overviews<br>ì¶ì² ì¸ì© íí©<br><span style="color:var(--accent)">ë¬´ë£ë¡ ì§ë¨ë°ê¸°</span></h2>
+  <p>Googlebot íì© ì¬ë¶, FAQPage Schema, E-E-A-T ì í¸ë¥¼ í ë²ì ì§ë¨í´ëë¦½ëë¤.</p>
+  <button class="btn-primary" style="font-size:18px;padding:20px 48px">ë¬´ë£ ì§ë¨ ë°ê¸° â</button>
 </div>
 
 <div class="article-wrap" style="max-width:900px;margin:0 auto;padding:40px 24px 20px">
   <div class="article-section">
-    <h2 style="font-size:1.1rem;margin-bottom:12px">참고 출처</h2>
+    <h2 style="font-size:1.1rem;margin-bottom:12px">ì°¸ê³  ì¶ì²</h2>
     <ul style="font-size:.85rem;line-height:1.8;color:var(--text-sub)">
-      <li><a href="https://developers.google.com/search/blog/2024/05/ai-overviews-launch" target="_blank" rel="noopener" style="color:var(--accent)">Google Search Central — AI Overviews 정식 출시 발표 (2024년 5월)</a></li>
-      <li><a href="https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers" target="_blank" rel="noopener" style="color:var(--accent)">Google — Google 크롤러 종류 및 역할 공식 안내</a></li>
-      <li><a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" target="_blank" rel="noopener" style="color:var(--accent)">Google — 도움말 콘텐츠 시스템 공식 가이드</a></li>
-      <li><a href="https://schema.org/FAQPage" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org — FAQPage 구조화 데이터 명세</a></li>
+      <li><a href="https://developers.google.com/search/blog/2024/05/ai-overviews-launch" target="_blank" rel="noopener" style="color:var(--accent)">Google Search Central â AI Overviews ì ì ì¶ì ë°í (2024ë 5ì)</a></li>
+      <li><a href="https://developers.google.com/search/docs/crawling-indexing/overview-google-crawlers" target="_blank" rel="noopener" style="color:var(--accent)">Google â Google í¬ë¡¤ë¬ ì¢ë¥ ë° ì­í  ê³µì ìë´</a></li>
+      <li><a href="https://developers.google.com/search/docs/fundamentals/creating-helpful-content" target="_blank" rel="noopener" style="color:var(--accent)">Google â ëìë§ ì½íì¸  ìì¤í ê³µì ê°ì´ë</a></li>
+      <li><a href="https://schema.org/FAQPage" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org â FAQPage êµ¬ì¡°í ë°ì´í° ëªì¸</a></li>
     </ul>
   </div>
 </div>
 
 <footer>
-  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
+  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">ì¨ì¢ì¼<span>AI</span></a></div>
   <div class="flinks">
-    <a href="/about.html">서비스 소개</a>
-    <a href="/contact.html">문의하기</a>
-    <a href="/privacy.html">개인정보처리방침</a>
+    <a href="/about.html">ìë¹ì¤ ìê°</a>
+    <a href="/contact.html">ë¬¸ìíê¸°</a>
+    <a href="/privacy.html">ê°ì¸ì ë³´ì²ë¦¬ë°©ì¹¨</a>
   </div>
-  <div class="fcopy">© 2026 온종일AI. AI 검색 최적화 컨설팅 &nbsp;·&nbsp; 이메일: tarry9653@daum.net</div>
+  <div class="fcopy">Â© 2026 ì¨ì¢ì¼AI. AI ê²ì ìµì í ì»¨ì¤í &nbsp;Â·&nbsp; ì´ë©ì¼: tarry9653@daum.net</div>
 </footer>
 <script src="../js/main.js"></script>
 <script src="../js/proof.js"></script>

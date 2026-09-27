@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LocalBusiness Schema 작성 가이드 | 로컬 비즈니스 구조화 데이터 | 온종일AI</title>
-<meta name="description" content="LocalBusiness Schema Markup의 필수 필드, 업종별 하위 타입, JSON-LD 구현 예시를 Schema.org 공식 명세와 Google 가이드라인 기반으로 설명합니다.">
+<title>LocalBusiness Schema ìì± ê°ì´ë | ë¡ì»¬ ë¹ì¦ëì¤ êµ¬ì¡°í ë°ì´í° | ì¨ì¢ì¼AI</title>
+<meta name="description" content="LocalBusiness Schema Markupì íì íë, ìì¢ë³ íì íì, JSON-LD êµ¬í ììë¥¼ Schema.org ê³µì ëªì¸ì Google ê°ì´ëë¼ì¸ ê¸°ë°ì¼ë¡ ì¤ëªí©ëë¤.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ai.xn--zk5biyyw.com/guide/localbusiness-schema.html">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -13,10 +13,10 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "LocalBusiness Schema 작성 가이드 — 필수 필드와 업종별 타입",
-  "description": "LocalBusiness Schema Markup의 필수 필드와 업종별 하위 타입을 Schema.org 공식 명세 기반으로 설명합니다.",
-  "author": {"@type": "Organization", "name": "온종일AI"},
-  "publisher": {"@type": "Organization", "name": "온종일AI"},
+  "headline": "LocalBusiness Schema ìì± ê°ì´ë â íì íëì ìì¢ë³ íì",
+  "description": "LocalBusiness Schema Markupì íì íëì ìì¢ë³ íì íìì Schema.org ê³µì ëªì¸ ê¸°ë°ì¼ë¡ ì¤ëªí©ëë¤.",
+  "author": {"@type": "Organization", "name": "ì¨ì¢ì¼AI"},
+  "publisher": {"@type": "Organization", "name": "ì¨ì¢ì¼AI"},
   "datePublished": "2026-06-09"
 }
 </script>
@@ -24,236 +24,238 @@
 <body>
 
 <nav>
-  <div class="logo-wrap"><div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div><a href="https://www.xn--zk5biyyw.com" target="_blank" rel="noopener" class="logo-by">by 온종일</a></div>
+  <div class="logo-wrap"><div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">ì¨ì¢ì¼<span>AI</span></a></div><a href="https://www.xn--zk5biyyw.com" target="_blank" rel="noopener" class="logo-by">by ì¨ì¢ì¼</a></div>
   <div class="nav-links">
     <div class="nav-drop">
-      <button class="nav-drop-btn">업종별 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">ìì¢ë³ <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="../industry/hospital.html">🏥 병원·치과·한의원</a>
-        <a href="../industry/interior.html">🏠 인테리어·리모델링</a>
-        <a href="../industry/law.html">⚖️ 법률·세무·회계</a>
-        <a href="../industry/health.html">💪 헬스·뷰티·피트니스</a>
-        <a href="../industry/restaurant.html">🍽️ 식당·카페·배달</a>
-        <a href="../industry/academy.html">📚 학원·교습소</a>
-        <a href="../industry/realestate.html">🏢 부동산·공인중개사</a>
-        <a href="../industry/dermatology.html">💉 피부과·성형외과</a>
-        <a href="../industry/auto.html">🚗 자동차 정비·중고차</a>
-        <a href="../industry/cleaning.html">🧹 세탁소·청소업체</a>
+        <a href="../industry/hospital.html">ð¥ ë³ìÂ·ì¹ê³¼Â·íìì</a>
+        <a href="../industry/interior.html">ð  ì¸íë¦¬ì´Â·ë¦¬ëª¨ë¸ë§</a>
+        <a href="../industry/law.html">âï¸ ë²ë¥ Â·ì¸ë¬´Â·íê³</a>
+        <a href="../industry/health.html">ðª í¬ì¤Â·ë·°í°Â·í¼í¸ëì¤</a>
+        <a href="../industry/restaurant.html">ð½ï¸ ìë¹Â·ì¹´íÂ·ë°°ë¬</a>
+        <a href="../industry/academy.html">ð íìÂ·êµìµì</a>
+        <a href="../industry/realestate.html">ð¢ ë¶ëì°Â·ê³µì¸ì¤ê°ì¬</a>
+        <a href="../industry/dermatology.html">ð í¼ë¶ê³¼Â·ì±íì¸ê³¼</a>
+        <a href="../industry/auto.html">ð ìëì°¨ ì ë¹Â·ì¤ê³ ì°¨</a>
+        <a href="../industry/cleaning.html">ð§¹ ì¸íìÂ·ì²­ììì²´</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">AI 검색 가이드 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">AI ê²ì ê°ì´ë <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="what-is-seo.html">📖 SEO란 무엇인가?</a>
-        <a href="what-is-aeo.html">🤖 AEO란 무엇인가?</a>
-        <a href="what-is-geo.html">🔬 GEO란 무엇인가?</a>
-        <a href="how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
-        <a href="naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
-        <a href="chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
-        <a href="perplexity-optimization.html">🔍 Perplexity 최적화</a>
-        <a href="gemini-ai-overview.html">♊ Google AI Overviews</a>
-        <a href="claude-ai-search.html">🧠 Claude AI 검색</a>
-        <a href="google-ai-overviews.html">🔎 Google AI Overviews 원리</a>
-        <a href="perplexity-how-it-works.html">📡 Perplexity 작동 원리</a>
-        <a href="chatgpt-search-guide.html">💡 ChatGPT Search 원리</a>
-        <a href="eeat-guide.html">⭐ E-E-A-T 가이드</a>
+        <a href="what-is-seo.html">ð SEOë ë¬´ìì¸ê°?</a>
+        <a href="what-is-aeo.html">ð¤ AEOë ë¬´ìì¸ê°?</a>
+        <a href="what-is-geo.html">ð¬ GEOë ë¬´ìì¸ê°?</a>
+        <a href="how-ai-search-works.html">âï¸ AIë ì´ë»ê² ì¶ì²íë?</a>
+        <a href="naver-vs-ai.html">â¡ ë¤ì´ë² vs AI ê²ì</a>
+        <a href="chatgpt-exposure.html">ð¬ ChatGPT ë¸ì¶íê¸°</a>
+        <a href="perplexity-optimization.html">ð Perplexity ìµì í</a>
+        <a href="gemini-ai-overview.html">â Google AI Overviews</a>
+        <a href="claude-ai-search.html">ð§  Claude AI ê²ì</a>
+        <a href="google-ai-overviews.html">ð Google AI Overviews ìë¦¬</a>
+        <a href="perplexity-how-it-works.html">ð¡ Perplexity ìë ìë¦¬</a>
+        <a href="chatgpt-search-guide.html">ð¡ ChatGPT Search ìë¦¬</a>
+        <a href="eeat-guide.html">â­ E-E-A-T ê°ì´ë</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">📍 네이버 플레이스 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">ð ë¤ì´ë² íë ì´ì¤ <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="/guide/naver-place-guide.html">📍 플레이스 등록·최적화</a>
-        <a href="/guide/naver-place-features.html">🧩 기능 완전 해부</a>
-        <a href="/guide/naver-place-star-rating-2026.html">⭐ 별점 부활 대응</a>
-        <a href="/guide/place-photo-tips.html">📸 사진 잘 찍는 법</a>
+        <a href="/guide/naver-place-guide.html">ð íë ì´ì¤ ë±ë¡Â·ìµì í</a>
+        <a href="/guide/naver-place-features.html">ð§© ê¸°ë¥ ìì  í´ë¶</a>
+        <a href="/guide/naver-place-star-rating-2026.html">â­ ë³ì  ë¶í ëì</a>
+        <a href="/guide/place-photo-tips.html">ð¸ ì¬ì§ ì ì°ë ë²</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">⭐ 리뷰 관리 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">â­ ë¦¬ë·° ê´ë¦¬ <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="/guide/bad-review-response.html">🛡️ 악성 리뷰·별점 테러 대응</a>
-        <a href="/guide/get-more-reviews.html">📈 리뷰 늘리는 법</a>
-        <a href="/guide/review-management.html">⭐ 온라인 리뷰 관리</a>
+        <a href="/guide/bad-review-response.html">ð¡ï¸ ìì± ë¦¬ë·°Â·ë³ì  íë¬ ëì</a>
+        <a href="/guide/get-more-reviews.html">ð ë¦¬ë·° ëë¦¬ë ë²</a>
+        <a href="/guide/review-management.html">â­ ì¨ë¼ì¸ ë¦¬ë·° ê´ë¦¬</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">🧭 마케팅 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">ð§­ ë§ì¼í <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="/guide/naver-google-ai-search.html">🧭 네이버·구글·AI 검색 비교</a>
-        <a href="/guide/google-business-profile.html">🗺️ 구글 비즈니스 프로필</a>
-        <a href="/guide/online-marketing-start.html">🚀 온라인 마케팅 시작하기</a>
-        <a href="/guide/free-marketing-methods.html">💡 무료 마케팅 방법</a>
+        <a href="/guide/naver-google-ai-search.html">ð§­ ë¤ì´ë²Â·êµ¬ê¸Â·AI ê²ì ë¹êµ</a>
+        <a href="/guide/google-business-profile.html">ðºï¸ êµ¬ê¸ ë¹ì¦ëì¤ íë¡í</a>
+        <a href="/guide/online-marketing-start.html">ð ì¨ë¼ì¸ ë§ì¼í ììíê¸°</a>
+        <a href="/guide/free-marketing-methods.html">ð¡ ë¬´ë£ ë§ì¼í ë°©ë²</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">🛠️ AI 진단기 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">ð ï¸ AI ì§ë¨ê¸° <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
-        <a href="/analyze-guide.html">📖 사용방법</a>
+        <a href="/analyze.html">ð ï¸ AI ìµì í ì§ë¨ê¸°</a>
+        <a href="/analyze-guide.html">ð ì¬ì©ë°©ë²</a>
         <div style="border-top:1px solid var(--border);margin:4px 2px"></div>
-        <a href="/guide/ai-bot-access.html">🤖 AI 봇 크롤링 설정</a>
-        <a href="/guide/faq-schema-for-ai.html">❓ FAQPage Schema</a>
-        <a href="/guide/business-schema-for-ai.html">🏢 LocalBusiness Schema</a>
-        <a href="/guide/meta-description-ai.html">📝 메타 디스크립션</a>
-        <a href="/guide/sitemap-for-ai.html">🗺️ sitemap.xml</a>
-        <a href="/guide/heading-structure-ai.html">📑 제목 계층 구조</a>
-        <a href="/guide/image-alt-for-ai.html">🖼️ 이미지 alt 텍스트</a>
+        <a href="/guide/ai-bot-access.html">ð¤ AI ë´ í¬ë¡¤ë§ ì¤ì </a>
+        <a href="/guide/faq-schema-for-ai.html">â FAQPage Schema</a>
+        <a href="/guide/business-schema-for-ai.html">ð¢ LocalBusiness Schema</a>
+        <a href="/guide/meta-description-ai.html">ð ë©í ëì¤í¬ë¦½ì</a>
+        <a href="/guide/sitemap-for-ai.html">ðºï¸ sitemap.xml</a>
+        <a href="/guide/heading-structure-ai.html">ð ì ëª© ê³ì¸µ êµ¬ì¡°</a>
+        <a href="/guide/image-alt-for-ai.html">ð¼ï¸ ì´ë¯¸ì§ alt íì¤í¸</a>
       </div>
     </div>
+    <a href="/lab.html" class="nav-single-link">✨ AI 프롬프트<span class="nav-new">NEW</span></a>
   </div>
-  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="메뉴"><span></span><span></span><span></span></button>
-    <button class="theme-btn" id="themeBtn">🌙</button>
-    <button class="nav-cta">상담 신청하기</button>
+  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="ë©ë´"><span></span><span></span><span></span></button>
+    <button class="theme-btn" id="themeBtn">ð</button>
+    <button class="nav-cta">ìë´ ì ì²­íê¸°</button>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <div class="mob-section"><a href="/lab.html" class="mob-single-link">✨ AI 프롬프트 · 글쓰기 랩 <span class="nav-new">NEW</span></a></div>
   <div class="mob-section">
-    <div class="mob-section-title">업종별 가이드</div>
-    <a href="/industry/hospital.html">🏥 병원·치과·한의원</a>
-    <a href="/industry/interior.html">🏠 인테리어·리모델링</a>
-    <a href="/industry/law.html">⚖️ 법률·세무·회계</a>
-    <a href="/industry/health.html">💪 헬스·뷰티·피트니스</a>
-    <a href="/industry/restaurant.html">🍽️ 식당·카페·배달</a>
-    <a href="/industry/academy.html">📚 학원·교습소</a>
-    <a href="/industry/realestate.html">🏢 부동산·공인중개사</a>
-    <a href="/industry/dermatology.html">💉 피부과·성형외과</a>
-    <a href="/industry/auto.html">🚗 자동차 정비·중고차</a>
-    <a href="/industry/cleaning.html">🧹 세탁소·청소업체</a>
+    <div class="mob-section-title">ìì¢ë³ ê°ì´ë</div>
+    <a href="/industry/hospital.html">ð¥ ë³ìÂ·ì¹ê³¼Â·íìì</a>
+    <a href="/industry/interior.html">ð  ì¸íë¦¬ì´Â·ë¦¬ëª¨ë¸ë§</a>
+    <a href="/industry/law.html">âï¸ ë²ë¥ Â·ì¸ë¬´Â·íê³</a>
+    <a href="/industry/health.html">ðª í¬ì¤Â·ë·°í°Â·í¼í¸ëì¤</a>
+    <a href="/industry/restaurant.html">ð½ï¸ ìë¹Â·ì¹´íÂ·ë°°ë¬</a>
+    <a href="/industry/academy.html">ð íìÂ·êµìµì</a>
+    <a href="/industry/realestate.html">ð¢ ë¶ëì°Â·ê³µì¸ì¤ê°ì¬</a>
+    <a href="/industry/dermatology.html">ð í¼ë¶ê³¼Â·ì±íì¸ê³¼</a>
+    <a href="/industry/auto.html">ð ìëì°¨ ì ë¹Â·ì¤ê³ ì°¨</a>
+    <a href="/industry/cleaning.html">ð§¹ ì¸íìÂ·ì²­ììì²´</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">AI 검색 가이드</div>
-    <a href="/guide/what-is-seo.html">📖 SEO란 무엇인가?</a>
-    <a href="/guide/what-is-aeo.html">🤖 AEO란 무엇인가?</a>
-    <a href="/guide/what-is-geo.html">🔬 GEO란 무엇인가?</a>
-    <a href="/guide/how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
-    <a href="/guide/naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
-    <a href="/guide/how-to-check-ai.html">🔎 AI 노출 직접 확인하기</a>
-    <a href="/guide/ai-seo-checklist.html">✅ AI 검색 최적화 체크리스트</a>
-    <a href="/guide/chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
-    <a href="/guide/perplexity-optimization.html">🔍 Perplexity 최적화</a>
-    <a href="/guide/gemini-ai-overview.html">♊ Google AI Overviews</a>
-    <a href="/guide/claude-ai-search.html">🧠 Claude AI 검색</a>
-    <a href="/guide/google-ai-overviews.html">🔎 Google AI Overviews 원리</a>
-    <a href="/guide/perplexity-how-it-works.html">📡 Perplexity 작동 원리</a>
-    <a href="/guide/chatgpt-search-guide.html">💡 ChatGPT Search 원리</a>
-    <a href="/guide/eeat-guide.html">⭐ E-E-A-T 가이드</a>
+    <div class="mob-section-title">AI ê²ì ê°ì´ë</div>
+    <a href="/guide/what-is-seo.html">ð SEOë ë¬´ìì¸ê°?</a>
+    <a href="/guide/what-is-aeo.html">ð¤ AEOë ë¬´ìì¸ê°?</a>
+    <a href="/guide/what-is-geo.html">ð¬ GEOë ë¬´ìì¸ê°?</a>
+    <a href="/guide/how-ai-search-works.html">âï¸ AIë ì´ë»ê² ì¶ì²íë?</a>
+    <a href="/guide/naver-vs-ai.html">â¡ ë¤ì´ë² vs AI ê²ì</a>
+    <a href="/guide/how-to-check-ai.html">ð AI ë¸ì¶ ì§ì  íì¸íê¸°</a>
+    <a href="/guide/ai-seo-checklist.html">â AI ê²ì ìµì í ì²´í¬ë¦¬ì¤í¸</a>
+    <a href="/guide/chatgpt-exposure.html">ð¬ ChatGPT ë¸ì¶íê¸°</a>
+    <a href="/guide/perplexity-optimization.html">ð Perplexity ìµì í</a>
+    <a href="/guide/gemini-ai-overview.html">â Google AI Overviews</a>
+    <a href="/guide/claude-ai-search.html">ð§  Claude AI ê²ì</a>
+    <a href="/guide/google-ai-overviews.html">ð Google AI Overviews ìë¦¬</a>
+    <a href="/guide/perplexity-how-it-works.html">ð¡ Perplexity ìë ìë¦¬</a>
+    <a href="/guide/chatgpt-search-guide.html">ð¡ ChatGPT Search ìë¦¬</a>
+    <a href="/guide/eeat-guide.html">â­ E-E-A-T ê°ì´ë</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">📍 네이버 플레이스</div>
-    <a href="/guide/naver-place-guide.html">📍 플레이스 등록·최적화</a>
-    <a href="/guide/naver-place-features.html">🧩 기능 완전 해부</a>
-    <a href="/guide/naver-place-star-rating-2026.html">⭐ 별점 부활 대응</a>
-    <a href="/guide/place-photo-tips.html">📸 사진 잘 찍는 법</a>
+    <div class="mob-section-title">ð ë¤ì´ë² íë ì´ì¤</div>
+    <a href="/guide/naver-place-guide.html">ð íë ì´ì¤ ë±ë¡Â·ìµì í</a>
+    <a href="/guide/naver-place-features.html">ð§© ê¸°ë¥ ìì  í´ë¶</a>
+    <a href="/guide/naver-place-star-rating-2026.html">â­ ë³ì  ë¶í ëì</a>
+    <a href="/guide/place-photo-tips.html">ð¸ ì¬ì§ ì ì°ë ë²</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">⭐ 리뷰 관리</div>
-    <a href="/guide/bad-review-response.html">🛡️ 악성 리뷰·별점 테러 대응</a>
-    <a href="/guide/get-more-reviews.html">📈 리뷰 늘리는 법</a>
-    <a href="/guide/review-management.html">⭐ 온라인 리뷰 관리</a>
+    <div class="mob-section-title">â­ ë¦¬ë·° ê´ë¦¬</div>
+    <a href="/guide/bad-review-response.html">ð¡ï¸ ìì± ë¦¬ë·°Â·ë³ì  íë¬ ëì</a>
+    <a href="/guide/get-more-reviews.html">ð ë¦¬ë·° ëë¦¬ë ë²</a>
+    <a href="/guide/review-management.html">â­ ì¨ë¼ì¸ ë¦¬ë·° ê´ë¦¬</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">🧭 마케팅</div>
-    <a href="/guide/naver-google-ai-search.html">🧭 네이버·구글·AI 검색 비교</a>
-    <a href="/guide/google-business-profile.html">🗺️ 구글 비즈니스 프로필</a>
-    <a href="/guide/online-marketing-start.html">🚀 온라인 마케팅 시작하기</a>
-    <a href="/guide/free-marketing-methods.html">💡 무료 마케팅 방법</a>
+    <div class="mob-section-title">ð§­ ë§ì¼í</div>
+    <a href="/guide/naver-google-ai-search.html">ð§­ ë¤ì´ë²Â·êµ¬ê¸Â·AI ê²ì ë¹êµ</a>
+    <a href="/guide/google-business-profile.html">ðºï¸ êµ¬ê¸ ë¹ì¦ëì¤ íë¡í</a>
+    <a href="/guide/online-marketing-start.html">ð ì¨ë¼ì¸ ë§ì¼í ììíê¸°</a>
+    <a href="/guide/free-marketing-methods.html">ð¡ ë¬´ë£ ë§ì¼í ë°©ë²</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">AI 진단기</div>
-    <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
-    <a href="/analyze-guide.html">📖 사용방법</a>
-    <a href="/guide/ai-bot-access.html">🤖 AI 봇 크롤링 설정</a>
-    <a href="/guide/faq-schema-for-ai.html">❓ FAQPage Schema</a>
-    <a href="/guide/business-schema-for-ai.html">🏢 LocalBusiness Schema</a>
-    <a href="/guide/meta-description-ai.html">📝 메타 디스크립션</a>
-    <a href="/guide/sitemap-for-ai.html">🗺️ sitemap.xml</a>
-    <a href="/guide/heading-structure-ai.html">📑 제목 계층 구조</a>
-    <a href="/guide/image-alt-for-ai.html">🖼️ 이미지 alt 텍스트</a>
+    <div class="mob-section-title">AI ì§ë¨ê¸°</div>
+    <a href="/analyze.html">ð ï¸ AI ìµì í ì§ë¨ê¸°</a>
+    <a href="/analyze-guide.html">ð ì¬ì©ë°©ë²</a>
+    <a href="/guide/ai-bot-access.html">ð¤ AI ë´ í¬ë¡¤ë§ ì¤ì </a>
+    <a href="/guide/faq-schema-for-ai.html">â FAQPage Schema</a>
+    <a href="/guide/business-schema-for-ai.html">ð¢ LocalBusiness Schema</a>
+    <a href="/guide/meta-description-ai.html">ð ë©í ëì¤í¬ë¦½ì</a>
+    <a href="/guide/sitemap-for-ai.html">ðºï¸ sitemap.xml</a>
+    <a href="/guide/heading-structure-ai.html">ð ì ëª© ê³ì¸µ êµ¬ì¡°</a>
+    <a href="/guide/image-alt-for-ai.html">ð¼ï¸ ì´ë¯¸ì§ alt íì¤í¸</a>
   </div>
-  <button class="mob-cta">무료 상담 신청하기 →</button>
+  <button class="mob-cta">ë¬´ë£ ìë´ ì ì²­íê¸° â</button>
 </div>
 
 <div class="breadcrumb">
-  <a href="../index.html">홈</a><span>›</span>
-  <a href="index.html">AI 검색 가이드</a><span>›</span>
-  LocalBusiness Schema 가이드
+  <a href="../index.html">í</a><span>âº</span>
+  <a href="index.html">AI ê²ì ê°ì´ë</a><span>âº</span>
+  LocalBusiness Schema ê°ì´ë
 </div>
 
 <div class="article-hero">
   <div class="article-hero-bg"></div>
-  <div class="article-category">기술 가이드 · Schema Markup</div>
-  <h1>LocalBusiness Schema<br><span class="hl">작성 가이드</span><br>필드 & 업종별 타입</h1>
-  <p>로컬 비즈니스가 AI 검색에서 추천받기 위한 핵심 기술인 LocalBusiness Schema Markup의 필수 필드와 업종별 하위 타입을 Schema.org 공식 명세 기반으로 설명합니다.</p>
+  <div class="article-category">ê¸°ì  ê°ì´ë Â· Schema Markup</div>
+  <h1>LocalBusiness Schema<br><span class="hl">ìì± ê°ì´ë</span><br>íë & ìì¢ë³ íì</h1>
+  <p>ë¡ì»¬ ë¹ì¦ëì¤ê° AI ê²ììì ì¶ì²ë°ê¸° ìí íµì¬ ê¸°ì ì¸ LocalBusiness Schema Markupì íì íëì ìì¢ë³ íì íìì Schema.org ê³µì ëªì¸ ê¸°ë°ì¼ë¡ ì¤ëªí©ëë¤.</p>
   <div class="article-meta">
-    <span>온종일AI 편집팀</span><span>·</span>
-    <span>2026년 6월 9일</span><span>·</span>
-    <span>약 5분 소요</span>
+    <span>ì¨ì¢ì¼AI í¸ì§í</span><span>Â·</span>
+    <span>2026ë 6ì 9ì¼</span><span>Â·</span>
+    <span>ì½ 5ë¶ ìì</span>
   </div>
 </div>
 
 <div class="article-wrap">
   <p class="article-lead">
-    LocalBusiness Schema는 지역 비즈니스(병원, 식당, 학원, 부동산 등)를 AI와 검색 엔진에 알려주는 구조화 데이터입니다. Schema.org에서 정의하고 Google, Bing이 공식으로 지원합니다.
+    LocalBusiness Schemaë ì§ì­ ë¹ì¦ëì¤(ë³ì, ìë¹, íì, ë¶ëì° ë±)ë¥¼ AIì ê²ì ìì§ì ìë ¤ì£¼ë êµ¬ì¡°í ë°ì´í°ìëë¤. Schema.orgìì ì ìíê³  Google, Bingì´ ê³µìì¼ë¡ ì§ìí©ëë¤.
   </p>
 
   <div class="article-section">
-    <h2>LocalBusiness Schema 핵심 필드</h2>
+    <h2>LocalBusiness Schema íµì¬ íë</h2>
     <p>
-      Schema.org의 LocalBusiness 공식 명세(<a href="https://schema.org/LocalBusiness" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/LocalBusiness</a>)에 따른 주요 필드입니다.
+      Schema.orgì LocalBusiness ê³µì ëªì¸(<a href="https://schema.org/LocalBusiness" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/LocalBusiness</a>)ì ë°ë¥¸ ì£¼ì íëìëë¤.
     </p>
 
     <div class="info-grid">
       <div class="info-card">
-        <div class="ico">🏢</div>
-        <h4>name (필수)</h4>
-        <p>업체의 공식 이름. 홈페이지와 Google 비즈니스 프로필의 이름과 일치해야 합니다. NAP(Name-Address-Phone) 일관성의 핵심입니다.</p>
+        <div class="ico">ð¢</div>
+        <h4>name (íì)</h4>
+        <p>ìì²´ì ê³µì ì´ë¦. ííì´ì§ì Google ë¹ì¦ëì¤ íë¡íì ì´ë¦ê³¼ ì¼ì¹í´ì¼ í©ëë¤. NAP(Name-Address-Phone) ì¼ê´ì±ì íµì¬ìëë¤.</p>
       </div>
       <div class="info-card">
-        <div class="ico">📍</div>
-        <h4>address (필수)</h4>
-        <p>PostalAddress 타입을 사용해 상세 주소를 구조화합니다. addressLocality(시/구), addressRegion(도), postalCode(우편번호), streetAddress(도로명 주소)를 모두 포함합니다.</p>
+        <div class="ico">ð</div>
+        <h4>address (íì)</h4>
+        <p>PostalAddress íìì ì¬ì©í´ ìì¸ ì£¼ìë¥¼ êµ¬ì¡°íí©ëë¤. addressLocality(ì/êµ¬), addressRegion(ë), postalCode(ì°í¸ë²í¸), streetAddress(ëë¡ëª ì£¼ì)ë¥¼ ëª¨ë í¬í¨í©ëë¤.</p>
       </div>
       <div class="info-card">
-        <div class="ico">📞</div>
+        <div class="ico">ð</div>
         <h4>telephone</h4>
-        <p>E.164 국제 전화번호 형식(+82-2-1234-5678)이 권장됩니다. NAP 정보의 핵심 요소로 AI 검색에서 로컬 비즈니스 인식에 중요합니다.</p>
+        <p>E.164 êµ­ì  ì íë²í¸ íì(+82-2-1234-5678)ì´ ê¶ì¥ë©ëë¤. NAP ì ë³´ì íµì¬ ììë¡ AI ê²ììì ë¡ì»¬ ë¹ì¦ëì¤ ì¸ìì ì¤ìí©ëë¤.</p>
       </div>
       <div class="info-card">
-        <div class="ico">🌐</div>
+        <div class="ico">ð</div>
         <h4>url</h4>
-        <p>업체 공식 웹사이트 URL. 검색 엔진이 Schema 정보와 실제 웹사이트를 연결하는 기준점입니다.</p>
+        <p>ìì²´ ê³µì ì¹ì¬ì´í¸ URL. ê²ì ìì§ì´ Schema ì ë³´ì ì¤ì  ì¹ì¬ì´í¸ë¥¼ ì°ê²°íë ê¸°ì¤ì ìëë¤.</p>
       </div>
       <div class="info-card">
-        <div class="ico">⏰</div>
+        <div class="ico">â°</div>
         <h4>openingHoursSpecification</h4>
-        <p>영업시간을 구조화합니다. dayOfWeek, opens, closes 필드를 사용합니다. AI가 "지금 영업 중인 곳"을 판단하는 데 사용됩니다.</p>
+        <p>ìììê°ì êµ¬ì¡°íí©ëë¤. dayOfWeek, opens, closes íëë¥¼ ì¬ì©í©ëë¤. AIê° "ì§ê¸ ìì ì¤ì¸ ê³³"ì íë¨íë ë° ì¬ì©ë©ëë¤.</p>
       </div>
       <div class="info-card">
-        <div class="ico">🗺️</div>
+        <div class="ico">ðºï¸</div>
         <h4>geo (GeoCoordinates)</h4>
-        <p>위도(latitude)와 경도(longitude)를 제공합니다. Google Maps와 연동되며 지역 기반 AI 검색에서 정확한 위치 인식에 도움이 됩니다.</p>
+        <p>ìë(latitude)ì ê²½ë(longitude)ë¥¼ ì ê³µí©ëë¤. Google Mapsì ì°ëëë©° ì§ì­ ê¸°ë° AI ê²ììì ì íí ìì¹ ì¸ìì ëìì´ ë©ëë¤.</p>
       </div>
     </div>
   </div>
 
   <div class="article-section">
-    <h2>JSON-LD 구현 예시</h2>
+    <h2>JSON-LD êµ¬í ìì</h2>
 
     <div class="tip-box">
-      <div class="tip-label">📋 LocalBusiness Schema — 치과 예시 (JSON-LD)</div>
+      <div class="tip-label">ð LocalBusiness Schema â ì¹ê³¼ ìì (JSON-LD)</div>
       <p style="font-family:monospace;font-size:.78rem;line-height:1.6">
         &lt;script type="application/ld+json"&gt;<br>
         {<br>
         &nbsp;&nbsp;"@context": "https://schema.org",<br>
         &nbsp;&nbsp;"@type": "Dentist",<br>
-        &nbsp;&nbsp;"name": "스마일서울치과",<br>
-        &nbsp;&nbsp;"url": "https://우리도메인.com",<br>
+        &nbsp;&nbsp;"name": "ì¤ë§ì¼ìì¸ì¹ê³¼",<br>
+        &nbsp;&nbsp;"url": "https://ì°ë¦¬ëë©ì¸.com",<br>
         &nbsp;&nbsp;"telephone": "+82-2-1234-5678",<br>
         &nbsp;&nbsp;"address": {<br>
         &nbsp;&nbsp;&nbsp;&nbsp;"@type": "PostalAddress",<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;"streetAddress": "테헤란로 123",<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;"addressLocality": "강남구",<br>
-        &nbsp;&nbsp;&nbsp;&nbsp;"addressRegion": "서울",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;"streetAddress": "íí¤ëë¡ 123",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;"addressLocality": "ê°ë¨êµ¬",<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;"addressRegion": "ìì¸",<br>
         &nbsp;&nbsp;&nbsp;&nbsp;"postalCode": "06234",<br>
         &nbsp;&nbsp;&nbsp;&nbsp;"addressCountry": "KR"<br>
         &nbsp;&nbsp;},<br>
@@ -277,146 +279,146 @@
   </div>
 
   <div class="article-section">
-    <h2>업종별 LocalBusiness 하위 타입</h2>
+    <h2>ìì¢ë³ LocalBusiness íì íì</h2>
     <p>
-      Schema.org는 LocalBusiness의 다양한 하위 타입을 제공합니다. 일반적인 LocalBusiness 대신 업종에 맞는 구체적인 타입을 사용하면 AI가 업체 유형을 더 정확하게 인식합니다.
+      Schema.orgë LocalBusinessì ë¤ìí íì íìì ì ê³µí©ëë¤. ì¼ë°ì ì¸ LocalBusiness ëì  ìì¢ì ë§ë êµ¬ì²´ì ì¸ íìì ì¬ì©íë©´ AIê° ìì²´ ì íì ë ì ííê² ì¸ìí©ëë¤.
     </p>
 
     <div class="info-grid">
       <div class="info-card">
-        <div class="ico">🏥</div>
-        <h4>의료 업종</h4>
+        <div class="ico">ð¥</div>
+        <h4>ìë£ ìì¢</h4>
         <p>
-          Dentist (치과)<br>
-          MedicalClinic (의원·클리닉)<br>
-          Hospital (병원)<br>
-          출처: <a href="https://schema.org/MedicalOrganization" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/MedicalOrganization</a>
+          Dentist (ì¹ê³¼)<br>
+          MedicalClinic (ììÂ·í´ë¦¬ë)<br>
+          Hospital (ë³ì)<br>
+          ì¶ì²: <a href="https://schema.org/MedicalOrganization" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/MedicalOrganization</a>
         </p>
       </div>
       <div class="info-card">
-        <div class="ico">🍽️</div>
-        <h4>음식점</h4>
+        <div class="ico">ð½ï¸</div>
+        <h4>ììì </h4>
         <p>
-          Restaurant (레스토랑)<br>
-          CafeOrCoffeeShop (카페)<br>
-          FastFoodRestaurant (패스트푸드)<br>
-          출처: <a href="https://schema.org/FoodEstablishment" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/FoodEstablishment</a>
+          Restaurant (ë ì¤í ë)<br>
+          CafeOrCoffeeShop (ì¹´í)<br>
+          FastFoodRestaurant (í¨ì¤í¸í¸ë)<br>
+          ì¶ì²: <a href="https://schema.org/FoodEstablishment" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/FoodEstablishment</a>
         </p>
       </div>
       <div class="info-card">
-        <div class="ico">⚖️</div>
-        <h4>전문직</h4>
+        <div class="ico">âï¸</div>
+        <h4>ì ë¬¸ì§</h4>
         <p>
-          LegalService (법무 서비스)<br>
-          AccountingService (회계 서비스)<br>
-          RealEstateAgent (공인중개사)<br>
-          출처: <a href="https://schema.org/ProfessionalService" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/ProfessionalService</a>
+          LegalService (ë²ë¬´ ìë¹ì¤)<br>
+          AccountingService (íê³ ìë¹ì¤)<br>
+          RealEstateAgent (ê³µì¸ì¤ê°ì¬)<br>
+          ì¶ì²: <a href="https://schema.org/ProfessionalService" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/ProfessionalService</a>
         </p>
       </div>
       <div class="info-card">
-        <div class="ico">🚗</div>
-        <h4>자동차</h4>
+        <div class="ico">ð</div>
+        <h4>ìëì°¨</h4>
         <p>
-          AutomotiveBusiness (자동차 관련)<br>
-          AutoRepair (자동차 수리)<br>
-          AutoDealer (자동차 판매)<br>
-          출처: <a href="https://schema.org/AutomotiveBusiness" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/AutomotiveBusiness</a>
+          AutomotiveBusiness (ìëì°¨ ê´ë ¨)<br>
+          AutoRepair (ìëì°¨ ìë¦¬)<br>
+          AutoDealer (ìëì°¨ íë§¤)<br>
+          ì¶ì²: <a href="https://schema.org/AutomotiveBusiness" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/AutomotiveBusiness</a>
         </p>
       </div>
       <div class="info-card">
-        <div class="ico">💪</div>
-        <h4>헬스·뷰티</h4>
+        <div class="ico">ðª</div>
+        <h4>í¬ì¤Â·ë·°í°</h4>
         <p>
-          HealthClub (헬스클럽)<br>
-          BeautySalon (미용실·뷰티)<br>
-          SportsActivityLocation (스포츠 시설)<br>
-          출처: <a href="https://schema.org/SportsActivityLocation" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/SportsActivityLocation</a>
+          HealthClub (í¬ì¤í´ë½)<br>
+          BeautySalon (ë¯¸ì©ì¤Â·ë·°í°)<br>
+          SportsActivityLocation (ì¤í¬ì¸  ìì¤)<br>
+          ì¶ì²: <a href="https://schema.org/SportsActivityLocation" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/SportsActivityLocation</a>
         </p>
       </div>
       <div class="info-card">
-        <div class="ico">🏠</div>
-        <h4>홈서비스</h4>
+        <div class="ico">ð </div>
+        <h4>íìë¹ì¤</h4>
         <p>
-          HomeAndConstructionBusiness (인테리어·건설)<br>
-          HousePainter (도장·인테리어)<br>
-          Plumber (배관)<br>
-          출처: <a href="https://schema.org/HomeAndConstructionBusiness" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/HomeAndConstructionBusiness</a>
+          HomeAndConstructionBusiness (ì¸íë¦¬ì´Â·ê±´ì¤)<br>
+          HousePainter (ëì¥Â·ì¸íë¦¬ì´)<br>
+          Plumber (ë°°ê´)<br>
+          ì¶ì²: <a href="https://schema.org/HomeAndConstructionBusiness" target="_blank" rel="noopener" style="color:var(--accent)">schema.org/HomeAndConstructionBusiness</a>
         </p>
       </div>
     </div>
   </div>
 
   <div class="article-section">
-    <h2>NAP 일관성과 AI 검색</h2>
+    <h2>NAP ì¼ê´ì±ê³¼ AI ê²ì</h2>
     <p>
-      NAP(Name, Address, Phone)는 로컬 SEO와 AI 검색 최적화에서 신뢰도의 핵심 신호입니다. Schema Markup의 NAP 정보가 Google 비즈니스 프로필, 네이버 플레이스, 웹사이트 본문의 연락처 정보와 모두 일치해야 합니다.
+      NAP(Name, Address, Phone)ë ë¡ì»¬ SEOì AI ê²ì ìµì íìì ì ë¢°ëì íµì¬ ì í¸ìëë¤. Schema Markupì NAP ì ë³´ê° Google ë¹ì¦ëì¤ íë¡í, ë¤ì´ë² íë ì´ì¤, ì¹ì¬ì´í¸ ë³¸ë¬¸ì ì°ë½ì² ì ë³´ì ëª¨ë ì¼ì¹í´ì¼ í©ëë¤.
     </p>
 
     <div class="tip-box">
-      <div class="tip-label">✅ NAP 일관성 체크리스트</div>
+      <div class="tip-label">â NAP ì¼ê´ì± ì²´í¬ë¦¬ì¤í¸</div>
       <p>
-        · Schema Markup의 name = Google 비즈니스 프로필 업체명<br>
-        · Schema Markup의 address = 웹사이트 푸터/연락처 페이지 주소<br>
-        · Schema Markup의 telephone = 웹사이트에 표시된 전화번호<br>
-        · 도로명 주소 표기 방식 통일 (지번 vs 도로명 혼용 주의)
+        Â· Schema Markupì name = Google ë¹ì¦ëì¤ íë¡í ìì²´ëª<br>
+        Â· Schema Markupì address = ì¹ì¬ì´í¸ í¸í°/ì°ë½ì² íì´ì§ ì£¼ì<br>
+        Â· Schema Markupì telephone = ì¹ì¬ì´í¸ì íìë ì íë²í¸<br>
+        Â· ëë¡ëª ì£¼ì íê¸° ë°©ì íµì¼ (ì§ë² vs ëë¡ëª í¼ì© ì£¼ì)
       </p>
     </div>
   </div>
 
   <div class="article-section">
-    <h2>자주 묻는 질문</h2>
+    <h2>ìì£¼ ë¬»ë ì§ë¬¸</h2>
 
     <div class="tip-box">
-      <div class="tip-label">Q. LocalBusiness Schema를 메인 페이지(index.html)에만 넣으면 되나요?</div>
-      <p>일반적으로 LocalBusiness Schema는 메인 페이지에 적용하면 충분합니다. 다만 지점이 여러 개인 경우 각 지점 페이지에 별도의 LocalBusiness Schema를 적용하는 것이 좋습니다. 업종별 특화 페이지(예: 임플란트 전용 페이지)에는 Dentist 타입의 Schema를 추가로 적용할 수 있습니다.</p>
+      <div class="tip-label">Q. LocalBusiness Schemaë¥¼ ë©ì¸ íì´ì§(index.html)ìë§ ë£ì¼ë©´ ëëì?</div>
+      <p>ì¼ë°ì ì¼ë¡ LocalBusiness Schemaë ë©ì¸ íì´ì§ì ì ì©íë©´ ì¶©ë¶í©ëë¤. ë¤ë§ ì§ì ì´ ì¬ë¬ ê°ì¸ ê²½ì° ê° ì§ì  íì´ì§ì ë³ëì LocalBusiness Schemaë¥¼ ì ì©íë ê²ì´ ì¢ìµëë¤. ìì¢ë³ í¹í íì´ì§(ì: ìíëí¸ ì ì© íì´ì§)ìë Dentist íìì Schemaë¥¼ ì¶ê°ë¡ ì ì©í  ì ììµëë¤.</p>
     </div>
     <div class="tip-box">
-      <div class="tip-label">Q. Google My Business(비즈니스 프로필)와 LocalBusiness Schema 중 뭐가 더 중요한가요?</div>
-      <p>두 가지 모두 중요합니다. Google 비즈니스 프로필은 Google Maps와 Google 검색 지도 결과에서 중요하고, LocalBusiness Schema는 검색 엔진과 AI가 웹사이트 자체에서 업체 정보를 인식하는 데 사용됩니다. 두 채널의 NAP 정보가 일치해야 합니다.</p>
+      <div class="tip-label">Q. Google My Business(ë¹ì¦ëì¤ íë¡í)ì LocalBusiness Schema ì¤ ë­ê° ë ì¤ìíê°ì?</div>
+      <p>ë ê°ì§ ëª¨ë ì¤ìí©ëë¤. Google ë¹ì¦ëì¤ íë¡íì Google Mapsì Google ê²ì ì§ë ê²°ê³¼ìì ì¤ìíê³ , LocalBusiness Schemaë ê²ì ìì§ê³¼ AIê° ì¹ì¬ì´í¸ ìì²´ìì ìì²´ ì ë³´ë¥¼ ì¸ìíë ë° ì¬ì©ë©ëë¤. ë ì±ëì NAP ì ë³´ê° ì¼ì¹í´ì¼ í©ëë¤.</p>
     </div>
   </div>
 
   <div class="article-related">
-    <h3>다음으로 읽어볼 가이드</h3>
+    <h3>ë¤ìì¼ë¡ ì½ì´ë³¼ ê°ì´ë</h3>
     <div class="related-grid">
       <a href="faqpage-schema-guide.html" class="related-card">
-        <div class="rc-cat">기술 가이드 · Schema</div>
-        <div class="rc-title">📋 FAQPage Schema 구현법</div>
+        <div class="rc-cat">ê¸°ì  ê°ì´ë Â· Schema</div>
+        <div class="rc-title">ð FAQPage Schema êµ¬íë²</div>
       </a>
       <a href="eeat-guide.html" class="related-card">
-        <div class="rc-cat">기술 가이드 · E-E-A-T</div>
-        <div class="rc-title">⭐ E-E-A-T 완전 가이드 — Google 신뢰도 기준</div>
+        <div class="rc-cat">ê¸°ì  ê°ì´ë Â· E-E-A-T</div>
+        <div class="rc-title">â­ E-E-A-T ìì  ê°ì´ë â Google ì ë¢°ë ê¸°ì¤</div>
       </a>
     </div>
   </div>
 </div>
 
 <div class="cta fi">
-  <h2>LocalBusiness Schema<br>적용 현황<br><span style="color:var(--accent)">무료로 진단받기</span></h2>
-  <p>NAP 정보 구조화 상태와 Schema Markup 적용 여부를 진단합니다.</p>
-  <a href="/analyze.html" class="btn-primary" style="font-size:18px;padding:20px 48px;text-decoration:none;display:inline-block">AI 최적화 진단기 →</a>
+  <h2>LocalBusiness Schema<br>ì ì© íí©<br><span style="color:var(--accent)">ë¬´ë£ë¡ ì§ë¨ë°ê¸°</span></h2>
+  <p>NAP ì ë³´ êµ¬ì¡°í ìíì Schema Markup ì ì© ì¬ë¶ë¥¼ ì§ë¨í©ëë¤.</p>
+  <a href="/analyze.html" class="btn-primary" style="font-size:18px;padding:20px 48px;text-decoration:none;display:inline-block">AI ìµì í ì§ë¨ê¸° â</a>
 </div>
 
 <div class="article-wrap" style="max-width:900px;margin:0 auto;padding:40px 24px 20px">
   <div class="article-section">
-    <h2 style="font-size:1.1rem;margin-bottom:12px">참고 출처</h2>
+    <h2 style="font-size:1.1rem;margin-bottom:12px">ì°¸ê³  ì¶ì²</h2>
     <ul style="font-size:.85rem;line-height:1.8;color:var(--text-sub)">
-      <li><a href="https://schema.org/LocalBusiness" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org — LocalBusiness 공식 명세</a></li>
-      <li><a href="https://developers.google.com/search/docs/appearance/structured-data/local-business" target="_blank" rel="noopener" style="color:var(--accent)">Google Search Central — LocalBusiness 구조화 데이터 가이드</a></li>
-      <li><a href="https://schema.org/MedicalOrganization" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org — MedicalOrganization 명세 (의료 업종)</a></li>
-      <li><a href="https://schema.org/FoodEstablishment" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org — FoodEstablishment 명세 (음식점)</a></li>
+      <li><a href="https://schema.org/LocalBusiness" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org â LocalBusiness ê³µì ëªì¸</a></li>
+      <li><a href="https://developers.google.com/search/docs/appearance/structured-data/local-business" target="_blank" rel="noopener" style="color:var(--accent)">Google Search Central â LocalBusiness êµ¬ì¡°í ë°ì´í° ê°ì´ë</a></li>
+      <li><a href="https://schema.org/MedicalOrganization" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org â MedicalOrganization ëªì¸ (ìë£ ìì¢)</a></li>
+      <li><a href="https://schema.org/FoodEstablishment" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org â FoodEstablishment ëªì¸ (ììì )</a></li>
     </ul>
   </div>
 </div>
 
 <footer>
-  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
+  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">ì¨ì¢ì¼<span>AI</span></a></div>
   <div class="flinks">
-    <a href="/about.html">서비스 소개</a>
-    <a href="/contact.html">문의하기</a>
-    <a href="/privacy.html">개인정보처리방침</a>
+    <a href="/about.html">ìë¹ì¤ ìê°</a>
+    <a href="/contact.html">ë¬¸ìíê¸°</a>
+    <a href="/privacy.html">ê°ì¸ì ë³´ì²ë¦¬ë°©ì¹¨</a>
   </div>
-  <div class="fcopy">© 2026 온종일AI. AI 검색 최적화 컨설팅 &nbsp;·&nbsp; 이메일: tarry9653@daum.net</div>
+  <div class="fcopy">Â© 2026 ì¨ì¢ì¼AI. AI ê²ì ìµì í ì»¨ì¤í &nbsp;Â·&nbsp; ì´ë©ì¼: tarry9653@daum.net</div>
 </footer>
 <script src="../js/main.js"></script>
 <script src="../js/proof.js"></script>

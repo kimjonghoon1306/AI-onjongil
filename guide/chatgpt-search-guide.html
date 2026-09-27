@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ChatGPT Search 작동 원리 | OAI-SearchBot과 Bing 연동 완전 해설 | 온종일AI</title>
-<meta name="description" content="ChatGPT Search가 어떻게 실시간 웹 검색을 수행하고 출처를 인용하는지 OpenAI 공식 문서를 기반으로 설명합니다. OAI-SearchBot 허용 방법과 인용 전략을 안내합니다.">
+<title>ChatGPT Search ìë ìë¦¬ | OAI-SearchBotê³¼ Bing ì°ë ìì  í´ì¤ | ì¨ì¢ì¼AI</title>
+<meta name="description" content="ChatGPT Searchê° ì´ë»ê² ì¤ìê° ì¹ ê²ìì ìííê³  ì¶ì²ë¥¼ ì¸ì©íëì§ OpenAI ê³µì ë¬¸ìë¥¼ ê¸°ë°ì¼ë¡ ì¤ëªí©ëë¤. OAI-SearchBot íì© ë°©ë²ê³¼ ì¸ì© ì ëµì ìë´í©ëë¤.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://ai.xn--zk5biyyw.com/guide/chatgpt-search-guide.html">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -13,10 +13,10 @@
 {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "ChatGPT Search 작동 원리 — OAI-SearchBot과 실시간 인용 메커니즘",
-  "description": "ChatGPT Search가 어떻게 Bing을 통해 실시간 검색을 수행하고 출처를 인용하는지 OpenAI 공식 문서 기반으로 설명합니다.",
-  "author": {"@type": "Organization", "name": "온종일AI"},
-  "publisher": {"@type": "Organization", "name": "온종일AI"},
+  "headline": "ChatGPT Search ìë ìë¦¬ â OAI-SearchBotê³¼ ì¤ìê° ì¸ì© ë©ì»¤ëì¦",
+  "description": "ChatGPT Searchê° ì´ë»ê² Bingì íµí´ ì¤ìê° ê²ìì ìííê³  ì¶ì²ë¥¼ ì¸ì©íëì§ OpenAI ê³µì ë¬¸ì ê¸°ë°ì¼ë¡ ì¤ëªí©ëë¤.",
+  "author": {"@type": "Organization", "name": "ì¨ì¢ì¼AI"},
+  "publisher": {"@type": "Organization", "name": "ì¨ì¢ì¼AI"},
   "datePublished": "2026-06-09"
 }
 </script>
@@ -24,363 +24,365 @@
 <body>
 
 <nav>
-  <div class="logo-wrap"><div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div><a href="https://www.xn--zk5biyyw.com" target="_blank" rel="noopener" class="logo-by">by 온종일</a></div>
+  <div class="logo-wrap"><div class="logo"><a href="../index.html" style="color:inherit;text-decoration:none">ì¨ì¢ì¼<span>AI</span></a></div><a href="https://www.xn--zk5biyyw.com" target="_blank" rel="noopener" class="logo-by">by ì¨ì¢ì¼</a></div>
   <div class="nav-links">
     <div class="nav-drop">
-      <button class="nav-drop-btn">업종별 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">ìì¢ë³ <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="../industry/hospital.html">🏥 병원·치과·한의원</a>
-        <a href="../industry/interior.html">🏠 인테리어·리모델링</a>
-        <a href="../industry/law.html">⚖️ 법률·세무·회계</a>
-        <a href="../industry/health.html">💪 헬스·뷰티·피트니스</a>
-        <a href="../industry/restaurant.html">🍽️ 식당·카페·배달</a>
-        <a href="../industry/academy.html">📚 학원·교습소</a>
-        <a href="../industry/realestate.html">🏢 부동산·공인중개사</a>
-        <a href="../industry/dermatology.html">💉 피부과·성형외과</a>
-        <a href="../industry/auto.html">🚗 자동차 정비·중고차</a>
-        <a href="../industry/cleaning.html">🧹 세탁소·청소업체</a>
+        <a href="../industry/hospital.html">ð¥ ë³ìÂ·ì¹ê³¼Â·íìì</a>
+        <a href="../industry/interior.html">ð  ì¸íë¦¬ì´Â·ë¦¬ëª¨ë¸ë§</a>
+        <a href="../industry/law.html">âï¸ ë²ë¥ Â·ì¸ë¬´Â·íê³</a>
+        <a href="../industry/health.html">ðª í¬ì¤Â·ë·°í°Â·í¼í¸ëì¤</a>
+        <a href="../industry/restaurant.html">ð½ï¸ ìë¹Â·ì¹´íÂ·ë°°ë¬</a>
+        <a href="../industry/academy.html">ð íìÂ·êµìµì</a>
+        <a href="../industry/realestate.html">ð¢ ë¶ëì°Â·ê³µì¸ì¤ê°ì¬</a>
+        <a href="../industry/dermatology.html">ð í¼ë¶ê³¼Â·ì±íì¸ê³¼</a>
+        <a href="../industry/auto.html">ð ìëì°¨ ì ë¹Â·ì¤ê³ ì°¨</a>
+        <a href="../industry/cleaning.html">ð§¹ ì¸íìÂ·ì²­ììì²´</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">AI 검색 가이드 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">AI ê²ì ê°ì´ë <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="what-is-seo.html">📖 SEO란 무엇인가?</a>
-        <a href="what-is-aeo.html">🤖 AEO란 무엇인가?</a>
-        <a href="what-is-geo.html">🔬 GEO란 무엇인가?</a>
-        <a href="how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
-        <a href="naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
-        <a href="chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
-        <a href="perplexity-optimization.html">🔍 Perplexity 최적화</a>
-        <a href="gemini-ai-overview.html">♊ Google AI Overviews 최적화</a>
-        <a href="claude-ai-search.html">🧠 Claude AI 검색</a>
-        <a href="google-ai-overviews.html">🔎 Google AI Overviews 원리</a>
-        <a href="perplexity-how-it-works.html">📡 Perplexity 작동 원리</a>
-        <a href="chatgpt-search-guide.html">💡 ChatGPT Search 원리</a>
-        <a href="eeat-guide.html">⭐ E-E-A-T 가이드</a>
+        <a href="what-is-seo.html">ð SEOë ë¬´ìì¸ê°?</a>
+        <a href="what-is-aeo.html">ð¤ AEOë ë¬´ìì¸ê°?</a>
+        <a href="what-is-geo.html">ð¬ GEOë ë¬´ìì¸ê°?</a>
+        <a href="how-ai-search-works.html">âï¸ AIë ì´ë»ê² ì¶ì²íë?</a>
+        <a href="naver-vs-ai.html">â¡ ë¤ì´ë² vs AI ê²ì</a>
+        <a href="chatgpt-exposure.html">ð¬ ChatGPT ë¸ì¶íê¸°</a>
+        <a href="perplexity-optimization.html">ð Perplexity ìµì í</a>
+        <a href="gemini-ai-overview.html">â Google AI Overviews ìµì í</a>
+        <a href="claude-ai-search.html">ð§  Claude AI ê²ì</a>
+        <a href="google-ai-overviews.html">ð Google AI Overviews ìë¦¬</a>
+        <a href="perplexity-how-it-works.html">ð¡ Perplexity ìë ìë¦¬</a>
+        <a href="chatgpt-search-guide.html">ð¡ ChatGPT Search ìë¦¬</a>
+        <a href="eeat-guide.html">â­ E-E-A-T ê°ì´ë</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">📍 네이버 플레이스 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">ð ë¤ì´ë² íë ì´ì¤ <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="/guide/naver-place-guide.html">📍 플레이스 등록·최적화</a>
-        <a href="/guide/naver-place-features.html">🧩 기능 완전 해부</a>
-        <a href="/guide/naver-place-star-rating-2026.html">⭐ 별점 부활 대응</a>
-        <a href="/guide/place-photo-tips.html">📸 사진 잘 찍는 법</a>
+        <a href="/guide/naver-place-guide.html">ð íë ì´ì¤ ë±ë¡Â·ìµì í</a>
+        <a href="/guide/naver-place-features.html">ð§© ê¸°ë¥ ìì  í´ë¶</a>
+        <a href="/guide/naver-place-star-rating-2026.html">â­ ë³ì  ë¶í ëì</a>
+        <a href="/guide/place-photo-tips.html">ð¸ ì¬ì§ ì ì°ë ë²</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">⭐ 리뷰 관리 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">â­ ë¦¬ë·° ê´ë¦¬ <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="/guide/bad-review-response.html">🛡️ 악성 리뷰·별점 테러 대응</a>
-        <a href="/guide/get-more-reviews.html">📈 리뷰 늘리는 법</a>
-        <a href="/guide/review-management.html">⭐ 온라인 리뷰 관리</a>
+        <a href="/guide/bad-review-response.html">ð¡ï¸ ìì± ë¦¬ë·°Â·ë³ì  íë¬ ëì</a>
+        <a href="/guide/get-more-reviews.html">ð ë¦¬ë·° ëë¦¬ë ë²</a>
+        <a href="/guide/review-management.html">â­ ì¨ë¼ì¸ ë¦¬ë·° ê´ë¦¬</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">🧭 마케팅 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">ð§­ ë§ì¼í <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="/guide/naver-google-ai-search.html">🧭 네이버·구글·AI 검색 비교</a>
-        <a href="/guide/google-business-profile.html">🗺️ 구글 비즈니스 프로필</a>
-        <a href="/guide/online-marketing-start.html">🚀 온라인 마케팅 시작하기</a>
-        <a href="/guide/free-marketing-methods.html">💡 무료 마케팅 방법</a>
+        <a href="/guide/naver-google-ai-search.html">ð§­ ë¤ì´ë²Â·êµ¬ê¸Â·AI ê²ì ë¹êµ</a>
+        <a href="/guide/google-business-profile.html">ðºï¸ êµ¬ê¸ ë¹ì¦ëì¤ íë¡í</a>
+        <a href="/guide/online-marketing-start.html">ð ì¨ë¼ì¸ ë§ì¼í ììíê¸°</a>
+        <a href="/guide/free-marketing-methods.html">ð¡ ë¬´ë£ ë§ì¼í ë°©ë²</a>
       </div>
     </div>
     <div class="nav-drop">
-      <button class="nav-drop-btn">🛠️ AI 진단기 <span class="nav-arrow">▾</span></button>
+      <button class="nav-drop-btn">ð ï¸ AI ì§ë¨ê¸° <span class="nav-arrow">â¾</span></button>
       <div class="drop-menu">
-        <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
-        <a href="/analyze-guide.html">📖 사용방법</a>
+        <a href="/analyze.html">ð ï¸ AI ìµì í ì§ë¨ê¸°</a>
+        <a href="/analyze-guide.html">ð ì¬ì©ë°©ë²</a>
         <div style="border-top:1px solid var(--border);margin:4px 2px"></div>
-        <a href="/guide/ai-bot-access.html">🤖 AI 봇 크롤링 설정</a>
-        <a href="/guide/faq-schema-for-ai.html">❓ FAQPage Schema</a>
-        <a href="/guide/business-schema-for-ai.html">🏢 LocalBusiness Schema</a>
-        <a href="/guide/meta-description-ai.html">📝 메타 디스크립션</a>
-        <a href="/guide/sitemap-for-ai.html">🗺️ sitemap.xml</a>
-        <a href="/guide/heading-structure-ai.html">📑 제목 계층 구조</a>
-        <a href="/guide/image-alt-for-ai.html">🖼️ 이미지 alt 텍스트</a>
+        <a href="/guide/ai-bot-access.html">ð¤ AI ë´ í¬ë¡¤ë§ ì¤ì </a>
+        <a href="/guide/faq-schema-for-ai.html">â FAQPage Schema</a>
+        <a href="/guide/business-schema-for-ai.html">ð¢ LocalBusiness Schema</a>
+        <a href="/guide/meta-description-ai.html">ð ë©í ëì¤í¬ë¦½ì</a>
+        <a href="/guide/sitemap-for-ai.html">ðºï¸ sitemap.xml</a>
+        <a href="/guide/heading-structure-ai.html">ð ì ëª© ê³ì¸µ êµ¬ì¡°</a>
+        <a href="/guide/image-alt-for-ai.html">ð¼ï¸ ì´ë¯¸ì§ alt íì¤í¸</a>
       </div>
     </div>
+    <a href="/lab.html" class="nav-single-link">✨ AI 프롬프트<span class="nav-new">NEW</span></a>
   </div>
-  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="메뉴"><span></span><span></span><span></span></button>
-    <button class="theme-btn" id="themeBtn">🌙</button>
-    <button class="nav-cta">상담 신청하기</button>
+  <div class="nav-right"><button class="ham-btn" id="hamBtn" aria-label="ë©ë´"><span></span><span></span><span></span></button>
+    <button class="theme-btn" id="themeBtn">ð</button>
+    <button class="nav-cta">ìë´ ì ì²­íê¸°</button>
   </div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
+  <div class="mob-section"><a href="/lab.html" class="mob-single-link">✨ AI 프롬프트 · 글쓰기 랩 <span class="nav-new">NEW</span></a></div>
   <div class="mob-section">
-    <div class="mob-section-title">업종별 가이드</div>
-    <a href="/industry/hospital.html">🏥 병원·치과·한의원</a>
-    <a href="/industry/interior.html">🏠 인테리어·리모델링</a>
-    <a href="/industry/law.html">⚖️ 법률·세무·회계</a>
-    <a href="/industry/health.html">💪 헬스·뷰티·피트니스</a>
-    <a href="/industry/restaurant.html">🍽️ 식당·카페·배달</a>
-    <a href="/industry/academy.html">📚 학원·교습소</a>
-    <a href="/industry/realestate.html">🏢 부동산·공인중개사</a>
-    <a href="/industry/dermatology.html">💉 피부과·성형외과</a>
-    <a href="/industry/auto.html">🚗 자동차 정비·중고차</a>
-    <a href="/industry/cleaning.html">🧹 세탁소·청소업체</a>
+    <div class="mob-section-title">ìì¢ë³ ê°ì´ë</div>
+    <a href="/industry/hospital.html">ð¥ ë³ìÂ·ì¹ê³¼Â·íìì</a>
+    <a href="/industry/interior.html">ð  ì¸íë¦¬ì´Â·ë¦¬ëª¨ë¸ë§</a>
+    <a href="/industry/law.html">âï¸ ë²ë¥ Â·ì¸ë¬´Â·íê³</a>
+    <a href="/industry/health.html">ðª í¬ì¤Â·ë·°í°Â·í¼í¸ëì¤</a>
+    <a href="/industry/restaurant.html">ð½ï¸ ìë¹Â·ì¹´íÂ·ë°°ë¬</a>
+    <a href="/industry/academy.html">ð íìÂ·êµìµì</a>
+    <a href="/industry/realestate.html">ð¢ ë¶ëì°Â·ê³µì¸ì¤ê°ì¬</a>
+    <a href="/industry/dermatology.html">ð í¼ë¶ê³¼Â·ì±íì¸ê³¼</a>
+    <a href="/industry/auto.html">ð ìëì°¨ ì ë¹Â·ì¤ê³ ì°¨</a>
+    <a href="/industry/cleaning.html">ð§¹ ì¸íìÂ·ì²­ììì²´</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">AI 검색 가이드</div>
-    <a href="/guide/what-is-seo.html">📖 SEO란 무엇인가?</a>
-    <a href="/guide/what-is-aeo.html">🤖 AEO란 무엇인가?</a>
-    <a href="/guide/what-is-geo.html">🔬 GEO란 무엇인가?</a>
-    <a href="/guide/how-ai-search-works.html">⚙️ AI는 어떻게 추천하나?</a>
-    <a href="/guide/naver-vs-ai.html">⚡ 네이버 vs AI 검색</a>
-    <a href="/guide/how-to-check-ai.html">🔎 AI 노출 직접 확인하기</a>
-    <a href="/guide/ai-seo-checklist.html">✅ AI 검색 최적화 체크리스트</a>
-    <a href="/guide/chatgpt-exposure.html">💬 ChatGPT 노출하기</a>
-    <a href="/guide/perplexity-optimization.html">🔍 Perplexity 최적화</a>
-    <a href="/guide/gemini-ai-overview.html">♊ Google AI Overviews 최적화</a>
-    <a href="/guide/claude-ai-search.html">🧠 Claude AI 검색</a>
-    <a href="/guide/google-ai-overviews.html">🔎 Google AI Overviews 원리</a>
-    <a href="/guide/perplexity-how-it-works.html">📡 Perplexity 작동 원리</a>
-    <a href="/guide/chatgpt-search-guide.html">💡 ChatGPT Search 원리</a>
-    <a href="/guide/eeat-guide.html">⭐ E-E-A-T 가이드</a>
+    <div class="mob-section-title">AI ê²ì ê°ì´ë</div>
+    <a href="/guide/what-is-seo.html">ð SEOë ë¬´ìì¸ê°?</a>
+    <a href="/guide/what-is-aeo.html">ð¤ AEOë ë¬´ìì¸ê°?</a>
+    <a href="/guide/what-is-geo.html">ð¬ GEOë ë¬´ìì¸ê°?</a>
+    <a href="/guide/how-ai-search-works.html">âï¸ AIë ì´ë»ê² ì¶ì²íë?</a>
+    <a href="/guide/naver-vs-ai.html">â¡ ë¤ì´ë² vs AI ê²ì</a>
+    <a href="/guide/how-to-check-ai.html">ð AI ë¸ì¶ ì§ì  íì¸íê¸°</a>
+    <a href="/guide/ai-seo-checklist.html">â AI ê²ì ìµì í ì²´í¬ë¦¬ì¤í¸</a>
+    <a href="/guide/chatgpt-exposure.html">ð¬ ChatGPT ë¸ì¶íê¸°</a>
+    <a href="/guide/perplexity-optimization.html">ð Perplexity ìµì í</a>
+    <a href="/guide/gemini-ai-overview.html">â Google AI Overviews ìµì í</a>
+    <a href="/guide/claude-ai-search.html">ð§  Claude AI ê²ì</a>
+    <a href="/guide/google-ai-overviews.html">ð Google AI Overviews ìë¦¬</a>
+    <a href="/guide/perplexity-how-it-works.html">ð¡ Perplexity ìë ìë¦¬</a>
+    <a href="/guide/chatgpt-search-guide.html">ð¡ ChatGPT Search ìë¦¬</a>
+    <a href="/guide/eeat-guide.html">â­ E-E-A-T ê°ì´ë</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">📍 네이버 플레이스</div>
-    <a href="/guide/naver-place-guide.html">📍 플레이스 등록·최적화</a>
-    <a href="/guide/naver-place-features.html">🧩 기능 완전 해부</a>
-    <a href="/guide/naver-place-star-rating-2026.html">⭐ 별점 부활 대응</a>
-    <a href="/guide/place-photo-tips.html">📸 사진 잘 찍는 법</a>
+    <div class="mob-section-title">ð ë¤ì´ë² íë ì´ì¤</div>
+    <a href="/guide/naver-place-guide.html">ð íë ì´ì¤ ë±ë¡Â·ìµì í</a>
+    <a href="/guide/naver-place-features.html">ð§© ê¸°ë¥ ìì  í´ë¶</a>
+    <a href="/guide/naver-place-star-rating-2026.html">â­ ë³ì  ë¶í ëì</a>
+    <a href="/guide/place-photo-tips.html">ð¸ ì¬ì§ ì ì°ë ë²</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">⭐ 리뷰 관리</div>
-    <a href="/guide/bad-review-response.html">🛡️ 악성 리뷰·별점 테러 대응</a>
-    <a href="/guide/get-more-reviews.html">📈 리뷰 늘리는 법</a>
-    <a href="/guide/review-management.html">⭐ 온라인 리뷰 관리</a>
+    <div class="mob-section-title">â­ ë¦¬ë·° ê´ë¦¬</div>
+    <a href="/guide/bad-review-response.html">ð¡ï¸ ìì± ë¦¬ë·°Â·ë³ì  íë¬ ëì</a>
+    <a href="/guide/get-more-reviews.html">ð ë¦¬ë·° ëë¦¬ë ë²</a>
+    <a href="/guide/review-management.html">â­ ì¨ë¼ì¸ ë¦¬ë·° ê´ë¦¬</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">🧭 마케팅</div>
-    <a href="/guide/naver-google-ai-search.html">🧭 네이버·구글·AI 검색 비교</a>
-    <a href="/guide/google-business-profile.html">🗺️ 구글 비즈니스 프로필</a>
-    <a href="/guide/online-marketing-start.html">🚀 온라인 마케팅 시작하기</a>
-    <a href="/guide/free-marketing-methods.html">💡 무료 마케팅 방법</a>
+    <div class="mob-section-title">ð§­ ë§ì¼í</div>
+    <a href="/guide/naver-google-ai-search.html">ð§­ ë¤ì´ë²Â·êµ¬ê¸Â·AI ê²ì ë¹êµ</a>
+    <a href="/guide/google-business-profile.html">ðºï¸ êµ¬ê¸ ë¹ì¦ëì¤ íë¡í</a>
+    <a href="/guide/online-marketing-start.html">ð ì¨ë¼ì¸ ë§ì¼í ììíê¸°</a>
+    <a href="/guide/free-marketing-methods.html">ð¡ ë¬´ë£ ë§ì¼í ë°©ë²</a>
   </div>
   <div class="mob-section">
-    <div class="mob-section-title">AI 진단기</div>
-    <a href="/analyze.html">🛠️ AI 최적화 진단기</a>
-    <a href="/analyze-guide.html">📖 사용방법</a>
-    <a href="/guide/ai-bot-access.html">🤖 AI 봇 크롤링 설정</a>
-    <a href="/guide/faq-schema-for-ai.html">❓ FAQPage Schema</a>
-    <a href="/guide/business-schema-for-ai.html">🏢 LocalBusiness Schema</a>
-    <a href="/guide/meta-description-ai.html">📝 메타 디스크립션</a>
-    <a href="/guide/sitemap-for-ai.html">🗺️ sitemap.xml</a>
-    <a href="/guide/heading-structure-ai.html">📑 제목 계층 구조</a>
-    <a href="/guide/image-alt-for-ai.html">🖼️ 이미지 alt 텍스트</a>
+    <div class="mob-section-title">AI ì§ë¨ê¸°</div>
+    <a href="/analyze.html">ð ï¸ AI ìµì í ì§ë¨ê¸°</a>
+    <a href="/analyze-guide.html">ð ì¬ì©ë°©ë²</a>
+    <a href="/guide/ai-bot-access.html">ð¤ AI ë´ í¬ë¡¤ë§ ì¤ì </a>
+    <a href="/guide/faq-schema-for-ai.html">â FAQPage Schema</a>
+    <a href="/guide/business-schema-for-ai.html">ð¢ LocalBusiness Schema</a>
+    <a href="/guide/meta-description-ai.html">ð ë©í ëì¤í¬ë¦½ì</a>
+    <a href="/guide/sitemap-for-ai.html">ðºï¸ sitemap.xml</a>
+    <a href="/guide/heading-structure-ai.html">ð ì ëª© ê³ì¸µ êµ¬ì¡°</a>
+    <a href="/guide/image-alt-for-ai.html">ð¼ï¸ ì´ë¯¸ì§ alt íì¤í¸</a>
   </div>
-  <button class="mob-cta">무료 상담 신청하기 →</button>
+  <button class="mob-cta">ë¬´ë£ ìë´ ì ì²­íê¸° â</button>
 </div>
 
 <div class="breadcrumb">
-  <a href="../index.html">홈</a><span>›</span>
-  <a href="index.html">AI 검색 가이드</a><span>›</span>
-  ChatGPT Search 작동 원리
+  <a href="../index.html">í</a><span>âº</span>
+  <a href="index.html">AI ê²ì ê°ì´ë</a><span>âº</span>
+  ChatGPT Search ìë ìë¦¬
 </div>
 
 <div class="article-hero">
   <div class="article-hero-bg"></div>
-  <div class="article-category">기술 가이드 · ChatGPT Search</div>
-  <h1>ChatGPT Search<br><span class="hl">작동 원리</span><br>완전 해설</h1>
-  <p>ChatGPT Search가 어떻게 실시간 웹 검색을 수행하고 출처를 인용하는지, OAI-SearchBot의 역할을 OpenAI 공식 문서를 기반으로 설명합니다.</p>
+  <div class="article-category">ê¸°ì  ê°ì´ë Â· ChatGPT Search</div>
+  <h1>ChatGPT Search<br><span class="hl">ìë ìë¦¬</span><br>ìì  í´ì¤</h1>
+  <p>ChatGPT Searchê° ì´ë»ê² ì¤ìê° ì¹ ê²ìì ìííê³  ì¶ì²ë¥¼ ì¸ì©íëì§, OAI-SearchBotì ì­í ì OpenAI ê³µì ë¬¸ìë¥¼ ê¸°ë°ì¼ë¡ ì¤ëªí©ëë¤.</p>
   <div class="article-meta">
-    <span>온종일AI 편집팀</span><span>·</span>
-    <span>2026년 6월 9일</span><span>·</span>
-    <span>약 5분 소요</span>
+    <span>ì¨ì¢ì¼AI í¸ì§í</span><span>Â·</span>
+    <span>2026ë 6ì 9ì¼</span><span>Â·</span>
+    <span>ì½ 5ë¶ ìì</span>
   </div>
 </div>
 
 <div class="article-wrap">
   <p class="article-lead">
-    ChatGPT Search는 ChatGPT가 실시간으로 웹을 검색하고 그 결과를 바탕으로 답변을 생성하는 기능입니다. 2024년 10월 OpenAI가 공식 출시한 이 기능은 기존 ChatGPT의 학습 데이터 한계를 보완하고, 최신 정보를 답변에 반영할 수 있게 합니다.
+    ChatGPT Searchë ChatGPTê° ì¤ìê°ì¼ë¡ ì¹ì ê²ìíê³  ê·¸ ê²°ê³¼ë¥¼ ë°íì¼ë¡ ëµë³ì ìì±íë ê¸°ë¥ìëë¤. 2024ë 10ì OpenAIê° ê³µì ì¶ìí ì´ ê¸°ë¥ì ê¸°ì¡´ ChatGPTì íìµ ë°ì´í° íê³ë¥¼ ë³´ìíê³ , ìµì  ì ë³´ë¥¼ ëµë³ì ë°ìí  ì ìê² í©ëë¤.
   </p>
 
   <div class="article-section">
-    <h2>ChatGPT Search란?</h2>
+    <h2>ChatGPT Searchë?</h2>
     <p>
-      ChatGPT Search는 ChatGPT 인터페이스 내에서 실시간 웹 검색을 수행하는 기능입니다. 사용자가 질문을 입력하면 ChatGPT는 관련 웹페이지를 검색하고, 검색 결과를 분석해 출처 링크와 함께 답변을 생성합니다.
+      ChatGPT Searchë ChatGPT ì¸í°íì´ì¤ ë´ìì ì¤ìê° ì¹ ê²ìì ìííë ê¸°ë¥ìëë¤. ì¬ì©ìê° ì§ë¬¸ì ìë ¥íë©´ ChatGPTë ê´ë ¨ ì¹íì´ì§ë¥¼ ê²ìíê³ , ê²ì ê²°ê³¼ë¥¼ ë¶ìí´ ì¶ì² ë§í¬ì í¨ê» ëµë³ì ìì±í©ëë¤.
     </p>
 
     <div class="quote-box">
       <p>"ChatGPT can now search the web in real time to find relevant information and provide up-to-date answers with cited sources."</p>
-      <cite>— OpenAI 공식 발표 (2024년 10월)</cite>
+      <cite>â OpenAI ê³µì ë°í (2024ë 10ì)</cite>
     </div>
 
     <div class="info-grid">
       <div class="info-card">
-        <div class="ico">🌐</div>
-        <h4>실시간 검색</h4>
-        <p>ChatGPT Search는 답변 생성 시점에 실시간으로 웹을 검색합니다. 학습 데이터 기준일과 무관하게 최신 정보를 반영할 수 있습니다.</p>
+        <div class="ico">ð</div>
+        <h4>ì¤ìê° ê²ì</h4>
+        <p>ChatGPT Searchë ëµë³ ìì± ìì ì ì¤ìê°ì¼ë¡ ì¹ì ê²ìí©ëë¤. íìµ ë°ì´í° ê¸°ì¤ì¼ê³¼ ë¬´ê´íê² ìµì  ì ë³´ë¥¼ ë°ìí  ì ììµëë¤.</p>
       </div>
       <div class="info-card">
-        <div class="ico">🔗</div>
-        <h4>출처 인용</h4>
-        <p>답변에 사용된 웹페이지가 링크 형태로 표시됩니다. 사용자가 출처를 직접 확인할 수 있어 신뢰성이 높아집니다.</p>
+        <div class="ico">ð</div>
+        <h4>ì¶ì² ì¸ì©</h4>
+        <p>ëµë³ì ì¬ì©ë ì¹íì´ì§ê° ë§í¬ ííë¡ íìë©ëë¤. ì¬ì©ìê° ì¶ì²ë¥¼ ì§ì  íì¸í  ì ìì´ ì ë¢°ì±ì´ ëìì§ëë¤.</p>
       </div>
       <div class="info-card">
-        <div class="ico">🤖</div>
+        <div class="ico">ð¤</div>
         <h4>OAI-SearchBot</h4>
-        <p>ChatGPT Search가 실시간으로 웹페이지에 접근할 때 사용하는 크롤러입니다. GPTBot과는 별개로 운영됩니다.</p>
+        <p>ChatGPT Searchê° ì¤ìê°ì¼ë¡ ì¹íì´ì§ì ì ê·¼í  ë ì¬ì©íë í¬ë¡¤ë¬ìëë¤. GPTBotê³¼ë ë³ê°ë¡ ì´ìë©ëë¤.</p>
       </div>
       <div class="info-card">
-        <div class="ico">🔎</div>
-        <h4>Bing 연동</h4>
-        <p>ChatGPT Search는 Microsoft Bing의 검색 인덱스를 활용합니다. Bing에 인덱싱된 사이트가 ChatGPT Search에 노출될 수 있습니다.</p>
+        <div class="ico">ð</div>
+        <h4>Bing ì°ë</h4>
+        <p>ChatGPT Searchë Microsoft Bingì ê²ì ì¸ë±ì¤ë¥¼ íì©í©ëë¤. Bingì ì¸ë±ì±ë ì¬ì´í¸ê° ChatGPT Searchì ë¸ì¶ë  ì ììµëë¤.</p>
       </div>
     </div>
   </div>
 
   <div class="article-section">
-    <h2>OAI-SearchBot이란?</h2>
+    <h2>OAI-SearchBotì´ë?</h2>
     <p>
-      OAI-SearchBot은 ChatGPT Search가 실시간 답변 생성 중에 웹페이지에 접근할 때 사용하는 OpenAI의 공식 크롤러입니다. GPTBot이 모델 학습용 크롤링에 사용되는 것과 달리, OAI-SearchBot은 실시간 검색 응답 생성에 특화되어 있습니다.
+      OAI-SearchBotì ChatGPT Searchê° ì¤ìê° ëµë³ ìì± ì¤ì ì¹íì´ì§ì ì ê·¼í  ë ì¬ì©íë OpenAIì ê³µì í¬ë¡¤ë¬ìëë¤. GPTBotì´ ëª¨ë¸ íìµì© í¬ë¡¤ë§ì ì¬ì©ëë ê²ê³¼ ë¬ë¦¬, OAI-SearchBotì ì¤ìê° ê²ì ìëµ ìì±ì í¹íëì´ ììµëë¤.
     </p>
 
     <div class="tip-box">
-      <div class="tip-label">📋 OpenAI 봇 종류 비교 (출처: OpenAI 공식 문서)</div>
+      <div class="tip-label">ð OpenAI ë´ ì¢ë¥ ë¹êµ (ì¶ì²: OpenAI ê³µì ë¬¸ì)</div>
       <p>
-        <strong>GPTBot</strong>: AI 모델 학습 데이터 수집용 크롤러. 크롤링된 데이터는 향후 모델 학습에 활용됩니다.<br><br>
-        <strong>ChatGPT-User</strong>: ChatGPT가 사용자 대화 중 특정 URL을 직접 방문할 때 사용하는 에이전트.<br><br>
-        <strong>OAI-SearchBot</strong>: ChatGPT Search 기능에서 실시간 검색 결과를 가져올 때 사용하는 크롤러.
+        <strong>GPTBot</strong>: AI ëª¨ë¸ íìµ ë°ì´í° ìì§ì© í¬ë¡¤ë¬. í¬ë¡¤ë§ë ë°ì´í°ë í¥í ëª¨ë¸ íìµì íì©ë©ëë¤.<br><br>
+        <strong>ChatGPT-User</strong>: ChatGPTê° ì¬ì©ì ëí ì¤ í¹ì  URLì ì§ì  ë°©ë¬¸í  ë ì¬ì©íë ìì´ì í¸.<br><br>
+        <strong>OAI-SearchBot</strong>: ChatGPT Search ê¸°ë¥ìì ì¤ìê° ê²ì ê²°ê³¼ë¥¼ ê°ì ¸ì¬ ë ì¬ì©íë í¬ë¡¤ë¬.
       </p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">✅ robots.txt — OAI-SearchBot 허용 방법</div>
+      <div class="tip-label">â robots.txt â OAI-SearchBot íì© ë°©ë²</div>
       <p style="font-family:monospace;font-size:.9rem">User-agent: OAI-SearchBot<br>Allow: /</p>
     </div>
 
     <p>
-      ChatGPT Search 노출을 원한다면 robots.txt에서 OAI-SearchBot을 허용해야 합니다. 또한 Bingbot도 허용해야 ChatGPT Search의 Bing 인덱스 활용이 가능합니다.
+      ChatGPT Search ë¸ì¶ì ìíë¤ë©´ robots.txtìì OAI-SearchBotì íì©í´ì¼ í©ëë¤. ëí Bingbotë íì©í´ì¼ ChatGPT Searchì Bing ì¸ë±ì¤ íì©ì´ ê°ë¥í©ëë¤.
     </p>
   </div>
 
   <div class="article-section">
-    <h2>ChatGPT Search에서 인용되는 방식</h2>
+    <h2>ChatGPT Searchìì ì¸ì©ëë ë°©ì</h2>
     <p>
-      ChatGPT Search는 Bing 검색 결과를 기반으로 관련 페이지를 수집하고, 해당 페이지의 내용을 AI가 요약하여 답변을 생성합니다. 출처 선택에 영향을 주는 주요 요소는 다음과 같습니다.
+      ChatGPT Searchë Bing ê²ì ê²°ê³¼ë¥¼ ê¸°ë°ì¼ë¡ ê´ë ¨ íì´ì§ë¥¼ ìì§íê³ , í´ë¹ íì´ì§ì ë´ì©ì AIê° ìì½íì¬ ëµë³ì ìì±í©ëë¤. ì¶ì² ì íì ìí¥ì ì£¼ë ì£¼ì ììë ë¤ìê³¼ ê°ìµëë¤.
     </p>
 
     <div class="compare-visual">
       <div class="cv-panel">
-        <div class="cv-head bad" style="background:rgba(200,50,50,.08);color:#ff7070;border-bottom-color:rgba(200,50,50,.2)">노출이 어려운 경우</div>
+        <div class="cv-head bad" style="background:rgba(200,50,50,.08);color:#ff7070;border-bottom-color:rgba(200,50,50,.2)">ë¸ì¶ì´ ì´ë ¤ì´ ê²½ì°</div>
         <div class="cv-body">
-          <div class="cv-item">Bing에 인덱싱되지 않은 사이트</div>
-          <div class="cv-item">Bingbot/OAI-SearchBot 차단</div>
-          <div class="cv-item">관련 없는 내용 위주 페이지</div>
-          <div class="cv-item">매우 느린 페이지 응답 속도</div>
+          <div class="cv-item">Bingì ì¸ë±ì±ëì§ ìì ì¬ì´í¸</div>
+          <div class="cv-item">Bingbot/OAI-SearchBot ì°¨ë¨</div>
+          <div class="cv-item">ê´ë ¨ ìë ë´ì© ìì£¼ íì´ì§</div>
+          <div class="cv-item">ë§¤ì° ëë¦° íì´ì§ ìëµ ìë</div>
         </div>
       </div>
       <div class="cv-panel">
-        <div class="cv-head good">노출에 유리한 경우</div>
+        <div class="cv-head good">ë¸ì¶ì ì ë¦¬í ê²½ì°</div>
         <div class="cv-body">
-          <div class="cv-item"><span class="o">→</span> Bing 검색 결과 상위 노출 페이지</div>
-          <div class="cv-item"><span class="o">→</span> 질문에 직접 답하는 명확한 콘텐츠</div>
-          <div class="cv-item"><span class="o">→</span> LocalBusiness, FAQPage Schema 적용</div>
-          <div class="cv-item"><span class="o">→</span> HTTPS 적용, 빠른 응답 속도</div>
+          <div class="cv-item"><span class="o">â</span> Bing ê²ì ê²°ê³¼ ìì ë¸ì¶ íì´ì§</div>
+          <div class="cv-item"><span class="o">â</span> ì§ë¬¸ì ì§ì  ëµíë ëªíí ì½íì¸ </div>
+          <div class="cv-item"><span class="o">â</span> LocalBusiness, FAQPage Schema ì ì©</div>
+          <div class="cv-item"><span class="o">â</span> HTTPS ì ì©, ë¹ ë¥¸ ìëµ ìë</div>
         </div>
       </div>
     </div>
   </div>
 
   <div class="article-section">
-    <h2>ChatGPT Search 노출을 위한 체크리스트</h2>
+    <h2>ChatGPT Search ë¸ì¶ì ìí ì²´í¬ë¦¬ì¤í¸</h2>
 
     <div class="tip-box">
-      <div class="tip-label">✅ 1. Bing Webmaster Tools 등록</div>
+      <div class="tip-label">â 1. Bing Webmaster Tools ë±ë¡</div>
       <p>
-        ChatGPT Search는 Bing 인덱스를 활용합니다. Bing Webmaster Tools에 사이트를 등록하고 sitemap.xml을 제출합니다. Google Search Console과 연동하면 Bing 자동 등록도 가능합니다. (<a href="https://www.bing.com/webmasters" target="_blank" rel="noopener" style="color:var(--accent)">Bing Webmaster Tools →</a>)
+        ChatGPT Searchë Bing ì¸ë±ì¤ë¥¼ íì©í©ëë¤. Bing Webmaster Toolsì ì¬ì´í¸ë¥¼ ë±ë¡íê³  sitemap.xmlì ì ì¶í©ëë¤. Google Search Consoleê³¼ ì°ëíë©´ Bing ìë ë±ë¡ë ê°ë¥í©ëë¤. (<a href="https://www.bing.com/webmasters" target="_blank" rel="noopener" style="color:var(--accent)">Bing Webmaster Tools â</a>)
       </p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">✅ 2. Bingbot 및 OAI-SearchBot 허용</div>
+      <div class="tip-label">â 2. Bingbot ë° OAI-SearchBot íì©</div>
       <p>
-        robots.txt에서 두 봇이 모두 허용되어 있는지 확인합니다.
+        robots.txtìì ë ë´ì´ ëª¨ë íì©ëì´ ìëì§ íì¸í©ëë¤.
       </p>
       <p style="font-family:monospace;font-size:.9rem">User-agent: Bingbot<br>Allow: /<br><br>User-agent: OAI-SearchBot<br>Allow: /</p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">✅ 3. 질문 기반 콘텐츠 작성</div>
+      <div class="tip-label">â 3. ì§ë¬¸ ê¸°ë° ì½íì¸  ìì±</div>
       <p>
-        ChatGPT 사용자가 실제로 입력하는 질문 형태의 콘텐츠를 작성합니다. "서울 노원구 법무사 비용은 얼마인가요?", "아파트 인테리어 공사 기간은 얼마나 걸리나요?" 같은 구체적인 질문에 답하는 페이지를 구축합니다.
+        ChatGPT ì¬ì©ìê° ì¤ì ë¡ ìë ¥íë ì§ë¬¸ ííì ì½íì¸ ë¥¼ ìì±í©ëë¤. "ìì¸ ë¸ìêµ¬ ë²ë¬´ì¬ ë¹ì©ì ì¼ë§ì¸ê°ì?", "ìíí¸ ì¸íë¦¬ì´ ê³µì¬ ê¸°ê°ì ì¼ë§ë ê±¸ë¦¬ëì?" ê°ì êµ¬ì²´ì ì¸ ì§ë¬¸ì ëµíë íì´ì§ë¥¼ êµ¬ì¶í©ëë¤.
       </p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">✅ 4. LocalBusiness Schema 적용</div>
+      <div class="tip-label">â 4. LocalBusiness Schema ì ì©</div>
       <p>
-        업체 이름, 주소, 전화번호, 영업시간 등을 LocalBusiness Schema로 마크업합니다. ChatGPT Search는 구조화 데이터를 통해 업체 정보를 더 정확하게 파악할 수 있습니다. (<a href="https://schema.org/LocalBusiness" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org LocalBusiness →</a>)
+        ìì²´ ì´ë¦, ì£¼ì, ì íë²í¸, ìììê° ë±ì LocalBusiness Schemaë¡ ë§í¬ìí©ëë¤. ChatGPT Searchë êµ¬ì¡°í ë°ì´í°ë¥¼ íµí´ ìì²´ ì ë³´ë¥¼ ë ì ííê² íìí  ì ììµëë¤. (<a href="https://schema.org/LocalBusiness" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org LocalBusiness â</a>)
       </p>
     </div>
   </div>
 
   <div class="article-section">
-    <h2>자주 묻는 질문</h2>
+    <h2>ìì£¼ ë¬»ë ì§ë¬¸</h2>
 
     <div class="tip-box">
-      <div class="tip-label">Q. ChatGPT Search는 무료 사용자에게도 제공되나요?</div>
-      <p>OpenAI는 ChatGPT Search를 무료 및 유료 사용자 모두에게 제공하고 있습니다. 단, 기능의 세부 사항과 제공 범위는 OpenAI의 정책에 따라 변경될 수 있으므로 OpenAI 공식 페이지에서 최신 정보를 확인하세요. (<a href="https://openai.com/chatgpt/search" target="_blank" rel="noopener" style="color:var(--accent)">ChatGPT Search 공식 페이지 →</a>)</p>
+      <div class="tip-label">Q. ChatGPT Searchë ë¬´ë£ ì¬ì©ììê²ë ì ê³µëëì?</div>
+      <p>OpenAIë ChatGPT Searchë¥¼ ë¬´ë£ ë° ì ë£ ì¬ì©ì ëª¨ëìê² ì ê³µíê³  ììµëë¤. ë¨, ê¸°ë¥ì ì¸ë¶ ì¬í­ê³¼ ì ê³µ ë²ìë OpenAIì ì ì±ì ë°ë¼ ë³ê²½ë  ì ìì¼ë¯ë¡ OpenAI ê³µì íì´ì§ìì ìµì  ì ë³´ë¥¼ íì¸íì¸ì. (<a href="https://openai.com/chatgpt/search" target="_blank" rel="noopener" style="color:var(--accent)">ChatGPT Search ê³µì íì´ì§ â</a>)</p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">Q. GPTBot과 OAI-SearchBot을 모두 허용해야 하나요?</div>
-      <p>두 봇은 서로 다른 역할을 합니다. GPTBot은 모델 학습 데이터 수집, OAI-SearchBot은 실시간 ChatGPT Search에 사용됩니다. ChatGPT Search 노출을 위해서는 OAI-SearchBot 허용이 필수이고, 향후 모델 업데이트에 반영되길 원한다면 GPTBot도 함께 허용하는 것이 권장됩니다.</p>
+      <div class="tip-label">Q. GPTBotê³¼ OAI-SearchBotì ëª¨ë íì©í´ì¼ íëì?</div>
+      <p>ë ë´ì ìë¡ ë¤ë¥¸ ì­í ì í©ëë¤. GPTBotì ëª¨ë¸ íìµ ë°ì´í° ìì§, OAI-SearchBotì ì¤ìê° ChatGPT Searchì ì¬ì©ë©ëë¤. ChatGPT Search ë¸ì¶ì ìí´ìë OAI-SearchBot íì©ì´ íìì´ê³ , í¥í ëª¨ë¸ ìë°ì´í¸ì ë°ìëê¸¸ ìíë¤ë©´ GPTBotë í¨ê» íì©íë ê²ì´ ê¶ì¥ë©ëë¤.</p>
     </div>
 
     <div class="tip-box">
-      <div class="tip-label">Q. ChatGPT Search와 일반 ChatGPT 응답의 차이는?</div>
-      <p>일반 ChatGPT는 모델 학습 기준일까지의 데이터만 사용합니다. ChatGPT Search는 실시간으로 웹을 검색해 최신 정보를 답변에 반영하며, 인용된 출처 링크를 함께 제공합니다. 사용자가 검색 아이콘을 활성화하거나 ChatGPT가 최신 정보가 필요하다고 판단할 때 자동으로 Search 기능이 작동합니다.</p>
+      <div class="tip-label">Q. ChatGPT Searchì ì¼ë° ChatGPT ìëµì ì°¨ì´ë?</div>
+      <p>ì¼ë° ChatGPTë ëª¨ë¸ íìµ ê¸°ì¤ì¼ê¹ì§ì ë°ì´í°ë§ ì¬ì©í©ëë¤. ChatGPT Searchë ì¤ìê°ì¼ë¡ ì¹ì ê²ìí´ ìµì  ì ë³´ë¥¼ ëµë³ì ë°ìíë©°, ì¸ì©ë ì¶ì² ë§í¬ë¥¼ í¨ê» ì ê³µí©ëë¤. ì¬ì©ìê° ê²ì ìì´ì½ì íì±ííê±°ë ChatGPTê° ìµì  ì ë³´ê° íìíë¤ê³  íë¨í  ë ìëì¼ë¡ Search ê¸°ë¥ì´ ìëí©ëë¤.</p>
     </div>
   </div>
 
   <div class="article-related">
-    <h3>다음으로 읽어볼 가이드</h3>
+    <h3>ë¤ìì¼ë¡ ì½ì´ë³¼ ê°ì´ë</h3>
     <div class="related-grid">
       <a href="chatgpt-exposure.html" class="related-card">
-        <div class="rc-cat">AI 플랫폼 가이드 · ChatGPT</div>
-        <div class="rc-title">💬 ChatGPT에 내 업체 노출하기 — GPTBot 허용 & 콘텐츠 전략</div>
+        <div class="rc-cat">AI íë«í¼ ê°ì´ë Â· ChatGPT</div>
+        <div class="rc-title">ð¬ ChatGPTì ë´ ìì²´ ë¸ì¶íê¸° â GPTBot íì© & ì½íì¸  ì ëµ</div>
       </a>
       <a href="gptbot-guide.html" class="related-card">
-        <div class="rc-cat">기술 가이드 · GPTBot</div>
-        <div class="rc-title">🤖 GPTBot 완전 가이드 — robots.txt 설정 완벽 정리</div>
+        <div class="rc-cat">ê¸°ì  ê°ì´ë Â· GPTBot</div>
+        <div class="rc-title">ð¤ GPTBot ìì  ê°ì´ë â robots.txt ì¤ì  ìë²½ ì ë¦¬</div>
       </a>
       <a href="robots-txt-ai-guide.html" class="related-card">
-        <div class="rc-cat">기술 가이드 · robots.txt</div>
-        <div class="rc-title">⚙️ robots.txt AI 봇 설정 — 4개 봇 완벽 가이드</div>
+        <div class="rc-cat">ê¸°ì  ê°ì´ë Â· robots.txt</div>
+        <div class="rc-title">âï¸ robots.txt AI ë´ ì¤ì  â 4ê° ë´ ìë²½ ê°ì´ë</div>
       </a>
     </div>
   </div>
 </div>
 
 <div class="cta fi">
-  <h2>ChatGPT Search<br>노출 현황<br><span style="color:var(--accent)">무료로 진단받기</span></h2>
-  <p>OAI-SearchBot 허용 여부, Bing 인덱싱 상태, Schema Markup 적용 현황을 진단해드립니다.</p>
-  <button class="btn-primary" style="font-size:18px;padding:20px 48px">무료 진단 받기 →</button>
+  <h2>ChatGPT Search<br>ë¸ì¶ íí©<br><span style="color:var(--accent)">ë¬´ë£ë¡ ì§ë¨ë°ê¸°</span></h2>
+  <p>OAI-SearchBot íì© ì¬ë¶, Bing ì¸ë±ì± ìí, Schema Markup ì ì© íí©ì ì§ë¨í´ëë¦½ëë¤.</p>
+  <button class="btn-primary" style="font-size:18px;padding:20px 48px">ë¬´ë£ ì§ë¨ ë°ê¸° â</button>
 </div>
 
 <div class="article-wrap" style="max-width:900px;margin:0 auto;padding:40px 24px 20px">
   <div class="article-section">
-    <h2 style="font-size:1.1rem;margin-bottom:12px">참고 출처</h2>
+    <h2 style="font-size:1.1rem;margin-bottom:12px">ì°¸ê³  ì¶ì²</h2>
     <ul style="font-size:.85rem;line-height:1.8;color:var(--text-sub)">
-      <li><a href="https://openai.com/chatgpt/search" target="_blank" rel="noopener" style="color:var(--accent)">OpenAI — ChatGPT Search 공식 발표 페이지</a></li>
-      <li><a href="https://platform.openai.com/docs/plugins/bot" target="_blank" rel="noopener" style="color:var(--accent)">OpenAI — 공식 크롤러 안내 (GPTBot, OAI-SearchBot, ChatGPT-User)</a></li>
-      <li><a href="https://www.bing.com/webmasters" target="_blank" rel="noopener" style="color:var(--accent)">Microsoft — Bing Webmaster Tools</a></li>
-      <li><a href="https://schema.org/LocalBusiness" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org — LocalBusiness 구조화 데이터 명세</a></li>
+      <li><a href="https://openai.com/chatgpt/search" target="_blank" rel="noopener" style="color:var(--accent)">OpenAI â ChatGPT Search ê³µì ë°í íì´ì§</a></li>
+      <li><a href="https://platform.openai.com/docs/plugins/bot" target="_blank" rel="noopener" style="color:var(--accent)">OpenAI â ê³µì í¬ë¡¤ë¬ ìë´ (GPTBot, OAI-SearchBot, ChatGPT-User)</a></li>
+      <li><a href="https://www.bing.com/webmasters" target="_blank" rel="noopener" style="color:var(--accent)">Microsoft â Bing Webmaster Tools</a></li>
+      <li><a href="https://schema.org/LocalBusiness" target="_blank" rel="noopener" style="color:var(--accent)">Schema.org â LocalBusiness êµ¬ì¡°í ë°ì´í° ëªì¸</a></li>
     </ul>
   </div>
 </div>
 
 <footer>
-  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">온종일<span>AI</span></a></div>
+  <div class="flogo"><a href="../index.html" style="color:inherit;text-decoration:none">ì¨ì¢ì¼<span>AI</span></a></div>
   <div class="flinks">
-    <a href="/about.html">서비스 소개</a>
-    <a href="/contact.html">문의하기</a>
-    <a href="/privacy.html">개인정보처리방침</a>
+    <a href="/about.html">ìë¹ì¤ ìê°</a>
+    <a href="/contact.html">ë¬¸ìíê¸°</a>
+    <a href="/privacy.html">ê°ì¸ì ë³´ì²ë¦¬ë°©ì¹¨</a>
   </div>
-  <div class="fcopy">© 2026 온종일AI. AI 검색 최적화 컨설팅 &nbsp;·&nbsp; 이메일: tarry9653@daum.net</div>
+  <div class="fcopy">Â© 2026 ì¨ì¢ì¼AI. AI ê²ì ìµì í ì»¨ì¤í &nbsp;Â·&nbsp; ì´ë©ì¼: tarry9653@daum.net</div>
 </footer>
 <script src="../js/main.js"></script>
 <script src="../js/proof.js"></script>
